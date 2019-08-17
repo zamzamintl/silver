@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_product_tree_view" model="ir.ui.view">
+            <field name="name">product.product.tree_with_image</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='default_code']" position="before">
+                    <field name="image_medium" string="Image" widget="image" width="40px" height="40px" readonly="1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

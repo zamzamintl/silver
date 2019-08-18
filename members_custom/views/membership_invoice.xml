@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_membership_invoice_view_inherit" model="ir.ui.view">
+            <field name="name">membership.invoice.form</field>
+            <field name="model">membership.invoice</field>
+            <field name="inherit_id" ref="membership.view_membership_invoice_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='member_price']" position="after">
+                    <field name="start_date" required="1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

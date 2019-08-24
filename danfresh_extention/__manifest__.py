@@ -24,6 +24,7 @@
     'data': [
         'security/ir.model.access.csv',
         # 'views/crm_lead_view_inh.xml',
+        'views/my_assets.xml',
         'views/opportunity_type.xml',
         'views/sale_inh.xml',
         'views/res_user_inh.xml',
@@ -32,9 +33,10 @@
         'report/without_tax.xml',
         'views/sale_order.xml',
         'views/account_move.xml',
+        'views/mail_activity.xml',
     ],
     'qweb': [
-        # 'static/src/xml/sysactivity.xml',
+        'static/src/xml/sysactivity.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

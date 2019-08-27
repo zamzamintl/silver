@@ -23,7 +23,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/crm_lead_view_inh.xml',
+        #'views/crm_lead_view_inh.xml',
         'views/my_assets.xml',
         'views/opportunity_type.xml',
         'views/sale_inh.xml',

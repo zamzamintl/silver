@@ -7,7 +7,10 @@
             <field name="model">crm.lead</field>
             <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='name']" position="replace">
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
                     <field name="opportunity_id"/>
                 </xpath>
             </field>
@@ -22,10 +25,10 @@
                 </xpath>
                 <xpath expr="//div[@class='oe_kanban_content']/div[1]" position="after">
                     <div>
-                       <field name="opportunity_type_line_id"/>
+                        <field name="opportunity_type_line_id"/>
                     </div>
                     <div>
-                       <field name="note"/>
+                        <field name="note"/>
                     </div>
 
                 </xpath>
@@ -39,7 +42,10 @@
             <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
             <field name="arch" type="xml">
 
-                <xpath expr="//field[@name='name']" position="replace">
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
                     <field name="opportunity_id" options="{'no_open':True,'no_create':True}"/>
                     <field name="opportunity_type_line_id" options="{'no_open':True,'no_create':True}"/>
                     <field name="note"/>
@@ -53,14 +59,20 @@
             <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
             <field name="arch" type="xml">
 
-                <xpath expr="//label[@for='name']" position="replace">
-
+                <xpath expr="//label[@for='name']" position="attributes">
+                    <attribute name="invisible">True</attribute>
                 </xpath>
+                <!--<xpath expr="//field[@name='name']" position="attributes">-->
+                    <!--<attribute name="invisible">True</attribute>-->
+                <!--</xpath>-->
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="op_type"/>
                 </xpath>
 
-                <xpath expr="//div[@class='oe_title']/h1" position="replace">
+                <xpath expr="//div[@class='oe_title']/h1" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//div[@class='oe_title']/h1" position="after">
                     <h2 class="o_row">
                         <div>
                             <label for="opportunity_id" class="oe_edit_only"/>

@@ -16,6 +16,7 @@ class SaleOrder(models.Model):
         if self.template_ids:
             lines = []
             option_lines = []
+            self.order_line = False
             for template in self.template_ids:
                 for line in template.sale_order_template_line_ids:
                     data = self._compute_line_data_for_template_change(line)

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="membership_update_view_form" model="ir.ui.view">
+            <field name="name">membership.update.form</field>
+            <field name="model">membership.update</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="partner_id" readonly="1"/>
+                            <field name="old_membership_id"
+                                   domain="[('state','in',['waiting','invoiced','paid']),('partner','=',partner_id)]"
+                                   options="{'no_create':True,'no_edit':True}" autofocus="1"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="New Membership" name="action_open_new_membership" class="btn-primary"
+                                type="object"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>

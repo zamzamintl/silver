@@ -1,5 +1,7 @@
 odoo.define('user_activities_tracking.CustomBasicModel', function (require) {
 
+    console.log('Hellllo')
+
     var FormController = require('web.FormController');
     var BasicModel = require('web.BasicModel');
 

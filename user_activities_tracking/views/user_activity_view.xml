@@ -67,9 +67,10 @@
         <record model="ir.actions.act_window" id="action_user_activity">
             <field name="name">User Activities Tracking</field>
             <field name="res_model">user.recent.log</field>
-            <field name="view_mode">tree,form,search</field>
+            <field name="view_mode">tree,form</field>
             <field name="view_type">form</field>
             <field name="target">current</field>
+            <field name="search_view_id" ref="user_activity_view_search"/>
         </record>
 
 

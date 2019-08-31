@@ -22,6 +22,7 @@ class UserRecentLog(models.Model):
     last_visited_on = fields.Datetime("Last Visited On")
     user_id = fields.Many2one("res.users", "User")
     activity = fields.Text("Activity")
+
     # type = fields.Selection(string="Action Type", selection=[('create_edit', 'Create Or Edit'), ('delete', 'Delete'), ])
 
     @api.model
@@ -34,12 +35,13 @@ class UserRecentLog(models.Model):
         current_time = datetime.now()
         user = self.env.user.id
         if model != "user.recent.log":
-            recent_record = self.sudo().create({'model': model,
-                                'res_id': res_id,
-                                'user_id': user,
-                                'last_visited_on': current_time,
-                                # 'type': type,
-                                })
+            recent_record = self.sudo().create({
+                'model': model,
+                'res_id': res_id,
+                'user_id': user,
+                'last_visited_on': current_time,
+                # 'type': type,
+            })
             if changes:
                 response_text = 'Please find following User Activities: \n'
                 fields_data = record.sudo().read(changes)

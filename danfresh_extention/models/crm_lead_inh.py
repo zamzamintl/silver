@@ -7,7 +7,7 @@ class CrmLead(models.Model):
 
 
     opportunity_id = fields.Many2one('opportunity.type',string='Opportunity')
-    name = fields.Char('Opportunity',default='New', required=False, index=True)
+    name = fields.Char('Name', required=False, index=True)
     opportunity_type_line_id = fields.Many2one('opportunity.type.line',string='Opportunity Line')
     note = fields.Char('Notes')
     op_type = fields.Selection(string="OP Type", selection=[('none', 'None'), ('project', 'Project'),('enduser', 'End User'), ], required=True, default='none')

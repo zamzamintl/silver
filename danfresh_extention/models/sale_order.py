@@ -63,3 +63,5 @@ class SaleOrder(models.Model):
             self.order_line = lines
             self.order_line._compute_tax_id()
             self.sale_order_option_ids = option_lines
+        else:
+            self.order_line=False

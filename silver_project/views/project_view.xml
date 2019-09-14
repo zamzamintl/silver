@@ -9,7 +9,12 @@
             <xpath expr="//field[@name='user_id']" position="after">
 
                 <field name="task_progress"/>
+
             </xpath>
+             <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="shared" groups="base.group_system"/>
+
+                </xpath>
 
         </field>
     </record>

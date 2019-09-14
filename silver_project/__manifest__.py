@@ -22,6 +22,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'views/project_view.xml',
+        'security/ir_rule.xml'
     ],
 
 }

@@ -24,6 +24,7 @@ class Project(models.Model):
 
 
     task_progress=fields.Float('Tasks Progress',compute='compute_task_progress')
+    shared=fields.Boolean('Shared Project')
 
 
 

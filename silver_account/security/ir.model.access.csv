@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_silver_account_silver_account,silver_account.silver_account,model_silver_account_silver_account,,1,0,0,0

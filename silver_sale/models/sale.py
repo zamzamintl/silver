@@ -26,6 +26,8 @@ from odoo import api, exceptions, fields, models, _
 from odoo.exceptions import UserError, ValidationError
 from odoo.osv import expression
 from odoo.tools import pycompat
+from odoo.tools import float_is_zero, float_compare
+
 
 
 class SaleOrderLine(models.Model):
@@ -60,4 +62,3 @@ class SaleOrderLine(models.Model):
                     warehouse=ln.order_id.warehouse_id.id).qty_available
 
                 ln.available_qty = available_qty
-

@@ -13,7 +13,7 @@ class IrRule(models.Model):
     def _eval_context(self):
         res = super(IrRule, self)._eval_context()
         if self.env.user.has_group('base.group_user'):
-            current_employee = self.env['hr.employee'].search([('user_id', '=', self.env.user.id)])
+            current_employee = self.env['hr.employee'].search([('user_id', '=', self.env.user.id)],limit=1)
             users = []
             if current_employee:
                 child_ids = self.env['hr.employee'].search([('parent_id', 'child_of', current_employee.id)])

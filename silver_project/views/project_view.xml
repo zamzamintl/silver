@@ -33,4 +33,32 @@
 
         </field>
     </record>
+    
+    <record id="project_task_view_form_inherited_silver" model="ir.ui.view">
+        <field name="name">project.task.form.inherited.silver</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='project_id']" position="after">
+                <field name="department_id"/>
+            </xpath>
+            
+        </field>
+    </record>
+    
+    
+    
+    <record id="project_task_view_form_inherited_kanban_silver" model="ir.ui.view">
+        <field name="name">project.task.form.inherited.kanban.silver</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='project_id']" position="after">
+                <br/><field name="department_id"/>
+            </xpath>
+            
+        </field>
+    </record>
 </odoo>

@@ -17,12 +17,13 @@
     'category': 'Uncategorized',
     'version': '0.1',
 
-    'depends': ['base','project'],
+    'depends': ['base','project','note'],
 
     'data': [
         # 'security/ir.model.access.csv',
         'views/project_view.xml',
-        'security/ir_rule.xml'
+        'security/ir_rule.xml',
+        'views/note_views.xml'
     ],
 
 }

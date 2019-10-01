@@ -9,6 +9,7 @@
     'version': '0.1',
     'depends': ['base','maintenance'],
     'data': [
+        'security/ir.model.access.csv',
         'views/maintenance_view.xml'
     ],
 }

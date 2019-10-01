@@ -1,7 +1,7 @@
 <odoo>
 
 
-    <record id="maintenance.equipment_view_form_inherited_silver" model="ir.ui.view">
+    <record id="maintenance_equipment_view_form_inherited_silver" model="ir.ui.view">
         <field name="name">maintenance.equipment.form.inherited.silver</field>
         <field name="model">maintenance.equipment</field>
         <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>

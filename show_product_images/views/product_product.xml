@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='default_code']" position="before">
-                    <field name="image_medium" string="Image" widget="image" width="40px" height="40px" readonly="1"/>
+                    <field name="image_medium" string="Product Image" widget="image" width="40px" height="40px" readonly="1"/>
                 </xpath>
 
             </field>

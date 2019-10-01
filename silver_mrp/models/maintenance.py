@@ -17,7 +17,6 @@ from odoo.exceptions import ValidationError, UserError
 
 class MaintenanceEquipmentPartCategory(models.Model):
     _name = 'maintenance.equipment.part.category'
-    _inherit = ['mail.alias.mixin', 'mail.thread']
 
     name = fields.Char(string="name", required=False, )
 

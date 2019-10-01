@@ -17,13 +17,13 @@ class ReportInvoiceSum(models.AbstractModel):
         for product in products:
             pr_lines = invoice.invoice_line_ids.filtered(
                 lambda l: l.product_id.id == product.id)
-            discount_lines = pr_lines.mapped('discount')
+            discount_lines = list(set(pr_lines.mapped('discount')))
             if len(discount_lines) <= 1:
                 qty = sum([l.quantity for l in pr_lines])
                 total = sum([l.price_total for l in pr_lines])
                 subtotal = sum([l.price_subtotal for l in pr_lines])
                 pr_data = {
-                    'name': product.name,
+                    'name': product.display_name,
                     'uom': product.uom_id.name,
                     'qty': qty,
                     'discount': discount_lines[0] if discount_lines else 0,

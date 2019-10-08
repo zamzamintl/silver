@@ -18,7 +18,9 @@
 
     'data': [
         # 'security/ir.model.access.csv',
-        'views/report_invoice.xml'
+        'views/report_invoice.xml',
+        'views/invoice_view.xml',
+        'views/report_invoice_draft.xml'
     ],
 
 }

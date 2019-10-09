@@ -1,24 +1,5 @@
 # -*- coding: utf-8 -*-
-###################################################################################
-#
-#    Cybrosys Technologies Pvt. Ltd.
-#    Copyright (C) 2017-TODAY Cybrosys Technologies(<https://www.cybrosys.com>).
-#    Author: fasluca(<https://www.cybrosys.com>)
-#
-#    This program is free software: you can modify
-#    it under the terms of the GNU Affero General Public License (AGPL) as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
-###################################################################################
+
 
 from odoo import api, fields, models
 import odoo.addons.decimal_precision as dp
@@ -47,6 +28,7 @@ class PurchaseOrder(models.Model):
 
 
 
+
     discount_type = fields.Selection([('percent', 'Percentage'), ('amount', 'Amount')], string='Discount type',
                                      readonly=True,
                                      states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
@@ -54,23 +36,23 @@ class PurchaseOrder(models.Model):
     discount_rate = fields.Float('Discount Rate', digits=dp.get_precision('Account'),
                                  readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]})
     amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, readonly=True,
-                                     track_visibility='always')
+                                     track_visibility='always', compute='_amount_all')
     amount_tax = fields.Monetary(string='Taxes', store=True, readonly=True,
-                                 track_visibility='always')
+                                 track_visibility='always', compute='_amount_all')
     amount_total = fields.Monetary(string='Total', store=True, readonly=True,
-                                   track_visibility='always')
+                                   track_visibility='always', compute='_amount_all')
     amount_discount = fields.Monetary(string='Discount', store=True, readonly=True,
-                                      digits=dp.get_precision('Account'), track_visibility='always')
+                                      digits=dp.get_precision('Account'), track_visibility='always', compute='_amount_all')
+
 
     @api.onchange('discount_type', 'discount_rate', 'order_line')
     def supply_rate(self):
         for order in self:
             if order.discount_type == 'percent':
                 for line in order.order_line:
-                    line.discount = order.discount_rate
                     before_discount_price = (line.product_uom_qty * line.price_unit)
                     line.price_subtotal = before_discount_price - before_discount_price*(order.discount_rate / 100.0)
-
+                    line.discount = order.discount_rate
             else:
                 total = discount = 0.0
                 for line in order.order_line:
@@ -80,19 +62,11 @@ class PurchaseOrder(models.Model):
                 else:
                     discount = order.discount_rate
                 for line in order.order_line:
-                    line.discount = discount
                     before_discount_price = (line.product_uom_qty * line.price_unit)
                     line.price_subtotal = before_discount_price - before_discount_price * (discount / 100.0)
-            self._amount_all()
+                    line.discount = discount
 
-    @api.multi
-    def _prepare_invoice(self, ):
-        invoice_vals = super(PurchaseOrder, self)._prepare_invoice()
-        invoice_vals.update({
-            'discount_type': self.discount_type,
-            'discount_rate': self.discount_rate
-        })
-        return invoice_vals
+
 
     @api.multi
     def button_dummy(self):
@@ -100,81 +74,81 @@ class PurchaseOrder(models.Model):
         return True
 
 
-class AccountTax(models.Model):
-    _inherit = 'account.tax'
-
-    @api.multi
-    def compute_all(self, price_unit, currency=None, quantity=1.0, product=None, partner=None):
-        if len(self) == 0:
-            company_id = self.env.user.company_id
-        else:
-            company_id = self[0].company_id
-        if not currency:
-            currency = company_id.currency_id
-        taxes = []
-        prec = currency.decimal_places
-        round_tax = False if company_id.tax_calculation_rounding_method == 'round_globally' else True
-        round_total = True
-        if 'round' in self.env.context:
-            round_tax = bool(self.env.context['round'])
-            round_total = bool(self.env.context['round'])
-
-        if not round_tax:
-            prec += 5
-        # total_excluded = total_included = base = round(price_unit * quantity, prec)
-        total_excluded = total_included = base = (price_unit * quantity)
-
-        for tax in self.sorted(key=lambda r: r.sequence):
-            if tax.amount_type == 'group':
-                ret = tax.children_tax_ids.compute_all(price_unit, currency, quantity, product, partner)
-                total_excluded = ret['total_excluded']
-                base = ret['base']
-                total_included = ret['total_included']
-                tax_amount = total_included - total_excluded
-                taxes += ret['taxes']
-                continue
-
-            tax_amount = tax._compute_amount(base, price_unit, quantity, product, partner)
-            if not round_tax:
-                tax_amount = round(tax_amount, prec)
-            else:
-                tax_amount = currency.round(tax_amount)
-
-            if tax.price_include:
-                total_excluded -= tax_amount
-                base -= tax_amount
-            else:
-                total_included += tax_amount
-
-            tax_base = base
-
-            if tax.include_base_amount:
-                base += tax_amount
-
-            taxes.append({
-                'id': tax.id,
-                'name': tax.with_context(**{'lang': partner.lang} if partner else {}).name,
-                'amount': tax_amount,
-                'sequence': tax.sequence,
-                'account_id': tax.account_id.id,
-                'refund_account_id': tax.refund_account_id.id,
-                'analytic': tax.analytic,
-                'base': tax_base,
-            })
-        return {
-            'taxes': sorted(taxes, key=lambda k: k['sequence']),
-            'total_excluded': total_excluded,
-            'total_included': total_included,
-            'base': base,
-        }
+# class AccountTax(models.Model):
+#     _inherit = 'account.tax'
+#
+#     @api.multi
+#     def compute_all(self, price_unit, currency=None, quantity=1.0, product=None, partner=None):
+#         if len(self) == 0:
+#             company_id = self.env.user.company_id
+#         else:
+#             company_id = self[0].company_id
+#         if not currency:
+#             currency = company_id.currency_id
+#         taxes = []
+#         prec = currency.decimal_places
+#         round_tax = False if company_id.tax_calculation_rounding_method == 'round_globally' else True
+#         round_total = True
+#         if 'round' in self.env.context:
+#             round_tax = bool(self.env.context['round'])
+#             round_total = bool(self.env.context['round'])
+#
+#         if not round_tax:
+#             prec += 5
+#         # total_excluded = total_included = base = round(price_unit * quantity, prec)
+#         total_excluded = total_included = base = (price_unit * quantity)
+#
+#         for tax in self.sorted(key=lambda r: r.sequence):
+#             if tax.amount_type == 'group':
+#                 ret = tax.children_tax_ids.compute_all(price_unit, currency, quantity, product, partner)
+#                 total_excluded = ret['total_excluded']
+#                 base = ret['base']
+#                 total_included = ret['total_included']
+#                 tax_amount = total_included - total_excluded
+#                 taxes += ret['taxes']
+#                 continue
+#
+#             tax_amount = tax._compute_amount(base, price_unit, quantity, product, partner)
+#             if not round_tax:
+#                 tax_amount = round(tax_amount, prec)
+#             else:
+#                 tax_amount = currency.round(tax_amount)
+#
+#             if tax.price_include:
+#                 total_excluded -= tax_amount
+#                 base -= tax_amount
+#             else:
+#                 total_included += tax_amount
+#
+#             tax_base = base
+#
+#             if tax.include_base_amount:
+#                 base += tax_amount
+#
+#             taxes.append({
+#                 'id': tax.id,
+#                 'name': tax.with_context(**{'lang': partner.lang} if partner else {}).name,
+#                 'amount': tax_amount,
+#                 'sequence': tax.sequence,
+#                 'account_id': tax.account_id.id,
+#                 'refund_account_id': tax.refund_account_id.id,
+#                 'analytic': tax.analytic,
+#                 'base': tax_base,
+#             })
+#         return {
+#             'taxes': sorted(taxes, key=lambda k: k['sequence']),
+#             'total_excluded': total_excluded,
+#             'total_included': total_included,
+#             'base': base,
+#         }
 
 
 class PurchaseOrderLine(models.Model):
     _inherit = "purchase.order.line"
 
-    discount = fields.Float(string='Discount (%)', digits=(16, 5), default=0.0)
+    discount = fields.Float(string='Discount (%)', digits=(16, 2), default=0.0, store=True)
 
-    @api.depends('product_qty', 'price_unit', 'taxes_id')
+    @api.depends('product_qty', 'discount', 'price_unit', 'taxes_id')
     def _compute_amount(self):
         for line in self:
             vals = line._prepare_compute_all_values()
@@ -191,3 +165,23 @@ class PurchaseOrderLine(models.Model):
                 'price_total': taxes['total_included'],
                 'price_subtotal': price_subtotal,
             })
+
+
+
+
+
+    def _prepare_compute_all_values(self):
+        # Hook method to returns the different argument values for the
+        # compute_all method, due to the fact that discounts mechanism
+        # is not implemented yet on the purchase orders.
+        # This method should disappear as soon as this feature is
+        # also introduced like in the sales module.
+        self.ensure_one()
+        discount_price = self.price_unit - self.price_unit * (self.discount / 100.0)
+        return {
+            'price_unit': discount_price,
+            'currency_id': self.order_id.currency_id,
+            'product_qty': self.product_qty,
+            'product': self.product_id,
+            'partner': self.order_id.partner_id,
+        }

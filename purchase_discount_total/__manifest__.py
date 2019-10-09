@@ -20,6 +20,9 @@ Module to manage discount on total amount in Purchase
                 ],
     'data': [
         'views/purchase_view.xml',
+        'views/account_invoice.xml',
+        'views/invoice_report.xml',
+        'views/purchase_report.xml',
     ],
     'demo': [
     ],

@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-        <template id="report_invoice_customized" inherit_id="account.report_invoice_document">
+        <template id="report_invoice_customized2" inherit_id="account.report_invoice_document">
 
 <!--            <xpath expr="//tr[hasclass('border-black')]" position="after">-->
 <!--                <tr>-->

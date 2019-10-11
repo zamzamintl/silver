@@ -4,7 +4,7 @@
     'name': 'Purchase Discount on Total Amount',
     'version': '12.0.1.1.0',
     'category': 'Purchase Management',
-    'summary': "Discount on Total in Purchase and Invoice With Discount Limit and Approval",
+    'summary': "Discount on Total in Purchase and Invoice With Discount Limit",
     'author': '',
     'company': '',
     'website': '',

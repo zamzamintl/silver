@@ -1,0 +1,54 @@
+<odoo>
+     <report
+            id="sale_sum_report"
+            model="sale.order"
+            string="Sale Sum Report"
+            report_type="qweb-pdf"
+            name="silver_sale.report_sale_sum"
+            file="silver_sale.report_sale_sum"
+        />
+
+    <template id="report_sale_sum">
+        <t t-call="web.html_container">
+            <t t-foreach="employee_lines.keys()" t-as="emp">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>
+
+                        <span >Sale Sum Report for sales Rep : <t t-esc="emp.name"/></span>
+                    </h2>
+                    <table class="table table-sm o_main_table" name="invoice_line_table">
+                        <thead>
+                            <tr>
+                                <t t-set="colspan" t-value="6"/>
+                                <th class="text-left"><span>Description</span></th>
+                                <th class="text-right"><span>Quantity</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                             <t t-foreach="employee_lines[emp]" t-as="line">
+                                <tr t-att-class="'font-italic o_line_note'">
+                                    <t  name="account_invoice_line_accountable">
+                                        <td name="account_invoice_line_name"><t t-esc="line['name']"/></td>
+                                        <td class="text-right">
+                                            <t t-esc="line['qty']"/>
+                                            <t t-esc="line['uom']"  groups="uom.group_uom"/>
+                                        </td>
+                                    </t>
+
+                                </tr>
+
+                              </t>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

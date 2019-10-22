@@ -28,3 +28,5 @@ class CrmLead(models.Model):
     project_manager_id = fields.Many2one('res.partner',string='Project_manager')
     owner_id = fields.Many2one('res.partner',string='Owners')
     other_id = fields.Many2one('res.partner',string='Others')
+    business_card = fields.Binary('Business Card')
+    business_card_name= fields.Char('Business Card Name')

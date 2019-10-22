@@ -75,6 +75,10 @@
                     <field name="op_type"/>
                 </xpath>
 
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name = "business_card" widget="image" filename = "business_card_name" />
+                </xpath>
+
                 <xpath expr="//div[@class='oe_title']/h1" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>

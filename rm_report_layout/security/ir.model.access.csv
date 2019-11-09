@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_rm_report_layout_rm_report_layout,rm_report_layout.rm_report_layout,model_rm_report_layout_rm_report_layout,,1,0,0,0

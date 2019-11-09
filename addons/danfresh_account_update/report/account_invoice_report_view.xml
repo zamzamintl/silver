@@ -3,7 +3,7 @@
     <data>
         <report
             id="account_invoices_sum"
-            model="account.invoice"
+            model="account.move"
             string="Invoices Sum Lines"
             report_type="qweb-pdf"
             name="danfresh_account_update.report_invoice_sum"
@@ -14,7 +14,7 @@
 
         <report
             id="account_invoices_draft"
-            model="account.invoice"
+            model="account.move"
             string="Draft Invoices"
             report_type="qweb-pdf"
             name="danfresh_account_update.report_invoice_draft"

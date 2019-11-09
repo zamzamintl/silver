@@ -40,7 +40,7 @@
             <field name="name">Opportunity Types</field>
             <field name="res_model">opportunity.type</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_type">form</field>
+<!--            <field name="view_mode">form</field>-->
             <field name="target">current</field>
             <!--<field name="search_view_id" ref="custody_settlement_search_view"/>-->
         </record>

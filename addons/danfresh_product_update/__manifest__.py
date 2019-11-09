@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Danfresh Accounting Customizations",
+    'name': "Danfresh Product Customizations",
     'summary': """
     """,
     'description': """
@@ -13,11 +13,12 @@
     ],
     'version': '0.1',
     'depends': ['base',
-                'account'],
+                'product',
+                'website_sale'],
     'data': [
         'security/ir.model.access.csv',
-        'views/account_move.xml',
-        'report/account_invoice_report_templates.xml',
-        'report/account_invoice_report_view.xml'
+        'views/product_brand_view.xml'
+
+
     ],
 }

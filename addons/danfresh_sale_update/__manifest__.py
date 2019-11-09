@@ -14,7 +14,8 @@
     'version': '0.1',
     'depends': ['base',
                 'crm',
-                'sale'],
+                'sale_management',
+                'sale_stock'],
     'data': [
         'security/ir.model.access.csv',
         'views/crm_lead_view.xml',
@@ -24,6 +25,7 @@
         'views/res_partner_views.xml',
         'report/sale_report.xml',
         'report/sale_report_templates.xml',
+        'views/opportunity_type.xml'
 
     ],
 }

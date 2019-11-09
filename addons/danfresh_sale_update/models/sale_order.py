@@ -22,7 +22,7 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     template_ids = fields.Many2many(comodel_name="sale.order.template", string="Multi Quotation Templates", )
-    tag_ids = fields.Many2many('crm.lead.tag', 'sale_crr_tag_rel', 'lead_id', 'tag_id', string='Tags', help="Classify and analyze your lead/opportunity categories like: Training, Service")
+    tag_ids = fields.Many2many('crm.lead.tag', 'sale_crm_tag_rel', 'lead_id', 'tag_id', string='Tags', help="Classify and analyze your lead/opportunity categories like: Training, Service")
     employee_id = fields.Many2one('hr.employee', 'Sales Rep')
 
 

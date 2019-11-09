@@ -21,7 +21,6 @@ class Note(models.Model):
     name = fields.Char('Title', required=True)
     task_id = fields.Many2one('project.task','Task')
 
-    @api.multi
     def action_create_task(self):
         self.ensure_one()
         task_obj = self.env['project.task']
@@ -44,7 +43,6 @@ class Note(models.Model):
 
 
 
-    @api.multi
     def action_view_task(self):
         return {
             'type': 'ir.actions.act_window',

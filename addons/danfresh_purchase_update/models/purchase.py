@@ -24,23 +24,18 @@ class PurchaseOrder(models.Model):
                                  relation='partner_purchase_rel'
                                  ,column1="partner_col",
                                  column2='purchase_order_col',
-                                 string='Customers',
-                                 domain=[('customer','=',True)])
+                                 string='Customers')
 
 
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
 
-    product_brand_id = fields.Many2one(
-        'product.brand',related='product_id.product_brand_id',
-        string='Brand',readonly=True
-    )
+
 
     available_qty = fields.Float(string='Available Qty',
                                  compute="_compute_available_qty",
                                  readonly=True)
 
-    @api.multi
     @api.onchange('product_id')
     def product_id_change_check_duplicated(self):
         self.ensure_one()

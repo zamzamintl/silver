@@ -1,6 +1,6 @@
 <odoo>
-    <record id="note_note_view_form_inherited_silver_project"model="ir.ui.view">
-        <field name="name">note.note.form.inherited.silver.project</field>
+    <record id="view_note_note_form" model="ir.ui.view">
+        <field name="name">note.note.form</field>
         <field name="model">note.note</field>
         <field name="inherit_id" ref="note.view_note_note_form"/>
         <field name="arch" type="xml">

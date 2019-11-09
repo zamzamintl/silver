@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+                id="action_report_saleorder_without_tax"
+                string="Without Tax"
+                model="sale.order"
+                report_type="qweb-pdf"
+                file="danfresh_sale_update.report_saleorder_without_tax"
+                name="danfresh_sale_update.report_saleorder_without_tax"
+                print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+        />
+
+        <report
+                id="action_report_saleorder_qty_only"
+                string="Quantity Only"
+                model="sale.order"
+                report_type="qweb-pdf"
+                file="danfresh_sale_update.report_saleorder_qty_only"
+                name="danfresh_sale_update.report_saleorder_qty_only"
+                print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+        />
+
+
+         <report
+                id="action_report_saleorder_ifoora"
+                string="I Foora"
+                model="sale.order"
+                report_type="qweb-pdf"
+                file="danfresh_sale_update.report_saleorder_ifoora"
+                name="danfresh_sale_update.report_saleorder_ifoora"
+                print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+        />
+
+    </data>
+</odoo>

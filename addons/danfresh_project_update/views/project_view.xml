@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="edit_project_form_inherited" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='user_id']" position="after">
+
+                    <field name="task_progress"/>
+
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="shared" groups="base.group_system"/>
+
+                </xpath>
+
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="owner_id"/>
+                    <field name="consultant_id"/>
+                    <field name="construction_id"/>
+                    <field name="system_integrator_id"/>
+                </xpath>
+                <xpath expr="//page[@name='settings']" position="after">
+                    <page string="Images">
+                        <field name="image_ids" nolabel="1">
+                            <tree editable="top">
+                                <field name="name"/>
+
+                                <field name="image" filename="file_name"/>
+                                <field name="file_name" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

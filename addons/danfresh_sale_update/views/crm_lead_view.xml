@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="crm_lead_view_form_inherited_danfresh_ext"
+                model="ir.ui.view">
+            <field name="name">crm.lead.form.inherited.danfresh.ext</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="business_card" widget="image"
+                           filename="business_card_name"/>
+                </xpath>
+
+
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="crm_case_tree_view_oppor" model="ir.ui.view">
+            <field name="name">crm.lead.tree</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name"/>
+                </xpath>
+                <!--<xpath expr="//field[@name='name']" position="attributes">-->
+                <!--<attribute name="invisible">True</attribute>-->
+                <!--</xpath>-->
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="opportunity_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="crm_case_kanban_view_leads" model="ir.ui.view">
+            <field name="name">crm.lead.kanban</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="opportunity_id"/>
+                </xpath>
+                <xpath expr="//div[@class='oe_kanban_content']/div[1]"
+                       position="after">
+                    <div>
+                        <field name="opportunity_type_line_id"/>
+                    </div>
+                    <!--<div>-->
+                    <!--<field name="note"/>-->
+                    <!--</div>-->
+
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="quick_create_opportunity_form" model="ir.ui.view">
+            <field name="name">crm.lead.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
+            <field name="arch" type="xml">
+                <!--
+                                <xpath expr="//field[@name='name']" position="attributes">
+                                    <attribute name="invisible">True</attribute>
+                                </xpath>-->
+
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="opportunity_id"
+                           options="{'no_open':True,'no_create':True}"/>
+                    <field name="opportunity_type_line_id"
+                           options="{'no_open':True,'no_create':True}"/>
+                    <field name="name"/>
+                    <!--<field name="note"/>-->
+                </xpath>
+
+            </field>
+        </record>
+        <record id="crm_case_form_view_oppor" model="ir.ui.view">
+            <field name="name">crm.lead.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="code" placeholder="Code"/>-
+                </xpath>
+
+                <xpath expr="//label[@for='name']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <!--<xpath expr="//field[@name='name']" position="attributes">-->
+                <!--<attribute name="invisible">True</attribute>-->
+                <!--</xpath>-->
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="op_type"/>
+                </xpath>
+
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="business_card" widget="image"
+                           filename="business_card_name"/>
+                </xpath>
+
+                <xpath expr="//div[@class='oe_title']/h1" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//div[@class='oe_title']/h1" position="after">
+                    <h2 class="o_row" style="width:100%%">
+                        <div>
+                            <label for="opportunity_id" class="oe_edit_only"/>
+                            <div class="o_row" style="margin-right:10px;">
+                                <field name="opportunity_id"/>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="opportunity_type_line_id"
+                                   class="oe_edit_only"/>
+                            <div class="o_row" style="margin-right:10px;">
+                                <field name="opportunity_type_line_id"/>
+                            </div>
+                        </div>
+                        <div style="width:100%%">
+                            <label for="name" class="oe_edit_only"/>
+                            <div class="o_row">
+                                <field name="name" style="width:100%%"/>
+                            </div>
+                        </div>
+
+                    </h2>
+                </xpath>
+
+                <!--<xpath expr="//field[@name='date_deadline']" position="after">-->
+                <!--<field name="note"/>-->
+                <!--</xpath>-->
+                <xpath expr="//page[last()]" position="after">
+                    <page string="Partners">
+                        <group col="4">
+                            <field name="consultant_id"/>
+                            <field name="innterior_design_id"/>
+                            <field name="construction_id"/>
+                            <field name="developer_id"/>
+                            <field name="electromechanical_id"/>
+                            <field name="system_integrator_id"/>
+                            <field name="project_manager_id"/>
+                            <field name="owner_id"/>
+                            <field name="other_id"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

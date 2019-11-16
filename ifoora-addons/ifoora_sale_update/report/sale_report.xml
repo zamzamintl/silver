@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+         <report
+                id="action_report_saleorder_ifoora"
+                string="I Foora"
+                model="sale.order"
+                report_type="qweb-pdf"
+                file="danfresh_sale_update.report_saleorder_ifoora"
+                name="danfresh_sale_update.report_saleorder_ifoora"
+                print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+        />
+
+    </data>
+</odoo>

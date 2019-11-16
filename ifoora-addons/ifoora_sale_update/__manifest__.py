@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Danfresh Project Customizations",
+    'name': "Danfresh CRM & Sales Customizations",
     'summary': """
     """,
     'description': """
@@ -13,13 +13,16 @@
     ],
     'version': '0.1',
     'depends': ['base',
-                'hr',
-                'project'],
+                'crm',
+                'sale_update',
+                'sale_management',
+                'sale_stock'],
     'data': [
         'security/ir.model.access.csv',
-        'views/project_view.xml',
-        'views/employee_view.xml',
-
+        'views/sale_order.xml',
+        'report/sale_report.xml',
+        'report/sale_report_templates.xml',
+        'views/opportunity_type.xml'
 
     ],
 }

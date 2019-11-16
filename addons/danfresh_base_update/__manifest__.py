@@ -15,7 +15,6 @@
     'depends': ['base',],
     'data': [
         'security/ir.model.access.csv',
-        'views/res_user.xml',
 
     ],
 }

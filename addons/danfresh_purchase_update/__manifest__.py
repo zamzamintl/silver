@@ -13,6 +13,7 @@
     ],
     'version': '0.1',
     'depends': ['base',
+                'danfresh_product_update',
                 'purchase'],
     'data': [
         # 'security/ir.model.access.csv',

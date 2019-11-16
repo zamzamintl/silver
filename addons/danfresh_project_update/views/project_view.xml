@@ -13,18 +13,9 @@
                     <field name="task_progress"/>
 
                 </xpath>
-                <xpath expr="//field[@name='company_id']" position="after">
-                    <field name="shared" groups="base.group_system"/>
-
-                </xpath>
 
 
-                <xpath expr="//field[@name='partner_id']" position="after">
-                    <field name="owner_id"/>
-                    <field name="consultant_id"/>
-                    <field name="construction_id"/>
-                    <field name="system_integrator_id"/>
-                </xpath>
+
                 <xpath expr="//page[@name='settings']" position="after">
                     <page string="Images">
                         <field name="image_ids" nolabel="1">

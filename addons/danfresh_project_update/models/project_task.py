@@ -11,7 +11,6 @@ class Task(models.Model):
 
     @api.model
     def fields_view_get(self, view_id=None, view_type='tree', toolbar=False, submenu=False):
-        # print("LLLLLLLLLLLLLLLLLLLLLLLL", toolbar, submenu)
         res = super(Task, self).fields_view_get(view_id, view_type, toolbar=toolbar, submenu=False)
         group_id = self.env.user.is_kanban_read
         doc = etree.XML(res['arch'])

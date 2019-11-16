@@ -13,6 +13,7 @@
     ],
     'version': '0.1',
     'depends': ['base',
+                'hr',
                 'hr_expense',
                 'hr_payroll_account'],
     'data': [

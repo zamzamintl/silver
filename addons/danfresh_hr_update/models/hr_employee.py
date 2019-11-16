@@ -24,7 +24,6 @@ class HrEmployee(models.Model):
     sec_name=fields.Char(string='Arabic Name')
 
     def name_get(self):
-        print('iam on the name get')
         res = []
         for emp in self:
             name = emp.name

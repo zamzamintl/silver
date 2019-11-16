@@ -12,7 +12,7 @@
         'Ramadan Khalil <rkhalil1990@gmail.com>',
     ],
     'version': '0.1',
-    'depends': ['base',],
+    'depends': ['base','hr'],
     'data': [
         'security/ir.model.access.csv',
         'views/mail_activity.xml',

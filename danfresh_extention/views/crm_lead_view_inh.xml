@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+
+        <record id="crm_lead_view_form_inherited_danfresh_ext"
+                model="ir.ui.view">
+            <field name="name">crm.lead.form.inherited.danfresh.ext</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="business_card" widget="image"
+                           filename="business_card_name"/>
+                </xpath>
+
+
+            </field>
+        </record>
         <!-- Inherit Form View to Modify it -->
         <record id="crm_case_tree_view_oppor" model="ir.ui.view">
             <field name="name">crm.lead.tree</field>
@@ -8,10 +24,10 @@
             <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="replace">
-                     <field name="name"/>
+                    <field name="name"/>
                 </xpath>
                 <!--<xpath expr="//field[@name='name']" position="attributes">-->
-                    <!--<attribute name="invisible">True</attribute>-->
+                <!--<attribute name="invisible">True</attribute>-->
                 <!--</xpath>-->
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="opportunity_id"/>
@@ -27,12 +43,13 @@
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="opportunity_id"/>
                 </xpath>
-                <xpath expr="//div[@class='oe_kanban_content']/div[1]" position="after">
+                <xpath expr="//div[@class='oe_kanban_content']/div[1]"
+                       position="after">
                     <div>
                         <field name="opportunity_type_line_id"/>
                     </div>
                     <!--<div>-->
-                        <!--<field name="note"/>-->
+                    <!--<field name="note"/>-->
                     <!--</div>-->
 
                 </xpath>
@@ -45,14 +62,16 @@
             <field name="model">crm.lead</field>
             <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
             <field name="arch" type="xml">
-<!--
-                <xpath expr="//field[@name='name']" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </xpath>-->
+                <!--
+                                <xpath expr="//field[@name='name']" position="attributes">
+                                    <attribute name="invisible">True</attribute>
+                                </xpath>-->
 
                 <xpath expr="//field[@name='name']" position="after">
-                    <field name="opportunity_id" options="{'no_open':True,'no_create':True}"/>
-                    <field name="opportunity_type_line_id" options="{'no_open':True,'no_create':True}"/>
+                    <field name="opportunity_id"
+                           options="{'no_open':True,'no_create':True}"/>
+                    <field name="opportunity_type_line_id"
+                           options="{'no_open':True,'no_create':True}"/>
                     <field name="name"/>
                     <!--<field name="note"/>-->
                 </xpath>
@@ -69,10 +88,15 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>
                 <!--<xpath expr="//field[@name='name']" position="attributes">-->
-                    <!--<attribute name="invisible">True</attribute>-->
+                <!--<attribute name="invisible">True</attribute>-->
                 <!--</xpath>-->
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="op_type"/>
+                </xpath>
+
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="business_card" widget="image"
+                           filename="business_card_name"/>
                 </xpath>
 
                 <xpath expr="//div[@class='oe_title']/h1" position="attributes">
@@ -83,11 +107,12 @@
                         <div>
                             <label for="opportunity_id" class="oe_edit_only"/>
                             <div class="o_row" style="margin-right:10px;">
-                                <field name="opportunity_id" />
+                                <field name="opportunity_id"/>
                             </div>
                         </div>
                         <div>
-                            <label for="opportunity_type_line_id" class="oe_edit_only"/>
+                            <label for="opportunity_type_line_id"
+                                   class="oe_edit_only"/>
                             <div class="o_row" style="margin-right:10px;">
                                 <field name="opportunity_type_line_id"/>
                             </div>
@@ -103,7 +128,7 @@
                 </xpath>
 
                 <!--<xpath expr="//field[@name='date_deadline']" position="after">-->
-                    <!--<field name="note"/>-->
+                <!--<field name="note"/>-->
                 <!--</xpath>-->
                 <xpath expr="//page[last()]" position="after">
                     <page string="Partners">

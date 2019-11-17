@@ -14,7 +14,9 @@
         'views/sale_view.xml',
         'views/crm_view.xml',
         'views/product_view.xml',
-        'views/sale_report_template.xml'
+        'views/sale_report_template.xml',
+        'report/sale_sum_report.xml',
+        'views/res_partner_views.xml'
     ],
 
 }

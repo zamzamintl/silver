@@ -11,23 +11,21 @@
 #
 ##############################################################################
 
-from datetime import datetime, timedelta
 
-from odoo import api, fields, models, tools, SUPERUSER_ID, _
-from odoo.exceptions import UserError, AccessError, ValidationError
-from odoo.tools.safe_eval import safe_eval
-
-from datetime import date, timedelta
-from dateutil.relativedelta import relativedelta
-import pytz
-import logging
-
-from odoo import api, exceptions, fields, models, _
+from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError
-from odoo.osv import expression
-from odoo.tools import pycompat
-from odoo.tools import float_is_zero, float_compare
 
+
+class SaleOrder(models.Model):
+    _inherit = 'sale.order'
+
+    employee_id = fields.Many2one('hr.employee', 'Sales Rep')
+
+    @api.onchange('partner_id')
+    def onchange_partner_id(self):
+        super(SaleOrder, self).onchange_partner_id()
+        if self.partner_id and self.partner_id.sale_order_template_id:
+            self.sale_order_template_id = self.partner_id.sale_order_template_id
 
 
 class SaleOrderLine(models.Model):
@@ -52,7 +50,6 @@ class SaleOrderLine(models.Model):
             if len(order_lines) > 2:
                 raise ValidationError(
                     _('You Have already added this product before'))
-
 
     @api.depends('product_id', 'order_id.warehouse_id')
     def _compute_available_qty(self):

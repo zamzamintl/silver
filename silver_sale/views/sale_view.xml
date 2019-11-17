@@ -11,6 +11,10 @@
                 <attribute name="sum">Total QTY</attribute>
             </xpath>
 
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="employee_id"/>
+            </xpath>
+
 
              <xpath expr="//field[@name='order_line']/tree"
                    position="attributes">

@@ -4,7 +4,7 @@
     'name': 'Purchase Discount on Total Amount',
     'version': '12.0.1.1.0',
     'category': 'Purchase Management',
-    'summary': "Discount on Total in Purchase and Invoice With Discount Limit and Approval",
+    'summary': "Discount on Total in Purchase and Invoice With Discount Limit",
     'author': '',
     'company': '',
     'website': '',
@@ -20,6 +20,9 @@ Module to manage discount on total amount in Purchase
                 ],
     'data': [
         'views/purchase_view.xml',
+        'views/account_invoice.xml',
+        'views/invoice_report.xml',
+        'views/purchase_report.xml',
     ],
     'demo': [
     ],

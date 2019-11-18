@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_opportunity_type_line,access_opportunity_type_line,model_opportunity_type_line,,1,1,1,1
-access_opportunity_type,access_opportunity_type,model_opportunity_type,,1,1,1,1

@@ -6,6 +6,22 @@ __pycache__/
 # C extensions
 *.so
 
-#conf file
-odoo-danfresh.conf
-server_info.txt
+
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# mypy
+.mypy_cache/
+
+
+# Odoo configuration file
+*.conf
+#server infos
+*.txt

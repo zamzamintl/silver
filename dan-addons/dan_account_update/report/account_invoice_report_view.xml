@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="account_invoices_sum"
+            model="account.move"
+            string="Invoices Sum Lines"
+            report_type="qweb-pdf"
+            name="dan_account_update.report_invoice_sum"
+            file="dan_account_update.report_invoice_sum"
+            attachment="(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+        />
+
+        <report
+            id="account_invoices_draft"
+            model="account.move"
+            string="Draft Invoices"
+            report_type="qweb-pdf"
+            name="dan_account_update.report_invoice_draft"
+            file="dan_account_update.report_invoice_draft"
+            attachment="(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+        />
+
+    </data>
+</odoo>

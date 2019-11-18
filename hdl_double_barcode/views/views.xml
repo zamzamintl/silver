@@ -1,0 +1,46 @@
+<odoo>
+  <data>
+
+
+
+    <record model="ir.ui.view" id="silver_product_tmpl_double_barcode_view">
+      <field name="name">silver_product_tmpl_double_barcode_view</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <field name="barcode" position="after">
+          <field name="snd_barcode" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+        </field>
+      </field>
+    </record>
+
+
+
+
+    <record model="ir.ui.view" id="silver_product_double_barcode_view">
+      <field name="name">silver_product_double_barcode_view</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_normal_form_view"/>
+      <field name="arch" type="xml">
+        <field name="barcode" position="after">
+          <field name="snd_barcode"/>
+        </field>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="silver_product_double_barcode_view_tree">
+      <field name="name">silver_product_double_barcode_view_tree</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_product_tree_view"/>
+      <field name="arch" type="xml">
+        <field name="barcode" position="after">
+          <field name="snd_barcode"/>
+        </field>
+      </field>
+    </record>
+
+
+
+  </data>
+</odoo>

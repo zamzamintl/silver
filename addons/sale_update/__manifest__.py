@@ -20,7 +20,7 @@
         'security/ir.model.access.csv',
         'views/sale_order.xml',
         'views/product_view.xml',
-#        'views/res_partner_views.xml',
+       'views/res_partner_views.xml',
         'report/sale_report.xml',
         'report/sale_report_templates.xml',
 

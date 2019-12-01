@@ -37,7 +37,7 @@ class SaleOrderLine(models.Model):
 
     available_qty = fields.Float(string='Available Qty',
                                  compute="_compute_available_qty",
-                                 readonly=True)
+                                 readonly=True,store=True)
 
     @api.onchange('product_id')
     def product_id_change_check_duplicated(self):

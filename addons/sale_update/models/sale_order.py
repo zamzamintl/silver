@@ -51,6 +51,7 @@ class SaleOrderLine(models.Model):
 
     @api.depends('product_id', 'order_id.warehouse_id')
     def _compute_available_qty(self):
+
         for ln in self:
             if ln.product_id and ln.order_id.warehouse_id:
                 available_qty = ln.product_id.with_context(

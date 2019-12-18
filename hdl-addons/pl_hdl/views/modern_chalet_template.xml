@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Modern Chalet Page Template -->
+    <template id="modern_chalet" name="Modern Chalet">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                  <section class="pt32 pb0">
+                    <div class="container">
+                      <div class="row s_nb_column_fixed">
+                        <div class="col-lg-12 s_title pb0 pt72" style="text-align: center;">
+                          <h1 class="s_title_default">
+                            <span class="title">A Modern Chalet</span>
+                          </h1>
+                          <div>
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="s_text_block pt32 pb0">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-lg-12 pt0 pb0">
+                          <p class="lead">-Nore Neset, Norway</p>
+                          <p class="lead">Used as a holiday home for ski and hiking enthusiasts, the owners of this chalet wanted to maximize their building’s energy efficiency and provide visitors with a truly unique experience.</p>
+                          <p class="lead">
+                            <br/>
+                          </p>
+                        </div>
+                        <div class="col-lg-12 pt0 pb0 mb15">
+                          <img class="sec_img" id="comp-jsacljykimgimage" alt="chalet 1.jpg" data-type="image" itemprop="image" src="/pl_hdl/static/src/img/77.jpg" style="width: 980px; height: 651px; object-fit: cover;"/>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="s_text_block pb32 pt32">
+                    <div class="container">
+                      <div class="row">
+                        <div class="pt32 pb48 col-lg-12">
+                          <p class="lead">Enabling the chalet to actively protect itself, these scenes can be triggered automatically or remotely from the owner’s iOS and Android devices.</p>
+                          <p class="lead">This ensures that when there are no visitors for a week, a month, or even a year, the building will remain exactly as it was left.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Case Studies Page Template -->
+    <template id="case_studies" name="Case Studies">
+        <t t-call="website.layout">
+           <div class="oe_structure">
+              <section class="s_three_columns pt32 pb32 bg-white oe_custom_bg mr-4 ml-4">
+                <div class="row d-flex align-items-stretch">
+                  <div class="col-lg-3 s_col_no_bgcolor pt16 pb16">
+                    <div class="bg-white">
+                      <img class="card-img-top" src="/pl_hdl/static/src/img/6.jpg" alt="Odoo - Sample 1 for three columns" data-original-title="" title="" aria-describedby="tooltip112422"/>
+                      <div class="card-body text-center pt-4">
+                        <a href="/modern_chalet" class="btn btn-sm o_default_snippet_text btn_details">A Modern Chalet</a>
+                        <h3 class="card-title o_default_snippet_text pt-4 txt_title">- Nore Neset, Norway</h3>
+                        <p class="card-text o_default_snippet_text txt_content">Used as a holiday home for ski and hiking enthusiasts, the owners of this chalet wanted to maximize their building’s energy efficiency and provide visitors with a truly unique experience.</p>
+                        <a class="btn_more" href="#">Read More <i class="fa fa-long-arrow-right"/></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 s_col_no_bgcolor pt16 pb16">
+                    <div class=" bg-white">
+                      <img class="card-img-top" src="/pl_hdl/static/src/img/4.jpg" alt="Odoo - Sample 1 for three columns"/>
+                      <div class="card-body text-center pt-4">
+                        <a href="#" class="btn btn-sm o_default_snippet_text btn_details">An Ecuadorian Bauhaus</a>
+                        <h3 class="card-title o_default_snippet_text pt-4 txt_title">-Sanya, China</h3>
+                        <p class="card-text o_default_snippet_text txt_content">Covering an area of some 750 square meters, this two story family home has been fully upgraded with HDL automation solutions so that the occupants can take advantage of unparalleled comfort, convenience, and security.</p>
+                        <a class="btn_more" href="#">Read More <i class="fa fa-long-arrow-right"/></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 s_col_no_bgcolor pt16 pb16">
+                    <div class=" bg-white">
+                      <img class="card-img-top" src="/pl_hdl/static/src/img/33.jpg" alt="Odoo - Sample 1 for three columns"/>
+                      <div class="card-body text-center pt-4">
+                        <a href="#" class="btn btn-sm o_default_snippet_text btn_details">Tradition Meets Technology</a>
+                        <h3 class="card-title o_default_snippet_text pt-4 txt_title">-Saint Petersburg, Russia</h3>
+                        <p class="card-text o_default_snippet_text txt_content">Built in the traditional Izba wooden home style, this unique Russian family home seamlessly combines the technology of the past and the present.</p>
+                        <a class="btn_more" href="#">Read More <i class="fa fa-long-arrow-right"/></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 s_col_no_bgcolor pt16 pb16">
+                    <div class=" bg-white">
+                      <img class="card-img-top" src="/pl_hdl/static/src/img/22.jpg" alt="Odoo - Sample 1 for three columns" data-original-title="" title="" aria-describedby="tooltip405301"/>
+                      <div class="card-body text-center pt-4">
+                        <a href="#" class="btn btn-primary btn-sm o_default_snippet_text btn_details">A Cypriot Dream House</a>
+                        <h3 class="card-title o_default_snippet_text pt-4 txt_title">-Polis, Cyprus</h3>
+                        <p class="card-text o_default_snippet_text txt_content">As a modern interpretation of a classical Cypriot villa, the owner of this five bedroom family home spared no expense in creating their ideal living space.</p>
+                        <a class="btn_more" href="#">Read More <i class="fa fa-long-arrow-right"/></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 s_col_no_bgcolor pt16 pb16">
+                    <div class=" bg-white">
+                      <img class="card-img-top" src="/pl_hdl/static/src/img/11.jpg" alt="Odoo - Sample 1 for three columns"/>
+                      <div class="card-body text-center pt-4">
+                        <a href="#" class="btn btn-primary btn-sm o_default_snippet_text btn_details">Norwegian Passive House</a>
+                        <h3 class="card-title o_default_snippet_text pt-4 txt_title">-Oslo, Norway</h3>
+                        <p class="card-text o_default_snippet_text txt_content">Designed to consume at least 80% less energy for heating and cooling than a conventional home, a Passive House is the pinnacle of residential energy efficiency.</p>
+                        <a class="btn_more" href="#">Read More <i class="fa fa-long-arrow-right"/></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+        </t>
+    </template>
+</odoo>

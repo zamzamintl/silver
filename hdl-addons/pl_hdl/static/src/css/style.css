@@ -1,18 +1,33 @@
-// Font, line-height, and color for body text, headings, and more.
 @import url('//fonts.googleapis.com/css?family=Manjari|Roboto|Work+Sans&display=swap');
-
-#wrapwrap .container
-{
-    width: 1100px;
+html {
+  scroll-behavior: smooth !important;
 }
+
 @media (min-width: 1200px){
     #wrapwrap .container {
         max-width: 1070px;
     }
 }
+header.sticky .navbar{
+    background-color: #fff !important;
+    position: fixed !important;
+}
+header.sticky .navbar .navbar-brand.logo img {
+    height: 4rem !important;
+    transition: all 200ms;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -o-transition: all 200ms;
+}
+header.sticky .top-header{
+    display: none;
+}
 header .navbar
 {
      max-height: 150px !important;
+     top: 0;
+     width: 100%;
+     z-index: 1000;
 }
 header .navbar .navbar-nav{
     background:#fff;
@@ -313,7 +328,7 @@ img.device_img{
     line-height: 40px;
     border-right: 1px solid #eee;
     float: left;
-    padding:0 5px;
+    padding:0 15px;
     color: #8a8181;
 }
 .as-search {
@@ -572,4 +587,24 @@ header .nav-item.dropdown > li {
 }
 .parallax > .s_parallax_bg{
     background-attachment: fixed !important;
+}
+.scroll_top_btn{
+    bottom: 20px;
+    right: 20px;
+    position: fixed;
+    color: #fffafa !important;
+    font-size: 18px;
+    background: #814c98;
+    padding: 5px;
+    display: none;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    cursor: pointer;
+}
+.scroll_top_btn.display_btn{
+    display: block;
+}
+.scroll_top_btn:hover{
+    background: #815c98;
 }

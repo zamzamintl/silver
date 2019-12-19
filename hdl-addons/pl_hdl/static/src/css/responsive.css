@@ -33,3 +33,11 @@
         border: none !important;
     }
 }
+/*@media (max-width: 575px){
+    .top-header {
+    text-align: center !important;
+    }
+    .top_icon_contacts {
+
+    }
+}*/

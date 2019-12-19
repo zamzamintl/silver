@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Partners Page Template -->
+    <template id="partners" name="Partners">
+        <t t-call="website.layout">
+            <section class="oe_structure s_picture pt48 bg-white oe_custom_bg pb0 sec_content">
+              <div class="container">
+                <div class="row s_nb_column_fixed">
+                  <div class="pt0 sec_img text-center col-lg-6 pb0">
+                    <img src="/pl_hdl/static/src/img/16.png" class="figure-img img-fluid rounded" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079"/>
+                    <p>
+                      <br/>
+                    </p>
+                    <p>1st District, 5th Neighborhood, Bldg. 902,
+                                    <br/> 6th Of October City, Egypt
+                                </p>
+                    <p>Tel.: +202 36987050 </p>
+                  </div>
+                  <div class="pt0 sec_img  text-center col-lg-5 pb40"><img src="/pl_hdl/static/src/img/logo3.png" class="figure-img img-fluid rounded img-thumbnail" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079" style="align-items: center;"/><p>66 Gamal Eldeen Dewidar St. 8th Region,
+
+                                    <br/>
+                             Nasr City, Egypt, Cairo
+
+                                </p>
+                                Tel.: +2 02 2273 4452
+
+                            </div>
+                </div>
+              </div>
+            </section>
+          </t>
+    </template>
+</odoo>

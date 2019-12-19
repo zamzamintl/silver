@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Home Page Template -->
+    <template id="home" name="Home">
+        <t t-call="website.layout">
+    <t t-set="pageName" t-value="'homepage'"/>
+    <div id="wrap" class="oe_structure oe_empty">
+      <section class="s_parallax parallax bg-black-50 pt0  s_parallax_is_fixed" data-scroll-background-ratio="1" style="background-image: none; background-position: 50% 75%;">
+        <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-attachment: fixed; background-image: url(&quot;/website/static/src/img/backgrounds/la.jpg&quot;);"/>
+        <div class="oe_structure">
+          <section class="pb0 pt0">
+            <div class="container">
+              <div class="row s_nb_column_fixed">
+                <div class="col-lg-12 s_title pb0 pt72" style="text-align: center;">
+                  <h1 class="s_title_default font_general title_section">
+                    <span class="title_header" style="color: rgb(255, 255, 255); font-size: 62px;">Advanced Lighting Control</span>
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_text_block pb0 pt0">
+            <div class="container">
+              <div class="row">
+                <div class="pt0 pb24 col-lg-12">
+                  <p>
+                    <b/>
+                  </p>
+                  <p class="text_section" style="text-align: center;">
+                    HDL lighting control will add comfort and ambience to any smart home system. Our Lighting can be programmed to change level at certain times or switched simply via a touch panel, smartphone or tablet. Lighting scenes can be recalled at the touch of a button, including personal preferences for returning home, party modes or when going to bed.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="alan_note videosection">
+            <div class="videowrapper">
+              <iframe class="sec_video" src="https://www.youtube-nocookie.com/embed/1PFDV255bnw?modestbranding=1&amp;showinfo=0&amp;rel=0&amp;cc_load_policy=1&amp;iv_load_policy=3&amp;theme=light&amp;fs=0" frameborder="0"/>
+            </div>
+          </section>
+          <div class="s_btn text-center pt40 pb48 first_btn" data-name="Buttons">
+            <a href="#" class="btn btn-primary btn_header" data-original-title="" title="">EXPLOR</a>
+          </div>
+          <section class="s_text_image bg-white oe_custom_bg pb0 pt0 total_content">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="pb0 pt24 col-lg-6 offset-lg-1">
+                  <p class="content_text"><b>Substance and design-</b>Each button is capable of controlling multiple home systems. These can include heating, alarms, audio visual, lighting scenes, curtains and a host of other functions.
+                                    </p>
+                  <p class="content_text">Our wall plate solutions enable control of almost any home automation device with a simple touch of a button. Unprecedented flexibility can also be achieved utilising our HDL wireless touch panels.</p>
+                </div>
+                <div class="pb0 pt0 col-lg-5">
+                  <img src="/pl_hdl/static/src/img/ControlFrom.png" class="img img-fluid mx-auto" alt="Odoo • Text and Image" data-original-title="" title="" aria-describedby="tooltip319758"/>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pb0 pt72" data-scroll-background-ratio="1" style="background-image: none;">
+            <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/bg2.png&quot;); background-position: 50% 0px;"/>
+            <div class="container">
+              <div class="row s_nb_column_fixed">
+                <div class="col-lg-12 s_title" data-name="Title">
+                  <h1 class="s_title_thin title_section" style="text-align: center;">
+                    <span class="title_header" style="color: rgb(255, 255, 255); font-size: 62px;">Whole Home </span>
+                    <br/>
+                    <span class="title_header" style="color: rgb(255, 255, 255); font-size: 62px;">Automation</span>
+                  </h1>
+                  <div style="text-align: center;">
+                    <br/>
+                  </div>
+                </div>
+                <div class="s_text offset-lg-1 col-lg-10 baner_sec pt40 pb32" data-name="Text">
+                  <p class="lead o_default_snippet_text text_section" style="text-align: center;">
+                    <font style="color: rgb(255, 255, 255);">A HDL smart home is different to a traditional home because it offers features that will transform the way you use your lights, curtains, heating, music and security systems. HDL is Internet Enabled, meaning you have full control of your home from your smart phone or tablet, anywhere in the world.</font>
+                  </p>
+                  <div style="text-align: center;">
+                    <br/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_text_block pt32 pb0 bg-white total_content" style="">
+            <div class="container">
+              <div class="row">
+                <div class="pb0 pt24 col-lg-12">
+                  <p class="content_text"> Why choose
+                                        <b>HDL</b>? - A HDL smart home is different to a traditional home because it offers features that will transform the way you use your lights, curtains, heating, music and security systems. HDL is Internet Enabled, meaning you have full control of your home from your smart phone or tablet, anywhere in the world.
+                                    </p>
+                  <p class="content_text"> Our systems will help you to save on your energy bills, make your house more secure and will provide you with the ultimate in comfort and convenience. This technology is a long-term solution that will truly modernise the way you live in your home. </p>
+                  <p>
+                    <br/>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_text_image bg-white pb0 pt0 total_content">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="pb32 pt40 col-lg-12">
+                  <img class="img-fluid" src="/pl_hdl/static/src/img/1.png"/>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_text_block pb0 pt0 bg-white total_content">
+            <div class="container">
+              <div class="row">
+                <div class="pt32 pb0 col-lg-12">
+                  <p class="content_text"> Delivering integrated home automation - Picture your house as a blank canvas, ready to be transformed into an intelligent 21st century smart home. We live in a world where all of the internal systems we take for granted in our homes can now be integrated and controlled in a variety of ways. HDL have over 30 years experience manufacturing automation solutions for installations across the globe, making us a true market leader in the evolution of the smart home. </p>
+                  <p class="lead">
+                    <br/>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb0" data-scroll-background-ratio="1" style="background-image: none;">
+            <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/bg3.png&quot;); background-position: 50% 0px;"/>
+            <div class="container">
+              <div class="row s_nb_column_fixed">
+                <div class="s_title col-lg-12 pb0" data-name="Title">
+                  <h1 class="s_title_thin title_section" style="text-align: center;">
+                    <b>
+                      <span class="title_header" style="color: rgb(255, 255, 255); font-size: 62px;">Seamless Heating </span>
+                      <br/>
+                      <span class="title_header" style="color: rgb(255, 255, 255); font-size: 62px;">Automation</span>
+                    </b>
+                  </h1>
+                  <div style="text-align: center;">
+                    <br/>
+                  </div>
+                </div>
+                <div class="s_text col-lg-12 baner_sec pt40 pb40" data-name="Text">
+                  <p class="lead o_default_snippet_text text_section" style="text-align: center;">Almost all heating, cooling, air-conditioning and ventilation products can be controlled using HDL. Zoning your heating allows you to divide your home into separate manageable areas, giving you the comfort, flexibility and control you’ve always wanted.</p>
+                  <div style="text-align: center;">
+                    <br/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_text_image pt32 pb0 bg-100 total_content">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="pt64 pb0 col-lg-9">
+                  <p class="content_text">
+                    <b>
+                      Giving you total control -
+                     </b>Your heating or cooling systems can be controlled using the HDL system. Almost all heating, cooling, air-conditioning and ventilation types are supported, and that includes zoned systems. You can reduce wall-clutter by utilising a single wall-panel instead of separate light-switches and thermostats. You can even control it from your smart-phone or tablet. Imagine being able to switch on your heating when returning from the airport after a holiday during the winter, or switching off the heating after you left, if you forgot. These are just some of the benefits of a smart heating system.
+                  </p>
+                  <p>
+                    <br/>
+                  </p>
+                </div>
+                <div class="pt0 pb0 col-lg-3 text-center">
+                  <img src="/pl_hdl/static/src/img/19.png" class="img img-fluid mx-auto mb-4" alt="Odoo • Text and Image" data-original-title="" title="" aria-describedby="tooltip126301"/>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pb0 pt72" data-scroll-background-ratio="1" style="background-image: none;">
+            <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/bg4.png&quot;); background-position: 50% 0px;"/>
+            <div class="container">
+              <div class="row s_nb_column_fixed">
+                <div class="col-lg-12 s_title" data-name="Title">
+                  <h1 class="s_title_thin" style="font-size: 62px; text-align: center;"/>
+                  <h1 class="s_title_thin title_section" style="text-align: center;">
+                    <b>
+                      <span class="title_header" style="color: rgb(255, 255, 255); font-size: 62px;">Curtain and Shading </span>
+                      <br/>
+                      <span class="title_header" style="color: rgb(255, 255, 255); font-size: 62px;">Control</span>
+                    </b>
+                  </h1>
+                  <div style="text-align: center;">
+                    <br/>
+                  </div>
+                </div>
+                <div class="s_text col-lg-12 baner_sec pt24 pb40" data-name="Text">
+                  <p class="lead o_default_snippet_text text_section" style="text-align: center;">With HDL, you no longer have to manually adjust your blinds or curtains to control natural lighting inside your home. HDL controlled curtains and blinds can be automated using timers or sensors, alternatively they can be set to open and close automatically with sunrise and sunset times throughout the year.</p>
+                  <div style="text-align: center;">
+                    <br/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_text_image pt32 pb32 bg-white total_content">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="pt16 pb16 col-lg-9">
+                  <p class="content_text"><b>Let there be light - </b>Shading means automated curtains and blinds, and the HDL system allows you to control each of your window treatment devices just by tapping your smartphone, or a smart-switch in the wall.
+                                    </p>
+                  <p class="content_text"> We manufacture a range of both wired and wireless curtain tracks and blind motors, making it natively compatible with the other HDL devices on the system, saving the need to invest in additional control hardware. </p>
+                </div>
+                <div class="pt16 pb4 col-lg-3 text-center">
+                  <img src="/pl_hdl/static/src/img/18.png" class="img img-fluid mx-auto" alt="Odoo • Text and Image" data-original-title="" title="" aria-describedby="tooltip381556"/>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pb0 pt72" data-scroll-background-ratio="1" style="background-image: none;">
+            <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/bg5.png&quot;); background-position: 50% 0px;"/>
+            <div class="container">
+              <div class="row s_nb_column_fixed">
+                <div class="col-lg-12 s_title" data-name="Title">
+                  <h1 class="s_title_thin o_default_snippet_text title_section" style="text-align: center;">
+                    <span class="title_header" style="color: rgb(255, 255, 255); font-size: 62px;">
+                      Mobile Control
+                    </span>
+                  </h1>
+                  <div style="text-align: center;">
+                    <br/>
+                  </div>
+                </div>
+                <div class="s_text col-lg-12 baner_sec pt32 pb48" data-name="Text">
+                  <p class="lead o_default_snippet_text text_section" style="text-align: center;">A HDL system is connected to your home network, meaning everything can be controlled from a smartphone, tablet or computer. There are several apps available that can easily turn your smart phone or tablet into a customised remote control for your HDL system.</p>
+                  <div style="text-align: center;">
+                    <br/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_text_image pt32 bg-white total_content pb40">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="pb0 pt16 col-lg-9">
+                  <h2>&amp;nbsp;</h2>
+                  <p class="content_text">In the palm of your hand - We are constantly supporting the integration of our products with third-party software control vendors, which means that you have the widest number of options available when it comes to choosing which app you would like to use. One of the best features of controlling your home from a smart-device is the ability to control your home remotely. When used with security cameras, you literally have an app to monitor and control every aspect of your home, from anywhere in the World.&amp;nbsp;</p>
+                  <p>
+                    <br/>
+                  </p>
+                  <p>&amp;nbsp;</p>
+                </div>
+                <div class=" col-lg-3 pb16 pt48 text-center">
+                  <img src="/pl_hdl/static/src/img/20.png" class="img img-fluid mx-auto" alt="Odoo • Text and Image" data-original-title="" title="" aria-describedby="tooltip13718"/>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pb0 pt64" data-scroll-background-ratio="1" style="background-image: none;">
+            <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/bg6.png&quot;); background-position: 50% 0px;"/>
+            <div class="container">
+              <div class="row s_nb_column_fixed">
+                <div class="col-lg-12 s_title" data-name="Title">
+                  <h1 class="s_title_thin title_section" style="text-align: center;">
+                    <span class="title_header" style="color: rgb(255, 255, 255); font-size: 62px;">
+                                            Whole Home
+                                        </span>
+                    <span class="title_header" style="color: rgb(255, 255, 255); font-size: 62px;">
+                      <b>Security</b>
+                    </span>
+                  </h1>
+                </div>
+                <div class="s_text col-lg-12 baner_sec pt32 pb40" data-name="Text">
+                  <p class="lead text_section" style="text-align: center;">In addition to intruder-alarms, a HDL system can create a simulation of occupancy when you are away from home. For example, using holiday mode will switch certain lights on and off automatically at different times of the day and night.&amp;nbsp;</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="s_text_image pt32 bg-white total_content pb0">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="pt0 pb0 col-lg-9">
+                  <p class="content_text">For total piece of mind - Automated blinds and curtains will open and close, making it look like somebody is in the property at all times.&amp;nbsp;</p>
+                  <p class="content_text">Integration can be performed with the alarm system, so that the house is automatically set to “holiday mode” when the alarm is armed. You can even receive text messages if motion sensors are triggered.&amp;nbsp;</p>
+                  <p>&amp;nbsp;</p>
+                </div>
+                <div class="col-lg-3 pt64 pb56 text-center">
+                  <img src="/pl_hdl/static/src/img/21.png" class="img img-fluid mx-auto" alt="Odoo • Text and Image" data-original-title="" title="" aria-describedby="tooltip453284"/>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </t>
+    </template>
+</odoo>

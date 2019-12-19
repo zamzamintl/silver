@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--About Page Template -->
+    <template id="about" name="About">
+        <t t-call="website.layout">
+            <div class="oe_structure"/>
+                <div class="oe_structure">
+                  <section class="s_parallax parallax s_parallax_is_fixed bg-black-50 pt0 pb48" data-scroll-background-ratio="1" style="background-image: none;">
+                    <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/web/image/website.s_parallax_default_image'); background-position: 50% 75%;"/>
+                    <div class="oe_structure">
+                      <section>
+                        <div class="container">
+                          <div class="row s_nb_column_fixed">
+                            <div class="col-lg-12 s_title pb0 pt0" style="text-align: center;">
+                              <div data-packed="true" class="txtNew" id="comp-jrwu1p5q" style="margin: 50px 0px 0px calc((100% - 980px) * 0.5); padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; overflow-wrap: break-word; text-align: start; position: relative; left: -40px; grid-area: 1 / 1 / 2 / 2; place-self: start; pointer-events: none; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 10px; width: 1049px;">
+                                <h2 class="font_2" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 83px; line-height: 1em; font-family: &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; text-align: center;">
+                                  <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                    <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: normal;">
+                                      <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: avenir-lt-w01_35-light1475496, sans-serif;">
+                                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                                          <span class="title_commerical" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">About us</span>
+                                        </span>
+                                      </span>
+                                    </span>
+                                  </span>
+                                </h2>
+                              </div>
+                              <div data-packed="true" class="txtNew" id="comp-jrwufmc4" style="margin: 0px 0px 10px calc((100% - 980px) * 0.5); padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; overflow-wrap: break-word; text-align: start; position: relative; left: 0px; grid-area: 2 / 1 / 3 / 2; place-self: start; pointer-events: none; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 10px; width: 980px;"/>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="s_text_block">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-12 s_text pt16 pb0" data-name="Text">
+                              <p class="lead text_section" style="text-align: center;">stablished in 1985, HDL is a global company that manufactures customised building automation products, and professional stage lighting equipment. Having a truly worldwide presence, HDL offices can be found in over 100 countries.
+                                                    <br/>The solutions provided by HDL fall into four distinct categories:
+                                                            HDL Buspro Home/Building automation system HDL KNX/EIB Bus series HDL Wireless HDL Architectural/Theatre Lighting Control system
+                                                            Our products and solutions promote energy-savings, centralised control, comfort, convenience, added security to customers across the globe.
+                                                            Why Choose us
+                                                         </p>
+                              <div style="text-align: center;">
+                                <br/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section>
+                        <div class="container">
+                          <div class="row s_nb_column_fixed">
+                            <div class="col-lg-12 s_title pb0 pt0" style="text-align: center;">
+                              <h1 class="s_title_default">
+                                <div data-packed="true" class="txtNew" id="comp-js189o4o" style="margin: 0px 0px 0px calc((100% - 980px) * 0.5); padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; overflow-wrap: break-word; text-align: start; position: relative; left: -40px; grid-area: 4 / 1 / 5 / 2; place-self: start; pointer-events: none; font-family: Arial, Helvetica, sans-serif; font-size: 10px; width: 1049px;"/>
+                              </h1>
+                              <h2 class="font_2" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font: bold 83px/1em &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; letter-spacing: normal; text-align: center;">
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-size: 83px;">
+                                  <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: normal;">
+                                    <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: avenir-lt-w01_35-light1475496, sans-serif;">
+                                      <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                                        <span class="title_commerical" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">Why Choose us</span>
+                                      </span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="s_text_block">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-12 s_text pt32" data-name="Text">
+                              <p class="lead text_section" style="text-align: center;">We guarantee our products, and treat each of our clients as an equal partner. In this manner we are able to listen and work with our clients,
+                                                    <br/>enabling them to achieve their objectives. This commitment extends not only to you our customer, but also to architects, designers, distribution partners, employees, suppliers,
+                                                    and the communities in which we live and work. We are ready to assist you.
+                                                </p>
+                              <div style="text-align: center;">
+                                <br/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section>
+                        <div class="container">
+                          <div class="row s_nb_column_fixed">
+                            <div class="col-lg-12 s_title pb0 pt0" style="text-align: center;">
+                              <h1 class="s_title_default">
+                                <div data-packed="true" class="txtNew" id="comp-js18g1v1" style="margin: 0px 0px 0px calc((100% - 980px) * 0.5); padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; overflow-wrap: break-word; text-align: start; position: relative; left: -40px; grid-area: 9 / 1 / 10 / 2; place-self: start; pointer-events: none; font-family: Arial, Helvetica, sans-serif; font-size: 10px; width: 1049px;"/>
+                              </h1>
+                              <h2 class="font_2" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font: bold 83px/1em &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; letter-spacing: normal; text-align: center;">
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; letter-spacing: 0em;">
+                                  <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-size: 83px;">
+                                    <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: normal;">
+                                      <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: avenir-lt-w01_35-light1475496, sans-serif;">
+                                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                                          <span class="title_header" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">Quality Assurance</span>
+                                        </span>
+                                      </span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="s_text_block">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-12 s_text pt32" data-name="Text">
+                              <p class="lead text_section" style="text-align: center;">High quality products lie at the very core of HDL, from our humble origins over 30 years ago we have always provided the very best products possible. Our Ensured Quality Policy is integral in ensuring that the needs of our customers not only met but exceeded.
+                                                         </p>
+                              <div style="text-align: center;">
+                                <br/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section>
+                        <div class="container">
+                          <div class="row s_nb_column_fixed">
+                            <div class="col-lg-12 s_title pt0" style="text-align: center;">
+                              <h1 class="s_title_default">
+                                <div data-packed="true" class="txtNew" id="comp-js18htio" style="margin: 0px 0px 0px calc((100% - 980px) * 0.5); padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; overflow-wrap: break-word; text-align: start; position: relative; left: -40px; grid-area: 12 / 1 / 13 / 2; place-self: start; pointer-events: none; font-family: Arial, Helvetica, sans-serif; font-size: 10px; width: 1049px;"/>
+                              </h1>
+                              <h2 class="font_2" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font: bold 83px/1em &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; letter-spacing: normal; text-align: center;">
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; letter-spacing: 0em;">
+                                  <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-size: 83px;">
+                                    <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: normal;">
+                                      <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: avenir-lt-w01_35-light1475496, sans-serif;">
+                                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                                          <span class="title_commerical" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">Sustainability</span>
+                                        </span>
+                                      </span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="s_text_block pb0">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-12 s_text pt32" data-name="Text">
+                              <p class="lead text_section" style="text-align: center;">HDL understands that economic and environmental balance is essential. It is because of this that all HDL systems and products are geared towards sustainable growth, and sustainable savings.
+                                                <br/>We understand our environmental responsibilities, and are committed to sustainability and corporate accountability.
+
+                                                         </p>
+                              <div style="text-align: center;">
+                                <br/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </section>
+                </div>
+        </t>
+    </template>
+</odoo>

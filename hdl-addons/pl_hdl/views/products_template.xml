@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Products Page Template -->
+    <template id="products" name="Products">
+        <t t-call="website.layout">
+                <div class="oe_structure">
+                  <section class="s_parallax parallax s_parallax_is_fixed bg-black-50 pt56" data-scroll-background-ratio="1" style="background-image: none;">
+                    <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/wirlessconstruction.jpg&quot;); background-position: 50% 75%;"/>
+                    <div class="oe_structure">
+                      <section class="pt32 pb32">
+                        <div class="container">
+                          <div class="row s_nb_column_fixed">
+                            <div class="col-lg-12 s_title" style="text-align: center;">
+                              <h1 class="s_title_default">
+                                <span class="title_commerical product_head">
+                                  Suitable for any installation environment
+                                </span>
+                              </h1>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="pb32 pt8">
+                        <div class="container">
+                          <div class="row s_nb_column_fixed">
+                            <div class="col-lg-12 s_title pb16 pt0" style="text-align: center;">
+                              <p class="text_section" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: 17px; background: 0px 0px; color: rgb(255, 255, 255);">HDL systems can be installed in practically any building environment regardless of age or design. We have product ranges that work seamlessly using various industry leading standards.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="s_picture pt48 bg-white oe_custom_bg pb0">
+                        <div class="container">
+                          <div class="row s_nb_column_fixed">
+                            <div class="pt0 col-lg-3 col-md-4 offset-lg-1 sec_img text-center pb0">
+                              <img src="/pl_hdl/static/src/img/1.jpeg" class="figure-img img-fluid rounded device_img" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079"/>
+                            </div>
+                            <div class="pt0 col-lg-3 col-md-4 offset-lg-1 sec_img text-center pb0">
+                              <img src="/pl_hdl/static/src/img/2.jpeg" class="figure-img img-fluid rounded  device_img" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079" style="align-items: center;"/>
+                            </div>
+                            <div class="pt0 col-lg-3 col-md-4 offset-lg-1 sec_img text-center pb0">
+                              <img src="/pl_hdl/static/src/img/3.jpg" class="figure-img img-fluid rounded device_img" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079"/>
+                            </div>
+                            <div class="col-lg-12 pb56 pt56">
+                              <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; color: rgb(28, 28, 28); pointer-events: auto;">
+                                                    </p>
+                              <p class="content_text" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;"><span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: bold;">BusPro</span>&amp;nbsp;- The proprietary protocol of HDL systems, BusPro provides a mesh network throughout your home. This network provides the communication back bone for all internal systems being used via HDL. A single cable run is required throughout the home to create the BusPro network.&amp;nbsp;
+
+                                </p>
+                              <p/>
+                              <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal;color: rgb(28, 28, 28); pointer-events: auto;">
+                                <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; ">​</span>
+                              </p>
+                              <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; color: rgb(28, 28, 28); pointer-events: auto;">
+                                                    </p>
+                              <p class="content_text" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;"><span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: bold;">Bus Pro Wireless</span>&amp;nbsp;- HDL offer a full range of Wireless keypad solutions, providing users the flexibility to install a system in properties where running a new cable network is not possible.&amp;nbsp;
+
+                                                    </p>
+                              <p/>
+                              <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal;  color: rgb(28, 28, 28); pointer-events: auto;">
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">​</span>
+                              </p>
+                              <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; acolor: rgb(28, 28, 28); pointer-events: auto;">
+                                                    </p>
+                              <p class="content_text" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: bold;">KNX</span>&amp;nbsp;- The world of home and building control “speaks” KNX. Several millions of successful KNX installations can be found all over the globe. Over 370 KNX member companies worldwide offer more than 7,000 KNX certified product groups in their catalogues from different application domains.
+
+                                                    </p>
+                              <p/>
+                              <p class="o_default_snippet_text">
+                                <b>
+                                  <br/>
+                                </b>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pt80 pb0" data-scroll-background-ratio="1" style="background-image: none;">
+                        <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/4.jpeg&quot;); background-position: 50% 0px;"/>
+                        <div class="container">
+                          <div class="row s_nb_column_fixed">
+                            <div class="col-lg-12 s_title" data-name="Title">
+                              <h1 class="s_title_thin" style="text-align: center;">
+                                <span style="color: rgb(255, 255, 255); font-size: 62px;">
+                                  <span class="title_commerical">Advanced control panels</span>
+                                </span>
+                              </h1>
+                              <div style="text-align: center;">
+                                <br/>
+                              </div>
+                            </div>
+                            <div class="s_text col-lg-12 pb56" data-name="Text">
+                              <p class="text_section" style="text-align: center;">Providing control of the lighting and environmental systems in both guest rooms, common ways, restaurant and other areas. Integration with the hotel PMS system. Such solutions have been provided for clients such as the Sofitel in Morocco and the Park Hyatt in Sydney, Australia.
+                                                </p>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="s_picture pt48 bg-white oe_custom_bg pb0">
+                        <div class="container">
+                          <div class="row s_nb_column_fixed">
+                            <div class="pt0 sec_img text-center pb0 col-lg-2 col-md-4 col-sm-6">
+                              <img src="/pl_hdl/static/src/img/6.jpeg" class="figure-img img-fluid rounded" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079"/>
+                              <h5 class="title_img">Textured</h5>
+                            </div>
+                            <div class="pt0 sec_img  text-center pb0 col-lg-2 col-md-4 col-sm-6">
+                              <img src="/pl_hdl/static/src/img/8.jpeg" class="figure-img img-fluid rounded img-thumbnail padding-large" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079" style="align-items: center;"/>
+                              <h5 class="title_img">Silver</h5>
+                            </div>
+                            <div class="pt0 sec_img  text-center pb0 col-lg-2 col-md-4 col-sm-6">
+                              <img src="/pl_hdl/static/src/img/7.jpeg" class="figure-img img-fluid rounded img-thumbnail padding-large" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079"/>
+                              <h5 class="title_img">Graphite</h5>
+                            </div>
+                            <div class="pt0 sec_img  text-center col-lg-2 col-md-4 col-sm-6">
+                              <img src="/pl_hdl/static/src/img/9.jpeg" class="figure-img img-fluid rounded img-thumbnail padding-large" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079"/>
+                              <h5 class="title_img">White</h5>
+                            </div>
+                            <div class="pt0 sec_img  text-center pb0 col-lg-2 col-md-4 col-sm-6">
+                              <img src="/pl_hdl/static/src/img/5.jpeg" class="figure-img img-fluid rounded img-thumbnail padding-large" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079"/>
+                              <h5 class="title_img">Blue</h5>
+                            </div>
+                            <div class="pt0 sec_img  text-center pb0 col-lg-2 col-md-4 col-sm-6">
+                              <img src="/pl_hdl/static/src/img/10.jpeg" class="figure-img img-fluid rounded img-thumbnail padding-large" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079"/>
+                              <h5 class="title_img">Gold</h5>
+                            </div>
+                            <div class="col-lg-12 pt40 pb0">
+                              <p>
+                                <span>
+
+                                </span>
+                              </p>
+                              <p class="content_text">Each button is capable of controlling multiple home systems -These can include heating, alarms, audio visual, lighting scenes, curtains and a host of other functions. Our wall plate solutions enable control of almost any home automation device with a simple touch of a button. Unprecedented flexibility can also be achieved utilising our HDL wireless touch panels</p>
+                              <br/>
+                              <p/>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="s_picture pt48 bg-white oe_custom_bg pb0">
+                        <div class="container">
+                          <div class="row s_nb_column_fixed">
+                            <div class="pt0 sec_img text-center pb0 col-lg-3 col-md-6">
+                              <img src="/pl_hdl/static/src/img/14.jpeg" class="figure-img img-fluid rounded" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079"/>
+                            </div>
+                            <div class="pt0 sec_img  text-center pb0 col-lg-3 col-md-6">
+                              <img src="/pl_hdl/static/src/img/13.jpeg" class="figure-img img-fluid rounded img-thumbnail padding-large" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079" style="align-items: center;"/>
+                            </div>
+                            <div class="pt0 sec_img  text-center pb0 col-lg-3 col-md-6">
+                              <img src="/pl_hdl/static/src/img/12.jpeg" class="figure-img img-fluid rounded img-thumbnail padding-large" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079"/>
+                            </div>
+                            <div class="pt0 sec_img  text-center col-lg-3 col-md-6">
+                              <img src="/pl_hdl/static/src/img/11.jpeg" class="figure-img img-fluid rounded img-thumbnail padding-large" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip910079"/>
+                            </div>
+                            <div class="pb0 pt0 col-lg-12 pt56">
+                              <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; color: rgb(28, 28, 28); pointer-events: auto;">
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                                        </span>
+                              </p>
+                              <p class="content_text" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">Unparalleled design, unrivalled control, Ultimate convenience&amp;nbsp;- Smooth outlines and a luxurious display, create the perfect blend of form and functionality. Take complete control over your home by managing energy consumption, HVAC, lighting, and security in a minimalist user friendly package.</p>
+                              <p/>
+                              <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal;color: rgb(28, 28, 28); pointer-events: auto;">
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                                        </span>
+                              </p>
+                              <p class="content_text" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">As eye catching as it is practical the multi touch capacitive display responds instantly, allowing every detail on the screen to be clearly seen. To ensure readability in low light environments, the screen also boasts a customisable backlight capable of automatic activation. When the energy efficient screen is not in use a sleep mode will activate, awakening only when a user approaches.</p>
+                              <br/>
+                              <br/>
+                              <p/>
+                              <div>
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                  <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                    <br/>
+                                  </span>
+                                </span>
+                              </div>
+                              <p class="o_default_snippet_text">
+                                <b>
+                                  <br/>
+                                </b>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pb56 pt80" data-scroll-background-ratio="1" style="background-image: none;">
+                        <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/15.jpeg&quot;); background-position: 50% 0px;"/>
+                        <div class="container">
+                          <div class="row s_nb_column_fixed">
+                            <div class="col-lg-12 s_title" data-name="Title">
+                              <h1 class="s_title_thin o_default_snippet_text" style="text-align: center;">
+                                <span style="color: rgb(255, 255, 255); font-size: 62px;">
+                                  <span class="title_commerical">Giving You Total Control</span>
+                                </span>
+                              </h1>
+                              <div style="text-align: center;">
+                                <br/>
+                              </div>
+                            </div>
+                            <div class="s_text pb16 col-lg-12" data-name="Text">
+                              <h2 class="font_2" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 17px; line-height: 1.6em; font-family: &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; text-align: center;">
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                                  <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; letter-spacing: 0.05em;">
+                                    <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: normal;">
+                                      <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                          <p class="text_section" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">Almost all heating, cooling, air-conditioning and ventilation products can be controlled using HDL. Zoning your heating allows you to divide your home into separate manageable areas, giving you the comfort, flexibility and control you’ve always wanted.</p>
+                                        </span>
+                                      </span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </section>
+                </div>
+        </t>
+    </template>
+</odoo>

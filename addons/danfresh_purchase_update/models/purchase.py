@@ -32,9 +32,9 @@ class PurchaseOrderLine(models.Model):
 
 
 
-    available_qty = fields.Float(string='Available Qty',
-                                 compute="_compute_available_qty",
-                                 readonly=True)
+    # available_qty = fields.Float(string='Available Qty',
+    #                              compute="_compute_available_qty",
+    #                              readonly=True)
 
     @api.onchange('product_id')
     def product_id_change_check_duplicated(self):
@@ -46,11 +46,11 @@ class PurchaseOrderLine(models.Model):
                 raise ValidationError(
                     _('You Have already added this product before'))
 
-    @api.depends('product_id')
-    def _compute_available_qty(self):
-        for ln in self:
-            if ln.product_id:
-                available_qty = ln.product_id.with_context(company_owned=True).qty_available
-                ln.available_qty = available_qty
-
+    # @api.depends('product_id')
+    # def _compute_available_qty(self):
+    #     for ln in self:
+    #         if ln.product_id:
+    #             available_qty = ln.product_id.with_context(company_owned=True).qty_available
+    #             ln.available_qty = available_qty
+    #
 

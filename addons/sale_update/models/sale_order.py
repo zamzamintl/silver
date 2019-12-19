@@ -37,7 +37,7 @@ class SaleOrderLine(models.Model):
 
     available_qty = fields.Float(string='Available Qty',
                                  compute="_compute_available_qty",
-                                 readonly=True)
+                                 readonly=True,store=True)
 
     @api.onchange('product_id')
     def product_id_change_check_duplicated(self):
@@ -51,9 +51,12 @@ class SaleOrderLine(models.Model):
 
     @api.depends('product_id', 'order_id.warehouse_id')
     def _compute_available_qty(self):
+
         for ln in self:
             if ln.product_id and ln.order_id.warehouse_id:
                 available_qty = ln.product_id.with_context(
                     warehouse=ln.order_id.warehouse_id.id).qty_available
-
                 ln.available_qty = available_qty
+
+
+

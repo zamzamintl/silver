@@ -85,7 +85,6 @@ class PurchaseOrder(models.Model):
                     line.price_subtotal = before_discount_price - before_discount_price * (discount / 100.0)
             self._amount_all()
 
-    @api.multi
     def _prepare_invoice(self, ):
         invoice_vals = super(PurchaseOrder, self)._prepare_invoice()
         invoice_vals.update({
@@ -94,7 +93,6 @@ class PurchaseOrder(models.Model):
         })
         return invoice_vals
 
-    @api.multi
     def button_dummy(self):
         self.supply_rate()
         return True
@@ -103,7 +101,6 @@ class PurchaseOrder(models.Model):
 class AccountTax(models.Model):
     _inherit = 'account.tax'
 
-    @api.multi
     def compute_all(self, price_unit, currency=None, quantity=1.0, product=None, partner=None):
         if len(self) == 0:
             company_id = self.env.user.company_id

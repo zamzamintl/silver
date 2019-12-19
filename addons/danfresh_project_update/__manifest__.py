@@ -19,6 +19,7 @@
         'security/ir.model.access.csv',
         'views/project_view.xml',
         'views/employee_view.xml',
+        # 'views/res_user_view.xml'
 
 
     ],

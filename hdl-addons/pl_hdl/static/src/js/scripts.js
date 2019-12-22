@@ -1,6 +1,7 @@
-    var headerHeight = $('.top-header').outerHeight();
+    var headerHeight = $('header').outerHeight()
+//    var headerHeight = $('.top-header').outerHeight();
     $(window).on("scroll", function() {
-    if($(window).scrollTop() > headerHeight) {
+    if($(window).scrollTop() > 10) {
         $("header").addClass("sticky");
     } else {
         //remove the background property so it comes transparent again (defined in your css)

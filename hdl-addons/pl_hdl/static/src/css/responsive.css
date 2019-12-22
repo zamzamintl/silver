@@ -32,4 +32,25 @@
     .navbar-light .navbar-toggler{
         border: none !important;
     }
+    .nav-item-sub-menu > li{
+    list-style:none;
+    position: relative;
+    padding-left: 1rem;
+  }
+.nav-item-sub-menu > li:before{
+    content:"-";
+    padding: 1px 3px;
+    position: absolute;
+    top: 12px;
+    left: 1rem;
+    font-weight: bold;
 }
+}
+/*@media (max-width: 575px){
+    .top-header {
+    text-align: center !important;
+    }
+    .top_icon_contacts {
+
+    }
+}*/

@@ -23,7 +23,6 @@
                       </div>
                     </div>
                     <form action="/website_form/" method="post" class="s_website_form container-fluid mt32 o_fake_not_editable" enctype="multipart/form-data" data-name="Form Builder" data-model_name="mail.mail" data-success_page="/thanks_page">
-                        <div class="container">
                           <div class="row form-group form-field d-none">
                             <div class="col-lg-3 col-md-4">
                               <label class="col-form-label" for="email_to">
@@ -69,7 +68,6 @@
                           <div class="text-center mt-3">
                               <span id="o_website_form_result"/>
                           </div>
-                        </div>
                       </form>
                   </div>
             </section>
@@ -220,14 +218,16 @@
                     </div>
                     <!-- .bottom-footer -->
                 </div>
+            <a onClick="window.scrollTo(0, 0);" class="scroll_top_btn">
+                <i class="fa fa-chevron-up"></i>
+            </a>
 
         </xpath>
     </template>
-
-
      <template id="pl_footer_copyright" inherit_id="website.layout" name="HDL Footer ">
         <xpath expr="//div[@class='o_footer_copyright']" position="replace">
-
+            <script src="/pl_hdl/static/src/js/jquery-3.4.1.min.js"></script>
+            <script src="/pl_hdl/static/src/js/scripts.js"></script>
         </xpath>
     </template>
 </odoo>

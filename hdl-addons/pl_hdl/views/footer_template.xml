@@ -227,6 +227,7 @@
      <template id="pl_footer_copyright" inherit_id="website.layout" name="HDL Footer ">
         <xpath expr="//div[@class='o_footer_copyright']" position="replace">
             <script src="/pl_hdl/static/src/js/jquery-3.4.1.min.js"></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApZe3CrtK3X64MrRTKTM0ekLoiT455v7s"></script>
             <script src="/pl_hdl/static/src/js/scripts.js"></script>
         </xpath>
     </template>

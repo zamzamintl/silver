@@ -663,18 +663,23 @@ header .nav-item.dropdown > li {
     font-family: "Manjari", sans-serif !important
     font-size: 42px;
 }
-.contact_custom_description{
-    color: #666;
-}
-.contact_custom_label{
-    color: #504d4d;
-    font-family: "Work Sans", sans-serif !important;
+
+.contact_custom_label, .contact_custom_description{
+    color: #828282;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif !important;
 }
 .company_custom_data *{
-    color: #504d4d;
-    padding:.2rem 0;
+    line-height: 1.7;
+    color: #828282;
+    font-size: 15px;
+    font-weight: 400;
 }
-
 .company_custom_data *:not(i){
     font-family: "Roboto", sans-serif !important;
+}
+.o_portal_wrap address div[itemprop="address"] > div .fa + span, .o_portal_wrap address div[itemprop="address"] > div .fa + div{
+    display: block;
+    padding-left: 1.78571429em;
+    color: #545454;
 }

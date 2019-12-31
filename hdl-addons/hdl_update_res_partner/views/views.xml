@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="hdl_inherit_res_partner_form" model="ir.ui.view">
+      <field name="name">res.partner.category</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='type']" position="after">
+          <field name="partner_category_id"/>
+        </xpath>
+
+      </field>
+    </record>
+    <record id="hdl_res_partner_category_form" model="ir.ui.view">
+      <field name="name">res.partner.category.form</field>
+      <field name="model">res.partner.category.partner</field>
+      <field name="arch" type="xml">
+        <form string="category Partner">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="hdl_res_partner_category_tree" model="ir.ui.view">
+      <field name="name">res.partner.category.tree</field>
+      <field name="model">res.partner.category.partner</field>
+      <field name="arch" type="xml">
+        <tree string="category">
+          <field name="name"/>
+          <field name="parent_id"/>
+        </tree>
+      </field>
+    </record>
+    <record id="res_partner_category_action" model="ir.actions.act_window">
+      <field name="name">Category Action</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">res.partner.category</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>

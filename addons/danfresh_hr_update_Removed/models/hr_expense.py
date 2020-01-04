@@ -12,3 +12,5 @@ class HrExpense(models.Model):
 
     template_id = fields.Many2one(comodel_name="hr.expense.template",
                                   string="Expense Template", required=False, )
+
+

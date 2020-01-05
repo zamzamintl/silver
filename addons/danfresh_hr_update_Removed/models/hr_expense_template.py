@@ -124,7 +124,9 @@ class ExpenseTemplate(models.Model):
                 raise exceptions.ValidationError('You Must Fill Start Date !')
             if not next_date:
                 next_date = self.get_next_date(old_date, template)
-            tz = pytz.timezone(self.env.user.partner_id.tz)
+            tz = pytz.timezone(template.employee_id.tz)
+            if not tz:
+                tz=pytz.UTC
             current_date = datetime.now(tz=tz).date()
             if next_date <= current_date:
                 vals = {
@@ -141,7 +143,8 @@ class ExpenseTemplate(models.Model):
                 }
                 res = self.env['hr.expense'].create(vals)
                 template.write({'last_expense_date': Date.to_string(next_date)})
-                print(res)
+                mail_template = self.env.ref('danfresh_hr_update_Removed.mail_template_notification_hr_expense')
+                self.env['mail.template'].browse(mail_template.id).send_mail(template.id, force_send=True, raise_exception=True)
 
     def get_next_date(self, old_date, tmpl):
         if tmpl.occurrence_type == 'weekly':

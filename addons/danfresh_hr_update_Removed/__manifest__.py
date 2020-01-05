@@ -19,8 +19,9 @@
     'data': [
         'security/ir.model.access.csv',
         'data/ir_cron.xml',
+        'data/mail_template.xml',
         'views/expense_template.xml',
         'views/hr_payroll_view.xml',
-        'views/hr_employee_view.xml'
+        'views/hr_employee_view.xml',
     ],
 }

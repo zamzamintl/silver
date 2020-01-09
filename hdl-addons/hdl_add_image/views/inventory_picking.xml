@@ -8,22 +8,17 @@
             <field name="inherit_id" ref="stock.view_picking_form"/>
             <field name="arch" type="xml">
 
-                <xpath expr="//div[hasclass('oe_button_box')]" position="after">
-                     <field name="image" widget='image' class="oe_avatar float-right"/>
+<!--                <xpath expr="//div[hasclass('oe_button_box')]" position="after">-->
+<!--                     <field name="image" widget='image' class="oe_avatar float-right"/>-->
+<!--                </xpath>-->
+
+                <xpath expr="//field[@name='move_ids_without_package']/tree//field[@name='quantity_done']" position="after">
+                    <field name="image" widget='image' class="oe_avatar" width="18px" height="18px" />
                 </xpath>
+
 
             </field>
         </record>
-        <record id="inherit_stock_picking_tree" model="ir.ui.view">
-            <field name="name">stock.picking.tree</field>
-            <field name="model">stock.picking</field>
-            <field name="inherit_id" ref="stock.vpicktree"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='state']" position="after">
-                    <field name="image" widget='image' class="oe_avatar" width="30px" height="30px" />
-                </xpath>
 
-            </field>
-        </record>
     </data>
 </odoo>

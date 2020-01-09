@@ -8,23 +8,17 @@
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
 
-                 <xpath expr="//div[hasclass('oe_button_box')]" position="after">
-                     <field name="image" widget='image' class="oe_avatar float-right"/>
+<!--                 <xpath expr="//div[hasclass('oe_button_box')]" position="after">-->
+<!--                     <field name="image" widget='image' class="oe_avatar float-right"/>-->
+<!--                </xpath>-->
+                <xpath expr="//field[@name='order_line']/tree//field[@name='price_subtotal']" position="after">
+                    <field name="image" widget='image' class="oe_avatar" width="18px" height="18px" />
                 </xpath>
+
 
 
             </field>
         </record>
-        <record id="inherit_purchase_order_tree" model="ir.ui.view">
-            <field name="name">purchase.order.tree</field>
-            <field name="model">purchase.order</field>
-            <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='invoice_status']" position="after">
-                    <field name="image" widget='image' class="oe_avatar" width="30px" height="30px" />
-                </xpath>
 
-            </field>
-        </record>
     </data>
 </odoo>

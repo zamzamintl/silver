@@ -443,7 +443,7 @@
                position="after">
 
             <td>
-                <span t-field="line.product_brand_id.name"/>
+                <span t-field="line.product_brand_id"/>
             </td>
         </xpath>
     </template>

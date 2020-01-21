@@ -56,10 +56,10 @@
                         <strong>Your Reference:</strong>
                         <p class="m-0" t-field="doc.client_order_ref"/>
                     </div>
-                    <div t-if="doc.confirmation_date and doc.state not in ['draft','sent']"
+                    <div t-if="doc.commitment_date and doc.state not in ['draft','sent']"
                          class="col-auto mw-100 mb-2">
                         <strong>Date Ordered:</strong>
-                        <p class="m-0" t-field="doc.confirmation_date"/>
+                        <p class="m-0" t-field="doc.commitment_date"/>
                     </div>
                     <div t-if="doc.date_order and doc.state in ['draft','sent']"
                          class="col-auto mw-100 mb-2">
@@ -322,10 +322,10 @@
                         <strong>Your Reference:</strong>
                         <p class="m-0" t-field="doc.client_order_ref"/>
                     </div>
-                    <div t-if="doc.confirmation_date and doc.state not in ['draft','sent']"
+                    <div t-if="doc.commitment_date and doc.state not in ['draft','sent']"
                          class="col-auto mw-100 mb-2">
                         <strong>Date Ordered:</strong>
-                        <p class="m-0" t-field="doc.confirmation_date"/>
+                        <p class="m-0" t-field="doc.commitment_date"/>
                     </div>
                     <div t-if="doc.date_order and doc.state in ['draft','sent']"
                          class="col-auto mw-100 mb-2">
@@ -443,7 +443,7 @@
                position="after">
 
             <td>
-                <span t-field="line.product_brand_id"/>
+                <span t-esc="line.product_id.product_brand_id.name"/>
             </td>
         </xpath>
     </template>

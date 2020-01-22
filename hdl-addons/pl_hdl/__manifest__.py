@@ -10,7 +10,7 @@ Theme HDL By Plementus.com.
     'author': "Plementus",
     'website': "http://plementus.com",
     'category': 'Theme',
-    'depends': ['website', 'website_crm'],
+    'depends': ['website'],
     'demo': [
         # 'data/homepage_data.xml',
     ],
@@ -29,7 +29,6 @@ Theme HDL By Plementus.com.
         'views/case_studies_template.xml',
         'views/modern_chalet_template.xml',
         'views/thanks_page_template.xml',
-        'views/contacus_template.xml',
     ],
     'images': ['static/description/main_image.png'],
     'license': 'OPL-1',

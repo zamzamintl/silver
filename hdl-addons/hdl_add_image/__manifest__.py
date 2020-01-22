@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale','purchase','tis_tree_image','stock'],
+    'depends': ['base','sale','purchase','web_tree_image_tooltip','stock'],
 
     # always loaded
     'data': [

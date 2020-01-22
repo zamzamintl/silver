@@ -1,0 +1,250 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_cat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-08 14:30+0000\n"
+"PO-Revision-Date: 2018-06-08 16:32+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 2.0.4\n"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_partner_count
+msgid "# Partners"
+msgstr "# Partners"
+
+#. module: partner_cat
+#: code:addons/partner_cat/models/res_partner.py:67
+#, python-format
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                               Click to Create for Customers\n"
+"                            </p>"
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                               Click to Create for Customers\n"
+"                            </p>"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_property_account_payable_id
+msgid "Account Payable"
+msgstr "دائن"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_property_account_receivable_id
+msgid "Account Receivable"
+msgstr "المدينون"
+
+#. module: partner_cat
+#: model:ir.ui.view,arch_db:partner_cat.res_partner_category_form_view
+msgid "Accounting"
+msgstr "الحسابات"
+
+#. module: partner_cat
+#: model:ir.ui.view,arch_db:partner_cat.res_partner_category_form_view
+msgid "Accounting Entries"
+msgstr "مدخلات المحاسبة"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_allow_credit
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_allow_credit
+msgid "Allow Credit"
+msgstr "السماح بالدفع اجل"
+
+#. module: partner_cat
+#: selection:res.partner.cat,trust:0
+msgid "Bad Debtor"
+msgstr "Bad Debtor"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_id_5874
+#: model:ir.model.fields,field_description:partner_cat.field_res_users_cat_id
+msgid "Category"
+msgstr "الفئة"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_code
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_code
+#: model:ir.model.fields,field_description:partner_cat.field_res_users_code
+msgid "Code"
+msgstr "الكود"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: partner_cat
+#: model:ir.actions.act_window,name:partner_cat.action_view_partner_category
+#: model:ir.ui.menu,name:partner_cat.menu_customers_ctegory
+msgid "Customer Categories"
+msgstr "فئات العملاء"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_property_payment_term_id
+msgid "Customer Payment Terms"
+msgstr "شروط السداد للزبائن"
+
+#. module: partner_cat
+#: code:addons/partner_cat/models/res_partner.py:60
+#, python-format
+msgid "Customers"
+msgstr "العملاء"
+
+#. module: partner_cat
+#: model:ir.ui.view,arch_db:partner_cat.res_partner_category_form_view
+#: model:ir.ui.view,arch_db:partner_cat.res_partner_category_tree_view
+msgid "Customers Categories"
+msgstr "فئات العملاء"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_sale_config_settings_partner_cat
+msgid "Default Partner Category"
+msgstr "فئة العملاء الافتراضية"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_trust
+msgid "Degree of trust you have in this debtor"
+msgstr "درجة الثقة التي لديكم في هذا المدين."
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_edit
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_edit
+#: model:ir.model.fields,field_description:partner_cat.field_res_users_edit
+msgid "Edit"
+msgstr "تحرير"
+
+#. module: partner_cat
+#: model:ir.ui.view,arch_db:partner_cat.res_partner_category_form_view
+msgid "Fiscal Information"
+msgstr "معلومات مالية"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_property_account_position_id
+msgid "Fiscal Position"
+msgstr "الوضع المالي"
+
+#. module: partner_cat
+#: selection:res.partner.cat,trust:0
+msgid "Good Debtor"
+msgstr "Good Debtor"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: partner_cat
+#: selection:res.partner.cat,trust:0
+msgid "Normal Debtor"
+msgstr "Normal Debtor"
+
+#. module: partner_cat
+#: model:ir.model,name:partner_cat.model_res_partner
+msgid "Partner"
+msgstr "شريك"
+
+#. module: partner_cat
+#: code:addons/partner_cat/models/res_partner.py:99
+#, python-format
+msgid "Partner Category %s"
+msgstr "فئة العملاء %s"
+
+#. module: partner_cat
+#: model:ir.ui.view,arch_db:partner_cat.res_partner_category_form_view
+msgid "Purchase"
+msgstr "شراء"
+
+#. module: partner_cat
+#: model:ir.ui.view,arch_db:partner_cat.res_partner_category_form_view
+msgid "Sale"
+msgstr "بيع"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_property_product_pricelist
+msgid "Sale Pricelist"
+msgstr "قائمة اسعار البيع"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_sequence_id
+msgid "Sequence"
+msgstr "المسلسل"
+
+#. module: partner_cat
+#: model:ir.model.fields,help:partner_cat.field_res_partner_cat_property_account_position_id
+msgid "The fiscal position will determine taxes and accounts used for the partner."
+msgstr "الوضع المالي سيحدد الضرائب والحسابات المستخدمة للعميل/الشريك"
+
+#. module: partner_cat
+#: model:ir.model.fields,help:partner_cat.field_res_partner_cat_property_account_payable_id
+msgid "This account will be used instead of the default one as the payable account for the current partner"
+msgstr "سيُستخدم ه1ا الحساب بدلاً من الحساب الافتراضي كحساب الدائن للشريك الحالي"
+
+#. module: partner_cat
+#: model:ir.model.fields,help:partner_cat.field_res_partner_cat_property_account_receivable_id
+msgid "This account will be used instead of the default one as the receivable account for the current partner"
+msgstr "وسيتم استخدام هذا الحساب بدلا من الحساب الافتراضي كحساب المدينون  للشريك الحالي"
+
+#. module: partner_cat
+#: model:ir.model.fields,help:partner_cat.field_res_partner_cat_property_supplier_payment_term_id
+msgid "This payment term will be used instead of the default one for purchase orders and vendor bills"
+msgstr "شرط السداد هذا سيُستخدم بدلاً من الشرط الافتراضي لأوامر الشراء و فواتير المورد. "
+
+#. module: partner_cat
+#: model:ir.model.fields,help:partner_cat.field_res_partner_cat_property_payment_term_id
+msgid "This payment term will be used instead of the default one for sale orders and customer invoices"
+msgstr "سيتم استخدام شرط السداد بدلا من الشرط الافتراضى لأوامر البيع و فواتير العملاء"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_property_supplier_payment_term_id
+msgid "Vendor Payment Terms"
+msgstr "شروط السداد كمورد"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat_name
+msgid "name"
+msgstr "اسم"
+
+#. module: partner_cat
+#: model:ir.model,name:partner_cat.model_res_partner_cat
+msgid "res.partner.cat"
+msgstr "res.partner.cat"
+
+#. module: partner_cat
+#: model:ir.model,name:partner_cat.model_sale_config_settings
+msgid "sale.config.settings"
+msgstr "تخفيض السعر. التكوين. إعدادات"

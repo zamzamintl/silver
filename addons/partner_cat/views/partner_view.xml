@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+
+
+        <record id="view_partner_form_partner_category" model="ir.ui.view">
+            <field name="name">res.partner.form.cat.partner.category</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='type']" position="after">
+                    <field name="cat_id"  required="1"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="res_partner_category_form_view" model="ir.ui.view">
+            <field name="name">res.partner.category.form.view</field>
+            <field name="model">res.partner.cat</field>
+            <field name="arch" type="xml">
+                <form string="Customers Categories">
+                    <sheet>
+
+                        <group>
+                            <field name="name"/>
+                            <field name="type"/>
+                        </group>
+
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="res_partner_category_tree_view" model="ir.ui.view">
+            <field name="name">res.partner.category.tree.view</field>
+            <field name="model">res.partner.cat</field>
+            <field name="arch" type="xml">
+                <tree string="Customers Categories">
+                    <field name="name"/>
+                    <field name="type" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_view_partner_category_partner_cat" model="ir.actions.act_window">
+            <field name="name">Customer Categories</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.cat</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+
+        <menuitem action="action_view_partner_category_partner_cat"
+              id="menu_customers_ctegory" parent="sale.sale_order_menu"
+              sequence="100"/>
+
+    </data>
+</odoo>

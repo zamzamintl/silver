@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="inherit_purchase_order_form" model="ir.ui.view">
+            <field name="name">purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+
+<!--                 <xpath expr="//div[hasclass('oe_button_box')]" position="after">-->
+<!--                     <field name="image" widget='image' class="oe_avatar float-right"/>-->
+<!--                </xpath>-->
+                <xpath expr="//field[@name='order_line']/tree//field[@name='price_subtotal']" position="after">
+                    <field name="image" widget='image' class="oe_avatar" width="18px" height="18px" />
+                </xpath>
+
+
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

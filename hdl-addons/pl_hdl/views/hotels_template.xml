@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Hotels Page Template -->
+    <template id="hotels" name="Hotels">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+              <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pb56 pt64" data-scroll-background-ratio="1" style="background-image: none;">
+                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/hoel.jpg&quot;); background-position: 50% 0px;"/>
+                <div class="container">
+                  <div class="row s_nb_column_fixed">
+                    <div class="col-lg-12 s_title" data-name="Title">
+                      <h2 class="font_2" style="color: rgb(28, 28, 28); margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 84px; line-height: 1em; font-family: &quot;playfair display&quot;, serif; background: 0px 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; pointer-events: auto; text-align: center;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                            <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                              <span class="title_commerical" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">Hotels</span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                    <div class="col-lg-12 s_text pt56 pb0" data-name="Text">
+                      <h2 class="font_2" style="color: rgb(28, 28, 28); margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 17px; line-height: 1.6em; font-family: &quot;playfair display&quot;, serif; background: 0px 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; pointer-events: auto; text-align: center;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; letter-spacing: 0.05em;">
+                            <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: normal;">
+                              <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                  <p class="text_section" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">Providing control of the lighting and environmental systems in both guest rooms, common ways, restaurant and other areas. Integration with the hotel PMS system. Such solutions have been provided for clients such as the Sofitel in Morocco and the Park Hyatt in Sydney, Australia.</p>
+                                </span>
+                              </span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_text_block pt32 pb56">
+                <div class="container">
+                  <div class="row">
+                    <div class="offset-lg-1 pt72 col-lg-11 pb32">
+                      <p class="lead">
+                        <span class="commerical_content" style="color: rgb(28, 28, 28);">Hotels today typically benefit from PMS (Property Management Systems). Linking building control systems with the PMS enables real time reports from each guest room, and speeds up the delivery of guest services. This allows a hotel to allocate services on an as needed basis, saving energy and reducing costs in the process. We even have our own guest room management software which allow hotel staff to focus on the necessities of running a hotel.</span>
+                        <br/>
+                      </p>
+                      <p class="o_default_snippet_text">
+                        <b>
+                          <br/>
+                        </b>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pt64 pb16" data-scroll-background-ratio="1" style="background-image: none;">
+                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/spa.jpg&quot;); background-position: 50% 0px;"/>
+                <div class="container">
+                  <div class="row s_nb_column_fixed">
+                    <div class="col-lg-12 s_title pb40" data-name="Title">
+                      <h2 class="font_2" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 84px; line-height: 1em; font-family: &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; text-align: center;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                            <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: futura-lt-w01-light, sans-serif;">
+                              <span class="title_commerical" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">Spas</span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                    <div class="col-lg-12 s_text pb56 pt40" data-name="Text">
+                      <h2 class="font_2" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 17px; line-height: 1.6em; font-family: &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; text-align: center;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; letter-spacing: 0.05em;">
+                            <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: normal;">
+                              <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                  <p class="text_section" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">A modern spa provides a relaxing and healthy atmosphere to visitors. Colour changing and dimmable lighting, background-music, and integration with other systems allow the facility to run smoothly day after day, resulting in perfectly tailored environment and satisfied guests</p>
+                                </span>
+                              </span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_text_block pt32 pb32">
+                <div class="container">
+                  <div class="row">
+                    <div class="pb32 pt56 col-lg-12">
+                      <p class="lead">
+                        <span class="commerical_content" style="color: rgb(28, 28, 28);">Hospitality is “the act of being friendly and welcoming to guests and visitors”. Venues, such as hotels, spas, restaurants, bars and clubs, make it their primary business to be hospitable. Technology can assist by providing the customer with added comfort and convenience, and the venue with energy-savings, enhanced security, and simple management of systems from a centralised location.</span>
+                        <br/>
+                      </p>
+                      <p class="o_default_snippet_text">
+                        <b>
+                          <br/>
+                        </b>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pt64 pb0" data-scroll-background-ratio="1" style="background-image: none;">
+                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/rest.jpg&quot;); background-position: 50% 0px;"/>
+                <div class="container">
+                  <div class="row s_nb_column_fixed">
+                    <div class="col-lg-12 s_title" data-name="Title">
+                      <h1 class="s_title_thin" style="text-align: center;">
+                        <span style="color: rgb(255, 255, 255); font-size: 62px;">
+                          <span class="title_commerical">Restaurants, Bars &amp;amp; Clubs</span>
+                        </span>
+                      </h1>
+                      <div style="text-align: center;">
+                        <br/>
+                      </div>
+                    </div>
+                    <div class="col-lg-12 s_text pb56 pt40" data-name="Text">
+                      <h2 class="font_2" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 17px; line-height: 1.6em; font-family: &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; text-align: center;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; letter-spacing: 0.05em;">
+                            <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: normal;">
+                              <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                  <p class="text_section" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">Restaurants can consist of a large number of lighting fixtures, all of which need to be controlled and dimmer for different sittings. For example, the “cleaning” mode turns lights up to full brightness, whereas Lunch, Pre-Theatre and Dinner settings provide the ambience for each of these times.</p>
+                                </span>
+                              </span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_text_block pt32 pb0">
+                <div class="container">
+                  <div class="row">
+                    <div class="pb32 pt72 col-lg-12">
+                      <p class="lead">
+                        <span class="commerical_content" style="color: rgb(28, 28, 28); font-size: 18px;">Restaurants, bars and clubs place heavy demands on lighting and environmental systems. We can automate air-conditioning to come on when it gets hot, and provide colour-changing lighting display. HDL solutions are present in the Ambassador Bar in Berlin, and the Mandarin Oriental Lounge in Miami.</span>
+                        <br/>
+                      </p>
+                      <p class="o_default_snippet_text">
+                        <b>
+                          <br/>
+                        </b>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+        </t>
+    </template>
+</odoo>

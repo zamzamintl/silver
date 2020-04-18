@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="inherit_crm_stage_form_view" model="ir.ui.view">
+            <field name="name">crm.stage.form</field>
+            <field name="model">crm.stage</field>
+            <field name="inherit_id" ref="crm.crm_stage_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="stage_fields_ids" widget="many2many_tags"/>
+
+                </xpath>
+
+            </field>
+        </record>
+        <record id="inherit_crm_quotation_partner" model="ir.ui.view">
+            <field name="name">crm.lead2opportunity.partner.form</field>
+            <field name="model">crm.lead2opportunity.partner</field>
+            <field name="inherit_id" ref="crm.view_crm_lead2opportunity_partner"/>
+            <field name="arch" type="xml">
+                <xpath expr="//footer/button[@name='action_apply']" position="replace">
+                    <button name="action_apply_one" string="Create Opportunity" type="object" class="btn-primary"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

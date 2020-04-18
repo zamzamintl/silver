@@ -1,0 +1,100 @@
+<odoo>
+    <template id="pl_header" inherit_id="website.layout" name="HDL Header Layout">
+        <xpath expr="//header" position="replace">
+            <header class="">
+                <div class="top-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 d-md-block">
+                                <ul class="htl-social">
+                                  <li><a href="https://www.facebook.com/304179703572449/" target="_blank"><i class="fa fa-facebook"/></a></li>
+                                  <li><a href="https://twitter.com/HDL_Automation" target="_blank"><i class="fa fa-twitter"/></a></li>
+                                  <li><a href="https://www.instagram.com/hdl.egypt/" target="_blank"><i class="fa fa-instagram"/></a></li>
+                                  <li><a href="https://www.linkedin.com/company/hdl-egypt/" target="_blank"><i class="fa fa-linkedin"/></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 top_icon_contacts">
+                                <div class="ht-right">
+                                     <div class="h-col">
+                                          <i class="fa fa-phone"/> +20120888688
+                                     </div>
+                                </div><!-- .ht-right -->
+                                <div class="ht-right ">
+                                    <div class="h-col">
+                                        <i class="fa fa-envelope-o"/> info@hdlegypt.com
+                                    </div>
+                                </div><!-- .ht-right -->
+                            </div> <!-- col -->
+                        </div> <!-- row -->
+                    </div> <!-- container -->
+                </div>
+                <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <div class="container">
+                    <a href="/" class="navbar-brand logo">
+                        <span data-oe-model="website" data-oe-id="1" data-oe-field="logo" data-oe-type="image" data-oe-expression="website.logo" role="img" aria-label="Logo of My Website" title="My Website">
+                            <img src="/web/image/website/1/logo/My%20Website?unique=bde7a04" class="img img-fluid" alt="My Website" />
+                        </span>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#top_menu_collapse" data-oe-model="ir.ui.view">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="top_menu_collapse" aria-expanded="false">
+                        <ul class="nav navbar-nav ml-auto" id="top_menu">
+                            <li class="nav-item">
+                                <a t-att-class="'nav-link active' if pageName == 'homepage' else 'nav-link'" href="/">
+                                  Home
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a t-att-class="'nav-link active' if pageName == 'solutions' else 'nav-link'" role="menuitem">
+                                    SOLUTION <i class="fa fa-angle-down "></i>
+                                </a>
+                                <ul class="nav-item-sub-menu">
+                                    <li>
+                                        <a href="/commercial">COMMERCIAL</a>
+                                    </li>
+                                    <li>
+                                        <a href="/residential">RESIDENTIAL</a>
+                                    </li>
+                                    <li>
+                                        <a href="/hotels">HOTELS</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a t-att-class="'nav-link active' if pageName == 'products' else 'nav-link'" role="menuitem" href="/products">
+                                   PRODUCTS
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a role="menuitem" class="nav-link ">
+                                    ABOUT HDL <i class="fa fa-angle-down "></i>
+                                </a>
+                                <ul class="nav-item-sub-menu">
+                                    <li>
+                                        <a href="/about">ABOUT</a>
+                                    </li>
+                                    <li>
+                                        <a href="case_studies">CASE STUDIES</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a t-att-class="'nav-link active' if pageName == 'news' else 'nav-link'" role="menuitem" href="/news">
+                                    NEWS &amp; EVENTS
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a t-att-class="'nav-link active' if pageName == 'partners' else 'nav-link'" role="menuitem" href="/partners">
+                                    OUR PARTNERS
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            </header>
+        </xpath>
+    </template>
+</odoo>

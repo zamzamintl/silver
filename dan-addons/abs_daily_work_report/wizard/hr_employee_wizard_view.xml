@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Added one wizard view for hr.employee -->
+    <record id="open_hr_employee_wizard_form" model="ir.ui.view">
+        <field name="name">hr.employee.wizard.form</field>
+        <field name="model">hr.employee.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Employee Status Report">
+                <field name="message" readonly="1"/>
+              <footer>
+               <button string="OK" class="btn-primary" special="cancel"/>
+              </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

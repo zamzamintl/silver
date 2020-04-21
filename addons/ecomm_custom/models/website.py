@@ -1,11 +1,12 @@
-from odoo.addons.website.controllers.main import Website
-from odoo.addons.sale.controllers.product_configurator import ProductConfiguratorController
-import logging 
-_logger = logging.getLogger(__name__)
+
 from odoo import api, fields ,models
 from odoo.exceptions import ValidationError 
 from odoo.http import request
-class website_cust(ProductConfiguratorController):
+from odoo import fields, http, SUPERUSER_ID, tools, _
+from odoo.http import request
+import logging 
+_logger = logging.getLogger(__name__)
+class website_cust(http.Controller):
     def values_postprocess(self, order, mode, values, errors, error_msg):
         _logger.info("ffffffffffffffff")
         _logger.info("values_postprocess")
@@ -17,7 +18,7 @@ class website_cust(ProductConfiguratorController):
         for k, v in values.items():
             _logger.info("KKKKK")
             _logger.info(k)
-            _logger.info(v)
+            _logger.info(v)s
             # don't drop empty value, it could be a field to reset
             if k=='mobile' or k=='floor'or k=='block':
                 new_values[k] = v

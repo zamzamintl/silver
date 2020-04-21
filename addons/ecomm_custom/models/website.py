@@ -18,7 +18,7 @@ class website_cust(http.Controller):
         for k, v in values.items():
             _logger.info("KKKKK")
             _logger.info(k)
-            _logger.info(v)s
+            _logger.info(v)
             # don't drop empty value, it could be a field to reset
             if k=='mobile' or k=='floor'or k=='block':
                 new_values[k] = v

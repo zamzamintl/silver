@@ -6,4 +6,9 @@
   </xpath>
 </template>
 
+<template id="invoice_un_tax_report_custom" inherit_id="account.report_invoice_document">
+   <xpath expr="//address[@t-field='o.partner_id']" position="after">
+  <p t-if="o.partner_id.phone"><t t-esc="o.partner_id.phone"/></p>
+  </xpath></template>
+
 </odoo>

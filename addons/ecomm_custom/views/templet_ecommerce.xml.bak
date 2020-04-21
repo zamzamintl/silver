@@ -1,0 +1,14 @@
+<odoo>
+<template inherit_id="website_sale.address" id="edit_page">
+ 
+	<xpath expr="//div[@id='div_phone']" position="after">
+	<t t-if="mode[1] == 'billing'"><div t-attf-class="form-group #{error.get('floor') and 'o_has_error' or ''} col-lg-6" id="div_floor">
+	     <label class="col-form-label" for="Floor">Floor</label>
+             <input type="text" name="floor" t-attf-class="form-control #{error.get('floor') and 'is-invalid' or ''}" t-att-value="'floor' in checkout and checkout['floor']" /></t>
+			 </div></t>
+			 <div t-attf-class="form-group #{error.get('block') and 'o_has_error' or ''} col-lg-6" id="div_block">
+			 <label class="col-form-label" for="block">block</label>
+             <input type="text" name="floor" t-attf-class="form-control #{error.get('block') and 'is-invalid' or ''}" t-att-value="'block' in checkout and checkout['block']" /></div>
+	</xpath>
+	</template>
+	</odoo>

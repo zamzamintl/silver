@@ -1,12 +1,15 @@
-
+from odoo.addons.website.controllers.main import Website
+from odoo.addons.website_sale.controllers.main import WebsiteSale
+import logging 
+from odoo import fields, http, tools, _
+from odoo.http import request
+_logger = logging.getLogger(__name__)
 from odoo import api, fields ,models
 from odoo.exceptions import ValidationError 
 from odoo.http import request
-from odoo import fields, http, SUPERUSER_ID, tools, _
-from odoo.http import request
-import logging 
-_logger = logging.getLogger(__name__)
-class website_cust(http.Controller):
+class website_cust(WebsiteSale):
+     
+
     def values_postprocess(self, order, mode, values, errors, error_msg):
         _logger.info("ffffffffffffffff")
         _logger.info("values_postprocess")
@@ -45,8 +48,18 @@ class website_cust(http.Controller):
         _logger.info("new value")
         _logger.info(new_values)
         return new_values, errors, error_msg
-
+    @http.route(['/add_all/product/<model("product.template"):product>'], type='http', auth="public", website=True)
+    def product_ppp(self, product, category='', search='',add_qty=1, **kwargs):
+        _logger.info("Add NEW ")
+        _logger.info(kwargs)
+        _logger.info(product)
+        product_twmp=request.env['product.product'].search([('product_tmpl_id','=',product.id)]).id
+        _logger.info(product_twmp)
+        self.cart_update(product_twmp)
+        
+        return request.redirect('/shop')
 class partner((models.Model)):
     _inherit="res.partner"
     floor=fields.Char("Floor")
     block=fields.Char("Block")
+ 

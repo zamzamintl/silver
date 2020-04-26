@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+treasury_planning_treasury_sales,access_treasury_forecast_sales,model_treasury_forecast,sales_team.group_sale_salesman,1,1,0,0

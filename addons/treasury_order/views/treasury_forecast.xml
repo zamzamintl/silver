@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<odoo>
+<data>
+
+    <record id="view_treasury_forecast_form_add_orders" model="ir.ui.view">
+        <field name="name">view.treasury.forecast.form.add.orders</field>
+        <field name="model">treasury.forecast</field>
+        <field name="inherit_id" ref="treasury_forecast.view_treasury_forecast_form"/>
+        <field name="arch" type="xml">
+            <page name="payables" position="after">
+                <page name="sales" string="Sales">
+                    <field name="sale_order_ids">
+                        <tree editable="True">
+                            <field name="name" readonly="1"/>
+                            <field name="partner_id" readonly="1"/>
+                            <field name="amount_total" readonly="1"/>
+                            <field name="amount_main_currency" readonly="1"/>
+                            <field name="treasury_date"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="purchases" string="Purchases">
+                    <field name="purchase_order_ids">
+                        <tree editable="True">
+                            <field name="name" readonly="1"/>
+                            <field name="partner_id" readonly="1"/>
+                            <field name="amount_total" readonly="1"/>
+                            <field name="amount_main_currency" readonly="1"/>
+                            <field name="treasury_date"/>
+                        </tree>
+                    </field>
+                </page>
+        </page>
+        </field>
+    </record>
+
+</data>
+</odoo>

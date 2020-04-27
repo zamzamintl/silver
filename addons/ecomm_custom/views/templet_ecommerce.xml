@@ -18,9 +18,9 @@
 	  <t t-set="product_href_all" t-value="keep('/add_all/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))"/>
 	  
 	</xpath>
-	<xpath expr="//form/div/div[@class='o_wsale_product_btn']" position="before">
+	<xpath expr="//form/div/section/h6" position="before">
   
-	 <a role="button"   t-att-href="product_href_all" style="text-align: center;"><span class="fa fa-shopping-cart"/></a>
+	 <a role="button"   t-att-href="product_href_all" style="float: right;background-color:black"><span class="fa fa-shopping-cart"/></a>
 	 
 	</xpath>
 	</template>

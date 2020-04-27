@@ -10,14 +10,18 @@ from odoo.http import request
 class website_cust(WebsiteSale):
      
 
-    """def values_postprocess(self, order, mode, values, errors, error_msg):
-        
+    def values_postprocess(self, order, mode, values, errors, error_msg):
+        _logger.info("ffffffffffffffff")
+        _logger.info("values_postprocess")
         new_values = {}
         authorized_fields = request.env['ir.model']._get('res.partner')._get_form_writable_fields()
          
-        
+        _logger.info(values)
+        _logger.info(authorized_fields)
         for k, v in values.items():
-            
+            _logger.info("KKKKK")
+            _logger.info(k)
+            _logger.info(v)
             # don't drop empty value, it could be a field to reset
             if k=='mobile' or k=='floor'or k=='block':
                 new_values[k] = v
@@ -41,8 +45,9 @@ class website_cust(WebsiteSale):
         if mode[1] == 'shipping':
             new_values['parent_id'] = order.partner_id.commercial_partner_id.id
             new_values['type'] = 'delivery'
-        
-        return new_values, errors, error_msg"""
+        _logger.info("new value")
+        _logger.info(new_values)
+        return new_values, errors, error_msg
     @http.route(['/add_all/product/<model("product.template"):product>'], type='http', auth="public", website=True)
     def product_ppp(self, product, category='', search='',add_qty=1, **kwargs):
         _logger.info("Add NEW ")
@@ -51,6 +56,7 @@ class website_cust(WebsiteSale):
         product_twmp=request.env['product.product'].search([('product_tmpl_id','=',product.id)]).id
         _logger.info(product_twmp)
         self.cart_update(product_twmp)
+        
         return request.redirect('/shop')
 class partner((models.Model)):
     _inherit="res.partner"

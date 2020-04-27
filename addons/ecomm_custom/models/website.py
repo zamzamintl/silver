@@ -144,7 +144,7 @@ class website_cust(WebsiteSale):
             'country': country,
             'countries': country.get_website_sale_countries(mode=mode[1]),
             "states": country.get_website_sale_states(mode=mode[1]),
-            "region":country.get_website_sale_region(mode=mode[1]),
+             
             'error': errors,
             'region_id':region_id,
             'region_id_2':region_id_2,

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<!-- Translatable template -->
+ 
+
+<template id="saleorder_sum_report">
+        
+          <t t-call="web.html_container">
+
+
+		   <t t-call="web.external_layout">
+		       		     
+
+                <div class="page">
+ 
+				    <h2 style="text-align:center;color:grey">Customer Details <span t-esc="sales_rep"/></h2>
+                      <table align="right" class="table table-bordered">
+                      <thead>
+						<tr style="color:blue">
+							<th>Customer</th>
+							<th>Address</th>
+							<th>Phone</th>
+						  </tr>
+						  </thead> 
+					 
+					
+                   <tbody>
+						  <t t-foreach="cst" t-as="r">
+                          <tr>
+						      <td >
+														<t t-esc="r['name']"/>
+													</td>
+													 <td>
+														<t t-esc="r['address']"/>
+													</td>
+													<td>
+														<t t-esc="r['phone']"/>
+													</td>
+						  </tr>
+						  </t>
+						  </tbody>
+				   </table>
+					 
+                </div>
+				 
+            </t>
+		 <t t-call="web.external_layout">
+		       		     
+
+                <div class="page">
+ 
+				    <h2 style="text-align:center;color:grey">Sale Sum Report  <span t-esc="sales_rep"/></h2>
+                      <table align="right" class="table table-bordered">
+                      <thead>
+						<tr style="color:blue">
+							<th>Product</th>
+							<th>Quantity</th>
+						  </tr>
+						  </thead> 
+					 
+					
+                   <tbody>
+						  <t t-foreach="list_qty" t-as="o">
+                          <tr>
+						      <td >
+														<t t-esc="o['product']"/>
+													</td>
+													 <td>
+														<t t-esc="o['qty']"/>
+													</td>
+						  </tr>
+						  </t>
+						  </tbody>
+				   </table>
+					 
+                </div>
+				 
+            </t>
+			
+			</t>
+    </template>
+	
+        
+</odoo>

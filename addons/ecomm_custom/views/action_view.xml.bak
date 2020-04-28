@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <record id="action_state_region" model="ir.actions.act_window">
+            <field name="name">Region Action</field>
+            <field name="res_model">res.country.state</field>
+            <field name="view_mode">tree,form</field>
+			 <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('state_area_tree_reion')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('state_area_form')})]"/>
+			 <field name="domain">[('region', '!=', False)]</field>
+           
+        </record>
+
+</odoo>

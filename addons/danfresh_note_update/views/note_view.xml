@@ -29,7 +29,7 @@
                     </div>
                     <h1>
                         <field name="name" default_focus="1"
-                               placeholder="Name"/>
+                               placeholder="Name" required="1"/>
                     </h1>
                 </div>
             </xpath>

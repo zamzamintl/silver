@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <menuitem name="Region" id="state_region" parent="sale.sale_menu_root" 
+                   action="action_state_region" />
+</odoo>

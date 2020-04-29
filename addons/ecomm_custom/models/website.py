@@ -54,8 +54,7 @@ class website_cust(WebsiteSale):
         return request.redirect('/shop')
     @http.route(['/shop/address'], type='http', methods=['GET', 'POST'], auth="public", website=True, sitemap=False)
     def address(self, **kw):
-        _logger.info("address")
-        _logger.info(kw)
+       
         Partner = request.env['res.partner'].with_context(show_address=1).sudo()
         _logger.info(Partner)
         order = request.website.sale_get_order()
@@ -129,14 +128,10 @@ class website_cust(WebsiteSale):
         country = 'country_id' in values and values['country_id'] != '' and request.env['res.country'].browse(int(values['country_id']))
         country = country and country.exists() or def_country_id
         region_id=request.env['state.region1'].search([])
-        #regions='region_id' in values and values['region_id'] != '' and request.env['res.country'].browse(int(values['state.region1']))
+        
         region_id_2=request.env['state.region2'].search([])
         region_id_3=request.env['state.region'].search([])
-        _logger.info("region1111")
-        _logger.info(region_id)
-        _logger.info(regions)
-
-        
+       
         render_values = {
             'website_sale_order': order,
             'partner_id': partner_id,

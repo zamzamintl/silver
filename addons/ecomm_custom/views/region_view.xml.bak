@@ -1,67 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-       <record id="state_area_form" model="ir.ui.view">
-            <field name="name">state_area_form</field>
+
+<record id="state_area_area_parition" model="ir.ui.view">
+            <field name="name">state_area_area_parition</field>
             <field name="model">state.region</field>
             
             <field name="arch" type="xml">
-                <form>
-				  <group>
-				    <field name="state_id" required="1"/>
-					<field name="region1" required="1"/>
-					<field name="region2" required="1"/>
-
-					
-					<field name="name" required="1"/>
-				  </group>
-				</form>
-		    </field>
-           
-        </record>
-		<record id="state_area_form1" model="ir.ui.view">
-            <field name="name">state_area_form1</field>
+                <tree editable="top">
+				 <field name="state_id"/>
+				 <field name="region1"/>
+				 <field name="region2"/>
+				 <field name="name"/>
+				</tree>
+		</field>
+</record>
+<record id="state_area_area_tree" model="ir.ui.view">
+            <field name="name">state_area_area_tree</field>
+            <field name="model">state.region1</field>
+            
+            <field name="arch" type="xml">
+                <tree>
+				 <field name="state_id"/>
+				 <field name="name"/>
+				</tree>
+		</field>
+</record>
+<record id="state_area_district_tree" model="ir.ui.view">
+            <field name="name">state_area_district_tree</field>
+            <field name="model">state.region2</field>
+            
+            <field name="arch" type="xml">
+                <tree>
+				 <field name="region1"/>
+				 <field name="name"/>
+				</tree>
+		</field>
+</record>
+   <record id="state_area_area" model="ir.ui.view">
+            <field name="name">state_area_area</field>
             <field name="model">state.region1</field>
             
             <field name="arch" type="xml">
                 <form>
-				  <group>
+				  <group> 
 				    <field name="state_id" required="1"/>
-					<field name="name" required="1"/>
+					<field name="name" required="1"/> 
+					 
+					<field name="region2" required="1">
+					<tree editable="top">
+					 <field name="name"/> </tree>
+					</field> 
+ 
 				  </group>
 				</form>
 		    </field>
-           
-        </record>
-		<record id="state_area_form2" model="ir.ui.view">
-            <field name="name">state_area_form2</field>
+			</record>
+			<record id="state_area_district" model="ir.ui.view">
+            <field name="name">state_area_district</field>
             <field name="model">state.region2</field>
             
             <field name="arch" type="xml">
                 <form>
 				  <group>
-				    <field name="state_id" required="1"/>
+				    <field name="name" required="1"/>
+					<field name="region1" required="1"/> 
+					 <field name="region3">
+					  <tree editable="top">
+					   <field name="name"/>
+					  </tree>
+					</field> 
+
 					
-					<field name="name" required="1"/>
+					 
 				  </group>
 				</form>
 		    </field>
-           
-        </record>
-		 <record id="state_area_tree" model="ir.ui.view">
-            <field name="name">state_area_tree</field>
-            <field name="model">state.region</field>
-            
-            <field name="arch" type="xml">
-                <tree>
-				  <field name="state_id" required="1"/>
-					<field name="region1" required="1"/>
-					<field name="region2" required="1"/>
-
-					
-					<field name="name" required="1"/>
-				  
-				</tree>
-		    </field>
-           
-        </record>
+			</record>
+   
+		 
 </odoo>

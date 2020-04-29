@@ -129,10 +129,12 @@ class website_cust(WebsiteSale):
         country = 'country_id' in values and values['country_id'] != '' and request.env['res.country'].browse(int(values['country_id']))
         country = country and country.exists() or def_country_id
         region_id=request.env['state.region1'].search([])
+        #regions='region_id' in values and values['region_id'] != '' and request.env['res.country'].browse(int(values['state.region1']))
         region_id_2=request.env['state.region2'].search([])
         region_id_3=request.env['state.region'].search([])
         _logger.info("region1111")
         _logger.info(region_id)
+        _logger.info(regions)
 
         
         render_values = {
@@ -154,6 +156,7 @@ class website_cust(WebsiteSale):
             'only_services': order and order.only_services,
         }
         return request.render("website_sale.address", render_values)
+     
     def _get_mandatory_billing_fields(self):
         _logger.info("_get_mandatory_billing_fields")
         return ["name", "email", "street", "city", "country_id","floor","block","region_id","region_id_3","region_id_2"]   

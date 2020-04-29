@@ -3,6 +3,8 @@ from dateutil.relativedelta import relativedelta
 import datetime
 import logging
 import pytz
+import operator
+from collections import OrderedDict
 from collections import OrderedDict
 _logger = logging.getLogger(__name__)
 
@@ -11,44 +13,31 @@ class ReportProductSale(models.AbstractModel):
     _name = "report.sales_sum.saleorder_sum_report"
     def _get_report_values(self, docids, data=None):
         docs = self.env['sale.order'].browse(docids)
-        _logger.info("OOO")
-        _logger.info(docs)
+              
+         
         product_list=[]
         customer_list,cst=[],[]
         sales_rep_list=[]
+        ids=[]
         sales_rep=''
         
         for rec in docs.order_line:
+            ids.append(rec.order_id.id)
             product_list.append(rec.product_id.id)
-            customer_list.append(rec.order_id.partner_id.id)
             sales_rep_list.append(rec.order_id.user_id.id)
-        #{'id':rec.order_id.partner_id.id,'address':rec.order_id.partner_id.street,'name':rec.order_id.partner_id.street,'phone':rec.order_id.partner_id.phone}
-        customer_list=list(OrderedDict.fromkeys(customer_list))
+        sales_orders=self.env['sale.order'].search([('id','in',ids),order='id asc'])
         sales_rep_list=list(OrderedDict.fromkeys(sales_rep_list))
         if len(sales_rep_list)==1:
             sales_rep=self.env['res.users'].search([('id','=',sales_rep_list)]).name
-        for customer in customer_list:
-            total=0
-            partner_id=self.env['res.partner'].search([('id','=',customer)])
-            if partner_id:
-                address=partner_id.street+"-"+partner_id.city+"-"+partner_id.state_id.name
-                for rlt in docs:
-                    if rlt.partner_id.id==customer:
-                       total+=rlt.amount_total
-
-                cst.append({'address':address,'name':partner_id.name,'phone':partner_id.phone,'total':total})
-
-
-        _logger.info("Customer")
-        _logger.info(customer_list)
+        
+        for rlt in sales_orders:
+            partner_id=rlt.partner_id
+            address=partner_id.street+"-"+partner_id.city+"-"+partner_id.state_id.name
+            cst.append({'id':rlt.id,'address':address,'name':partner_id.name,'phone':partner_id.phone,'SO':rlt.name,'total':rlt.amount_total})
+         
+         
         product_list=list(OrderedDict.fromkeys(product_list))
         list_qty=[]
-        
-        
-      
-
-        _logger.info("PPPPPPPPP")
-        _logger.info(product_list)
         for pro in product_list:
             qty=0
             so=''
@@ -57,8 +46,8 @@ class ReportProductSale(models.AbstractModel):
                 for order in docs.order_line:
                     if pro ==order.product_id.id :
                         qty+=order.product_uom_qty
-                        so+=order.name+"  "
-                list_qty.append({'product':pro_name.name,'qty':qty,'so':so})
+                        so+=order.order_id.name+"  "
+                list_qty.append({'product':pro_name.name,'qty':qty})
         _logger.info(list_qty)
         return {
             'doc_ids': docs.ids,

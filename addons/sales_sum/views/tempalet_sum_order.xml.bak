@@ -85,6 +85,9 @@
 													 <td>
 														<t t-esc="o['qty']"/>
 													</td>
+													<td>
+														<t t-esc="o['so']"/>
+													</td>
 						  </tr>
 						  <t t-set="j" t-value="j+1"/>
 						  </t>

@@ -23,6 +23,7 @@
 							<th>Customer</th>
 							<th>Address</th>
 							<th>Phone</th>
+							<th>SO</th>
 							<th>Total amount</th>
 						  </tr>
 						  </thead> 
@@ -47,6 +48,9 @@
 													<td>
 														<t t-esc="r['total']"/>
 													</td>
+													<td>
+														<t t-esc="r['SO']"/>
+													</td>
 						  </tr>
 						  <t t-set="i" t-value="i+1"/>
 						  </t>
@@ -68,7 +72,7 @@
 						    <th>seq</th>
 							<th>Product</th>
 							<th>Quantity</th>
-							<th>SO</th>
+							
 						  </tr>
 						  </thead> 
 					 
@@ -85,9 +89,7 @@
 													 <td>
 														<t t-esc="o['qty']"/>
 													</td>
-													<td>
-														<t t-esc="o['so']"/>
-													</td>
+													 
 						  </tr>
 						  <t t-set="j" t-value="j+1"/>
 						  </t>

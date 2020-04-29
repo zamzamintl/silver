@@ -129,7 +129,7 @@ class website_cust(WebsiteSale):
         country = 'country_id' in values and values['country_id'] != '' and request.env['res.country'].browse(int(values['country_id']))
         country = country and country.exists() or def_country_id
         region_id=request.env['state.region1'].search([])
-        regions='region_id' in values and values['region_id'] != '' and request.env['res.country'].browse(int(values['state.region1']))
+        #regions='region_id' in values and values['region_id'] != '' and request.env['res.country'].browse(int(values['state.region1']))
         region_id_2=request.env['state.region2'].search([])
         region_id_3=request.env['state.region'].search([])
         _logger.info("region1111")

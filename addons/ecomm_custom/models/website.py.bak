@@ -156,14 +156,7 @@ class website_cust(WebsiteSale):
             'only_services': order and order.only_services,
         }
         return request.render("website_sale.address", render_values)
-    @http.route(['/shop/country_infos/<model("res.country"):country>'], type='json', auth="public", methods=['POST'], website=True)
-    def country_infos(self, country, mode, **kw):
-        _logger.info("country_infos")
-        return dict(
-            fields=country.get_address_fields(),
-            states=[(st.id, st.name, st.code,st.region) for st in country.get_website_sale_states(mode=mode)],
-            phone_code=country.phone_code
-        )
+     
     def _get_mandatory_billing_fields(self):
         _logger.info("_get_mandatory_billing_fields")
         return ["name", "email", "street", "city", "country_id","floor","block","region_id","region_id_3","region_id_2"]   

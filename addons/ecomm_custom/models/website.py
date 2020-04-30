@@ -134,7 +134,7 @@ class website_cust(WebsiteSale):
         region_id_3=request.env['state.region'].search([])
         _logger.info("region1111")
         _logger.info(region_id)
-        _logger.info(regions)
+        
 
         
         render_values = {

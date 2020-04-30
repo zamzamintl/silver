@@ -1,0 +1,27 @@
+<odoo>
+<template inherit_id="website_sale.address" id="edit_page">
+ 
+	<xpath expr="//div[@id='div_phone']" position="after">
+	<t t-if="mode[1] == 'billing'"><div t-attf-class="form-group #{error.get('floor') and 'o_has_error' or ''} col-lg-6" id="div_floor">
+	     <label class="col-form-label" for="Floor">Floor</label>
+             <input type="text" name="floor" t-attf-class="form-control #{error.get('floor') and 'is-invalid' or ''}" t-att-value="'floor' in checkout and checkout['floor']" />
+			 </div></t>
+			 <div t-attf-class="form-group #{error.get('block') and 'o_has_error' or ''} col-lg-6" id="div_block">
+			 <label class="col-form-label" for="block">block</label>
+             <input type="text" name="floor" t-attf-class="form-control #{error.get('block') and 'is-invalid' or ''}" t-att-value="'block' in checkout and checkout['block']" /></div>
+	</xpath>
+	</template>
+
+	<template inherit_id="website_sale.products_item" id="edit_page_addcart">
+ 
+	<xpath expr="//form" position="before">
+	  <t t-set="product_href_all" t-value="keep('/add_all/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))"/>
+	  
+	</xpath>
+	<xpath expr="//form/div/section/h6" position="before">
+  
+	 <a role="button"   t-att-href="product_href_all" style="float: right;"><span class="fa fa-shopping-cart"/></a>
+	 
+	</xpath>
+	</template>
+	</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <record id="action_state_region" model="ir.actions.act_window">
+            <field name="name">Region Action</field>
+            <field name="res_model">state.region</field>
+            <field name="view_mode">tree,form</field>
+           
+        </record>
+
+</odoo>

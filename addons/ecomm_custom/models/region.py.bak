@@ -19,7 +19,7 @@ class region2(models.Model):
     _name='state.region2'
     name=fields.Char("District")
     region1=fields.Many2one('state.region1',string='Area')
-    region3=fields.One2many('state.region','region1',string='Partition')
+    region3=fields.One2many('state.region','region2',string='Partition')
 class region3(models.Model):
     _name='state.region'
     state_id=fields.Many2one('res.country.state',string="City")

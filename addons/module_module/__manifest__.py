@@ -8,7 +8,7 @@ Sum quantity of some of order
 ===================================================
 """,
     'depends': ['sale','base'],
-    'data': ['views/menu.xml','views/action.xml'],
+    'data': ['views/action.xml','views/menu.xml'],
      
     'installable': True,
     'auto_install': True,

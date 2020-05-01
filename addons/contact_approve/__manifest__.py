@@ -10,5 +10,5 @@
     
     'version': '0.1',
     'depends': ['base','purchase','sale'],
-    'data':['views/partner_view.xml']
+    'data':['views/partner_view.xml','secuirty/manger_approve.xml']
 }

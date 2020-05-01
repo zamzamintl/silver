@@ -7,8 +7,10 @@
         <field name="arch" type="xml">
 		 <xpath expr="//form/div[@class='alert alert-warning oe_edit_only']" position="before">
 		 <header>
-		 <button name="action_approve"   type="object" string="Approve" class="btn-primary" attrs="{'invisible':[('state','=','Approve')]}"/>
-		 <field name="state" widget="statusbar" statusbar_visible="Draft,Approve"/>
+		 
+		 <button name="action_wait_approve"   type="object" string="Confirm" class="btn-primary" attrs="{'invisible':[('state','in',('Approve','wait_approve'))]}"/>
+		 <button name="action_approve"   type="object" string="Approve" class="btn-primary" attrs="{'invisible':[('state','in',('Approve','Draft'))]}" groups="contact_approve.view_contact_approve"/>
+		 <field name="state" widget="statusbar" statusbar_visible="Draft,wait_approve,Approve"/>
 		 </header></xpath>
 		</field>
 	</record>

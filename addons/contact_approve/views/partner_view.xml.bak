@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="inherited_view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+		 <xpath expr="//form/div[@class='alert alert-warning oe_edit_only']" position="before">
+		 <header>
+		 <button name="action_approve"   type="object" string="Approve" class="btn-primary" attrs="{'invisible':[('state_list','=','Approve')]}"/>
+		 <field name="state_list" widget="statusbar" statusbar_visible="Draft,Approve"/>
+		 </header></xpath>
+		</field>
+	</record>
+	</odoo>

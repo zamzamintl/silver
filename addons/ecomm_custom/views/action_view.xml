@@ -1,25 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<<<<<<< HEAD
-   <record id="action_state_area" model="ir.actions.act_window">
-            <field name="name">Area Action</field>
-            <field name="res_model">state.region1</field>
-            <field name="view_mode">tree,form</field>
-           
-        </record>
-		<record id="action_state_destrict" model="ir.actions.act_window">
-            <field name="name">destrict Action</field>
-            <field name="res_model">state.region2</field>
-            <field name="view_mode">tree,form</field>
-           
-        </record>
-		<record id="action_state_partition" model="ir.actions.act_window">
-            <field name="name">action_state_partition</field>
-=======
    <record id="action_state_region" model="ir.actions.act_window">
             <field name="name">Region Action</field>
->>>>>>> 8038198f37afc1a451b523300e913853ad37fe97
             <field name="res_model">state.region</field>
             <field name="view_mode">tree,form</field>
            

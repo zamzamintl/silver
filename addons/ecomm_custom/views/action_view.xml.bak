@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+<<<<<<< HEAD
    <record id="action_state_area" model="ir.actions.act_window">
             <field name="name">Area Action</field>
             <field name="res_model">state.region1</field>
@@ -11,6 +12,16 @@
             <field name="name">destrict Action</field>
             <field name="res_model">state.region2</field>
             <field name="view_mode">tree,form</field>
+=======
+   <record id="action_state_region" model="ir.actions.act_window">
+            <field name="name">Region Action</field>
+            <field name="res_model">res.country.state</field>
+            <field name="view_mode">tree,form</field>
+			 <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('state_area_tree_reion')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('state_area_form')})]"/>
+			 <field name="domain">[('region', '!=', False)]</field>
+>>>>>>> 8038198f37afc1a451b523300e913853ad37fe97
            
         </record>
 

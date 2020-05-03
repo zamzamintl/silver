@@ -54,8 +54,12 @@ class website_cust(WebsiteSale):
         return request.redirect('/shop')
     @http.route(['/shop/address'], type='http', methods=['GET', 'POST'], auth="public", website=True, sitemap=False)
     def address(self, **kw):
+<<<<<<< HEAD
         _logger.info("address")
         _logger.info(kw)
+=======
+       
+>>>>>>> 8038198f37afc1a451b523300e913853ad37fe97
         Partner = request.env['res.partner'].with_context(show_address=1).sudo()
         _logger.info(Partner)
         order = request.website.sale_get_order()
@@ -125,6 +129,7 @@ class website_cust(WebsiteSale):
                 order.message_partner_ids = [(4, partner_id), (3, request.website.partner_id.id)]
                 if not errors:
                     return request.redirect(kw.get('callback') or '/shop/confirm_order')
+<<<<<<< HEAD
 
         country = 'country_id' in values and values['country_id'] != '' and request.env['res.country'].browse(int(values['country_id']))
         country = country and country.exists() or def_country_id
@@ -137,6 +142,16 @@ class website_cust(WebsiteSale):
         
 
         
+=======
+
+        country = 'country_id' in values and values['country_id'] != '' and request.env['res.country'].browse(int(values['country_id']))
+        country = country and country.exists() or def_country_id
+        region_id=request.env['state.region1'].search([])
+        
+        region_id_2=request.env['state.region2'].search([])
+        region_id_3=request.env['state.region'].search([])
+       
+>>>>>>> 8038198f37afc1a451b523300e913853ad37fe97
         render_values = {
             'website_sale_order': order,
             'partner_id': partner_id,

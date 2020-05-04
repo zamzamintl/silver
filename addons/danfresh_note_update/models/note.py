@@ -18,7 +18,7 @@ from odoo.exceptions import ValidationError, UserError
 class Note(models.Model):
     _inherit = 'note.note'
 
-    name = fields.Char('Title', required=True)
+    name = fields.Char('Title')
     task_id = fields.Many2one('project.task','Task')
 
     def action_create_task(self):

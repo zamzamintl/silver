@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <template id="assets_backend" name="message_compose_assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/message_compose_popup/static/src/js/chatter_override.js" />
+            </xpath>
+        </template>
+    </data>
+</odoo>

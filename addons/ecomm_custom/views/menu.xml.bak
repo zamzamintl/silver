@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<<<<<<< HEAD
-     <menuitem name="Regions" id="state_region" parent="sale.sale_menu_root" 
-                  />
+     <!--<menuitem name="Regions" id="state_region" parent="sale.sale_menu_root" 
+                  />-->
 	<menuitem name="Area" id="state_area_menu" parent="state_region" 
                    action="action_state_area" />
 	 <menuitem name="District" id="state_district" parent="state_region" 
                    action="action_state_destrict" />
 				   <menuitem name="Partition" id="state_Partition" parent="state_region" 
-                   action="action_state_Partition" />
+                   action="action_state_partition" />
 				    
-=======
-     <menuitem name="Region" id="state_region" parent="sale.sale_menu_root" 
-                    />
->>>>>>> 8038198f37afc1a451b523300e913853ad37fe97
 </odoo>

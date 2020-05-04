@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-     <menuitem name="Region" id="state_region" parent="sale.sale_menu_root" 
-                   action="action_state_region" />
+     <!--<menuitem name="Regions" id="state_region" parent="sale.sale_menu_root" 
+                  />-->
+	<menuitem name="Area" id="state_area_menu" parent="contacts.menu_localisation" 
+                   action="action_state_area" sequence="4"/>
+	 <menuitem name="District" id="state_district" parent="contacts.menu_localisation" 
+                   action="action_state_destrict" sequence="5"/>
+				   <menuitem name="Partition" id="state_Partition" parent="contacts.menu_localisation" 
+                   action="action_state_partition" sequence="6" />
+				    
 </odoo>

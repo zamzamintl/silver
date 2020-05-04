@@ -241,6 +241,9 @@ publicWidget.registry.WebsiteSale = publicWidget.Widget.extend(VariantMixin, {
 				console.log('ppppp');
                 if (data.district.length) {
                     selectdistrict.html('');
+					selectdistrict.append($('<option>').text('')
+                            .attr('value','')
+                            .attr('data-code', ''));
                     _.each(data.district, function (x) {
 						console.log("pppp");
 						console.log(x);

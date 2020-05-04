@@ -253,9 +253,7 @@ publicWidget.registry.WebsiteSale = publicWidget.Widget.extend(VariantMixin, {
                         selectdistrict.append(opt);
                     });
                     selectdistrict.parent('div').show();
-                } else {
-                    selectdistrict.val('').parent('div').hide();
-                }
+                }  
                 selectdistrict.data('init', 0);
             } else {
                 selectdistrict.data('init', 0);

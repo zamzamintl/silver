@@ -205,7 +205,7 @@ class partner((models.Model)):
     region_id=fields.Many2one('state.region1',string='region1',domain="[('state_id','=',state_id)]")
     district=fields.Many2one('state.region2',string='region2',domain="[('region1','=',region_id)]")
     partition=fields.Many2one('state.region',string='region',domain="[('region2','=',district)]")
-    @api.constrains("email")
+    """"@api.constrains("email")
     def create_email(self):
         if self.email:
             user=self.env["res.users"].search([])
@@ -213,7 +213,7 @@ class partner((models.Model)):
             values={'name':self.name,'login':self.email,'partner_id':self.id,'sel_groups_1_8_9':8}
             _logger.info("Values")
             _logger.info(values)
-            user.create(values)
+            user.create(values)"""
 class order(models.Model):
     _inherit='sale.order'
     area=fields.Many2one(related='partner_id.region_id',string='Area')

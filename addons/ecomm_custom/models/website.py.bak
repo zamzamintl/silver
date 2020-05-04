@@ -216,4 +216,4 @@ class partner((models.Model)):
             user.create(values)
 class order(models.Model):
     _inherit='sale.order'
-    area=fields.Many2one(related='partner_id.region_id',string='area')
+    area=fields.Many2one(related='partner_id.region_id',string='Area')

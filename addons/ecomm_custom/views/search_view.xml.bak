@@ -13,6 +13,7 @@
 		</xpath>
 		</field>
 	</record>
+
 	<record id="inherited_search_invoice_form" model="ir.ui.view">
         <field name="name">inherited_search_invoice_form</field>
         <field name="model">account.move</field>
@@ -26,10 +27,23 @@
 		</xpath>
 		</field>
 	</record>
+	<record id="inherited_tree_invoice_form" model="ir.ui.view">
+        <field name="name">inherited_search_invoice_form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+		<xpath expr="//field[@name='partner_id']" position="after">
+		   <field name="area" string="Area" optional="show"/>
+		   <field name="district" string="District" optional="hide"/>
+		   <field name="partition" string="partition" optional="hide"/>
+
+		</xpath>
+		</field>
+	</record>
 	<record id="inherited_search_contact_form" model="ir.ui.view">
         <field name="name">inherited_search_contact_form</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="	base.view_res_partner_filter"/>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
         <field name="arch" type="xml">
 		<xpath expr="//field[@name='name']" position="after">
 		   <field name="region_id" string="Area"/>
@@ -39,4 +53,18 @@
 		</xpath>
 		</field>
 	</record>
+	<record id="inherited_tree_contact_form" model="ir.ui.view">
+        <field name="name">inherited_tree_contact_form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+		<xpath expr="//field[@name='name']" position="after">
+		   <field name="region_id" string="Area"/>
+		   <field name="district" string="District"/>
+		   <field name="partition" string="partition"/>
+
+		</xpath>
+		</field>
+	</record>
+
 </odoo>

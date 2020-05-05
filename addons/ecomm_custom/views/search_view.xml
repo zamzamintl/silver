@@ -13,6 +13,7 @@
 		</xpath>
 		</field>
 	</record>
+
 	<record id="inherited_search_invoice_form" model="ir.ui.view">
         <field name="name">inherited_search_invoice_form</field>
         <field name="model">account.move</field>
@@ -22,6 +23,19 @@
 		   <field name="area" string="Area"/>
 		   <field name="district" string="District"/>
 		   <field name="partition" string="partition"/>
+
+		</xpath>
+		</field>
+	</record>
+	<record id="inherited_tree_invoice_form" model="ir.ui.view">
+        <field name="name">inherited_search_invoice_form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+		<xpath expr="//field[@name='partner_id']" position="after">
+		   <field name="area" string="Area" optional="show"/>
+		   <field name="district" string="District" optional="hide"/>
+		   <field name="partition" string="partition" optional="hide"/>
 
 		</xpath>
 		</field>
@@ -39,4 +53,18 @@
 		</xpath>
 		</field>
 	</record>
+	<record id="inherited_tree_contact_form" model="ir.ui.view">
+        <field name="name">inherited_tree_contact_form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+		<xpath expr="//field[@name='state_id']" position="after">
+		   <field name="region_id" string="Area" optional="hide"/>
+		   <field name="district" string="District" optional="hide"/>
+		   <field name="partition" string="partition" optional="hide"/>
+
+		</xpath>
+		</field>
+	</record>
+
 </odoo>

@@ -34,13 +34,33 @@
         <field name="inherit_id" ref="sale.view_order_tree"/>
         <field name="arch" type="xml">
 		   <xpath expr="//tree" position="replace">
-		    <field name="name"/>
-			<field name="area"/>
-			<field name="customer_order_delivery_date"/>
-			<field name="partner_id"/>
-			<field name="user_id"/>
-			<field name="amount_total"/>
-			<field name="state"/>
+		    <xpath expr="//tree/field[@name='name']" position="after">
+		   
+		    
+			<field name="area" optional="show"/>
+			<field name="customer_order_delivery_date" optional="show"/>
+			 
+			 <field name="district" string="District" optional="hide"/>
+		   <field name="partition" string="partition"/>
+			
+		   </xpath>
+		   </xpath>
+		</field>
+    </record>
+	<record id="inherited_quantion_view_tree_zone" model="ir.ui.view">
+        <field name="name">inherited_view_tree_zone</field>
+        <field name="model">sale.order</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+		   <xpath expr="//tree/field[@name='name']" position="after">
+		   
+		    
+			<field name="area" optional="show"/>
+			<field name="customer_order_delivery_date" optional="show"/>
+			 
+			 
+			
 		   </xpath>
 		</field>
     </record>

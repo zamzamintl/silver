@@ -156,7 +156,7 @@ class website_cust(WebsiteSale):
      
     def _get_mandatory_billing_fields(self):
         _logger.info("_get_mandatory_billing_fields")
-        return ["name", "email", "street", "city", "country_id","floor","block","region_id","district","partition"]
+        return ["name", "email", "street", "city", "country_id","floor","block","region_id","district","partition","delivery_date"]
     @http.route(['/shop/state_infos/<model("res.country.state"):state_id>'], type='json', auth="public", methods=['POST'], website=True)
     def state_infos(self, state_id, mode, **kw):
         _logger.info("state_infos")
@@ -205,7 +205,7 @@ class partner((models.Model)):
     region_id=fields.Many2one('state.region1',string='region1',domain="[('state_id','=',state_id)]")
     district=fields.Many2one('state.region2',string='region2',domain="[('region1','=',region_id)]")
     partition=fields.Many2one('state.region',string='region',domain="[('region2','=',district)]")
-    @api.constrains("email")
+    """"@api.constrains("email")
     def create_email(self):
         if self.email:
             user=self.env["res.users"].search([])
@@ -213,7 +213,14 @@ class partner((models.Model)):
             values={'name':self.name,'login':self.email,'partner_id':self.id,'sel_groups_1_8_9':8}
             _logger.info("Values")
             _logger.info(values)
-            user.create(values)
+            user.create(values)"""
 class order(models.Model):
     _inherit='sale.order'
-    area=fields.Many2one(related='partner_id.region_id',string='area')
+    area=fields.Many2one(related='partner_id.region_id',string='Area')
+    district=fields.Many2one(related='partner_id.district',string='District')
+    partition=fields.Many2one(related='partner_id.partition',string='Partition')
+class account_move(models.Model):
+    _inherit='account.move'
+    area=fields.Many2one(related='partner_id.region_id',string='Area')
+    district=fields.Many2one(related='partner_id.district',string='District')
+    partition=fields.Many2one(related='partner_id.partition',string='Partition')

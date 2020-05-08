@@ -216,11 +216,11 @@ class partner((models.Model)):
             user.create(values)"""
 class order(models.Model):
     _inherit='sale.order'
-    area=fields.Many2one(related='partner_id.region_id',string='Area')
-    district=fields.Many2one(related='partner_id.district',string='District')
-    partition=fields.Many2one(related='partner_id.partition',string='Partition')
+    area=fields.Many2one(related='partner_id.region_id',string='Area',store=True)
+    district=fields.Many2one(related='partner_id.district',string='District',store=True)
+    partition=fields.Many2one(related='partner_id.partition',string='Partition',store=True)
 class account_move(models.Model):
     _inherit='account.move'
-    area=fields.Many2one(related='partner_id.region_id',string='Area')
-    district=fields.Many2one(related='partner_id.district',string='District')
-    partition=fields.Many2one(related='partner_id.partition',string='Partition')
+    area=fields.Many2one(related='partner_id.region_id',string='Area',store=True)
+    district=fields.Many2one(related='partner_id.district',string='District',store=True)
+    partition=fields.Many2one(related='partner_id.partition',string='Partition',store=True)

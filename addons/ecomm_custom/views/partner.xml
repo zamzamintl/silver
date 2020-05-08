@@ -64,6 +64,17 @@
 			 
 			
 		   </xpath>
+		   <xpath expr="//tree" position="attributes">
+
+    <attribute name="decoration-muted">state == 'draft'</attribute>
+    <attribute name="decoration-danger">state == 'cancel'</attribute>
+    <attribute name="decoration-primary">state == 'waiting_for_approval'</attribute>
+	<attribute name="decoration-warning">state == 'done'</attribute>
+	<attribute name="decoration-info">state == 'sent'</attribute>
+
+   <attribute name="decoration-success">state == 'sale'</attribute>
+
+</xpath>
 		</field>
     </record>
 </odoo>

@@ -41,7 +41,7 @@
 			<field name="customer_order_delivery_date" optional="show"/>
 			 
 			 <field name="district" string="District" optional="hide"/>
-		   <field name="partition" string="partition"/>
+		   <field name="partition" string="partition" optional="hide"/>
 			
 		   </xpath>
 		   </xpath>
@@ -58,10 +58,22 @@
 		    
 			<field name="area" optional="show"/>
 			<field name="customer_order_delivery_date" optional="show"/>
+			 <field name="district" string="District" optional="hide"/>
+		   <field name="partition" string="partition" optional="hide"/>
 			 
 			 
 			
 		   </xpath>
+		   <xpath expr="//tree" position="attributes">
+
+    <attribute name="decoration-muted">state == 'draft'</attribute>
+    <attribute name="decoration-danger">state == 'cancel'</attribute>
+    <attribute name="decoration-primary">state == 'waiting_for_approval'</attribute>
+	<attribute name="decoration-warning">state == 'done'</attribute>
+
+   <attribute name="decoration-success">state == 'sale'</attribute>
+
+</xpath>
 		</field>
     </record>
 </odoo>

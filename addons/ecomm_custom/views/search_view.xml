@@ -5,6 +5,14 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_sales_order_filter"/>
         <field name="arch" type="xml">
+		<xpath expr="//group/filter[@name='customer']" position="after">
+              
+                    <filter string="Area" name="area" context="{'group_by': 'area'}"/>
+                    
+                    <filter string="District" name="district" context="{'group_by': 'district'}"/>
+              
+                    <filter string="partition" name="partition" context="{'group_by': 'partition'}"/>
+                </xpath>
 		<xpath expr="//field[@name='user_id']" position="before">
 		   <field name="area" string="Area"/>
 		   <field name="district" string="District"/>
@@ -19,6 +27,14 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_account_invoice_filter"/>
         <field name="arch" type="xml">
+		<xpath expr="//group/filter[@name='status']" position="after">
+              
+                    <filter string="Area" name="area" context="{'group_by': 'area'}"/>
+                    
+                    <filter string="District" name="district" context="{'group_by': 'district'}"/>
+              
+                    <filter string="partition" name="partition" context="{'group_by': 'partition'}"/>
+                </xpath>
 		<xpath expr="//field[@name='partner_id']" position="after">
 		   <field name="area" string="Area"/>
 		   <field name="district" string="District"/>
@@ -45,6 +61,14 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_res_partner_filter"/>
         <field name="arch" type="xml">
+		<xpath expr="//group/filter[@name='salesperson']" position="after">
+              
+                    <filter string="Area" name="area" context="{'group_by': 'area'}"/>
+                    
+                    <filter string="District" name="district" context="{'group_by': 'district'}"/>
+              
+                    <filter string="partition" name="partition" context="{'group_by': 'partition'}"/>
+                </xpath>
 		<xpath expr="//field[@name='name']" position="after">
 		   <field name="region_id" string="Area"/>
 		   <field name="district" string="District"/>

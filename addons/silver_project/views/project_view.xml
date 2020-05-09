@@ -1,0 +1,31 @@
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="edit_project_silver_project_update" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='user_id']" position="after">
+
+                <field name="task_progress"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_project_tree_silver_project" model="ir.ui.view">
+        <field name="name">project.project.tree</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="task_progress" widget="progressbar"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

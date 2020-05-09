@@ -61,9 +61,9 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_res_partner_filter"/>
         <field name="arch" type="xml">
-		<xpath expr="//group/filter[@name='status']" position="after">
+		<xpath expr="//group/filter[@name='salesperson']" position="after">
               
-                    <filter string="Area" name="area" context="{'group_by': 'area'}"/>
+                    <filter string="Area" name="region_id" context="{'group_by': 'area'}"/>
                     
                     <filter string="District" name="district" context="{'group_by': 'district'}"/>
               

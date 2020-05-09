@@ -43,6 +43,29 @@
 			 <field name="district" string="District" optional="hide"/>
 		   <field name="partition" string="partition" optional="hide"/>
 			
+<<<<<<< HEAD
+		   </xpath>
+		   </xpath>
+		</field>
+    </record>
+	<record id="inherited_quantion_view_tree_zone" model="ir.ui.view">
+        <field name="name">inherited_view_tree_zone</field>
+        <field name="model">sale.order</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+		   <xpath expr="//tree/field[@name='name']" position="after">
+		   
+		    
+			<field name="area" optional="show"/>
+			<field name="customer_order_delivery_date" optional="show"/>
+			 <field name="district" string="District" optional="hide"/>
+		   <field name="partition" string="partition" optional="hide"/>
+			 
+			 
+			
+=======
+>>>>>>> master
 		   </xpath>
 		   </xpath>
 		</field>
@@ -64,6 +87,17 @@
 			 
 			
 		   </xpath>
+		   <xpath expr="//tree" position="attributes">
+
+    <attribute name="decoration-muted">state == 'draft'</attribute>
+    <attribute name="decoration-danger">state == 'cancel'</attribute>
+    <attribute name="decoration-primary">state == 'waiting_for_approval'</attribute>
+	<attribute name="decoration-warning">state == 'done'</attribute>
+	<attribute name="decoration-info">state == 'sent'</attribute>
+
+   <attribute name="decoration-success">state == 'sale'</attribute>
+
+</xpath>
 		</field>
     </record>
 </odoo>

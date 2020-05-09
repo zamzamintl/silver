@@ -14,7 +14,7 @@
     
     'category': 'sales',
     'version': '13.0.1.1',
-    'depends': ['base', 'account'],
+    'depends': ['base', 'account','ecomm_custom'],
 
     # always loaded
     'data': ['views/sale_order_print.xml'

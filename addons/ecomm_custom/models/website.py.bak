@@ -1,5 +1,6 @@
 from odoo.addons.website.controllers.main import Website
 from odoo.addons.website_sale.controllers.main import WebsiteSale
+from odoo.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery
 import logging 
 from odoo import fields, http, tools, _
 from odoo.http import request
@@ -8,7 +9,7 @@ from odoo import api, fields ,models
 from odoo.exceptions import ValidationError 
 from odoo.http import request
 class website_cust(WebsiteSale):
-     
+    
     def values_postprocess(self, order, mode, values, errors, error_msg):
         _logger.info("values_postprocess")
         new_values = {}
@@ -197,7 +198,34 @@ class website_cust(WebsiteSale):
         )
      
 
-        
+class website_delivery(WebsiteSaleDelivery):
+    def _get_shop_payment_values(self, order, **kwargs):
+        _logger.info("_get_shop_payment_values  delivery  ******************")
+
+        values = super(WebsiteSaleDelivery, self)._get_shop_payment_values(order, **kwargs)
+        has_storable_products = any(line.product_id.type in ['consu', 'product'] for line in order.order_line)
+
+        if not order._get_delivery_methods() and has_storable_products:
+            values['errors'].append(
+                (_('Sorry, we are unable to ship your order'),
+                 _('No shipping method is available for your current order and shipping address. '
+                   'Please contact us for more information.')))
+
+        if has_storable_products:
+            if order.carrier_id and not order.delivery_rating_success:
+                order._remove_delivery_line()
+
+            delivery_carriers = order._get_delivery_methods()
+            _logger.info("delivery_carriers")
+            _logger.info(delivery_carriers)
+            _logger.info(order.partner_id)
+            _logger.info(type(delivery_carriers))
+            delivery_carriers=request.env['delivery.carrier'].search([('id','=',5)])
+            values['deliveries'] = delivery_carriers.sudo()
+
+        values['delivery_has_storable'] = has_storable_products
+        values['delivery_action_id'] = request.env.ref('delivery.action_delivery_carrier_form').id
+        return values
 class partner((models.Model)):
     _inherit="res.partner"
     floor=fields.Char("Floor")
@@ -216,6 +244,7 @@ class partner((models.Model)):
             user.create(values)"""
 class order(models.Model):
     _inherit='sale.order'
+<<<<<<< HEAD
     area=fields.Many2one(related='partner_id.region_id',string='Area')
     district=fields.Many2one(related='partner_id.district',string='District')
     partition=fields.Many2one(related='partner_id.partition',string='Partition')
@@ -224,3 +253,13 @@ class account_move(models.Model):
     area=fields.Many2one(related='partner_id.region_id',string='Area')
     district=fields.Many2one(related='partner_id.district',string='District')
     partition=fields.Many2one(related='partner_id.partition',string='Partition')
+=======
+    area=fields.Many2one(related='partner_id.region_id',string='Area',store=True)
+    district=fields.Many2one(related='partner_id.district',string='District',store=True)
+    partition=fields.Many2one(related='partner_id.partition',string='Partition',store=True)
+class account_move(models.Model):
+    _inherit='account.move'
+    area=fields.Many2one(related='partner_id.region_id',string='Area',store=True)
+    district=fields.Many2one(related='partner_id.district',string='District',store=True)
+    partition=fields.Many2one(related='partner_id.partition',string='Partition',store=True)
+>>>>>>> master

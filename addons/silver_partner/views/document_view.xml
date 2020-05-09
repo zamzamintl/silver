@@ -1,0 +1,15 @@
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="folder_view_form_silver" model="ir.ui.view">
+        <field name="name">Folder form</field>
+        <field name="model">documents.folder</field>
+        <field name="inherit_id" ref="documents.folder_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='parent_folder_id']" position="after">
+                <field name="published_projects"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

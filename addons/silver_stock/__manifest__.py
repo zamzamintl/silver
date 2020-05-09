@@ -7,7 +7,11 @@
         subtitle on modules listing or apps.openerp.com""",
 
     'description': """
+<<<<<<< HEAD
         Long description of module's purpose
+=======
+        NOt Have any action at odoo folder empty
+>>>>>>> master
     """,
 
     'author': "My Company",

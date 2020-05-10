@@ -3,12 +3,7 @@
     'name': "silver_project",
 
     'summary': """
-<<<<<<< HEAD
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-=======
         calculate done task at project as prectange --- configutation ---project""",
->>>>>>> master
 
     'description': """
         Long description of module's purpose

@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 {
     'name': 'Upper case Customers/Suppliers/Products/Entrepôts & Unicity',
     'version': '13.0',
@@ -5,7 +8,7 @@
     'sequence': 200,
     'summary': 'Transformation min/maj, unicité',
     'description': """
-    Module complémentaire ...   """,
+    Module complémentaire    """,
     'author': 'Odoo Tips',
     "website" : "https://www.facebook.com/OdooTips/",
     'depends': ['base','sale','purchase','stock'],

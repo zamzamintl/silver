@@ -53,7 +53,7 @@ class UserRecentLog(models.Model):
                     if response_text and recent_record:
                         recent_record.activity = response_text
 
-     
+    @api.multi
     def redirect_on_record(self):
         for activity in self:
             if activity.model and activity.res_id:

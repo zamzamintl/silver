@@ -1,0 +1,40 @@
+<odoo>
+    <record id="note_note_view_form_inherited_silver_project"model="ir.ui.view">
+        <field name="name">note.note.form.inherited.silver.project</field>
+        <field name="model">note.note</field>
+        <field name="inherit_id" ref="note.view_note_note_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button string="Create Task" type="object"
+                        name="action_create_task"
+                        attrs="{'invisible':[('task_id', '!=', False)]}"
+                        class="oe_stat_button"
+                />
+                <field name="task_id" invisible="1"/>
+
+            </xpath>
+
+
+            <xpath expr="//field[@name='memo']" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button class="oe_stat_button" icon="fa-tasks" type="object"
+                            name="action_view_task" string="Task"
+                            attrs="{'invisible' : [('task_id', '=', False)]}"
+                    />
+
+                </div>
+                <div class="oe_title">
+                    <div class="oe_edit_only">
+                        <label for="name" string="Name"/>
+                    </div>
+                    <h1>
+                        <field name="name" default_focus="1"
+                               placeholder="Name"/>
+                    </h1>
+                </div>
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>

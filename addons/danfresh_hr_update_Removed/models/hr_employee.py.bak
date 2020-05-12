@@ -22,7 +22,7 @@ class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     sec_name=fields.Char(string='Arabic Name')
-    @api.constrains("sec_name")
+
     def name_get(self):
         res = []
         for emp in self:

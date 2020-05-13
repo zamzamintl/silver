@@ -27,19 +27,14 @@
         <template id="purchse_report_inherit" inherit_id="purchase.report_purchaseorder_document">
             <xpath expr="//div[@class='page']/div[@class='row justify-content-end']/div[1]" position="before">
                 <div style="font-size:16px; padding-bottom:15px;">
-                   <t t-set="lang" t-value="user.lang"/>
-				 <t t-if="lang=='en_US'">
                     <tr class="border-black">
                         <td><strong>Amount In Word : </strong></td>
-                        <td><span t-field="doc.num_word"/></td>
-
-                    </tr></t>
-                    <t t-if="lang=='ar_001'">
+                        <td><span t-field="o.num_word"/></td>
+                    </tr>
 					<tr class="border-black">
                         <td><strong>المبلــــغ : </strong></td>
-                        <td><span t-field="doc.num_word_ar"/></td>
-
-                    </tr></t>
+                        <td><span t-field="o.num_word_ar"/></td>
+                    </tr>
                 </div>
             </xpath>
         </template>
@@ -48,19 +43,15 @@
         <template id="invoice_report_inherit" inherit_id="account.report_invoice_document">
             <xpath expr="//div[@class='page']/p" position="before">
                 <div style="font-size:16px; padding-bottom:30px;">
-                    <t t-set="lang" t-value="user.lang"/>
-				 <t t-if="lang=='en_US'">
                     <tr class="border-black">
                         <td><strong>Amount In Word : </strong></td>
-                        <td><span t-field="doc.num_word"/></td>
-
-                    </tr></t>
-                    <t t-if="lang=='ar_001'">
+                        <td><span t-field="o.num_word"/></td>
+						
+                    </tr>
 					<tr class="border-black">
                         <td><strong>المبلــــغ : </strong></td>
-                        <td><span t-field="doc.num_word_ar"/></td>
-
-                    </tr></t>
+                        <td><span t-field="o.num_word_ar"/></td>
+                    </tr>
                 </div>
             </xpath>
         </template>

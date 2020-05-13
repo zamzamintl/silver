@@ -14,9 +14,11 @@ class sales_order(models.Model):
     _inherit='sale.order'
     @api.onchange('partner_id')
     def change_partner(self):
+        _logger.info("CHANGE PARTNER")
         return {'domain':{'partner_id':[('state','=','Approve')]}}
 class purchase_order(models.Model):
     _inherit='purchase.order'
     @api.onchange('partner_id')
     def change_partner(self):
+        _logger.info("CHANGE PARTNER")
         return {'domain':{'partner_id':[('state','=','Approve')]}}

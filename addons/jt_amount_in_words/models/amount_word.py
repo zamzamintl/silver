@@ -8,7 +8,7 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     # @api.multi
-    @api.constrains("amount_total","num_word_ar")
+    @api.constrains("amount_total")
     def _compute_amount_in_word(self):
         for rec in self:
             if rec.amount_total:
@@ -24,7 +24,7 @@ class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
     # @api.multi
-    @api.constrains("amount_total","num_word_ar")
+    @api.constrains("amount_total")
     def _compute_amount_in_word(self):
         for rec in self:
             rec.num_word = str(rec.currency_id.amount_to_text(rec.amount_total)) + ' only'
@@ -39,7 +39,7 @@ class InvoiceOrder(models.Model):
     _inherit = 'account.move'
 
     # @api.multi
-    @api.constrains("amount_total","num_word_ar")
+    @api.constrains("amount_total")
     def _compute_amount_in_word(self):
         for rec in self:
             rec.num_word = str(rec.currency_id.amount_to_text(rec.amount_total)) + ' only'

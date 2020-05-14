@@ -7,7 +7,7 @@ class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
     _description = 'Pay Slip'
 
-     
+    @api.multi
     def action_payslip_cancel(self):
         if self._fields.get('move_id'):
             self.journal_id.update_posted=True

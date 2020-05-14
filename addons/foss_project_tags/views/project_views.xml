@@ -172,9 +172,9 @@
                 <field name="actual_date_start" readonly="1"/>
                 <field name="actual_date_end" readonly="1"/>
             </field>
-            <!--<field name="stage_id" position="replace">
+            <field name="stage_id" position="replace">
               <field name="stage_id" widget="statusbar"/>
-            </field>-->
+            </field>
 
             <xpath expr="//form/sheet" position="attributes">
                 <attribute name="attrs">{'readonly': [('state', 'in', ('done','cancelled'))]}</attribute>
@@ -239,16 +239,16 @@
         </field>
     </record>
 
-    <record id="view_task_tree_inherit" model="ir.ui.view">
+    <!--<record id="view_task_tree_inherit_p" model="ir.ui.view">
         <field name="name">project.task.tree.inherit.inherit</field>
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_tree2"/>
         <field name="arch" type="xml">
-          <field name="stage_id" position="after">
+		<xpath expr="//field[@name='stage_id']">
             <field name="task_status"/>
-          </field>
+          </xpath>
         </field>
-    </record>
+    </record>-->
     
     <!-- <record id="view_task_search_inherit" model="ir.ui.view">
         <field name="name">project.task.search.inherit</field>

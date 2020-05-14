@@ -10,7 +10,8 @@
             <field name="interval_type">days</field>
             <field name="numbercall">-1</field>
             <field eval="False" name="doall"/>
-             
+            <field name="nextcall"
+                   eval="datetime.now(tz=pytz.timezone('Egypt')).replace(hour=1, minute=30,second=00).astimezone(pytz.utc)"/>
         </record>
 
     

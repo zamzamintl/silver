@@ -172,9 +172,9 @@
                 <field name="actual_date_start" readonly="1"/>
                 <field name="actual_date_end" readonly="1"/>
             </field>
-            <!--<field name="stage_id" position="replace">
+            <field name="stage_id" position="replace">
               <field name="stage_id" widget="statusbar"/>
-            </field>-->
+            </field>
 
             <xpath expr="//form/sheet" position="attributes">
                 <attribute name="attrs">{'readonly': [('state', 'in', ('done','cancelled'))]}</attribute>

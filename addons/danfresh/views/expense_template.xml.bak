@@ -142,7 +142,7 @@
             <field name="name">Expense Template</field>
             <field name="res_model">hr.expense.template</field>
             <field name="view_mode">tree,form,search</field>
-            
+            <field name="view_type">form</field>
             <field name="target">current</field>
             <field name="search_view_id" ref="expense_template_view_search"/>
         </record>

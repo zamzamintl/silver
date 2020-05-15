@@ -5,8 +5,10 @@ _logger = logging.getLogger(__name__)
 from odoo import api, fields ,models
 from odoo.exceptions import ValidationError 
 from odoo.http import request
+
 class order(models.Model):
     _inherit='sale.order'
+    phone_cst=fields.Char(related='partner_id.phone','Phone')
     @api.constrains("customer_order_delivery_date","order_line")
     def get_changes_order_line(self):
         _logger.info("DELIVER DATE")

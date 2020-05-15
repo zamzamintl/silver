@@ -44,7 +44,7 @@
 						   <xpath expr="//notebook/page[@name='customer_signature']" position="attributes">
                            <attribute name="attrs">{'invisible':True }</attribute> </xpath>
 						  
-					<xpath expr="//button[@name='action_cancel']" position="attributes">
+					<!--<xpath expr="//button[@name='action_cancel']" position="attributes">
    
                         <attribute name="attrs">{'invisible':True }</attribute>
             </xpath>
@@ -62,7 +62,7 @@
    
                <attribute name="attrs">{'invisible':True }</attribute>
             </xpath>
-		 
+		 -->
 		 
 			  	 
          

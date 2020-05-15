@@ -24,12 +24,6 @@
 		   <field name="customer_order_delivery_date" string="Delivery Date:"/>
 
 		</xpath>
-		<xpath expr="//group/filter[@name='customer']" position="after">
-              
-                    <filter string="Delivery Date" name="customer_order_delivery_date" context="{'group_by': 'customer_order_delivery_date'}"/>
-                    
-                    
-                </xpath>
 		</field>
 	</record>
 </odoo>

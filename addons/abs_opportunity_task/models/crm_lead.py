@@ -19,6 +19,10 @@
 #
 #################################################################################
 from odoo import api,fields,models,_
+import logging 
+from odoo import fields, http, tools, _
+from odoo.http import request
+_logger = logging.getLogger(__name__)
 
 class CrmLead(models.Model):
     _inherit = "crm.lead"
@@ -26,12 +30,14 @@ class CrmLead(models.Model):
     task_count = fields.Integer(compute='_compute_task_count', string="Tasks Count")
  
     def _compute_task_count(self):
+        _logger.info("_compute_task_count")
         count = 0
         task_ids = self.env['project.task'].search([])
         for record in self:
+            count=0
             if record:
                 for task_id in task_ids:
                     if record.partner_id == task_id.partner_id:
                         count=count+1 
-                        record.task_count = count
-        return True
+            record.task_count = count
+        

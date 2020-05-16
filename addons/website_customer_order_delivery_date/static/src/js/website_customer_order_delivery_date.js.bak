@@ -1,0 +1,37 @@
+odoo.define('website_customer_order_delivery_date.cart', function(require) {
+    "use strict";
+
+    var ajax = require('web.ajax');
+    $(document).ready(function() {
+
+        try {
+			console.log("ff");
+            $("#delivery_date").datepicker({
+                minDate: new Date()
+            });
+        } catch (e) {}
+
+        $("#delivery_date_icon").click(function(){
+            console.log($('#delivery_date').val());
+            $('#delivery_date').datepicker('show');
+        });
+		$("#delivery_date").click(function(){
+            console.log($('#delivery_date').val()); 
+        });
+		on_click: function() {console.log("l");},
+
+        $("button.d-xl-inline-block").bind("click", function(ev) {
+            console.log("pay");
+			console.log($('#delivery_date').val());
+			
+			
+            var customer_order_delivery_date = $('#delivery_date').val();
+            var customer_order_delivery_comment = $('#delivery_comment').val();
+            ajax.jsonRpc('/shop/customer_order_delivery', 'call', {
+                'delivery_date': customer_order_delivery_date,
+                'delivery_comment': customer_order_delivery_comment
+            });
+        });
+    });
+
+});

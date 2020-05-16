@@ -1,0 +1,233 @@
+<odoo>
+    <template id="pl_footer" inherit_id="website.layout" name="HDL Footer ">
+        <xpath expr="//div[@id='footer']" position="replace">
+
+            <section class="pt8 pb8 content">
+                <div class="container sec_form">
+                    <div class="row s_nb_column_fixed">
+                      <div class="col-lg-12 s_title pt16 pb16">
+                        <h1>
+                          <font style="color: rgb(99, 99, 99); font-size: 24px;">Subscribe to our newsletter!</font>
+                        </h1>
+                      </div>
+                    </div>
+                   <div class="row">
+                      <div class="col-lg-8">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <p>
+                              <font style="color: rgb(66, 66, 66);">Sign up in the newsletter form below to receive the latest news and updates from our company. </font>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <form action="/website_form/" method="post" class="s_website_form container-fluid mt32 o_fake_not_editable" enctype="multipart/form-data" data-name="Form Builder" data-model_name="mail.mail" data-success_page="/thanks_page">
+                          <div class="row form-group form-field d-none">
+                            <div class="col-lg-3 col-md-4">
+                              <label class="col-form-label" for="email_to">
+                                </label>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                              <input type="text" class="form-control o_website_form_input" name="email_to" value="info@hdlegypt.com"/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group form-field o_website_form_required_custom">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4">
+                                            <label class="col-form-label" for="email_from">Email</label>
+                                            <p class="label_msg">We will send you an email describing how to activate your newsletter subscription.</p>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8">
+                                            <input type="email" class="form-control o_website_form_input" name="email_from" required="" placeholder="Enter email"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group form-field o_website_form_custom o_website_form_required_custom">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4">
+                                                <label class="col-form-label" for="Your Name">Name</label>
+                                                <p class="label_msg">(Optional)</p>
+                                            </div>
+                                            <div class="col-lg-8 col-md-8">
+                                                <input type="text" class="form-control o_website_form_input" name="Your Name" required="" placeholder="Enter Full Name"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="form-group text-center">
+                              <button class="btn btn-primary btn-lg o_website_form_send btn_sub text-center form_btn o_default_snippet_text">Subscribe</button>
+                          </div>
+                          <div class="text-center mt-3">
+                              <span id="o_website_form_result"/>
+                          </div>
+                      </form>
+                  </div>
+            </section>
+                <div id="footer">
+<!--                    <div class="footer-top">-->
+<!--                        <div class="container">-->
+<!--                            <div class="align-items-center row row-b4">-->
+<!--                                <div class="col-12 col-md-3 text-center text-md-left md-m-20px-b">-->
+<!--                                    <h4>NEWSLETTER SIGNUP:</h4>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; col &ndash;&gt;-->
+<!--                                <div class="col-12 col-md-6 text-center">-->
+<!--                                    <div class="oe_snippet_body input-group js_subscribe" data-list-id="0">-->
+<!--                                        <input type="email" name="email" class="js_subscribe_email form-control" placeholder="Enter your email address"/>-->
+<!--                                        <span class="input-group-btn">-->
+<!--                                            <a href="#" class="btn btn-primary m-btn m-btn-black js_subscribe_btn">Subscribe</a>-->
+<!--                                            <a href="#" class="btn btn-success js_subscribed_btn hidden" disabled="disabled">Thanks</a>-->
+<!--                                        </span>-->
+<!--                                        <div class="alert alert-success hidden">Thanks for your subscription!</div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; col &ndash;&gt;-->
+<!--                                <div class="col-12 col-md-3 col-12 text-center text-md-right">-->
+<!--                                    <div class="link-follow  md-m-20px-t">-->
+<!--                                        <ul>-->
+<!--                                            <li t-if="website.social_facebook">-->
+<!--                                                <a t-att-href="website.social_facebook" t-if="website.social_facebook">-->
+<!--                                                    <i class="fa fa-facebook"/>-->
+<!--                                                </a>-->
+<!--                                            </li>-->
+<!--                                            <li t-if="website.social_twitter">-->
+<!--                                                <a t-att-href="website.social_twitter" t-if="website.social_twitter">-->
+<!--                                                    <i class="fa fa-twitter"/>-->
+<!--                                                </a>-->
+<!--                                            </li>-->
+
+<!--                                            <li t-if="website.social_youtube">-->
+<!--                                                <a t-att-href="website.social_youtube" t-if="website.social_youtube">-->
+<!--                                                    <i class="fa fa-youtube-play"/>-->
+<!--                                                </a>-->
+<!--                                            </li>-->
+<!--                                            <li t-if="website.social_linkedin">-->
+<!--                                                <a t-att-href="website.social_linkedin" t-if="website.social_linkedin">-->
+<!--                                                    <i class="fa fa-linkedin"/>-->
+<!--                                                </a>-->
+<!--                                            </li>-->
+<!--                                            <li t-if="website.social_github">-->
+<!--                                                <a t-att-href="website.social_github" t-if="website.social_github">-->
+<!--                                                    <i class="fa fa-github"/>-->
+<!--                                                </a>-->
+<!--                                            </li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; col &ndash;&gt;-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; row &ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <!-- top-footer -->
+                    <div class="middle-footer">
+                        <div class="container">
+                            <div class="row row-b4">
+                                <div class="col-12 col-sm-6 col-md-3 fot-col">
+                                    <h3>Quick Links</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/commercial">HOME</a>
+                                        </li>
+                                        <li>
+                                            <a href="/partners">OUR PARTNERS</a>
+                                        </li>
+                                        <li>
+                                            <a href="/news">NEWS AND EVENTS</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- col -->
+                                <div class="col-12 col-sm-6 col-md-3 fot-col">
+                                    <h3>Products &amp; SOLUTION</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/products">Products</a>
+                                        </li>
+                                        <li>
+                                            <a href="/commercial">COMMERCIAL</a>
+                                        </li>
+                                        <li>
+                                             <a href="/residential">RESIDENTIAL</a>
+                                        </li>
+                                        <li>
+                                            <a href="/hotels">HOTELS</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- col -->
+                                <div class="col-12 col-sm-6 col-md-3 fot-col">
+                                    <h3>Our company</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/about">ABOUT HDL</a>
+                                        </li>
+                                        <li>
+                                            <a href="/case_studies">CASE STUDIES</a>
+                                        </li>
+                                        <li>
+                                            <a href="/contactus">Contact Us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- col -->
+                                <div class="col-12 col-sm-6 col-md-3 fot-col">
+                                    <h3>Contact us</h3>
+                                      <address class="mb0" itemscope="itemscope" >
+                                            <div>
+                                                    <span itemprop="name">HDL EGYPT</span>
+                                            </div>
+                                            <div itemprop="address" itemscope="itemscope">
+                                                <div>
+                                                    <i class="fa fa-map-marker fa-fw" role="img" aria-label="Address" title="Address"></i>
+                                                    <span itemprop="streetAddress">54- hassan alamoan St. - Nasr city<br/>Cairo  11331</span>
+                                                </div>
+                                                <div><i class="fa fa-phone fa-fw" role="img" aria-label="Phone" title="Phone"></i> <span itemprop="telephone">+20120888688</span></div>
+                                                <div><i class="fa fa-envelope fa-fw" role="img" aria-label="Email" title="Email"></i> <span itemprop="email">info@hdlegypt.com</span></div>
+                                            </div>
+                                      </address>
+                                </div>
+                                <!-- col -->
+                            </div>
+                            <!-- row -->
+                        </div>
+                        <!-- container -->
+                    </div>
+                    <!-- middle-footer -->
+                    <div class="footer-bottom">
+                        <div class="container">
+                            <div class="row row-b4 align-items-center">
+                                <div class="col-12 col-md-6 text-center text-md-left md-m-15px-b">
+                                    <p class="copyright">Copyright  © 2019 Plementus. All Rights Reserved.</p>
+                                </div>
+                                <div class="col-12 col-md-6 text-center text-md-right">
+                                    <div id="info" class="footer-payment">
+                                        <img src="/pl_hdl/static/src/img/footer.png" title="Alan" alt="Alan"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .bottom-footer -->
+                </div>
+            <a onClick="window.scrollTo(0, 0);" class="scroll_top_btn">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+
+        </xpath>
+    </template>
+     <template id="pl_footer_copyright" inherit_id="website.layout" name="HDL Footer ">
+        <xpath expr="//div[@class='o_footer_copyright']" position="replace">
+            <script src="/pl_hdl/static/src/js/jquery-3.4.1.min.js"></script>
+            <script src="/pl_hdl/static/src/js/scripts.js"></script>
+        </xpath>
+    </template>
+</odoo>

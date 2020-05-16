@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Commercial Page Template -->
+    <template id="commercial" name="Commercial">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+              <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pt64 pb32" data-scroll-background-ratio="1" style="background-image: none;">
+                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/airport.jpg&quot;); background-position: 50% 0px;"/>
+                <div class="container">
+                  <div class="row s_nb_column_fixed">
+                    <div class="s_title col-lg-12 pt0 pb32" data-name="Title">
+                      <h2 class="font_2" style="color: rgb(28, 28, 28); margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 84px; line-height: 1em; background: 0px 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; pointer-events: auto; text-align: center;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                            <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: futura-lt-w01-light, sans-serif;">
+                              <span class="title_commerical" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">Airports</span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                    <div class="col-lg-12 s_text pt16 pb40" data-name="Text">
+                      <h2 class="font_2" style="color: rgb(28, 28, 28); margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 17px; line-height: 1.6em;background: 0px 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; pointer-events: auto; text-align: center;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; letter-spacing: 0.05em;">
+                            <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-weight: normal;">
+                              <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                                  <p class="text_section" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(255, 255, 255);">Airports require flexible and adaptable automation solutions to monitor and control the systems in the building. An emphasis is placed on “passenger experience” which can be enhanced with smart-control.</p>
+                                </span>
+                              </span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pt0 pb0" data-scroll-background-ratio="1" style="background-image: none;">
+                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/web/image/website.s_cover_default_image'); background-position: 50% 0;"/>
+              </section>
+              <section class="s_text_block pt32 pb32">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12 pb32 pt40">
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; letter-spacing: 0em;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                            <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">HDL has over 30 years of experience across a broad range of automation solutions such as hospitality, retail outlets, commercial buildings and hotels, and we understand the value of &amp;nbsp;producing efficient and practical solutions.</span>
+                          </span>
+                        </span>
+                      </p>
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; letter-spacing: 0em;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                            <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">With airports growing in size and capability, containing meeting-spaces, restaurants and even hotels, why not take advantage of a HDL system like the one in Terminal D, Boryspil International Airport, which now has complete control over lighting, HVAC, and blinds.</span>
+                          </span>
+                        </span>
+                      </p>
+                      <p class="o_default_snippet_text">
+                        <b>
+                          <br/>
+                        </b>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pt72 pb64" data-scroll-background-ratio="1" style="background-image: none;">
+                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/office.jpg&quot;); background-position: 50% 0px;"/>
+                <div class="container">
+                  <div class="row s_nb_column_fixed">
+                    <div class="col-lg-12 s_title" data-name="Title">
+                      <h2 class="font_2" style="color: rgb(28, 28, 28); margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 84px; line-height: 1em; font-family: &quot;playfair display&quot;, serif; background: 0px 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; pointer-events: auto; text-align: center;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                            <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: futura-lt-w01-light, sans-serif;">
+                              <span class="title_commerical" style="background: 0px 0px; border: 0px; color: rgb(255, 255, 255); font-size: 62px; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;">Commercial Offices</span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                    <div class="col-lg-12 s_text pb16 pt32" data-name="Text">
+                      <p class="lead" style="text-align: center;">
+                        <span style="font-family: Manjari; font-size: 18px;">The working environment is where many people spend the majority of their day. It is now proven that modern advances in lighting type and quality enhances the productivity and feeling of well being by staff.</span>
+                        <br/>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_text_block pt32 pb32">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12 pt64 pb80">
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                          <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">Adding an intelligent control system to such products mean that energy savings can also be made, while improving boardrooms through automation and making technology easy to use by staff. HDL has been installed in many commercial offices around the world, why not include it in your next project?</span>
+                        </span>
+                      </p>
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                          <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">Staffing requirements are reduced due to the automation of blinds, curtains, lighting and heating, cooling and ventilation systems. It is not necessary for a person to switch these systems on and off again at the beginning and end of each day. Simply allow the intelligent products to intelligently run the systems based on time of day, astrological clock, and other factors such as room occupancy, temperature, natural-brightness levels and more.</span>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pb48 pt40" data-scroll-background-ratio="1" style="background-image: none;">
+                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/bmw.jpg&quot;); background-position: 50% 0px;"/>
+                <div class="container">
+                  <div class="row s_nb_column_fixed">
+                    <div class="col-lg-12 s_title" data-name="Title">
+                      <h2 class="font_2" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 84px; line-height: 1em; font-family: &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; text-align: center;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                            <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: futura-lt-w01-light, sans-serif;">
+                              <span class="title_commerical" style="background: 0px 0px; border: 0px; color: rgb(255, 255, 255); font-size: 62px; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;">Car Showrooms</span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                    <div class="col-lg-12 s_text pt48" data-name="Text">
+                      <p class="lead text_section" style="text-align: center;">If there is one thing that car show-rooms should not compromise on, its the lighting. In order to show off the lines and curves and increase sales of the latest model cars, many show-rooms leave some lights on 24 hours per day, to show off the products to passers by.</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_text_block pt40 pb40">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12 pt56 pb64">
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                          <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">Thanks to our long experience with stage lighting and automation systems, we are the clear choice for any type of showroom. The BMW showroom pictured above made use of over 800 lighting channels enabling total illumination control.</span>
+                        </span>
+                      </p>
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                          <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">Centralised monitoring and control is another reason why so many buildings choose to go “smart”. With energy monitoring in place, a maintenance office can monitor where the energy is being used, and therefore calculated how to make further savings.</span>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pt56 pb24" data-scroll-background-ratio="1" style="background-image: none;">
+                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/attend.jpg&quot;); background-position: 50% 0px;"/>
+                <div class="container">
+                  <div class="row s_nb_column_fixed">
+                    <div class="s_title col-lg-12" data-name="Title">
+                      <h2 class="font_2" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 84px; line-height: 1em; font-family: &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; text-align: center;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                            <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: futura-lt-w01-light, sans-serif;">
+                              <span class="title_commerical" style="background: 0px 0px; border: 0px; color: rgb(255, 255, 255); font-size: 62px; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;">Educational Institutions</span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                    <div class="col-lg-12 s_text pt40" data-name="Text">
+                      <p class="lead text_section" style="text-align: center;">Both public and private sector institutions use HDL technology for environmental control added security. For example the Colege Nos Nogales in Columbia uses HDL to control the HVAC, lighting, blinds/shutters, and security.</p>
+                      <div style="text-align: center;">
+                        <br/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_text_block pt40 pb48">
+                <div class="container">
+                  <div class="row">
+                    <div class="pt32 pb32 col-lg-12">
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                          <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">A special request they made was for a secure system that teachers could control via their iOS or Android devices, and to make the wall-panels tamper proof.</span>
+                        </span>
+                      </p>
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                          <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">Because every device is smart, there is an opportunity to enhance the automated feature of just about any aspect of the system by programming in as much automation as you desire. Here at the HDL offices, lights are off, the air-conditioning off, and the blinds are down until the first person walks into the room during that day.</span>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pt48 pb24" data-scroll-background-ratio="1" style="background-image: none;">
+                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/chruch.jpg&quot;); background-position: 50% 0px;"/>
+                <div class="container">
+                  <div class="row s_nb_column_fixed">
+                    <div class="col-lg-12 s_title" data-name="Title">
+                      <h2 class="font_2" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 84px; line-height: 1em; font-family: &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; text-align: center;">
+                        <span style="background: 0px 0px; border: 0px; margin: 0px; outline: 0px; padding: 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px; vertical-align: baseline;">
+                          <span style="background: 0px 0px; border: 0px; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;">
+                            <span style="background: 0px 0px; border: 0px; font-family: futura-lt-w01-light, sans-serif; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;">
+                              <span class="title_commerical" style="background: 0px 0px; border: 0px; color: rgb(255, 255, 255); font-size: 62px; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;">Places Of Worship</span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                    <div class="col-lg-12 s_text pt48" data-name="Text">
+                      <p class="lead text_section" style="text-align: center;">We understand that places of worship hold significance for those who are religious. Therefore, our dedicated installers will always respect the relevant traditions and practices.</p>
+                      <div style="text-align: center;">
+                        <br/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_text_block pt32 pb32">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12 pt32 pb48">
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 19px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                          <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">Technology can enhance the atmosphere in such venues by controlling lighting, heating, environmental and AV systems. Control panels can be hidden from view, retaining the aesthetics of the building. The systems are easy to use and reliable, designed to be used, day after day, year after year.</span>
+                        </span>
+                      </p>
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 19px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                          <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">The value and benefits of smart-building technology for commercial premises cannot be understated. There are several factors that can influence the decision to automate buildings. Building managers and owners around the world are already saving money, time and effort, while having attained added convenience and security.</span>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pt56 pb32" data-scroll-background-ratio="1" style="background-image: none;">
+                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url(&quot;/pl_hdl/static/src/img/commun.jpg&quot;); background-position: 50% 0px;"/>
+                <div class="container">
+                  <div class="row s_nb_column_fixed">
+                    <div class="col-lg-12 s_title" data-name="Title">
+                      <h2 class="font_2" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: bold; font-stretch: normal; font-size: 84px; line-height: 1em; font-family: &quot;playfair display&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto; text-align: center;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;">
+                          <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                            <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: futura-lt-w01-light, sans-serif;">
+                              <span class="title_commerical" style="background: 0px 0px; border: 0px; color: rgb(255, 255, 255); font-size: 62px; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline;">Cultural Centres</span>
+                            </span>
+                          </span>
+                        </span>
+                      </h2>
+                    </div>
+                    <div class="col-lg-12 s_text pt40" data-name="Text">
+                      <p class="lead text_section" style="text-align: center;">Museums, art galleries and similar spaces can be demanding in their requirements for lighting, air-conditioning and audio-visual setups. HDL allows lights to switch off in areas that are not occupied, as well as switch off after hours and send security alerts to staff in case movement is detected.</p>
+                      <div style="text-align: center;">
+                        <br/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="s_text_block pt0 pb0">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12 pt56 pb88">
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                          <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">Exhibits can take advantage of our automation products to create truly interactive environments based on movement detection and automation of other systems, such as sounds, lights and colours.</span>
+                        </span>
+                      </p>
+                      <p class="font_8" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 18px; line-height: normal; font-family: georgia, palatino, &quot;book antiqua&quot;, &quot;palatino linotype&quot;, serif; color: rgb(28, 28, 28); pointer-events: auto;">
+                        <span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;">
+                          <span class="commerical_content" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; font-family: arial, &quot;ｍｓ ｐゴシック&quot;, &quot;ms pgothic&quot;, 돋움, dotum, helvetica, sans-serif;">We actively work and collaborate with architects, M&amp;amp;E specifiers, energy consultants and commercial installers, where our experience is invaluable in providing powerful and cost effective solutions.</span>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </t>
+    </template>
+</odoo>

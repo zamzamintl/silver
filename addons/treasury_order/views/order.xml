@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record model="ir.ui.view" id="purchase_order_form_add_treasury_date">
+        <field name="name">purchase.order.form.add.treasury.date</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="before">
+              <field name="treasury_date"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="sale_order_form_add_treasury_date">
+        <field name="name">sale.order.form.add.treasury.date</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_term_id" position="before">
+              <field name="treasury_date"/>
+            </field>
+        </field>
+    </record>
+
+
+</odoo>

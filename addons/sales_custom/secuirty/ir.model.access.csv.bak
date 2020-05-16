@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_order,sale.order.view,sale.model_sale_order,group_sale_view_user,1,1,1,1
+access_product_tempalate,product.tempalate.view,sale.model_product_template,group_sale_view_user,1,1,1,1
+access_order_line,order.line.view,sale.model_sale_order_line,group_sale_view_user,1,1,1,1
+access_product_profuct,product.profuct.view,sale.model_product_product,group_sale_view_user,1,1,1,1

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <template id="asset_frontend" inherit_id="website.assets_frontend" name="Theme HDL Frontend">
+      <xpath expr="." position="inside">
+        <link href="/pl_hdl/static/src/css/responsive.css" rel="stylesheet" type="text/css" />
+        <link href="/pl_hdl/static/src/css/style.css" rel="stylesheet" type="text/css" />
+      </xpath>
+    </template>
+  </data>
+</odoo>

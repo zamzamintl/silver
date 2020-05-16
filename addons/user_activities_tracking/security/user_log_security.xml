@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="user_log_group" model="ir.module.category">
+            <field name="name">User Activities Log</field>
+            <field name="sequence" eval="1"/>
+        </record>
+
+        <record id="user_activities_user_group" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="user_log_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="user_activities_manager_group" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="user_log_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+
+        <record id="user_recent_log_rule" model="ir.rule">
+            <field name="name">Recent Logs</field>
+            <field name="model_id" ref="model_user_recent_log"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('user_id','in',users)]</field>
+        </record>
+
+    </data>
+</odoo>

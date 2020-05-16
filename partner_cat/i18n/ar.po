@@ -1,0 +1,114 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_cat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-22 13:31+0000\n"
+"PO-Revision-Date: 2020-01-22 13:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_cat
+#: code:addons/partner_cat/models/res_partner.py:0
+#, python-format
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                               Click to Create for Customers\n"
+"                            </p>"
+msgstr ""
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner__cat_id
+#: model:ir.model.fields,field_description:partner_cat.field_res_users__cat_id
+msgid "Category"
+msgstr "الفئه"
+
+#. module: partner_cat
+#: model:ir.model,name:partner_cat.model_res_partner
+msgid "Contact"
+msgstr "الاتصال"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat__create_uid
+msgid "Created by"
+msgstr "أنشئى بي"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: partner_cat
+#: model:ir.actions.act_window,name:partner_cat.action_view_partner_category_partner_cat
+#: model:ir.ui.menu,name:partner_cat.menu_customers_ctegory
+msgid "Customer Categories"
+msgstr "فئات العملاء"
+
+#. module: partner_cat
+#: code:addons/partner_cat/models/res_partner.py:0
+#, python-format
+msgid "Customers"
+msgstr "العملاء"
+
+#. module: partner_cat
+#: model_terms:ir.ui.view,arch_db:partner_cat.res_partner_category_form_view
+#: model_terms:ir.ui.view,arch_db:partner_cat.res_partner_category_tree_view
+msgid "Customers Categories"
+msgstr "فئات العملاء"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: partner_cat
+#: model:ir.model.fields.selection,name:partner_cat.selection__res_partner_cat__type__partner
+msgid "Partner"
+msgstr "شريك"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat__type
+msgid "Type"
+msgstr "النوع"
+
+#. module: partner_cat
+#: model:ir.model.fields.selection,name:partner_cat.selection__res_partner_cat__type__dist
+msgid "distributor"
+msgstr "الموزع"
+
+#. module: partner_cat
+#: model:ir.model.fields,field_description:partner_cat.field_res_partner_cat__name
+msgid "name"
+msgstr "اسم"
+
+#. module: partner_cat
+#: model:ir.model,name:partner_cat.model_res_partner_cat
+msgid "res.partner.cat"
+msgstr "res.partner.cat"

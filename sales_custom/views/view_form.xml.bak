@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="view_sale_order_view_user" model="ir.ui.view">
+            <field name="name">view_sale_order_view_user</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+			<field name="groups_id" eval="[(6,0, [ref('sales_custom.group_sale_view_user')])]" />
+            <field name="arch" type="xml">      
+	 
+               <xpath expr="//field[@name='partner_id']" position="attributes">
+                        
+                    <attribute name="attrs">{'readonly':True }</attribute>  
+                </xpath>
+				<xpath expr="//field[@name='partner_invoice_id']" position="attributes">
+                        
+                    <attribute name="attrs">{'readonly':True }</attribute>  
+                </xpath>
+				<xpath expr="//field[@name='partner_shipping_id']" position="attributes">
+                        
+                    <attribute name="attrs">{'readonly':True }</attribute>  
+                </xpath>
+				<xpath expr="//field[@name='payment_term_id']" position="attributes">
+                        
+                    <attribute name="attrs">{'readonly':True }</attribute>  
+                </xpath>
+				<xpath expr="//field[@name='date_order']" position="attributes">
+   
+                       <attribute name="attrs">{'readonly':True }</attribute> 
+                </xpath>
+				 <xpath expr="//button[@name='%(sale.action_view_sale_advance_payment_inv)d'][1]" position="attributes">
+   
+                       <attribute name="attrs">{'invisible':True }</attribute> 
+                </xpath>
+				<xpath expr="//button[@name='%(sale.action_view_sale_advance_payment_inv)d'][2]" position="attributes">
+   
+                       <attribute name="attrs">{'invisible':True }</attribute> 
+                </xpath>
+					<!--<xpath expr="//notebook/page/field[@name='order_line']" position="attributes">
+                       <attribute name="attrs">{'readonly':True }</attribute> </xpath>-->
+						  <!--<xpath expr="//notebook/page[@class='delivery_date']" position="attributes">
+                          <attribute name="attrs">{'invisible':True }</attribute> </xpath>-->
+						  <xpath expr="//notebook/page[@name='other_information']" position="attributes">
+                           <attribute name="attrs">{'invisible':True }</attribute> </xpath>
+						   <xpath expr="//notebook/page[@name='customer_signature']" position="attributes">
+                           <attribute name="attrs">{'invisible':True }</attribute> </xpath>
+						  
+					<!--<xpath expr="//button[@name='action_cancel']" position="attributes">
+   
+                        <attribute name="attrs">{'invisible':True }</attribute>
+            </xpath>
+			 <xpath expr="//button[@name='action_draft']" position="attributes">
+   
+                        <attribute name="attrs">{'invisible':True }</attribute>
+            </xpath>
+		 
+
+			 <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+   
+                        <attribute name="attrs">{'invisible':True }</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+   
+               <attribute name="attrs">{'invisible':True }</attribute>
+            </xpath>
+		 -->
+		 
+			  	 
+         
+					
+            </field>
+</record>
+</odoo>

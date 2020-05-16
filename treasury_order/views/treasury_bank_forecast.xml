@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+        <record id="view_bank_balance_computation_add_orders" model="ir.ui.view">
+            <field name="name">bank.balance.computation.add.orders</field>
+            <field name="model">bank.balance.computation</field>
+            <field name="inherit_id" ref="treasury_forecast.view_bank_balance_computation"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='include_bank_fc_line']/.." position="after">
+                    <group colspan="3">
+                        <field name="include_sale_orders"/>
+                        <field name="include_purchase_orders"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+</data>
+</odoo>

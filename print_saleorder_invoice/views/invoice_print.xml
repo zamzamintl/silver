@@ -1,0 +1,6 @@
+<odoo>
+
+<template id="qoutation_report_custom" inherit_id="sale.report_saleorder_document">
+</template>
+
+</odoo>

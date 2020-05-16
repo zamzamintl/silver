@@ -32,7 +32,7 @@ class Project(models.Model):
                                           ('done', 'Completed'),
                                           ('not_active', 'Not Active'),
                                           ('cancelled', 'Cancelled')
-                                      ], string='Project Status', default="not_active",track_visibility='onchange',store=True)
+                                      ], string='Project Status', default="not_active",store=True)
     state = fields.Selection([
         ('draft', 'New'),
         ('open', 'In Progress'),
@@ -228,7 +228,7 @@ class ProjectTaskType(models.Model):
     @api.constrains("state")
     def get_state_in(self):
         for rec in self.search([]):
-            if rec.state==self.state and rec.id!=self.id and self.state:
+            if rec.state==self.state and rec.id!=self.id:
                 raise UserError("You cannot assign two stage with one state")
 
 

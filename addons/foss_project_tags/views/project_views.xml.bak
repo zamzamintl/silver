@@ -186,7 +186,7 @@
                   <!-- <button name="set_approval" string="For Approval" attrs="{'invisible': ['|',('state', 'in', ('draft','approval','done','cancelled')),('progress', '!=', 100.0)]}" type="object" class="oe_highlight oe_left"/> -->
                   <button name="set_cancel" string="Cancel Task" type="object" states="open" class="oe_highlight oe_left"/>
                   <button name="set_pending" string="Set To Pending" type="object" states="open" class="oe_highlight oe_left"/>
-                  <button name="set_open" string="Back to Inprogress" type="object" states="done,pending" class="oe_highlight oe_left"/>
+                  <button name="set_open" string="Back to Inprogress" type="object" states="approval,pending" class="oe_highlight oe_left"/>
             </xpath> 
             <xpath expr="/form/sheet/div[@name='button_box']" position="before">
             <!-- <div class="button_box" position="before"> -->

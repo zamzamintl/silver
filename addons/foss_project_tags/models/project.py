@@ -225,6 +225,11 @@ class ProjectTaskType(models.Model):
     _inherit = 'project.task.type'
 
     state = fields.Selection(_TASK_STATE, 'Related Status')
+    @api.constrains("state")
+    def get_state_in(self):
+        for rec in self.search([]):
+            if rec.state==self.state and rec.id!=self.id:
+                raise UserError("You cannot assign two stage with one state")
 
 
 class Task(models.Model):
@@ -295,8 +300,8 @@ class Task(models.Model):
 
     def write(self, vals):
         if vals.get('stage_id'):
-            if self.state in ('done', 'cancelled'):
-                raise UserError(('You cannot modify the task which is ' + self.state + ' '))
+            """if self.state in ('done', 'cancelled'):
+                raise UserError(('You cannot modify the task which is ' + self.state + ' '))"""
             vals.update({'state': self.env['project.task.type'].browse(vals.get('stage_id')).state})
         if vals.get('sequence'):
             vals.update({'state': self.stage_id.state})
@@ -359,31 +364,32 @@ class Task(models.Model):
                         projected_date_end = val.date_deadline
                 val.projected_date_end = projected_date_end
 
-    def _get_default_stage_id(self):
+    """def _get_default_stage_id(self):
         stage_obj = self.env['project.task.type']
         for stage_search in stage_obj.search([('state', '=', False)]):
             if stage_search:
                 raise UserError(('Kindly configure your stages with the related status field'))
-        return True
+        return True"""
 
     @api.model
     def create(self, vals):
         _logger.info("craete")
         if vals.get('date_deadline'):
-            date_deadline = datetime.strptime(vals.get('date_deadline'), '%Y-%m-%d').date()
-            date_start = datetime.strptime(vals.get('date_start'), '%Y-%m-%d').date()
-            if date_deadline < date_start:
-                qq
-                raise UserError(('Deadline cannot be lesser than the starting date'))
+            date_deadline = vals.get('date_deadline')
+            if vals.get('date_start'):
+                date_start =vals.get('date_start')
+                if date_deadline < date_start:
+                    
+                    raise UserError(('Deadline cannot be lesser than the starting date'))
         if vals.get('project_id'):
             project_end_date = self.env['project.project'].browse(vals.get('project_id')).date
             if not project_end_date:
                 raise UserError('Kindly Fill the Project End Date')
-            date_deadline = datetime.strptime(vals.get('date_deadline'), '%Y-%m-%d').date()
-            starting_dt = datetime.strptime(vals.get('date_start'), '%Y-%m-%d').date()
+            date_deadline = vals.get('date_deadline')
+            starting_dt = vals.get('date_start')
             if vals.get('date_start'):
                 project_starting_date = self.env['project.project'].browse(vals.get('project_id')).date_start
-                if project_starting_date > starting_dt:
+                if project_starting_date > startinsg_dt:
                     raise UserError(('Task start date cannot be greater than the project starting date (' + str(self.env['project.project'].browse(vals.get('project_id')).date_start) + ')'))
             if project_end_date < date_deadline:
                 raise UserError(('Deadline cannot be greater than the project end date (' + str(self.env['project.project'].browse(vals.get('project_id')).date) + ')'))
@@ -420,7 +426,7 @@ class Task(models.Model):
                       If the case needs to be reviewed then the status is \
                       set to \'Pending\'.', default='draft')
     stage_id = fields.Many2one('project.task.type', string='Stage', track_visibility='onchange', index=True,
-                               default=_get_default_stage_id,
+ 
                                group_expand='_read_group_stage_ids',
                                domain="[('project_ids', '=', project_id)]", copy=False)
     date_start = fields.Date('Starting Date', copy=False, track_visibility='onchange', default=fields.Datetime.now().date())
@@ -444,30 +450,32 @@ class Task(models.Model):
     def start_task(self):
         self._check_project()
         stage_obj = self.env['project.task.type']
-        for stage_search in stage_obj.search([('state', '=', 'open')]):
-            self.write({'stage_id': stage_search.id, 'state': 'open', 'actual_date_start': datetime.now()})
-
+        self.state='open'
+        self.stage_id=stage_obj.search([('state', '=', 'open')]).id
+         
     def set_open(self):
         self._check_project()
         stage_obj = self.env['project.task.type']
-        for stage_search in stage_obj.search([('state', '=', 'open')]):
-            self.write({'stage_id': stage_search.id, 'state': 'open'})
+        self.state='open'
+        self.stage_id=stage_obj.search([('state', '=', 'open')]).id
 
     def set_done(self):
         self._check_project()
         if self.state == 'draft':
             raise UserError(('You cannot completed the task if the task has not been started'))
         stage_obj = self.env['project.task.type'].search([('state', '=', 'done')])
-        for stage_search in stage_obj.search([('state', '=', 'done')]):
-            self.write({'stage_id': stage_search.id, 'state': 'done', 'actual_date_end': datetime.now()})
+        self.state='done'
+        self.stage_id=stage_obj.search([('state', '=', 'done')]).id
 
     def set_cancel(self):
         stage_obj = self.env['project.task.type']
-        for stage_search in stage_obj.search([('state', '=', 'cancelled')]):
-            self.write({'stage_id': stage_search.id, 'state': 'cancelled'})
+        self.state='cancelled'
+        self.stage_id=stage_obj.search([('state', '=', 'cancelled')]).id
+         
 
     def set_pending(self):
         self._check_project()
         stage_obj = self.env['project.task.type']
-        for stage_search in stage_obj.search([('state', '=', 'pending')]):
-            self.write({'stage_id': stage_search.id, 'state': 'pending'})
+        self.state='pending'
+        self.stage_id=stage_obj.search([('state', '=', 'pending')]).id
+         

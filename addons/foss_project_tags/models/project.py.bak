@@ -114,19 +114,20 @@ class Project(models.Model):
                 diff_days = (val.date - val.date_start).days or 0
                 if not val.actual_date_start:
                     if today <= val.date_start:
-                        val.projected_date_end = val.date
+                        projected_date_end = val.date
                     elif today > val.date_start:
-                        val.projected_date_end = today + timedelta(days=int(diff_days))
+                        projected_date_end = today + timedelta(days=int(diff_days))
                     else:
-                        val.projected_date_end = val.date
+                        projected_date_end = val.date
                 else:
                     if val.state not in ('draft', 'cancelled'):
                         progress = 1 - (val.progress_rate / 100)
                         progress_days = str(int(round(abs(progress * diff_days))))
-                        val.projected_date_end = today + timedelta(days=int(progress_days))
+                        projected_date_end = today + timedelta(days=int(progress_days))
                     else:
-                        val.projected_date_end = val.date
-           
+                        projected_date_end = val.date
+            val.projected_date_end = projected_date_end
+
     def _check_tasks(self):
         _logger.info("_check_tasks")
         task_br = self.env['project.task']

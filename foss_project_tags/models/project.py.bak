@@ -32,7 +32,7 @@ class Project(models.Model):
                                           ('done', 'Completed'),
                                           ('not_active', 'Not Active'),
                                           ('cancelled', 'Cancelled')
-                                      ], string='Project Status', default="not_active",track_visibility='onchange',store=True)
+                                      ], string='Project Status', default="not_active",store=True)
     state = fields.Selection([
         ('draft', 'New'),
         ('open', 'In Progress'),

@@ -32,7 +32,7 @@ class Project(models.Model):
                                           ('done', 'Completed'),
                                           ('not_active', 'Not Active'),
                                           ('cancelled', 'Cancelled')
-                                      ], string='Project Status', default="not_active",store=True)
+                                      ], string='Project Status', default="not_active",track_visibility='onchange',store=True)
     state = fields.Selection([
         ('draft', 'New'),
         ('open', 'In Progress'),
@@ -48,10 +48,10 @@ class Project(models.Model):
     effective_hours = fields.Float(compute='_hours_get', multi="progress", string='Time Spent', store=True)
     total_hours = fields.Float(compute='_hours_get', multi="progress", string='Total Time', store=True)
     progress_rate = fields.Float(compute='_hours_get', multi="progress", string='Progress', group_operator="avg", store=True)
-    date_start = fields.Date(string='Start Date')
-    date = fields.Date(string='End Date', index=True)
+    date_start = fields.Date(string='Start Date', default=fields.Datetime.now().date(), track_visibility='onchange')
+    date = fields.Date(string='End Date', index=True, track_visibility='onchange', default=fields.Datetime.now().date())
 
-    @api.depends('state', 'date_start', 'date', 'projected_date_end')
+    @api.depends('state')
     def _project_task_status(self):
         _logger.info("_project_task_status")
         for val in self:
@@ -137,13 +137,13 @@ class Project(models.Model):
                     raise UserError('Warning! \n Task - ' + task.name + ' is in ' + task.state + ' state You cannot complete ,cancel or put this on hold this project unless the tasks \n related to this project are completed or cancelled.')
         return True
 
-    @api.constrains('date_start','date')
+    @api.onchange('date_start','date')
     def onchange_check_date(self):
         _logger.info("onchange_check_date")
         if self.date_start and self.date:
             if self.date_start > self.date:
                 raise UserError('Start Date cannot be lesser than End Date')
-
+     
     def set_cancel(self):
         logger.info("set_cancel")
         self._check_tasks()
@@ -441,11 +441,7 @@ class Task(models.Model):
         if self.user_id:
             self.date_start = fields.Datetime.now().date()
 
-    @api.onchange('date_start','date_deadline')
-    def onchange_check_date(self):
-        if self.date_start and self.date_deadline:
-            if self.date_start > self.date_deadline:
-                raise UserError('Start Date cannot be lesser than deadline')
+    
 
     def start_task(self):
         self._check_project()

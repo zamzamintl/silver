@@ -48,8 +48,8 @@ class Project(models.Model):
     effective_hours = fields.Float(compute='_hours_get', multi="progress", string='Time Spent', store=True)
     total_hours = fields.Float(compute='_hours_get', multi="progress", string='Total Time', store=True)
     progress_rate = fields.Float(compute='_hours_get', multi="progress", string='Progress', group_operator="avg", store=True)
-    date_start = fields.Date(string='Start Date', default=time.strftime('%Y-%m-%d'), track_visibility='onchange')
-    date = fields.Date(string='End Date', index=True, track_visibility='onchange', default=time.strftime('%Y-%m-%d'))
+    date_start = fields.Date(string='Start Date')
+    date = fields.Date(string='End Date', index=True)
 
     @api.depends('state', 'date_start', 'date', 'projected_date_end')
     def _project_task_status(self):
@@ -137,7 +137,7 @@ class Project(models.Model):
                     raise UserError('Warning! \n Task - ' + task.name + ' is in ' + task.state + ' state You cannot complete ,cancel or put this on hold this project unless the tasks \n related to this project are completed or cancelled.')
         return True
 
-    @api.onchange('date_start','date')
+    @api.constrains('date_start','date')
     def onchange_check_date(self):
         _logger.info("onchange_check_date")
         if self.date_start and self.date:

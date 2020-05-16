@@ -48,8 +48,8 @@ class Project(models.Model):
     effective_hours = fields.Float(compute='_hours_get', multi="progress", string='Time Spent', store=True)
     total_hours = fields.Float(compute='_hours_get', multi="progress", string='Total Time', store=True)
     progress_rate = fields.Float(compute='_hours_get', multi="progress", string='Progress', group_operator="avg", store=True)
-    date_start = fields.Date(string='Start Date', default=fields.Datetime.now().date(), track_visibility='onchange')
-    date = fields.Date(string='End Date', index=True, track_visibility='onchange', default=fields.Datetime.now().date())
+    date_start = fields.Date(string='Start Date', default=time.strftime('%Y-%m-%d'), track_visibility='onchange')
+    date = fields.Date(string='End Date', index=True, track_visibility='onchange', default=time.strftime('%Y-%m-%d'))
 
     @api.depends('state', 'date_start', 'date', 'projected_date_end')
     def _project_task_status(self):

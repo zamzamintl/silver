@@ -228,7 +228,7 @@ class ProjectTaskType(models.Model):
     @api.constrains("state")
     def get_state_in(self):
         for rec in self.search([]):
-            if rec.state==self.state and rec.id!=self.id:
+            if rec.state==self.state and rec.id!=self.id and self.state:
                 raise UserError("You cannot assign two stage with one state")
 
 

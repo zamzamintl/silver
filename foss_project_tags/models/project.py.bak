@@ -225,6 +225,11 @@ class ProjectTaskType(models.Model):
     _inherit = 'project.task.type'
 
     state = fields.Selection(_TASK_STATE, 'Related Status')
+    @api.constrains("state")
+    def get_state_in(self):
+        for rec in self.search([]):
+            if rec.state==self.state and rec.id!=self.id:
+                raise UserError("You cannot assign two stage with one state")
 
 
 class Task(models.Model):

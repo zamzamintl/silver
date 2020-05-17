@@ -143,11 +143,7 @@ class Project(models.Model):
         if self.date_start and self.date:
             if self.date_start > self.date:
                 raise UserError('Start Date cannot be lesser than End Date')
-    @api.onchange('date_start','date_deadline')
-    def onchange_check_date_u(self):
-        if self.date_start and self.date_deadline:
-            if self.date_start > self.date_deadline:
-                raise UserError('Start Date cannot be lesser than deadline')
+     
     def set_cancel(self):
         logger.info("set_cancel")
         self._check_tasks()
@@ -261,6 +257,8 @@ class Task(models.Model):
                 date_end = val.date_deadline
                 pr_end_date = val.projected_date_end
                 today = datetime.now().date()
+                _logger.info("SDDSDSDs")
+                _logger.info(val.state)
                 if val.state not in ('open', 'pending', 'done'):
                     status = 'not_active'
                 if val.state == 'open':
@@ -271,7 +269,7 @@ class Task(models.Model):
                     status = 'at_risk'
                 if not val.state == 'pending' and datetime.now().date() > date_end:
                     status = 'off_track'
-                if val.project_id and val.state in ('done'):
+                if val.project_id and val.state =='done':
                     status = 'done'
                 else:
                     if val.actual_date_start and val.actual_date_end:

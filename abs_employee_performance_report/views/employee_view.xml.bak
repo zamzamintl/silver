@@ -7,7 +7,7 @@
      <field name="inherit_id" ref="project.view_task_form2"/> 
      <field name="arch" type="xml">
          <xpath expr="//field[@name='user_id']" position="after"> <!--- Added one field employee_id -->
-             <field name="employee_id" required="0"/>
+             <field name="employee_id"/>
          </xpath>
      </field>		
      </record>

@@ -257,6 +257,10 @@ class Task(models.Model):
                 date_end = val.date_deadline
                 pr_end_date = val.projected_date_end
                 today = datetime.now().date()
+                _logger.info("SDDSDSDs")
+                _logger.info(val.state)
+                if val.state==False:
+                    val.state='draft'
                 if val.state not in ('open', 'pending', 'done'):
                     status = 'not_active'
                 if val.state == 'open':
@@ -267,7 +271,7 @@ class Task(models.Model):
                     status = 'at_risk'
                 if not val.state == 'pending' and datetime.now().date() > date_end:
                     status = 'off_track'
-                if val.project_id and val.state in ('done'):
+                if val.project_id and val.state =='done':
                     status = 'done'
                 else:
                     if val.actual_date_start and val.actual_date_end:

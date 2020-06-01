@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-
-     <menuitem name="Modules" id="module_region" parent="sale.sale_menu_root" 
-                 action="module_region" />
-				  </odoo>

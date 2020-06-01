@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_user_recent_log_user,access_user_recent_log_user,model_user_recent_log,user_activities_tracking.user_activities_user_group,1,0,0,0
-access_user_recent_log_manager,access_user_recent_log_manager,model_user_recent_log,user_activities_tracking.user_activities_manager_group,1,0,0,1

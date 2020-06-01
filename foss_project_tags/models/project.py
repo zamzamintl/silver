@@ -41,7 +41,7 @@ class Project(models.Model):
         ('cancelled', 'Cancelled')],
         'Status', copy=False, default='draft', track_visibility='onchange')
     status_color = fields.Integer(compute='_check_color', method=True, string='Colour',store=True)
-    projected_date_end = fields.Date(compute='_get_projected_date_end', method=True, string="Projected End Date", store=True, default=time.strftime('%Y-%m-%d'))
+    projected_date_end = fields.Date( string="Projected End Date", store=True, default=time.strftime('%Y-%m-%d'))
     actual_date_start = fields.Date('Actual Starting Date', copy=False)
     actual_date_end = fields.Date('Actual Ending Date', copy=False)
     planned_hours = fields.Float(compute='_hours_get', multi="progress", string='Planned Time', store=True)
@@ -104,7 +104,7 @@ class Project(models.Model):
                 val.status_color = 7
             
 
-    @api.depends('date_start','date')
+    """@api.depends('date_start','date')
     def _get_projected_date_end(self):
         _logger.info("_get_projected_date_end")
         for val in self:
@@ -125,7 +125,7 @@ class Project(models.Model):
                         progress_days = str(int(round(abs(progress * diff_days))))
                         val.projected_date_end = today + timedelta(days=int(progress_days))
                     else:
-                        val.projected_date_end = val.date
+                        val.projected_date_end = val.date"""
            
     def _check_tasks(self):
         _logger.info("_check_tasks")

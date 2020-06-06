@@ -53,7 +53,7 @@ class ticket(models.Model):
         if self.team_id:
             self.survey_team=self.team_id.survey_team
     @api.constrains("team_id")
-    def get_change_team(self):
+    def get_save_team(self):
         if self.team_id:
             self.survey_team=self.team_id.survey_team
     def create_lead(self):
@@ -70,14 +70,16 @@ class ticket(models.Model):
         }
     def action_view_leads(self):
         view = self.env.ref('crm.crm_case_tree_view_leads')
+        view_form=self.env.ref('crm.crm_lead_view_form')
         orders=self.env['crm.lead'].search([('ticket_id','=',self.id)])
         ids=[]
         for rec in orders:
             ids.append(rec.id)
         return {
             'name': _('leads'),
-            'view_mode': 'tree',
-            'view_id': view.id,
+            'view_mode': 'tree,form',
+            'view_type':'form',
+            'views': [(view.id,'tree'),(view_form.id,'form')],
             'res_model': 'crm.lead',
             'domain':[('id','in',ids)],
             'type': 'ir.actions.act_window',
@@ -103,14 +105,16 @@ class ticket(models.Model):
         }
     def action_view_sale_order(self):
         view = self.env.ref('sale.view_quotation_tree')
+        view_form=self.env.ref('sale.view_order_form')
         orders=self.env['sale.order'].search([('ticket_id','=',self.id)])
         ids=[]
         for rec in orders:
             ids.append(rec.id)
         return {
             'name': _('Sales Order'),
-            'view_mode': 'tree',
-            'view_id': view.id,
+            'view_mode': 'tree,form',
+            'view_type':'form',
+            'views': [(view.id,'tree'),(view_form.id,'form')],
             'res_model': 'sale.order',
             'domain':[('id','in',ids)],
             'type': 'ir.actions.act_window',
@@ -130,14 +134,16 @@ class ticket(models.Model):
         }
     def action_view_survey_sheet(self):
         view = self.env.ref('crm_helpdesk_custom.survey_sheet_view_tree')
+        view_for=self.env.ref('crm_helpdesk_custom.survey_sheet_view_form')
         orders=self.env['survey.sheet'].search([('ticket_id','=',self.id)])
         ids=[]
         for rec in orders:
             ids.append(rec.id)
         return {
             'name': _('Survey Sheet'),
-            'view_mode': 'tree',
-            'view_id': view.id,
+            'view_mode': 'tree,form',
+            'view_type':'form',
+            'views': [(view.id,'tree'),(view_form.id,'form')],
             'res_model': 'survey.sheet',
             'domain':[('id','in',ids)],
             'type': 'ir.actions.act_window',
@@ -148,28 +154,94 @@ class sales_cus(models.Model):
     _inherit='sale.order'
     lead_id = fields.Many2one('crm.lead', string='Lead')
     ticket_id= fields.Many2one('helpdesk.ticket', string='Ticket')
+    
     @api.constrains("ticket_id")
     def get_count(self):
         if self.ticket_id:
             self.ticket_id.count_order+=1
+        value={
+        'body':"create by ticket  " +self.ticket_id.name ,
+        'res_id':self.id,
+        'model':'sale.order',
+        'message_type':'notification',
+        }
+        self.message_ids.create(value)
+    @api.constrains("lead_id")
+    def get_count(self):
+        if self.lead_id:
+            self.lead_id.count_order+=1
+        value={
+        'body':"create by ticket  " +self.lead_id.name ,
+        'res_id':self.id,
+        'model':'sale.order',
+        'message_type':'notification',
+        }
+        self.message_ids.create(value)
 class ticket(models.Model):
     _inherit='crm.lead'
     count_lead=fields.Integer("Count Lead")
     ticket_id=fields.Many2one("helpdesk.ticket",string="ticket")
+    count_order=fields.Integer("Count Order")
+    def create_sale_order(self):
+        view = self.env.ref('sale.view_order_form')
+        context=''
+        if self.partner_id:
+            context={'default_partner_id': self.partner_id.id}
+        return {
+            'name': _('Sales Order'),
+            'view_mode': 'form',
+            'view_id': view.id,
+            'res_model': 'sale.order',
+            'type': 'ir.actions.act_window',
+            'context':{'default_partner_id': self.partner_id.id,'default_lead_id':self.id,'default_ticket_id':self.ticket_id.id},
+            'target':'current'
+        }
+    def action_view_sale_order(self):
+        view = self.env.ref('sale.view_quotation_tree')
+        view_form=self.env.ref('sale.view_order_form')
+        orders=self.env['sale.order'].search([('lead_id','=',self.id)])
+        ids=[]
+        for rec in orders:
+            ids.append(rec.id)
+        return {
+            'name': _('Sales Order'),
+            'view_mode': 'tree,form',
+            'view_type':'form',
+            'views': [(view.id,'tree'),(view_form.id,'form')],
+            'res_model': 'sale.order',
+            'domain':[('id','in',ids)],
+            'type': 'ir.actions.act_window',
+            'target':'current'
+        }
+    @api.constrains("active")
+    def get_active(self):
+        if self.ticket_id:
+            self.active=True
     @api.constrains("ticket_id")
     def get_ticket_lead(self):
         if self.ticket_id:
             self.ticket_id.count_lead+=1
+            self.active=True
+        value={}
+        value={
+        'body':"created by ticket  " +self.ticket_id.name ,
+        'res_id':self.id,
+        'model':'crm.lead',
+        'message_type':'notification',
+        }
+        self.message_ids.create(value)
     def action_view_ticketes(self):
         view = self.env.ref('helpdesk.helpdesk_tickets_view_tree')
+        view_form=self.env.ref('helpdesk.helpdesk_ticket_view_form')
         orders=self.env['helpdesk.ticket'].search([('lead_id','=',self.id)])
         ids=[]
         for rec in orders:
             ids.append(rec.id)
         return {
             'name': _('Tickets'),
-            'view_mode': 'tree',
-            'view_id': view.id,
+            'view_mode': 'tree,form',
+            'view_type':'form',
+            'views': [(view.id,'tree'),(view_form.id,'form')],
             'res_model': 'helpdesk.ticket',
             'domain':[('id','in',ids)],
             'type': 'ir.actions.act_window',
@@ -179,14 +251,26 @@ class ticket(models.Model):
 
 class survey_sheet(models.Model):
     _name='survey.sheet'
+    _description='Survey sheet'
+    _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin', 'utm.mixin']
     survey_line=fields.One2many("survey.sheet.line","suvery_sheet",String="Locations")
     name=fields.Char("Name")
     ticket_id=fields.Many2one("helpdesk.ticket",string="ticket")
     help_team=fields.Many2one("related=ticket_id.team_id","Team")
+    message_follower_ids=fields.One2many("mail.followers","res_id",String="Followers")
+    activity_ids=fields.One2many("mail.activity","res_id",String="Activity")
+    message_ids=fields.One2many("mail.message","res_id",String="message")
     @api.constrains("ticket_id")
     def get_count(self):
         if self.ticket_id:
             self.ticket_id.count_sheet+=1
+            value={
+            'body':"create by ticket  " +self.ticket_id.name ,
+            'res_id':self.id,
+            'model':'survey.sheet',
+            'message_type':'notification',
+            }
+            self.message_ids.create(value)
 class survey_sheet_line(models.Model):
     _name='survey.sheet.line'
     suvery_sheet=fields.Many2one("survey sheet")

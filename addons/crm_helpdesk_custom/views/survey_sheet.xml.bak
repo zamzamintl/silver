@@ -11,6 +11,7 @@
 		     <field name="name"/>
 
 		   </group>
+		   <notebook>
 		   <page string="Details">
 		        <field name="survey_line">
 				     <tree editable="top">
@@ -20,7 +21,15 @@
 					 </tree>
 				</field>
 		   </page>
+		   </notebook>
+		   <footer>
+		   <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                </div></footer>
 		   </sheet>
+		   
 		 </form>
 		</field>
 	</record>

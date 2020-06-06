@@ -15,27 +15,18 @@
 		   <field name="count_order" invisible="1"/>
 		   <field name="count_lead" invisible="1"/>
 		   <field name="count_sheet" invisible="1"/>
-		   
+		   <!--<button name="action_view_invoice" type="object" class="oe_stat_button" icon="" attrs="{'invisible': [('invoice_count', '=', 0)]}">
+                            <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                        </button>-->
 		   <div class="oe_button_box" name="button_box">
 		    <button class="oe_stat_button" type="object" name="action_view_sale_order"  attrs="{'invisible':[('count_order','=',0)]}">
-                        <div class="o_field_widget o_stat_info">
-                             
-                            <span class="o_stat_text" align="middle"> Orders</span>
-                        </div>
-                    </button></div>
-					<div class="oe_button_box" name="button_box">
-		    <button class="oe_stat_button" type="object" name="action_view_leads"  attrs="{'invisible':[('count_lead','=',0)]}">
-                        <div class="o_field_widget o_stat_info">
-                             
-                            <span class="o_stat_text" align="middle"> Leads</span>
-                        </div>
-                    </button></div>
-					<div class="oe_button_box" name="button_box">
+                        <field name="count_order" widget="statinfo" string="Orders"/>
+                    </button> 
+		    <button class="oe_stat_button" type="object" name="action_view_leads"  icon="crm_helpdesk_custom/static/src/img/pencil.gif" attrs="{'invisible':[('count_lead','=',0)]}">
+                       <field name="count_lead" widget="statinfo" string="Leads"/>
+                    </button> 
 		    <button class="oe_stat_button" type="object" name="action_view_survey_sheet"  attrs="{'invisible':[('count_sheet','=',0)]}">
-                        <div class="o_field_widget o_stat_info">
-                             
-                            <span class="o_stat_text" align="middle"> Survey Sheet</span>
-                        </div>
+                        <field name="count_sheet" widget="statinfo" string="Survey sheet"/>
                     </button></div></xpath>
 		</field>
 	</record>
@@ -44,14 +35,19 @@
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_lead_view_form" />
         <field name="arch" type="xml">
+		   <xpath expr="//button[last()]" position="after">
+		       <button type="object" name="create_sale_order" string="Create Sale order" class="btn-primary"  />
+			   </xpath>
 		    <xpath expr="//field[@name='active']" position="before">
 			<field name="count_lead" invisible="1"/>
+			<field name="count_order" invisible="1"/>
 		   <div class="oe_button_box" name="button_box">
+		   <button class="oe_stat_button" type="object" name="action_view_sale_order"  attrs="{'invisible':[('count_order','=',0)]}">
+                        <field name="count_order" widget="statinfo" string="Orders"/>
+                    </button> 
 		    <button class="oe_stat_button" icon="fa-ticket" type="object" name="action_view_ticketes" attrs="{'invisible': [('count_lead', '=', 0)]}">
-                        <div class="o_field_widget o_stat_info">
-                             
-                            <span class="o_stat_text"> Tickets</span>
-                        </div>
+                        <field name="count_lead" widget="statinfo" string="Tickets"/>
+                         
                     </button></div></xpath>
 
 
@@ -80,4 +76,19 @@
 			</xpath>
 		</field>
 		</record>
+
+
+    <record id="ticket_sale_view_tree_in" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.custom</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree" />
+        <field name="arch" type="xml">
+		   <xpath expr="//tree/field[@name='partner_id']" position="after">
+		    
+				<field name="team_id" optional="show"/>
+               
+            
+		   </xpath>
+		</field>
+    </record>
 </odoo>

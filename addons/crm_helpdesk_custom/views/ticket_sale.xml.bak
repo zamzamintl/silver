@@ -19,7 +19,7 @@
                             <field name="invoice_count" widget="statinfo" string="Invoices"/>
                         </button>-->
 		   <div class="oe_button_box" name="button_box">
-		    <button class="oe_stat_button" type="object" name="action_view_sale_order"  icon="crm_helpdesk_custom/static/src/img/pencil.gif" attrs="{'invisible':[('count_order','=',0)]}">
+		    <button class="oe_stat_button" type="object" name="action_view_sale_order"  attrs="{'invisible':[('count_order','=',0)]}" icon="fa-pencil-square-o" >
                         <field name="count_order" widget="statinfo" string="Orders"/>
                     </button> 
 		    <button class="oe_stat_button" type="object" name="action_view_leads"  icon="crm_helpdesk_custom/static/src/img/pencil.gif" attrs="{'invisible':[('count_lead','=',0)]}">
@@ -30,19 +30,43 @@
                     </button></div></xpath>
 		</field>
 	</record>
+    
+	<record id="ticket_crm_view_form_leadd" model="ir.ui.view">
+        <field name="name">ticket_crm_view_form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm_helpdesk.crm_lead_view_form" />
+        <field name="arch" type="xml">
+		<xpath expr="//button[@name='%(crm_helpdesk.crm_lead_convert2ticket_action)d']" position="replace">
+		  <button class="oe_stat_button" type="action" name="%(crm_helpdesk.crm_lead_convert2ticket_action)d" icon="fa-ticket" help="Convert to Ticket" string="Convert to Ticket"  /></xpath>
+		  </field>
+		  </record>
+    <record id="ticket_crm_view_form_4" model="ir.ui.view">
+        <field name="name">ticket_crm_view_form_4</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor" />
+        <field name="arch" type="xml">
+		<xpath expr="//button[@name='action_view_sale_quotation']" position="attributes">
+   
+                <attribute name="invisible">True</attribute></xpath>
+		    <xpath expr="//button[@name='action_view_sale_order']" position="attributes">
+   
+                <attribute name="invisible">True</attribute></xpath>
+				</field>
+				</record>
 	<record id="ticket_crm_view_form" model="ir.ui.view">
         <field name="name">ticket_crm_view_form</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_lead_view_form" />
         <field name="arch" type="xml">
+		     
 		   <xpath expr="//button[last()]" position="after">
-		       <button type="object" name="create_sale_order" string="Create Sale order" class="btn-primary"  />
+		       <button type="object" name="create_sale_order" string="Create Sale order" class="btn-primary"  attrs="{'invisible':[('type','!=','lead')]}" />
 			   </xpath>
 		    <xpath expr="//field[@name='active']" position="before">
 			<field name="count_lead" invisible="1"/>
 			<field name="count_order" invisible="1"/>
 		   <div class="oe_button_box" name="button_box">
-		   <button class="oe_stat_button" type="object" name="action_view_sale_order"  attrs="{'invisible':[('count_order','=',0)]}">
+		   <button class="oe_stat_button" type="object" name="action_view_sale_order"  attrs="{'invisible':[('count_order','=',0)]}" icon="fa-pencil-square-o" >
                         <field name="count_order" widget="statinfo" string="Orders"/>
                     </button> 
 		    <button class="oe_stat_button" icon="fa-ticket" type="object" name="action_view_ticketes" attrs="{'invisible': [('count_lead', '=', 0)]}">

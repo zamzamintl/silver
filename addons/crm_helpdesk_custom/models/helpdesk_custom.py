@@ -168,6 +168,11 @@ class sales_cus(models.Model):
         self.message_ids.create(value)
     @api.constrains("lead_id")
     def get_count(self):
+        if self.opportunity_id:
+            self.opportunity_id.count_order+=1
+         
+    @api.constrains("lead_id")
+    def get_count(self):
         if self.lead_id:
             self.lead_id.count_order+=1
         value={
@@ -182,6 +187,19 @@ class ticket(models.Model):
     count_lead=fields.Integer("Count Lead")
     ticket_id=fields.Many2one("helpdesk.ticket",string="ticket")
     count_order=fields.Integer("Count Order")
+    def action_view_sale_order(self):
+        action = self.env.ref('sale.action_orders').read()[0]
+        action['context'] = {
+            'search_default_partner_id': self.partner_id.id,
+            'default_partner_id': self.partner_id.id,
+            'default_opportunity_id': self.id,
+        }
+        action['domain'] = ['|',('opportunity_id', '=', self.id), ('lead_id','=',self.id)]
+        orders = self.mapped('order_ids').filtered(lambda l: l.state not in ('draft', 'sent', 'cancel'))
+        if len(orders) == 1:
+            action['views'] = [(self.env.ref('sale.view_order_form').id, 'form')]
+            action['res_id'] = orders.id
+        return action
     def create_sale_order(self):
         view = self.env.ref('sale.view_order_form')
         context=''
@@ -199,7 +217,7 @@ class ticket(models.Model):
     def action_view_sale_order(self):
         view = self.env.ref('sale.view_quotation_tree')
         view_form=self.env.ref('sale.view_order_form')
-        orders=self.env['sale.order'].search([('lead_id','=',self.id)])
+        orders=self.env['sale.order'].search(['|',('opportunity_id','=',self.id),('lead_id','=',self.id)])
         ids=[]
         for rec in orders:
             ids.append(rec.id)

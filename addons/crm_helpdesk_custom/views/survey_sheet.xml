@@ -17,6 +17,14 @@
 				     <tree editable="top">
 					   <field name="name"/>
 					   <field name="lighting"/>
+					   <field name="Lighting_dimming"/>
+					   <field name="Curtains"/>
+					   <field name="AC"/>
+					   <field name="Keypad"/>
+					   <field name="DLP"/>
+					   <field name="Sensors"/>
+					   <field name="Speakers"/>
+
 					   <field name="notes"/>
 					 </tree>
 				</field>

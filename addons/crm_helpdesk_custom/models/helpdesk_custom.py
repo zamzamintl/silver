@@ -289,9 +289,18 @@ class survey_sheet(models.Model):
 class survey_sheet_line(models.Model):
     _name='survey.sheet.line'
     suvery_sheet=fields.Many2one("survey sheet")
-    name=fields.Char("Location")
-    lighting=fields.Boolean("Lighting On/OFF")
+    name=fields.Selection([("Lobby","Lobby"),("Living Area","Living Area"),("Dining area","Dining area"),("Corridor","Corridor"),("Guest room","Guest room"),("Guest bathroom","Guest bathroom"),("Terrace","Terrace"),("Garden","Garden"),("Reception","Reception"),("Kitchen","Kitchen"),("Stairs","Stairs"),("Bedroom","Bedroom"),("Tank","Tank"),("Storage","Storage"),("Master Bedroom","Master Bedroom"),("Master Lobby","Master Lobby")],"Location")
+    lighting=fields.Integer("Lighting On/OFF")
     notes=fields.Char("Notes")
+    Lighting_dimming=fields.Char("Lighting_dimming")
+    Curtains=fields.Char("Curtains")
+    AC=fields.Char("AC")
+    Keypad=fields.Char("Keypad")
+    DLP=fields.Char("DLP")
+    Sensors=fields.Char("Sensors")
+    Speakers=fields.Char("Speakers")
+     
+
 
 class helpdesk_team(models.Model):
     _inherit='helpdesk.team'

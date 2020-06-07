@@ -166,10 +166,10 @@ class sales_cus(models.Model):
         'message_type':'notification',
         }
         self.message_ids.create(value)
-    @api.constrains("lead_id")
-    def get_count(self):
+    @api.constrains("opportunity_id")
+    def get_count_op(self):
         if self.opportunity_id:
-            self.opportunity_id.count_order+=1
+            self.opportunity_id.count_order+=1+self.opportunity_id.quotation_count
          
     @api.constrains("lead_id")
     def get_count(self):

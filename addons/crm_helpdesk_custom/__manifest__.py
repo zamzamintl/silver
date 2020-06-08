@@ -12,6 +12,7 @@
         'resource',
         'fetchmail',
         'utm',
+        'sale_crm',
         'web_tour',
         'contacts',
         'digest',

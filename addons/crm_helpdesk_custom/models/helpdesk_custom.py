@@ -159,29 +159,27 @@ class sales_cus(models.Model):
     def get_count(self):
         if self.ticket_id:
             self.ticket_id.count_order+=1
-        value={
-        'body':"create by ticket  " +self.ticket_id.name ,
-        'res_id':self.id,
-        'model':'sale.order',
-        'message_type':'notification',
-        }
-        self.message_ids.create(value)
+            value={
+            'body':"create by ticket  " +self.ticket_id.name ,
+            'res_id':self.id,
+            'model':'sale.order',
+            'message_type':'notification',
+            }
+            self.message_ids.create(value)
     @api.constrains("opportunity_id")
     def get_count_op(self):
         if self.opportunity_id:
-            self.opportunity_id.count_order+=1+self.opportunity_id.quotation_count
+            self.opportunity_id.count_order+=1
+            value={
+            'body':"create by ticket  " +self.opportunity_id.name ,
+            'res_id':self.id,
+            'model':'sale.order',
+            'message_type':'notification',
+            }
+            self.message_ids.create(value)
          
-    @api.constrains("lead_id")
-    def get_count(self):
-        if self.lead_id:
-            self.lead_id.count_order+=1
-        value={
-        'body':"create by ticket  " +self.lead_id.name ,
-        'res_id':self.id,
-        'model':'sale.order',
-        'message_type':'notification',
-        }
-        self.message_ids.create(value)
+    
+        
 class ticket(models.Model):
     _inherit='crm.lead'
     count_lead=fields.Integer("Count Lead")
@@ -200,21 +198,8 @@ class ticket(models.Model):
             action['views'] = [(self.env.ref('sale.view_order_form').id, 'form')]
             action['res_id'] = orders.id
         return action
-    def create_sale_order(self):
-        view = self.env.ref('sale.view_order_form')
-        context=''
-        if self.partner_id:
-            context={'default_partner_id': self.partner_id.id}
-        return {
-            'name': _('Sales Order'),
-            'view_mode': 'form',
-            'view_id': view.id,
-            'res_model': 'sale.order',
-            'type': 'ir.actions.act_window',
-            'context':{'default_partner_id': self.partner_id.id,'default_lead_id':self.id,'default_ticket_id':self.ticket_id.id},
-            'target':'current'
-        }
-    def action_view_sale_order(self):
+     
+    """def action_view_sale_order(self):
         view = self.env.ref('sale.view_quotation_tree')
         view_form=self.env.ref('sale.view_order_form')
         orders=self.env['sale.order'].search(['|',('opportunity_id','=',self.id),('lead_id','=',self.id)])
@@ -230,7 +215,7 @@ class ticket(models.Model):
             'domain':[('id','in',ids)],
             'type': 'ir.actions.act_window',
             'target':'current'
-        }
+        }"""
      
     @api.constrains("ticket_id")
     def get_ticket_lead(self):

@@ -159,24 +159,24 @@ class sales_cus(models.Model):
     def get_count(self):
         if self.ticket_id:
             self.ticket_id.count_order+=1
-        value={
-        'body':"create by ticket  " +self.ticket_id.name ,
-        'res_id':self.id,
-        'model':'sale.order',
-        'message_type':'notification',
-        }
-        self.message_ids.create(value)
+            value={
+            'body':"create by ticket  " +self.ticket_id.name ,
+            'res_id':self.id,
+            'model':'sale.order',
+            'message_type':'notification',
+            }
+            self.message_ids.create(value)
     @api.constrains("opportunity_id")
     def get_count_op(self):
         if self.opportunity_id:
             self.opportunity_id.count_order+=1
-        value={
-        'body':"create by ticket  " +self.opportunity_id.name ,
-        'res_id':self.id,
-        'model':'sale.order',
-        'message_type':'notification',
-        }
-        self.message_ids.create(value)
+            value={
+            'body':"create by ticket  " +self.opportunity_id.name ,
+            'res_id':self.id,
+            'model':'sale.order',
+            'message_type':'notification',
+            }
+            self.message_ids.create(value)
          
     
         

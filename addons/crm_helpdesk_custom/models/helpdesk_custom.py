@@ -199,23 +199,7 @@ class ticket(models.Model):
             action['res_id'] = orders.id
         return action
      
-    """def action_view_sale_order(self):
-        view = self.env.ref('sale.view_quotation_tree')
-        view_form=self.env.ref('sale.view_order_form')
-        orders=self.env['sale.order'].search(['|',('opportunity_id','=',self.id),('lead_id','=',self.id)])
-        ids=[]
-        for rec in orders:
-            ids.append(rec.id)
-        return {
-            'name': _('Sales Order'),
-            'view_mode': 'tree,form',
-            'view_type':'form',
-            'views': [(view.id,'tree'),(view_form.id,'form')],
-            'res_model': 'sale.order',
-            'domain':[('id','in',ids)],
-            'type': 'ir.actions.act_window',
-            'target':'current'
-        }"""
+   
      
     @api.constrains("ticket_id")
     def get_ticket_lead(self):

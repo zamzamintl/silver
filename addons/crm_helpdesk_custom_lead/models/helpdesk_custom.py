@@ -121,7 +121,7 @@ class ticket(models.Model):
             'target':'current'
         }
     def create_survey_sheet(self):
-        view = self.env.ref('crm_helpdesk_custom_lead.survey_sheet_view_form')
+        view = self.env.ref('crm_helpdesk_custom.survey_sheet_view_form')
          
         return {
             'name': _('Survey Sheet'),
@@ -133,8 +133,8 @@ class ticket(models.Model):
             'target':'current'
         }
     def action_view_survey_sheet(self):
-        view = self.env.ref('crm_helpdesk_custom_lead.survey_sheet_view_tree')
-        view_for=self.env.ref('crm_helpdesk_custom_lead.survey_sheet_view_form')
+        view = self.env.ref('crm_helpdesk_custom.survey_sheet_view_tree')
+        view_for=self.env.ref('crm_helpdesk_custom.survey_sheet_view_form')
         orders=self.env['survey.sheet'].search([('ticket_id','=',self.id)])
         ids=[]
         for rec in orders:

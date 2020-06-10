@@ -23,14 +23,12 @@ class crm_help(models.TransientModel):
             "user_id": None
         }
         ticket = self.env['helpdesk.ticket'].create(vals)
-        # move the mail thread
+       
         lead.message_change_thread(ticket)
-        # move attachments
+     
         attachments = self.env['ir.attachment'].search([('res_model', '=', 'crm.lead'), ('res_id', '=', lead.id)])
         attachments.sudo().write({'res_model': 'helpdesk.ticket', 'res_id': ticket.id})
-        # archive the lead
-        #lead.write({'active': False})
-        # return the action to go to the form view of the new Ticket
+        
         view = self.env.ref('helpdesk.helpdesk_ticket_view_form')
         return {
             'name': _('Ticket created'),
@@ -199,7 +197,6 @@ class ticket(models.Model):
             action['res_id'] = orders.id
         return action
      
-   
      
     @api.constrains("ticket_id")
     def get_ticket_lead(self):
@@ -231,7 +228,6 @@ class ticket(models.Model):
             'type': 'ir.actions.act_window',
             'target':'current'
         }
-
 
 class survey_sheet(models.Model):
     _name='survey.sheet'

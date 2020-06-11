@@ -1,0 +1,17 @@
+{
+    'name' : 'Get status of employee attandance',
+    'version' : '12.0.1',
+    'summary': 'Module move  product .',
+    'sequence': 16,
+    'category': 'Attanance',
+    'author' : 'Unicom',
+    'description': """
+    """,
+    "license": "AGPL-3",
+    'depends' : [ 'hr_attendance','hr_holidays'],
+    'data': ['views/view_menu.xml','views/view.xml','secuirty/ir.model.access.csv','views/report_employee_summary_document.xml','views/sechudle_action.xml'],
+    
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}

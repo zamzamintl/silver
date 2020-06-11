@@ -199,6 +199,7 @@ class ticket(models.Model):
             action['res_id'] = orders.id
         return action
      
+<<<<<<< HEAD
     """def action_view_sale_order(self):
         view = self.env.ref('sale.view_quotation_tree')
         view_form=self.env.ref('sale.view_order_form')
@@ -216,6 +217,9 @@ class ticket(models.Model):
             'type': 'ir.actions.act_window',
             'target':'current'
         }"""
+=======
+   
+>>>>>>> parent of eb43235... update helpdesk
      
     @api.constrains("ticket_id")
     def get_ticket_lead(self):

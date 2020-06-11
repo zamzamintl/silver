@@ -72,17 +72,13 @@
                             <field name="sale_order_count" invisible="1"/>
                         </div>
                     </button>
-			   </button>
-
-		    <button name="action_schedule_meeting" position="after">
-			<field name="count_lead" invisible="1"/>
-			<field name="count_order" invisible="1"/>
-		   <div class="oe_button_box" name="button_box">
-		    
-		    <button class="oe_stat_button" icon="fa-ticket" type="object" name="action_view_ticketes" attrs="{'invisible': [('count_lead', '=', 0)]}">
+					 <button class="oe_stat_button" icon="fa-ticket" type="object" name="action_view_ticketes" attrs="{'invisible': [('count_lead', '=', 0)]}">
                         <field name="count_lead" widget="statinfo" string="Tickets"/>
                          
-                    </button></div></button>
+                    </button>
+			   </button>
+
+		    
 
 
 		</field>
@@ -125,4 +121,36 @@
 		   </xpath>
 		</field>
     </record>
+
+	
+	<record id="lead_sale_search" model="ir.ui.view">
+        <field name="name">lead_sale_search</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_leads_filter" />
+        <field name="arch" type="xml">
+		   <xpath expr="//field[@name='name']" position="after">
+		    
+				<field name="partner_id"/>
+				<field name="phone"/>
+				<field name="mobile"/>
+               
+            
+		   </xpath>
+		</field>
+    </record>
+	 <record id="ticket_sale_search" model="ir.ui.view">
+        <field name="name">ticket_sale_search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_search" />
+        <field name="arch" type="xml">
+		   <xpath expr="//field[@name='partner_id']" position="after">
+		     
+				<field name="phone"/>
+				<field name="mobile"/>
+               
+            
+		   </xpath>
+		</field>
+    </record>
+
 </odoo>

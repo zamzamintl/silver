@@ -22,7 +22,7 @@
 		    <button class="oe_stat_button" type="object" name="action_view_sale_order"  attrs="{'invisible':[('count_order','=',0)]}" icon="fa-pencil-square-o" >
                         <field name="count_order" widget="statinfo" string="Orders"/>
                     </button> 
-		    <button class="oe_stat_button" type="object" name="action_view_leads"  icon="crm_helpdesk_custom/static/src/img/pencil.gif" attrs="{'invisible':[('count_lead','=',0)]}">
+		    <button class="oe_stat_button" type="object" name="action_view_leads"  icon="crm_helpdesk_custom_lead/static/src/img/pencil.gif" attrs="{'invisible':[('count_lead','=',0)]}">
                        <field name="count_lead" widget="statinfo" string="Leads"/>
                     </button> 
 		    <button class="oe_stat_button" type="object" name="action_view_survey_sheet"  attrs="{'invisible':[('count_sheet','=',0)]}">

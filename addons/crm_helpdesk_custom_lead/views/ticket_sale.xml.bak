@@ -138,7 +138,7 @@
 		   </xpath>
 		</field>
     </record>
-	 <record id="ticket_sale_search" model="ir.ui.view">
+	<!-- <record id="ticket_sale_search" model="ir.ui.view">
         <field name="name">ticket_sale_search</field>
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_search" />
@@ -151,6 +151,6 @@
             
 		   </xpath>
 		</field>
-    </record>
+    </record>-->
 
 </odoo>

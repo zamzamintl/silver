@@ -83,18 +83,18 @@
 										<div class="w-100"/>
 
                                          <t t-if="mode[1] == 'billing'"><div t-attf-class="form-group #{error.get('floor') and 'o_has_error' or ''} col-lg-6" id="div_floor">
-	     <label class="col-form-label" for="Floor">Floor</label>
-             <input type="text" name="floor" t-attf-class="form-control #{error.get('floor') and 'is-invalid' or ''}" t-att-value="'floor' in checkout and checkout['floor']" />
+	      
+             <input type="text" name="floor" t-attf-class="form-control #{error.get('floor') and 'is-invalid' or ''}" t-att-value="'floor' in checkout and checkout['floor']" placeholder="floor" />
 			 </div></t>
 			 <div t-attf-class="form-group #{error.get('block') and 'o_has_error' or ''} col-lg-6" id="div_block">
-			 <label class="col-form-label" for="block">block</label>
-             <input type="text" name="block" t-attf-class="form-control #{error.get('block') and 'is-invalid' or ''}" t-att-value="'block' in checkout and checkout['block']" /></div>
+			  
+             <input type="text" name="block" t-attf-class="form-control #{error.get('block') and 'is-invalid' or ''}" t-att-value="'block' in checkout and checkout['block']" placeholder="Block" /></div>
 										<div class="w-100"/>
 										  
                                          <div t-attf-class="form-group #{error.get('region_id') and 'o_has_error' or ''} col-lg-6 div_state">
-                                            <label class="col-form-label" for="region_id">Area</label>
+                                             
                                             <select id="region_id"  name="region_id" t-attf-class="form-control #{error.get('region_id') and 'is-invalid' or ''}">
-                                                <option value=""></option>
+                                                <option value="">Area</option>
                                                 <t t-foreach="region_id" t-as="r">
                                                     
                                                     <option t-att-value="r.id" t-att-selected="r.id == ('region_id' in checkout and country and checkout['region_id'] != '' and int(checkout['region_id']))">

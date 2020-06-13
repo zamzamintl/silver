@@ -15,6 +15,9 @@ class website_cust(WebsiteSale):
         new_values = {}
         authorized_fields = request.env['ir.model']._get('res.partner')._get_form_writable_fields()
         for k, v in values.items():
+            if k=='mobile':
+                _logger.info("PPPPPPPHONR")
+                _logger.info(v)
             # don't drop empty value, it could be a field to reset
             if k=='mobile' or k=='floor'or k=='block' or k=='region_id' or k=='partition' or k=='district' :
                 new_values[k] = v

@@ -157,7 +157,7 @@ class website_cust(WebsiteSale):
      
     def _get_mandatory_billing_fields(self):
         _logger.info("_get_mandatory_billing_fields")
-        return ["name", "email", "street", "city", "country_id","floor","block","region_id","district","partition","delivery_date"]
+        return ["name", "email", "street", "city", "country_id","floor","block","region_id","district","partition"]
     @http.route(['/shop/state_infos/<model("res.country.state"):state_id>'], type='json', auth="public", methods=['POST'], website=True)
     def state_infos(self, state_id, mode, **kw):
         _logger.info("state_infos")
@@ -220,7 +220,7 @@ class website_delivery(WebsiteSaleDelivery):
             _logger.info(delivery_carriers)
             _logger.info(order.partner_id)
             _logger.info(type(delivery_carriers))
-            delivery_carriers=request.env['delivery.carrier'].search([('id','=',5)])
+            #delivery_carriers=request.env['delivery.carrier'].search([('id','=',4)])
             values['deliveries'] = delivery_carriers.sudo()
 
         values['delivery_has_storable'] = has_storable_products
@@ -244,16 +244,6 @@ class partner((models.Model)):
             user.create(values)"""
 class order(models.Model):
     _inherit='sale.order'
-<<<<<<< HEAD
-    area=fields.Many2one(related='partner_id.region_id',string='Area')
-    district=fields.Many2one(related='partner_id.district',string='District')
-    partition=fields.Many2one(related='partner_id.partition',string='Partition')
-class account_move(models.Model):
-    _inherit='account.move'
-    area=fields.Many2one(related='partner_id.region_id',string='Area')
-    district=fields.Many2one(related='partner_id.district',string='District')
-    partition=fields.Many2one(related='partner_id.partition',string='Partition')
-=======
     area=fields.Many2one(related='partner_id.region_id',string='Area',store=True)
     district=fields.Many2one(related='partner_id.district',string='District',store=True)
     partition=fields.Many2one(related='partner_id.partition',string='Partition',store=True)
@@ -262,4 +252,3 @@ class account_move(models.Model):
     area=fields.Many2one(related='partner_id.region_id',string='Area',store=True)
     district=fields.Many2one(related='partner_id.district',string='District',store=True)
     partition=fields.Many2one(related='partner_id.partition',string='Partition',store=True)
->>>>>>> master

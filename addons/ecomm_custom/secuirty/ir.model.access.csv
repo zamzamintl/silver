@@ -1,5 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_state_region1,access_state_region1,model_state_region,base.group_system,1,1,1,1
-access_state_region1,access_state_region1,model_state_region1,base.group_system,1,1,1,1
-access_state_region2,access_state_region2,model_state_region2,base.group_system,1,1,1,1
- 
+access_state_region,access_state_region,model_state_region,sale.group_delivery_invoice_address,1,1,1,1
+access_state_region1,access_state_region1,model_state_region1,sale.group_delivery_invoice_address,1,1,1,1
+access_state_region2,access_state_region2,model_state_region2,sale.group_delivery_invoice_address,1,1,1,1

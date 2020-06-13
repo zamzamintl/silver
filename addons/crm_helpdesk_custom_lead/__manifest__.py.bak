@@ -12,11 +12,12 @@
         'resource',
         'fetchmail',
         'utm',
+        'sale_crm',
         'web_tour',
         'contacts',
         'digest',
         'phone_validation',],
-    'data': ['views/ticket_sale.xml','views/survey_sheet.xml','secuirty/ir.model.access.csv'],
+    'data': ['views/menus.xml','views/ticket_sale.xml','views/survey_sheet.xml','secuirty/ir.model.access.csv','views/surevy_sheet_report.xml'],
      
     'installable': True,
     'auto_install': True,

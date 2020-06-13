@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<odoo>
+<record model="ir.actions.act_window" id="action_survey_sheet">
+    <field name="name">Survey sheet</field>
+            <field name="type">ir.actions.act_window</field>
+             
+    <field name="res_model">survey.sheet</field>
+    <field name="view_mode">tree,form</field>
+	<field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('survey_sheet_view_tree')}),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('survey_sheet_view_form')})]"/>
+ 
+</record>
+  
+<record model="ir.actions.act_window" id="action_survey_sheet_location">
+    <field name="name">Locations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+    <field name="res_model">survey.sheet.location</field>
+    <field name="view_mode">tree</field>
+	 
+
+ 
+
+   
+</record>
+<report
+    id="surevy_sheet_location"
+    model="survey.sheet"
+    string="Survey Sheet report"
+    report_type="qweb-pdf"
+    name="crm_helpdesk_custom_lead.report_saleorder_document"
+    file="crm_helpdesk_custom_lead.report_saleorder_document"
+     
+/>
+ <menuitem id="menu_survey_sheet"
+ name="Survey Sheet"
+ parent="helpdesk.menu_helpdesk_root"
+ 
+ /> 
+ <menuitem id="menu_survey_sheet_list"
+ name="Survey Sheet List"
+ action="action_survey_sheet"
+ parent="menu_survey_sheet"
+ 
+ /> 
+  <menuitem id="menu_survey_sheet_Loction"
+ name="Locations"
+ action="action_survey_sheet_location"
+ parent="menu_survey_sheet"
+ 
+ /> 
+ <record id="location_view_form" model="ir.ui.view">
+        <field name="name">location_view_form</field>
+        <field name="model">survey.sheet.location</field>
+        <field name="arch" type="xml">
+
+		 <tree editable="top">
+		 <field name="name"/>
+
+		 </tree></field>
+</record>
+ </odoo>

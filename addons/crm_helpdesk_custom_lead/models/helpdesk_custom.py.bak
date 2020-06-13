@@ -121,7 +121,7 @@ class ticket(models.Model):
             'target':'current'
         }
     def create_survey_sheet(self):
-        view = self.env.ref('crm_helpdesk_custom.survey_sheet_view_form')
+        view = self.env.ref('crm_helpdesk_custom_lead.survey_sheet_view_form')
          
         return {
             'name': _('Survey Sheet'),
@@ -133,8 +133,8 @@ class ticket(models.Model):
             'target':'current'
         }
     def action_view_survey_sheet(self):
-        view = self.env.ref('crm_helpdesk_custom.survey_sheet_view_tree')
-        view_for=self.env.ref('crm_helpdesk_custom.survey_sheet_view_form')
+        view = self.env.ref('crm_helpdesk_custom_lead.survey_sheet_view_tree')
+        view_for=self.env.ref('crm_helpdesk_custom_lead.survey_sheet_view_form')
         orders=self.env['survey.sheet'].search([('ticket_id','=',self.id)])
         ids=[]
         for rec in orders:
@@ -143,7 +143,7 @@ class ticket(models.Model):
             'name': _('Survey Sheet'),
             'view_mode': 'tree,form',
             'view_type':'form',
-            'views': [(view.id,'tree'),(view_form.id,'form')],
+            'views': [(view.id,'tree'),(view_for.id,'form')],
             'res_model': 'survey.sheet',
             'domain':[('id','in',ids)],
             'type': 'ir.actions.act_window',
@@ -260,6 +260,9 @@ class survey_sheet(models.Model):
     message_follower_ids=fields.One2many("mail.followers","res_id",String="Followers")
     activity_ids=fields.One2many("mail.activity","res_id",String="Activity")
     message_ids=fields.One2many("mail.message","res_id",String="message")
+    state=fields.Selection([('draft','Draft'),('approve','Approve')],)
+    def action_draft(self):
+        self.state='approve'
     @api.constrains("ticket_id")
     def get_count(self):
         if self.ticket_id:
@@ -274,7 +277,7 @@ class survey_sheet(models.Model):
 class survey_sheet_line(models.Model):
     _name='survey.sheet.line'
     suvery_sheet=fields.Many2one("survey sheet")
-    name=fields.Selection([("Lobby","Lobby"),("Living Area","Living Area"),("Dining area","Dining area"),("Corridor","Corridor"),("Guest room","Guest room"),("Guest bathroom","Guest bathroom"),("Terrace","Terrace"),("Garden","Garden"),("Reception","Reception"),("Kitchen","Kitchen"),("Stairs","Stairs"),("Bedroom","Bedroom"),("Tank","Tank"),("Storage","Storage"),("Master Bedroom","Master Bedroom"),("Master Lobby","Master Lobby")],"Location")
+    name=fields.Many2one("survey.sheet.location",String="Location")
     lighting=fields.Integer("Lighting On/OFF")
     notes=fields.Char("Notes")
     Lighting_dimming=fields.Char("Lighting_dimming")
@@ -290,3 +293,6 @@ class survey_sheet_line(models.Model):
 class helpdesk_team(models.Model):
     _inherit='helpdesk.team'
     survey_team=fields.Boolean("Survey Team")
+class loction(models.Model):
+    _name="survey.sheet.location"
+    name=fields.Char("Location Name")

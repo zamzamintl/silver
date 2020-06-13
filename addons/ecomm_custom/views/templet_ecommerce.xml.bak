@@ -105,9 +105,9 @@
                                         </div>
 										 
 										<div t-attf-class="form-group #{error.get('district') and 'o_has_error' or ''} col-lg-6 div_state">
-                                            <label class="col-form-label" for="district">District</label>
+                                            <!--<label class="col-form-label" for="district">District</label>-->
                                             <select id="district" name="district" t-attf-class="form-control #{error.get('district') and 'is-invalid' or ''}">
-                                                <option value=""></option>
+                                                <option value="">District</option>
                                                 <t t-foreach="district " t-as="r2">
                                                   
                                                     <option t-att-value="r2.id" t-att-selected="r2.id == ('district' in checkout and country and checkout['district'] != '' and int(checkout['district']))">
@@ -118,10 +118,10 @@
                                         </div>
                                         <div class="w-100"/>
 										 
-										<div t-attf-class="form-group #{error.get('partition') and 'o_has_error' or ''} col-lg-6 div_state">
-                                            <label class="col-form-label" for="partition">partition</label>
+										<!--<div t-attf-class="form-group #{error.get('partition') and 'o_has_error' or ''} col-lg-6 div_state">
+                                            <label class="col-form-label" for="partition">partition</label>-->
                                             <select id="partition" name="partition" t-attf-class="form-control #{error.get('partition') and 'is-invalid' or ''}">
-                                                <option value=""></option>
+                                                <option value="">partition</option>
                                                 <t t-foreach="partition" t-as="r3">
                                                   
                                                     <option t-att-value="r3.id" t-att-selected="r3.id == ('partition' in checkout and country and checkout['partition'] != '' and int(checkout['partition']))">

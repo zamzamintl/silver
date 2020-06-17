@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="inherited_view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+          <xpath expr="//div[@class='o_address_format']" position="replace">
+		  <div class="o_address_format">
+                                <div attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'contact')]}" class="oe_edit_only"><b>Company Address:</b></div>
+								<field name="floor" placeholder="Floor..." class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+								<field name="block" placeholder="Block..." class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+								<field name="region_id"   class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+								<field name="district" class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+								<field name="partition"   class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+
+
+                                <field name="street" placeholder="Street..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="street2" placeholder="Street 2..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="city" placeholder="City" class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="state_id" class="o_address_state" placeholder="State" options="{&quot;no_open&quot;: True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'zip': zip}"/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+								 
+                            </div>
+							</xpath>
+		</field>
+	</record>
+	<record id="inherited_view_tree_zone" model="ir.ui.view">
+        <field name="name">inherited_view_tree_zone</field>
+        <field name="model">sale.order</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+		   <xpath expr="//tree" position="replace">
+		    <xpath expr="//tree/field[@name='name']" position="after">
+		   
+		    
+			<field name="area" optional="show"/>
+			<field name="customer_order_delivery_date" optional="show"/>
+			 
+			 <field name="district" string="District" optional="hide"/>
+		   <field name="partition" string="partition" optional="hide"/>
+			
+		   </xpath>
+		   </xpath>
+		</field>
+    </record>
+	<record id="inherited_quantion_view_tree_zone" model="ir.ui.view">
+        <field name="name">inherited_view_tree_zone</field>
+        <field name="model">sale.order</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+		   
+		   <xpath expr="//tree" position="replace">
+<tree string="Quotation" class="o_sale_order" colors="red:state=='sale'" multi_edit="1" >
+                    <field name="message_needaction" invisible="1"/>
+                    <field name="name" string="Quotation Number" readonly="1"/>
+					<field name="area" optional="show"/>
+			<field name="customer_order_delivery_date" optional="show"/>
+			 <field name="district" string="District" optional="hide"/>
+		   <field name="partition" string="partition" optional="hide"/>
+                    <field name="create_date" string="Create Date"/>
+                    <field name="commitment_date"/>
+                    <field name="expected_date"/>
+                    <field name="partner_id" readonly="1"/>
+                    <field name="user_id" optional="show"/>
+                    <field name="team_id" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show" readonly="1"/>
+                    <field name="amount_untaxed" sum="Total Tax Excluded" widget="monetary" optional="hide"/>
+                    <field name="amount_tax" sum="Tax Total" widget="monetary" optional="hide"/>
+                    <field name="amount_total" sum="Total Tax Included" widget="monetary" optional="show"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="state" optional="show"/>
+                    <field name="invoice_status" optional="hide"/>
+                    <field name="activity_exception_decoration" widget="activity_exception"/>
+                </tree>
+
+</xpath>
+		</field>
+    </record>
+</odoo>

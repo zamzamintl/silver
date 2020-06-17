@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <record id="ticket_sale_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.custom</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form" />
+        <field name="arch" type="xml">
+		   <xpath expr="//button[last()]" position="after">
+		        <field name="survey_team" invisible="1"/>
+		       <button type="object" name="create_sale_order" string="Create Sale order" class="btn-primary"  />
+			   <button type="object" name="create_lead" string="Create Lead" class="btn-primary"  />
+			   <button type="object" name="create_survey_sheet" string="Create Survey Sheet" class="btn-primary" attrs="{'invisible':[('survey_team','=',False)]}"  />
+		   </xpath>
+		   <xpath expr="//field[@name='legend_blocked']" position="before">
+		   <field name="count_order" invisible="1"/>
+		   <field name="count_lead" invisible="1"/>
+		   <field name="count_sheet" invisible="1"/>
+		   <!--<button name="action_view_invoice" type="object" class="oe_stat_button" icon="" attrs="{'invisible': [('invoice_count', '=', 0)]}">
+                            <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                        </button>-->
+		   <div class="oe_button_box" name="button_box">
+		    <button class="oe_stat_button" type="object" name="action_view_sale_order"  attrs="{'invisible':[('count_order','=',0)]}" icon="fa-pencil-square-o" >
+                        <field name="count_order" widget="statinfo" string="Orders"/>
+                    </button> 
+		    <button class="oe_stat_button" type="object" name="action_view_leads"  icon="crm_helpdesk_custom_lead/static/src/img/pencil.gif" attrs="{'invisible':[('count_lead','=',0)]}">
+                       <field name="count_lead" widget="statinfo" string="Leads"/>
+                    </button> 
+		    <button class="oe_stat_button" type="object" name="action_view_survey_sheet"  attrs="{'invisible':[('count_sheet','=',0)]}">
+                        <field name="count_sheet" widget="statinfo" string="Survey sheet"/>
+                    </button></div></xpath>
+		</field>
+	</record>
+    
+	<record id="ticket_crm_view_form_leadd" model="ir.ui.view">
+        <field name="name">ticket_crm_view_form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm_helpdesk.crm_lead_view_form" />
+        <field name="arch" type="xml">
+		<xpath expr="//button[@name='%(crm_helpdesk.crm_lead_convert2ticket_action)d']" position="replace">
+		  <button class="oe_stat_button" type="action" name="%(crm_helpdesk.crm_lead_convert2ticket_action)d" icon="fa-ticket" help="Convert to Ticket" string="Convert to Ticket"  /></xpath>
+		  </field>
+		  </record>
+    <!--<record id="ticket_crm_view_form_4" model="ir.ui.view">
+        <field name="name">ticket_crm_view_form_4</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor" />
+        <field name="arch" type="xml">
+		<xpath expr="//button[@name='action_view_sale_quotation']" position="attributes">
+   
+                <attribute name="invisible">True</attribute></xpath>
+		    <xpath expr="//button[@name='action_view_sale_order']" position="attributes">
+   
+                <attribute name="invisible">True</attribute></xpath>
+				</field>
+				</record>-->
+	<record id="ticket_crm_view_form" model="ir.ui.view">
+        <field name="name">ticket_crm_view_form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor" />
+        <field name="arch" type="xml">
+		     
+		   <button name='action_view_sale_quotation' position="replace">
+		       <button class="oe_stat_button" type="object" name="action_view_sale_quotation" icon="fa-pencil-square-o" >
+                        <field name="quotation_count" widget="statinfo" string="Quotations"/>
+                    </button>
+			   </button>
+			   <button name='action_view_sale_order' position="replace">
+		            <button class="oe_stat_button" type="object" attrs="{'invisible': [('sale_order_count', '=', 0)]}" name="action_view_sale_order" icon="fa-usd">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value"><field name="sale_amount_total" widget="monetary" options="{'currency_field': 'company_currency'}"/></span>
+                            <span class="o_stat_text"> Orders</span>
+                            <field name="sale_order_count" invisible="1"/>
+                        </div>
+                    </button>
+					 <button class="oe_stat_button" icon="fa-ticket" type="object" name="action_view_ticketes" attrs="{'invisible': [('count_lead', '=', 0)]}">
+                        <field name="count_lead" widget="statinfo" string="Tickets"/>
+                         
+                    </button>
+			   </button>
+
+		    
+
+
+		</field>
+    </record>
+
+		<record id="help_desk_team_view_form" model="ir.ui.view">
+        <field name="name">help_desk_team_view_form</field>
+        <field name="model">helpdesk.team</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_team_view_form" />
+        <field name="arch" type="xml">
+		
+		    <xpath expr="//div[@id='rating']" position="after">
+			  <div class="col-lg-6 o_setting_box" id="survey_team">
+                            <div class="o_setting_left_pane">
+                                <field name="survey_team"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="survey_team"/>
+                                <div class="text-muted">
+                                    Allow your show survey sheet
+                                </div>
+                                 
+                            </div>
+                        </div>
+			</xpath>
+		</field>
+		</record>
+
+
+    <record id="ticket_sale_view_tree_in" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.custom</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree" />
+        <field name="arch" type="xml">
+		   <xpath expr="//tree/field[@name='partner_id']" position="after">
+		    
+				<field name="team_id" optional="show"/>
+               
+            
+		   </xpath>
+		</field>
+    </record>
+
+	
+	<record id="lead_sale_search" model="ir.ui.view">
+        <field name="name">lead_sale_search</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_leads_filter" />
+        <field name="arch" type="xml">
+		   <xpath expr="//field[@name='name']" position="after">
+		    
+				<field name="partner_id"/>
+				<field name="phone"/>
+				<field name="mobile"/>
+               
+            
+		   </xpath>
+		</field>
+    </record>
+	<!-- <record id="ticket_sale_search" model="ir.ui.view">
+        <field name="name">ticket_sale_search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_search" />
+        <field name="arch" type="xml">
+		   <xpath expr="//field[@name='partner_id']" position="after">
+		     
+				<field name="phone"/>
+				<field name="mobile"/>
+               
+            
+		   </xpath>
+		</field>
+    </record>-->
+
+</odoo>

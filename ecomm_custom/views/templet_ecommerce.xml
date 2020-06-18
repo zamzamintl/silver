@@ -164,18 +164,7 @@
 	</xpath>
 	</template>
 
-	<!--<template inherit_id="website_sale.products_item" id="edit_page_addcart">
  
-	<xpath expr="//form" position="before">
-	  <t t-set="product_href_all" t-value="keep('/add_all/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))"/>
-	  
-	</xpath>
-	<xpath expr="//form/div/div[@class='o_wsale_product_btn']" position="before">
-  
-	 <a role="button"   t-att-href="product_href_all" style="text-align: center;"><span class="fa fa-shopping-cart"/></a>
-	 
-	</xpath>
-	</template>-->
 	<template inherit_id="website_sale.products_item" id="edit_page_addcart">
  
 	<xpath expr="//form" position="before">

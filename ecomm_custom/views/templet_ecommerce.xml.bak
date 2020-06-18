@@ -182,11 +182,6 @@
 	  <t t-set="product_href_all" t-value="keep('/add_all/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))"/>
 	  
 	</xpath>
-	<xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
-  
-	 <a role="button"   t-att-href="product_href_all" style="text-align: center;"><span class="fa fa-shopping-cart"/></a>
- 
-	</xpath>
 	<xpath expr="//form/div[@class='card-body p-0 text-center o_wsale_product_information']" position="replace">
 	    <div class=" p-0 text-center  o_wsale_product_information">
                 <div class="text-center">
@@ -208,5 +203,11 @@
                 <div class="o_wsale_product_btn"/>
             </div>
 	</xpath>
+	<xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
+  
+	 <a role="button"   t-att-href="product_href_all" style="text-align: center;"><span class="fa fa-shopping-cart"/></a>
+ 
+	</xpath>
+	
 	</template>
 	</odoo>

@@ -164,7 +164,7 @@
 	</xpath>
 	</template>
 
-	<template inherit_id="website_sale.products_item" id="edit_page_addcart">
+	<!--<template inherit_id="website_sale.products_item" id="edit_page_addcart">
  
 	<xpath expr="//form" position="before">
 	  <t t-set="product_href_all" t-value="keep('/add_all/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))"/>
@@ -175,5 +175,39 @@
 	 <a role="button"   t-att-href="product_href_all" style="text-align: center;"><span class="fa fa-shopping-cart"/></a>
 	 
 	</xpath>
+	</template>-->
+	<template inherit_id="website_sale.products_item" id="edit_page_addcart">
+ 
+	<xpath expr="//form" position="before">
+	  <t t-set="product_href_all" t-value="keep('/add_all/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))"/>
+	  
+	</xpath>
+	<xpath expr="//form/div[@class='card-body p-0 text-center o_wsale_product_information']" position="replace">
+	    <div class=" p-0 text-center  o_wsale_product_information">
+                <div class="text-center">
+                    <p style="font-size:10px" class="o_wsale_products_item_title">
+                        <a itemprop="name" t-att-href="product_href" t-att-content="product.name" t-field="product.name"/>-
+                        
+                        <a role="button" t-if="not product.website_published" t-att-href="product_href" class="btn btn-sm btn-danger" title="This product is unpublished.">Unpublished</a>
+                    </p>
+                    <div class="product_price text-left" style="font-size:10px" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
+                      <span  t-field="product.uom_id.name"/>-
+                       <a itemprop="name" t-att-href="product_href" t-att-content="product.name" t-field="product.name"/>-
+                        <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                        <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                         <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
+                         
+                        <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+                    </div>
+                </div>
+                <div class="o_wsale_product_btn"/>
+            </div>
+	</xpath>
+	<xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
+  
+	 <a role="button"   t-att-href="product_href_all" style="text-align: center;"><span class="fa fa-shopping-cart"/></a>
+ 
+	</xpath>
+	
 	</template>
 	</odoo>

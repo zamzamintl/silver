@@ -112,7 +112,7 @@ $o-color-palettes: ();
 //------------------------------------------------------------------------------
 
 $o-theme-fonts: (
-    ('Helvetica','Arial', sans-serif),
+    ('Heebo', sans-serif),
     ('Rajdhani', sans-serif),
     ('Raleway', sans-serif),
     ('Roboto', sans-serif),
@@ -120,7 +120,7 @@ $o-theme-fonts: (
     ('Ubuntu', sans-serif),
 );
 $o-theme-font-urls: (
-    null,
+    'Heebo:300,300i,400,400i,700,700i',
     'Rajdhani:300,300i,400,400i,700,700i',
     'Raleway:300,300i,400,400i,700,700i',
     'Roboto:300,300i,400,400i,700,700i',
@@ -128,7 +128,7 @@ $o-theme-font-urls: (
     'Ubuntu:300,300i,400,400i,700,700i',
 );
 $o-theme-font-names: (
-    'Helvetica',
+    'Heebo',
     'Rajdhani',
     'Raleway',
     'Roboto',

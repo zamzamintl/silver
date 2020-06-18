@@ -14,7 +14,7 @@
                                     <div class="form-row">
                                         <div t-attf-class="form-group #{error.get('name') and 'o_has_error' or ''} col-lg-12 div_name">
                                             <label class="col-form-label" for="name">Name</label>
-                                            <input type="text" name="name" t-attf-class="form-control #{error.get('name') and 'is-invalid' or ''}" t-att-value="'name' in checkout and checkout['name']" placeholder="Name">
+                                            <input type="text" name="name" t-attf-class="form-control #{error.get('name') and 'is-invalid' or ''}" t-att-value="'name' in checkout and checkout['name']" placeholder="Name"/>
                                         </div>
                                         <div class="w-100"/>
                                         <t t-if="mode[1] == 'billing'">

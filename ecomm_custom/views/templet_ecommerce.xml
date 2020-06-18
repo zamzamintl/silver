@@ -180,8 +180,8 @@
                         <a role="button" t-if="not product.website_published" t-att-href="product_href" class="btn btn-sm btn-danger" title="This product is unpublished.">Unpublished</a>
                     </p>
                     <div class="product_price text-left" style="font-size:10px" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
-					   <t t-if="product.uom_id">
-                       <span  stye="pandding:5px" t-field="product.uom_id.name"/>-</t>
+					   <!--<t t-if="product.uom_id">
+                       <span  stye="pandding:5px" t-field="product.uom_id.name"/>-</t>-->
                        <a itemprop="name" t-att-href="product_href" t-att-content="product.name" t-field="product.name"/>-
                         <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
                         <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>

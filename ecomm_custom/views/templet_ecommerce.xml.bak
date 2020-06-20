@@ -185,9 +185,10 @@
                         <a role="button" t-if="not product.website_published" t-att-href="product_href" class="btn btn-sm btn-danger" title="This product is unpublished.">Unpublished</a>
                     </p>
                     <div class="product_price text-center" style="font-size:10px" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
-					   <!--<t t-if="product.uom_id">
-                       <span  stye="pandding:5px" t-field="product.uom_id.name"/>-</t>-->
+					   
                        <a itemprop="name" t-att-href="product_href" t-att-content="product.name" t-field="product.name"/>
+					   <t t-if="product.uom_id">
+                       <span  stye="pandding:10px" t-field="product.uom_id.name"/></t>
                          
                     </div>
                 </div>

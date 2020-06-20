@@ -174,7 +174,7 @@
 	<xpath expr="//form/div[@class='card-body p-0 text-center o_wsale_product_information']" position="replace">
 	    <div class=" p-0 text-center  o_wsale_product_information" style=" border: 2px solid #b1b493;padding: 10px; border-color:#b1b493;border-radius: 15px 15px 15px 15px;">
                 <div class="text-center">
-                    <p style="font-size:10px" class="o_wsale_products_item_title">
+                    <p style="font-size:20px" class="o_wsale_products_item_title">
                        
                         <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
                         <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
@@ -188,7 +188,7 @@
 					   
                        <a itemprop="name" t-att-href="product_href" t-att-content="product.name" t-field="product.name"/>
 					   <t t-if="product.uom_id">
-                       <span  stye="pandding:10px" t-field="product.uom_id.name"/></t>
+                       <span  stye="pandding:20px" t-field="product.uom_id.name"/></t>
                          
                     </div>
                 </div>

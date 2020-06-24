@@ -6,12 +6,28 @@
             <field name="model">state.region</field>
             
             <field name="arch" type="xml">
-                <tree editable="top">
-				 <field name="state_id"/>
-				 <field name="region1"/>
+                <tree >
+				<!-- <field name="state_id"/>
+				 <field name="region1"/>-->
 				 <field name="region2"/>
 				 <field name="name"/>
 				</tree>
+		</field>
+</record>
+<record id="state_area_area_parition_form" model="ir.ui.view">
+            <field name="name">state_area_area_parition_form</field>
+            <field name="model">state.region</field>
+            
+            <field name="arch" type="xml">
+                <form ><sheet>
+				 <div class="oe_button_box" name="button_box">
+				 <button name="website_publish_button" type="object" class="oe_stat_button" icon="fa-globe">
+                    <field name="publish" widget="website_publish_button"/>
+                </button></div>
+				 <field name="region2"/>
+				 <field name="name"/>
+				 </sheet>
+				</form>
 		</field>
 </record>
 <record id="state_area_area_tree" model="ir.ui.view">
@@ -42,6 +58,12 @@
             
             <field name="arch" type="xml">
                 <form>
+				  
+				<sheet>
+				 <div class="oe_button_box" name="button_box">
+				 <button name="website_publish_button" type="object" class="oe_stat_button" icon="fa-globe">
+                    <field name="publish" widget="website_publish_button"/>
+                </button></div>
 				  <group> 
 				    <field name="state_id" required="1"/>
 					<field name="name" required="1"/> 
@@ -52,6 +74,7 @@
 					</field> 
  
 				  </group>
+				  </sheet>
 				</form>
 		    </field>
 			</record>
@@ -61,6 +84,12 @@
             
             <field name="arch" type="xml">
                 <form>
+				 
+				<sheet>
+				<div class="oe_button_box" name="button_box">
+				 <button name="website_publish_button" type="object" class="oe_stat_button" icon="fa-globe">
+                    <field name="publish" widget="website_publish_button"/>
+                </button></div>
 				  <group>
 				    <field name="name" required="1"/>
 					<field name="region1" required="1"/> 
@@ -73,6 +102,7 @@
 					
 					 
 				  </group>
+				  </sheet>
 				</form>
 		    </field>
 			</record>

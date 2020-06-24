@@ -10,12 +10,12 @@ from odoo.http import request
 class deliver(models.Model):
     _inherit='delivery.carrier'
     area=fields.Many2many('state.region1','delivery_carrier_area_rel', 'carrier_id', 'area_id',string='Area')
-    @api.constrains("area")
+    """@api.constrains("area")
     def get_duplicate(self):
         for record in self.search([]):
             for rec in record.area:
                 if rec in self.area and record.id != self.id:
-                    raise ValidationError("Shipping Cost of area must be unique "+ rec.name)
+                    raise ValidationError("Shipping Cost of area must be unique "+ rec.name)"""
 
     def _match_address(self, partner):
         self.ensure_one()

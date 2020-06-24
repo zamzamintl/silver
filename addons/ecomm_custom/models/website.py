@@ -165,7 +165,7 @@ class website_cust(WebsiteSale):
     def state_infos(self, state_id, mode, **kw):
         _logger.info("state_infos")
         _logger.info(state_id)
-        region_id_1=request.env['state.region1'].search([('state_id','=',state_id.id)])
+        region_id_1=request.env['state.region1'].search([('state_id','=',state_id.id),('publish','=',True)])
         area=[(st.id, st.name, st.state_id) for st in region_id_1]
         _logger.info(area)
         
@@ -179,7 +179,7 @@ class website_cust(WebsiteSale):
     def state_area(self, region_id, mode, **kw):
         _logger.info("state_area")
         _logger.info(region_id)
-        district=request.env['state.region2'].search([('region1','=',region_id.id)])
+        district=request.env['state.region2'].search([('region1','=',region_id.id),('publish','=',True)])
         area=[(st.id, st.name, st.region1) for st in district]
         _logger.info(area)
         return dict(
@@ -191,7 +191,7 @@ class website_cust(WebsiteSale):
     def state_district(self, district, mode, **kw):
         _logger.info("state_area")
         _logger.info(district)
-        partition=request.env['state.region'].search([('region2','=',district.id)])
+        partition=request.env['state.region'].search([('region2','=',district.id),('publish','=',True)])
         area=[(st.id, st.name, st.region2) for st in partition]
         _logger.info(area)
         return dict(

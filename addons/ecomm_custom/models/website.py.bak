@@ -15,6 +15,9 @@ class website_cust(WebsiteSale):
         new_values = {}
         authorized_fields = request.env['ir.model']._get('res.partner')._get_form_writable_fields()
         for k, v in values.items():
+            if k=='mobile':
+                _logger.info("PPPPPPPHONR")
+                _logger.info(v)
             # don't drop empty value, it could be a field to reset
             if k=='mobile' or k=='floor'or k=='block' or k=='region_id' or k=='partition' or k=='district' :
                 new_values[k] = v
@@ -176,7 +179,7 @@ class website_cust(WebsiteSale):
     def state_area(self, region_id, mode, **kw):
         _logger.info("state_area")
         _logger.info(region_id)
-        district=request.env['state.region2'].search([('region1','=',region_id.id)])
+        district=request.env['state.region2'].search([('region1','=',region_id.id),('publish','=',True)])
         area=[(st.id, st.name, st.region1) for st in district]
         _logger.info(area)
         return dict(
@@ -188,7 +191,7 @@ class website_cust(WebsiteSale):
     def state_district(self, district, mode, **kw):
         _logger.info("state_area")
         _logger.info(district)
-        partition=request.env['state.region'].search([('region2','=',district.id)])
+        partition=request.env['state.region'].search([('region2','=',district.id),('publish','=',True)])
         area=[(st.id, st.name, st.region2) for st in partition]
         _logger.info(area)
         return dict(

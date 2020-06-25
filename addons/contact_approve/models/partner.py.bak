@@ -9,7 +9,7 @@ class ResPartner(models.Model):
     def action_approve(self):
         self.state='Approve'
     def action_wait_approve(self):
-        self.state='Approve'
+        self.state='wait_approve'
 class sales_order(models.Model):
     _inherit='sale.order'
     @api.onchange('partner_id')

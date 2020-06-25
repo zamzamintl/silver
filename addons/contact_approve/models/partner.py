@@ -22,3 +22,9 @@ class purchase_order(models.Model):
     def change_partner(self):
         _logger.info("CHANGE PARTNER")
         return {'domain':{'partner_id':[('state','=','Approve')]}}
+class crm_order(models.Model):
+    _inherit='crm.lead'
+    @api.onchange('partner_id')
+    def change_partner(self):
+        _logger.info("CHANGE PARTNER")
+        return {'domain':{'partner_id':[('state','=','Approve')]}}

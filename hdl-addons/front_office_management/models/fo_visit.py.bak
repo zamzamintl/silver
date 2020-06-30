@@ -84,12 +84,12 @@ class PersonalBelongings(models.Model):
 
     @api.depends('belongings_id_fov_visitor', 'belongings_id_fov_employee')
     def get_number(self):
-        for visit in self.belongings_id_fov_visitor:
+        for visit in self.mapped('belongings_id_fov_visitor'):
             number = 1
             for line in visit.visitor_belongings:
                 line.number = number
                 number += 1
-        for visit in self.belongings_id_fov_employee:
+        for visit in self.mapped('belongings_id_fov_employee'):
             number = 1
             for line in visit.visitor_belongings:
                 line.number = number

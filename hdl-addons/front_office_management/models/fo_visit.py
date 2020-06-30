@@ -77,7 +77,7 @@ class PersonalBelongings(models.Model):
 
     property_name = fields.Char(string="Property", help='Employee belongings name')
     property_count = fields.Char(string="Count", help='Count of property')
-    number = fields.Integer(string="Sl")
+    number = fields.Integer(string="Sl",readonly=True)
     belongings_id_fov_visitor = fields.Many2one('fo.visit', string="Belongings")
     belongings_id_fov_employee = fields.Many2one('fo.property.counter', string="Belongings")
     permission = fields.Selection([

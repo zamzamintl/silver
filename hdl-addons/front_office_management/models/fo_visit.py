@@ -8,6 +8,10 @@
 
 import datetime
 from odoo import models, fields, api, _
+import logging 
+from odoo import fields, http, tools, _
+from odoo.http import request
+_logger = logging.getLogger(__name__)
 
 
 class VisitDetails(models.Model):
@@ -73,7 +77,7 @@ class PersonalBelongings(models.Model):
 
     property_name = fields.Char(string="Property", help='Employee belongings name')
     property_count = fields.Char(string="Count", help='Count of property')
-    number = fields.Integer(compute='get_number', store=True, string="Sl")
+    number = fields.Integer(string="Sl")
     belongings_id_fov_visitor = fields.Many2one('fo.visit', string="Belongings")
     belongings_id_fov_employee = fields.Many2one('fo.property.counter', string="Belongings")
     permission = fields.Selection([
@@ -82,13 +86,15 @@ class PersonalBelongings(models.Model):
         ('2', 'Allowed With Permission'),
         ], 'Permission', required=True, index=True, default='0', track_visibility='onchange')
 
-    @api.depends('belongings_id_fov_visitor')
+    @api.constrains('belongings_id_fov_visitor')
     def get_number(self):
+        _logger.info("FFFFF")
         for visit in self.belongings_id_fov_visitor:
             number = 1
-            for line in visit.visitor_belongings:
-                line.number = number
-                number += 1
+            if visit.visitor_belongings:
+                for line in visit.visitor_belongings:
+                    line.number = number
+                    number += 1
          
 
 

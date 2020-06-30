@@ -61,7 +61,7 @@
                             <page string="Personal Belongings">
                                 <field name="visitor_belongings" widget="one2many_list" nolabel="1">
                                     <tree decoration-success="permission == '0' or permission == '2'" decoration-danger="permission == '1'" string="Items" editable="bottom">
-                                        <field name="number" readonly="1"/>
+                                        <field name="number"/>
                                         <field name="property_name"/>
                                         <field name="property_count"/>
                                         <field name="permission"/>

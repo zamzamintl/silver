@@ -14,7 +14,7 @@ class sregion(models.Model):
     region2=fields.One2many('state.region2','region1',string='District')
     name=fields.Char("Area")
     publish=fields.Boolean("Published",default=True)
-    def website_publish_button(self):
+    def website_go_to(self):
         if self.publish==True:
             self.publish=False
         elif self.publish==False:
@@ -29,7 +29,7 @@ class region2(models.Model):
     region1=fields.Many2one('state.region1',string='Area')
     region3=fields.One2many('state.region','region2',string='Partition')
     publish=fields.Boolean("Published",default=True)
-    def website_publish_button(self):
+    def website_go_to(self):
         if self.publish==True:
             self.publish=False
         elif self.publish==False:
@@ -41,7 +41,7 @@ class region3(models.Model):
     
     region2=fields.Many2one('state.region2',string='District')
     publish=fields.Boolean("Published",default=True)
-    def website_publish_button(self):
+    def website_go_to(self):
         if self.publish==True:
             self.publish=False
         elif self.publish==False:

@@ -82,18 +82,14 @@ class PersonalBelongings(models.Model):
         ('2', 'Allowed With Permission'),
         ], 'Permission', required=True, index=True, default='0', track_visibility='onchange')
 
-    @api.depends('belongings_id_fov_visitor', 'belongings_id_fov_employee')
+    @api.depends('belongings_id_fov_visitor')
     def get_number(self):
         for visit in self.belongings_id_fov_visitor:
             number = 1
             for line in visit.visitor_belongings:
                 line.number = number
                 number += 1
-        for visit in self.belongings_id_fov_employee:
-            number = 1
-            for line in visit.visitor_belongings:
-                line.number = number
-                number += 1
+         
 
 
 class VisitPurpose(models.Model):

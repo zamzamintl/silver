@@ -21,6 +21,7 @@ class VisitDetails(models.Model):
 
     name = fields.Char(string="sequence", default=lambda self: _('New'))
     visitor = fields.Many2one("fo.visitor", string='Visitor')
+    partner_id=fields.Many2one("res.partner",String="Contatc")
     phone = fields.Char(string="Phone", required=True)
     email = fields.Char(string="Email", required=True)
     reason = fields.Many2many('fo.purpose', string='Purpose Of Visit', required=True,

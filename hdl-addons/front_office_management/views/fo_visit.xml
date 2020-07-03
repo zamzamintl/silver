@@ -40,6 +40,7 @@
                         <group>
                             <group>
                                 <field name="visitor"/>
+								<field name="partner_id"/>
                                 <field name="phone"/>
                                 <field name="email"/>
                             </group>
@@ -84,6 +85,7 @@
             <field name="arch" type="xml">
                 <tree string="Visits" decoration-success="state == 'check_in'" decoration-muted="state == 'check_out'">
                     <field name="visitor"/>
+					<field name="partner_id"/>
                     <field name="reason"/>
                     <field name="visiting_person"/>
                     <field name="state"/>

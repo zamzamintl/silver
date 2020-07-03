@@ -16,7 +16,7 @@ class order(models.Model):
         if self.create_uid.id !=self.env.uid:
             _logger.info("change date")
             partner_id=self.env["res.users"].search([('id','=',self.env.uid)]).partner_id
-            if self.customer_order_delivery_date:
+            if self.customer_order_delivery_date and partner_id:
                 value={
                 'body':"Change Delivery Date by "+ partner_id.name,
                 'res_id':self.id,
@@ -24,7 +24,7 @@ class order(models.Model):
                 'message_type':'notification',
                   }
                 self.message_ids.create(value)
-            if self.order_line:
+            if self.order_line and partner_id:
                 value={
                 'body':"Change list of products by "+ partner_id.name,
                 'res_id':self.id,

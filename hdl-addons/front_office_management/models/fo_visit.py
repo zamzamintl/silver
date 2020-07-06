@@ -34,13 +34,31 @@ class VisitDetails(models.Model):
                                                                    'fills when he checked out from the office.')
     visiting_person = fields.Many2one('hr.employee',  string="Meeting With")
     department = fields.Many2one('hr.department',  string="Department")
+    lead_id=fields.Many2one("crm.lead",String="Lead")
     state = fields.Selection([
         ('draft', 'Draft'),
         ('check_in', 'Checked In'),
         ('check_out', 'Checked Out'),
         ('cancel', 'Cancelled'),
     ], track_visibility='onchange', default='draft')
+    @api.constrains("lead_id")
+    def get_lead_count(self):
+        if self.lead_id:
+            self.lead_id.count_visit+=1
 
+    @api.onchange("partner_id")
+    def get_email(self):
+        if self.partner_id.email:
+            self.email=self.partner_id.email
+        if self.partner_id.phone:
+            self.phone=self.partner_id.phone
+    @api.constrains("partner_id")
+    def save_email(self):
+        if self.partner_id.email:
+            self.email=self.partner_id.email
+        if self.partner_id.phone:
+            self.phone=self.partner_id.phone
+     
     @api.model
     def create(self, vals):
         if vals:
@@ -108,5 +126,38 @@ class VisitPurpose(models.Model):
 
 
 
+class crm(models.Model):
+    _inherit='crm.lead'
+    count_visit=fields.Integer("Visit")
+    def create_visit(self):
+        view = self.env.ref('front_office_management.fo_visit_form_view')
+        context=''
+        if self.partner_id:
+            context={'default_partner_id': self.partner_id.id}
+        return {
+            'name': _('Visit'),
+            'view_mode': 'form',
+            'view_id': view.id,
+            'res_model': 'fo.visit',
+            'type': 'ir.actions.act_window',
+            'context':{'default_partner_id': self.partner_id.id,'default_lead_id':self.id},
+            'target':'current'
+        }
 
-
+    def action_view_visit(self):
+        view = self.env.ref('front_office_management.fo_visit_tree_view')
+        view_form=self.env.ref('front_office_management.fo_visit_form_view')
+        orders=self.env['fo.visit'].search([('lead_id','=',self.id)])
+        ids=[]
+        for rec in orders:
+            ids.append(rec.id)
+        return {
+            'name': _('Tickets'),
+            'view_mode': 'tree,form',
+            'view_type':'form',
+            'views': [(view.id,'tree'),(view_form.id,'form')],
+            'res_model': 'fo.visit',
+            'domain':[('id','in',ids)],
+            'type': 'ir.actions.act_window',
+            'target':'current'
+        }

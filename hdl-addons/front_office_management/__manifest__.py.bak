@@ -30,7 +30,7 @@
     'company': "Cybrosys Techno Solutions",
     'website': "https://www.cybrosys.com",
     'category': 'Industries',
-    'depends': ['base', 'hr','crm','crm_helpdesk_custom_lead','sale_crm'],
+    'depends': ['base', 'hr','crm','crm_helpdesk_custom_lead'],
     'data': [
         'views/fo_visit.xml',
         'views/fo_visitor.xml',

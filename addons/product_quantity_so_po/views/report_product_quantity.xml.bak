@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_produ_Q_SO">
+                       
+                      
+						  <tr>
+                           
+                            <td>
+						   <span t-esc="i" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+                            <td>
+						   <span t-field="o.name" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.lst_price" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.sales_count" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.sale_amount" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.purchased_product_qty" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.purchase_amount" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.qty_available" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						    
+						  </tr>
+					  
+					 
+  
+                 
+         
+    
+</template>
+
+<!-- Translatable template -->
+ 
+
+<template id="report_product_quantity">
+        
+          <t t-call="web.html_container">
+		 <t t-call="web.external_layout">
+		       		     
+
+                <div class="page">
+
+				    <h2 style="text-align:center;color:grey">Survey Sheet</h2>
+                      
+					<table class="table table-sm o_main_table" >
+					<tr style="color:blue">
+					<th> Seq </th>
+							<th> Name </th>
+							<th>Price</th> 
+							<th>Sale Quantity </th>
+							<th>Sale Amount</th>
+							<th>Purchase Quantity</th>
+							<th>Purchase Amount</th>
+							<th>Available Quantity</th>
+							 
+			
+						  </tr>
+						  <t t-set="i" t-value="0"/>
+						   
+                    <t t-foreach="docs" t-as="doc">
+                        <t t-foreach="doc" t-as="o">
+                            <t t-set="i" t-value="i+1"/>
+							<t t-call="product_quantity_so_po.report_produ_Q_SO">
+                            <t t-set="o" t-value="o"/>
+                        </t>
+                            
+                         </t>
+                    </t>
+					</table>
+					 
+                </div>
+				 
+            </t>
+			</t>
+    </template>
+	
+        
+</odoo>

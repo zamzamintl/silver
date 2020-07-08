@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+ <record id="product_product_view_tree" model="ir.ui.view">
+        <field name="name">product_product_view_tree</field>
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+		<tree create="0" edit="0">
+		     
+                    
+                    <field name="name" readonly="1"/>
+                   
+                    <field name="lst_price"   string="Sales Price"/>
+                    
+                    <field name="sales_count" string="Sale Quantity"/>
+					<field name="sale_amount" />
+                    <field name="purchased_product_qty" string="Purchase Quantity"/>
+                    
+                    <field name="purchase_amount"/>
+					<field name="qty_available"/>
+		</tree>
+		</field>
+</record>
+
+
+
+<record model="ir.actions.act_window" id="action_product_qunatity">
+    <field name="name">Product Quantity </field>
+            <field name="type">ir.actions.act_window</field>
+             
+    <field name="res_model">product.product</field>
+    <field name="view_mode">tree</field>
+	<field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('product_product_view_tree')})]"/>
+ 
+</record>
+ <menuitem id="menu_product_list"
+ name="Product Quantity"
+ action="action_product_qunatity"
+ parent="sale.menu_sale_report"
+ 
+ />
+<report
+    id="product_quantity_report"
+    model="product.product"
+    string="Print Product Quantity"
+    report_type="qweb-pdf"
+    name="product_quantity_so_po.report_product_quantity"
+    file="product_quantity_so_po.report_product_quantity"
+     
+/>
+
+
+</odoo>

@@ -260,7 +260,45 @@ class survey_sheet(models.Model):
     message_follower_ids=fields.One2many("mail.followers","res_id",String="Followers")
     activity_ids=fields.One2many("mail.activity","res_id",String="Activity")
     message_ids=fields.One2many("mail.message","res_id",String="message")
-    state=fields.Selection([('draft','Draft'),('approve','Approve')],)
+    state=fields.Selection([('draft','Draft'),('approve','Approve')],String="Status",default='draft')
+    lighting=fields.Integer("Lighting On/OFF")
+    Lighting_dimming=fields.Integer("Lighting Dimming")
+    Curtains=fields.Integer("Curtains")
+    AC=fields.Integer("AC")
+    Keypad=fields.Integer("Keypad")
+    DLP=fields.Integer("DLP")
+    Sensors=fields.Integer("Sensors")
+    Speakers=fields.Integer("Speakers")
+    @api.constrains("survey_line")
+    def get_survey_details(self):
+        lighting,Lighting_dimming,Curtains,AC,Keypad,DLP,Sensors,Speakers=0,0,0,0,0,0,0,0
+        for rec in self.survey_line:
+            lighting+=rec.lighting
+            Lighting_dimming+=rec.Lighting_dimming
+            Curtains+=rec.Curtains
+            AC+=rec.AC
+            Keypad+=rec.Keypad
+            DLP+=rec.DLP
+            Sensors+=rec.Sensors
+            Speakers+=rec.Speakers
+       
+
+        self.lighting=lighting
+        self.Lighting_dimming=Lighting_dimming
+        self.Curtains=Curtains
+        self.AC=AC
+        self.Keypad=Keypad
+        self.DLP=DLP
+        self.Sensors=Sensors
+        self.Speakers=Speakers
+
+
+
+
+
+
+
+    
     def action_draft(self):
         self.state='approve'
     @api.constrains("ticket_id")
@@ -280,13 +318,66 @@ class survey_sheet_line(models.Model):
     name=fields.Many2one("survey.sheet.location",String="Location")
     lighting=fields.Integer("Lighting On/OFF")
     notes=fields.Char("Notes")
-    Lighting_dimming=fields.Char("Lighting_dimming")
-    Curtains=fields.Char("Curtains")
-    AC=fields.Char("AC")
-    Keypad=fields.Char("Keypad")
-    DLP=fields.Char("DLP")
-    Sensors=fields.Char("Sensors")
-    Speakers=fields.Char("Speakers")
+    Lighting_dimming=fields.Integer("Lighting Dimming")
+    Curtains=fields.Integer("Curtains")
+    AC=fields.Integer("AC")
+    Keypad=fields.Integer("Keypad")
+    DLP=fields.Integer("DLP")
+    Sensors=fields.Integer("Sensors")
+    Speakers=fields.Integer("Speakers")
+    @api.constrains("lighting")
+    def get_light(self):
+        res=0
+        for rec in self:
+          res+=rec.lighting
+        self.suvery_sheet.lighting=res
+    @api.constrains("Lighting_dimming")
+    def get_lighting_dimming(self):
+        res=0
+        for rec in self:
+          res+=rec.Lighting_dimming
+        self.suvery_sheet.Lighting_dimming=res
+    @api.constrains("Curtains")
+    def get_curtains(self):
+        res=0
+        for rec in self:
+          res+=rec.Curtains
+        self.suvery_sheet.Curtains=res
+        
+    @api.constrains("AC")
+    def get_ac(self):
+        res=0
+        for rec in self:
+          res+=rec.AC
+        self.suvery_sheet.AC=res
+        
+         
+    @api.constrains("Keypad")
+    def get_keypad(self):
+        res=0
+        for rec in self:
+          res+=rec.Keypad
+        self.suvery_sheet.Keypad=res
+    @api.constrains("DLP")
+    def get_dlp(self):
+        res=0
+        for rec in self:
+          res+=rec.DLP
+        self.suvery_sheet.DLP=res
+    @api.constrains("Sensors")
+    def get_sensors(self):
+        res=0
+        for rec in self:
+          res+=rec.Sensors
+        self.suvery_sheet.Sensors=res
+    @api.constrains("Speakers")
+    def get_sp(self):
+        res=0
+        for rec in self:
+          res+=rec.Speakers
+        _logger.info("res")
+        _logger.info(res)
+        self.suvery_sheet.Speakers=res
      
 
 

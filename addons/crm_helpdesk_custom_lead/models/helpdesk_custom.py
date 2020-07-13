@@ -261,6 +261,44 @@ class survey_sheet(models.Model):
     activity_ids=fields.One2many("mail.activity","res_id",String="Activity")
     message_ids=fields.One2many("mail.message","res_id",String="message")
     state=fields.Selection([('draft','Draft'),('approve','Approve')],String="Status",default='draft')
+    lighting=fields.Integer("Lighting On/OFF")
+    Lighting_dimming=fields.Integer("Lighting Dimming")
+    Curtains=fields.Integer("Curtains")
+    AC=fields.Integer("AC")
+    Keypad=fields.Integer("Keypad")
+    DLP=fields.Integer("DLP")
+    Sensors=fields.Integer("Sensors")
+    Speakers=fields.Integer("Speakers")
+    @api.constrains("survey_line")
+    def get_survey_details(self):
+        lighting,Lighting_dimming,Curtains,AC,Keypad,DLP,Sensors,Speakers=0,0,0,0,0,0,0,0
+        for rec in self.survey_line:
+            lighting+=rec.lighting
+            Lighting_dimming+=rec.Lighting_dimming
+            Curtains+=rec.Curtains
+            AC+=rec.AC
+            Keypad+=rec.Keypad
+            DLP+=rec.DLP
+            Sensors+=rec.Sensors
+            Speakers+=rec.Speakers
+       
+
+        self.lighting=lighting
+        self.Lighting_dimming=Lighting_dimming
+        self.Curtains=Curtains
+        self.AC=AC
+        self.Keypad=Keypad
+        self.DLP=DLP
+        self.Sensors=Sensors
+        self.Speakers=Speakers
+
+
+
+
+
+
+
+    
     def action_draft(self):
         self.state='approve'
     @api.constrains("ticket_id")
@@ -280,15 +318,14 @@ class survey_sheet_line(models.Model):
     name=fields.Many2one("survey.sheet.location",String="Location")
     lighting=fields.Integer("Lighting On/OFF")
     notes=fields.Char("Notes")
-    Lighting_dimming=fields.Char("Lighting_dimming")
-    Curtains=fields.Char("Curtains")
-    AC=fields.Char("AC")
-    Keypad=fields.Char("Keypad")
-    DLP=fields.Char("DLP")
-    Sensors=fields.Char("Sensors")
-    Speakers=fields.Char("Speakers")
-     
-
+    Lighting_dimming=fields.Integer("Lighting Dimming")
+    Curtains=fields.Integer("Curtains")
+    AC=fields.Integer("AC")
+    Keypad=fields.Integer("Keypad")
+    DLP=fields.Integer("DLP")
+    Sensors=fields.Integer("Sensors")
+    Speakers=fields.Integer("Speakers")
+    
 
 class helpdesk_team(models.Model):
     _inherit='helpdesk.team'

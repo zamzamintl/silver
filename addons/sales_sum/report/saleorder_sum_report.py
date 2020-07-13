@@ -32,7 +32,14 @@ class ReportProductSale(models.AbstractModel):
         
         for rlt in sales_orders:
             partner_id=rlt.partner_id
-            address=partner_id.street+"-"+partner_id.city+"-"+partner_id.state_id.name
+            address=""
+            if partner_id.street:
+                address+=partner_id.street+"-"
+            if partner_id.city:
+                address+=partner_id.city+"-"+partner_id.state_id.name
+            if partner_id.state_id:
+                address+=partner_id.state_id.name
+
             cst.append({'id':rlt.id,'address':address,'name':partner_id.name,'phone':partner_id.phone,'SO':rlt.name,'total':rlt.amount_total})
          
          

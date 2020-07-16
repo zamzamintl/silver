@@ -1,5 +1,6 @@
 from odoo import api, fields, models, _
-
+import logging
+_logger = logging.getLogger(__name__)
 class crm_help(models.TransientModel):
     _inherit='crm.lead.convert2ticket'
     def action_lead_to_helpdesk_ticket(self):
@@ -85,10 +86,48 @@ class ticket(models.Model):
             'type': 'ir.actions.act_window',
             'target':'current'
         }
+    """@api.constrains("user_id")
+    def send_user_id(self):
+        if self.user_id.partner_id:
+            message_ids=self.env['mail.message'].search([])
+            partner_list=[]
+            partner_list.append(self.user_id.partner_id.id)
+            _logger.info("assign")
+            _logger.info(partner_list)
+            value={
+                'subject':'Assgn Ticket :'+str(self.name),
+                'body':"Assgn Ticket :"+str(self.name) ,
+                'res_id':self.id,
+                'model':'helpdesk.ticket',
+                'message_type':'notification',
+                'partner_ids':[(6,0,partner_list)]
+                
+                }
+            _logger.info(value)
+            self.message_ids.create(value)
+
     @api.constrains("lead_id")
     def get_count(self):
         if self.lead_id:
             self.lead_id.count_lead+=1
+            group_id=self.env['ir.model.data'].search([('name','=','group_helpdesk_manager')])
+            group_user = self.env['res.groups'].search([('id','=',group_id.res_id)]) 
+            partner_list=[]
+            message_ids=self.env['mail.message'].search([])
+            
+            for rec in group_user.users:
+                partner_list.append(rec.partner_id.id)
+
+            if partner_list:
+                value={
+                'body':"Create new Ticket :"+str(self.name) ,
+                'res_id':self.lead_id.id,
+                'model':'helpdesk.ticket',
+                'message_type':'notification',
+                'partner_ids':[(6,0,partner_list)]
+                
+                }
+                message_ids.create(value)"""
     def create_sale_order(self):
         view = self.env.ref('sale.view_order_form')
         context=''
@@ -221,15 +260,26 @@ class ticket(models.Model):
     def get_ticket_lead(self):
         if self.ticket_id:
             self.ticket_id.count_lead+=1
+            group_id=self.env['ir.model.data'].search([('name','=','group_helpdesk_manager')])
+            group_user = self.env['res.groups'].search([('id','=',group_id.res_id)]) 
+            partner_list=[]
+            message_ids=self.env['mail.message'].search([])
+            
+            for rec in group_user.users:
+                partner_list.append(rec.partner_id.id)
+
+            if partner_list:
+                value={
+                'body':"created by ticket  " +self.ticket_id.name ,
+                'res_id':self.ticket_id.id,
+                'model':'helpdesk.ticket',
+                'message_type':'notification',
+                'partner_ids':[(6,0,partner_list)]
+                
+                }
+                message_ids.create(value)
              
-        value={}
-        value={
-        'body':"created by ticket  " +self.ticket_id.name ,
-        'res_id':self.id,
-        'model':'crm.lead',
-        'message_type':'notification',
-        }
-        self.message_ids.create(value)
+         
     def action_view_ticketes(self):
         view = self.env.ref('helpdesk.helpdesk_tickets_view_tree')
         view_form=self.env.ref('helpdesk.helpdesk_ticket_view_form')

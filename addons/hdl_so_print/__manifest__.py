@@ -7,6 +7,7 @@
     'author' : 'Mohamed abd Elrhman',
     'description': """
     """,
+    "images":['/static/img/al_ahly.png',],
     "license": "AGPL-3",
     'depends' : [ 'account','sale'],
     'data': ['views/temp_view.xml','views/sale_order_view.xml'],

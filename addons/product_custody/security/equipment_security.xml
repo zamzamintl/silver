@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+
+    <record model="ir.module.category" id="custody_module_management">
+      <field name="name">Custody access</field>
+      <field name="description">all users custoy permision</field>
+      <field name="sequence">3</field>
+    </record>
+
+    <record id="custody_requester_user" model="res.groups">
+        <field name="name">Custody requester</field>
+        <field name="category_id" ref="product_custody.custody_module_management"/>
+    </record>
+
+    <record id="employee_management_user" model="res.groups">
+        <field name="name">Custody Management</field>
+        <field name="implied_ids" eval="[(4, ref('product_custody.custody_requester_user'))]"/>
+        <field name="category_id" ref="product_custody.custody_module_management"/>
+    </record>
+
+
+
+    <record id="custody_model_manager_id" model="ir.rule">
+        <field name="name">product.custody</field>
+        <field name="model_id" ref="model_product_custody"/>
+        <field name="groups" eval="[(4, ref('custody_requester_user'))]"/>
+    </record>
+
+<!--    <record id="product_custody_manager" model="ir.rule">-->
+<!--        <field name="name">All Custody</field>-->
+<!--        <field name="model_id" ref="model_product_custody"/>-->
+<!--        <field name="domain_force">[(1,'=',1)]</field>-->
+<!--        <field name="groups" eval="[(4, ref('employee_management_user'))]"/>-->
+<!--    </record>-->
+
+<!--    <record id="product_custody_reconcile_manager" model="ir.rule">-->
+<!--        <field name="name">All Custody Reconcile</field>-->
+<!--        <field name="model_id" ref="model_product_custody_reconcile"/>-->
+<!--        <field name="domain_force">[(1,'=',1)]</field>-->
+<!--        <field name="groups" eval="[(4, ref('employee_management_user'))]"/>-->
+<!--    </record>-->
+
+
+    <record model="ir.rule" id="product_custody_comp_rule">
+        <field name="name">product custody company rule</field>
+        <field name="model_id" ref="model_product_custody"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force"> ['|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+    </record>
+     <record model="ir.rule" id="product_reconcile_custody_comp_rule">
+        <field name="name">product reconcile custody company rule</field>
+        <field name="model_id" ref="model_product_custody_reconcile"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force"> ['|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+    </record>
+
+</data>
+</odoo>

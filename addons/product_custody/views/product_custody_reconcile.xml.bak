@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+		<record id="seq_product_custody_reconcile" model="ir.sequence">
+			<field name="name">custody</field>
+			<field name="code">product.custody.reconcile</field>
+			<field name="prefix">RC</field>
+			<field name="padding">5</field>
+		</record>
+
+		<record id="product_custody_reconcile_action" model="ir.actions.act_window">
+			<field name="name"> Custody reconcile</field>
+			<field name="res_model">product.custody.reconcile</field> 
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Create The First  Product Custody Reconcile
+				</p>
+			</field>
+		</record>
+		<record id="product_custody_reconcile_action_tree1" model="ir.actions.act_window">
+			<field name="name"> Custody reconcile</field>
+			<field name="res_model">product.custody.reconcile</field>
+			<field name="view_type">form</field>
+			<field name="domain">[('technician','=',uid),('create_uid','=',uid),('state','=','Delivered')]</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Create The First  Product Custody Reconcile
+				</p>
+			</field>
+		</record>
+
+		<record id="product_custody_reconcile_form_view" model="ir.ui.view">
+			<field name="name">Product Custody Form</field>
+			<field name="model">product.custody.reconcile</field>
+			<field name="arch" type="xml">
+				<form string="Product Custody">
+					<sheet>
+						<header>
+							<button name="send_stock_req" string="Send " states="New" class="oe_highlight" type="object"/>
+  
+							<button name="check_delivering" string="Deliver" states="Sent / Waiting" class="oe_highlight" type="object"/>
+							<button name="cancel_progress" string="Cancel" states="New,Sent / Waiting" class="btn-secondary" type="object"/>
+							<field name="state" widget="statusbar" statusbar_visible="New,Sent / Waiting,Delivered,Canceled"   />
+						</header>
+						<group >
+							<group colspan="11">
+								<group colspan="6">
+									<div class="oe_title">
+										<label for="name"/>
+										<field name="name"/>
+									</div>
+								</group>
+								<group>
+									<field name="product_id" class="oe_inline" options="{'no_create_edit': True, 'no_open': True}"/>
+									<field name="custody_id" class="oe_inline" options="{'no_create_edit': True, 'no_open': True}" />
+									<field name="quantity" />
+								</group>
+								<group>
+									<field name="location_id"/>
+									<field name="location_dst_id"/>
+									<field name="picking_type_id"/>
+									<field name="company_id"/>
+								</group>
+							</group>
+							<group colspan="12">
+								<group col="2">
+									<field name="used_by" widget="radio"/>
+									<field name="employee_id" options="{'no_create_edit': True, 'no_open': True}" attrs="{'invisible': [('used_by','=','Department')]}"/>
+									<field name="department_id" options="{'no_create_edit': True, 'no_open': True}" attrs="{'invisible': [('used_by','=','Employee')]}"/>
+									<field name="technician"/>
+								</group>
+								<group  col="2">
+									<field name="request_date"/>
+								</group>
+							</group>
+						</group>
+						<notebook>
+							<page string="Description">
+								<group>
+									<field name="note"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+				</form>
+			</field>
+		</record>
+
+
+		<record id="product_custodys_reconcile_tree_view" model="ir.ui.view">
+			<field name="name">Product custody Tree</field>
+			<field name="model">product.custody.reconcile</field>
+			<field name="arch" type="xml">
+				<tree string="Product custody">
+					<field name="name"/>
+					<field name="custody_id" />
+					<field name="product_id"/>
+					<field name="quantity"/>
+					<field name="technician"/>
+					<field name="employee_id"/>
+					<field name="request_date"/>
+					<field name="department_id"/>
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_product_custody_reconcile_filter" model="ir.ui.view">
+			<field name="name">Custody Search</field>
+			<field name="model">product.custody.reconcile</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Search Custody">
+					<separator orientation="vertical"/>
+						<field name="name" select="1"/>
+						<field name="employee_id" string="Employee" select="1"/>
+						<field name="technician" string="Technician" select="1"/>
+						<field name="state" string="State" />
+					<newline/>
+					<group expand="1" string="Group By">
+						<filter string="Employee" name="employee_re_id"  context="{'group_by':'employee_id'}"/>
+						<filter string="Department" name="department_re_id" context="{'group_by':'department_id'}"/>
+						<filter string="Product" name="product_re_id" context="{'group_by':'product_id'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+		<menuitem id="product_custody_reconcile_menuitem"
+				  name="product custody reconcile"
+				  parent="product_custody_main_menuitem"
+				  action="product_custody_reconcile_action"
+				  sequence="20"
+				  groups="custody_requester_user,employee_management_user"
+		/>
+	</data>
+</odoo>

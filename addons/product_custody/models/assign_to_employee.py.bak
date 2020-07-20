@@ -1,0 +1,34 @@
+from odoo import api, fields, models, exceptions
+
+
+class ProductMaintenance(models.Model):
+    _inherit = 'hr.employee'
+
+    product_custody_id = fields.One2many("product.custody",'employee_id',readonly=True)
+    cust_count = fields.Integer(compute='_custody_count_fun', string="Custody")
+    reconcile_cust_count = fields.Integer(compute='_reconcile_custody_count_fun', string="Reconcile")
+
+    @api.multi
+    def _custody_count_fun(self):
+        product_custody = self.env['product.custody']
+        for emp in self:
+            custody_id = self.env['product.custody'].search([('employee_id', '=', emp.id),('state','=','Assigned')])
+            cust = product_custody.browse(custody_id)
+            cust_count = 0
+            for cust_id in cust:
+                cust_count += 1
+            emp.cust_count = cust_count
+        return True
+
+    @api.multi
+    def _reconcile_custody_count_fun(self):
+        product_reconcile_custody = self.env['product.custody.reconcile']
+        for emp in self:
+            rec_custody_id = self.env['product.custody.reconcile'].search([('employee_id', '=', emp.id),
+                                                                           ('state','=','Delivered')])
+            rec_cust = product_reconcile_custody.browse(rec_custody_id)
+            rec_cust_count = 0
+            for rec_cust_id in rec_cust:
+                rec_cust_count += 1
+            emp.reconcile_cust_count = rec_cust_count
+        return True

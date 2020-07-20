@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<template id="move_product_label">
+            <t t-call="web.basic_layout">
+				<div class="page">
+					<style type="text/css">
+
+                /* Arial */
+                @font-face {
+                    font-family: 'arial';
+                    font-style: normal;
+                    font-weight: 380;
+                    src: local('arial'),
+                    url(/de_product_move_barcode_label/static/src/fonts/arial.ttf) format('truetype');}
+                *{font-family:arial !important;}
+
+					</style>
+					<t t-foreach="docs" t-as="move">
+						<t t-foreach="docs.move_line_ids" t-as="lines">
+							<table width="100%" class="table-condensed">
+								<tr>
+									<td width="50%">
+										<div>
+											<img src="de_product_move_barcode_label/static/src/img/gb_logo.jpg" style="width: 25px;margin-left:-10px;"/>
+										</div>
+									</td>
+									<td width="50%">
+									  <div style="font-size:9px;" align="right">
+											<b>Lot No :</b>
+											<span t-field="lines.lot_id and lines.lot_id.name"/>
+										</div>
+										<div align="right">
+											<img src="de_product_move_barcode_label/static/src/img/non_sterile.jpg" style="right:10px;top:22px;vertical-align:top;position:absolute;width:55px;height:17px"/>
+										</div>
+										<div align="right">
+											<img src="de_product_move_barcode_label/static/src/img/ce_logo.png" style="right:10px;top:43px;vertical-align:top;position:absolute;width: 20px;"/>
+										</div>
+									</td>
+								</tr>
+							</table>
+							<div style="margin-top:12px;margin-left:-5px;">
+								<div style="font-size:10px;height:15px;">
+									<b>Product Code :</b> <span t-field="lines.product_id.default_code"/>
+								</div>
+								<div style="font-size:10px;height:65px;">
+									<b>Product Description :</b> <span t-field="lines.product_id.name"/>
+								</div>
+								<div style="font-size:10px;">
+									<b>Quantity in Pack :</b>
+									<span t-field="lines.product_id.qty_unit_of_sale"/>
+								</div>
+							</div>
+							<table width="100%" class="table-condensed">
+								<tr>
+									<td align="center" style="vertical-align: bottom;">
+										<div align="center">
+											<img align="center" t-if="lines.product_id and lines.product_id.barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', lines.product_id.barcode, 600, 100)" style="width:190px;height:40px;right:120px;top:140px;vertical-align:top;position:absolute;"/>
+										</div>
+										<div align="center" style="right:190px;top:182px;position:fixed;font-size:07px;letter-spacing: 0px;vertical-align: bottom;">
+											<span t-field="lines.product_id.barcode"/>
+										</div>
+										<div align="center">
+											<img align="center" t-if="lines.lot_id and lines.lot_id.name" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', lines.lot_id.name, 600, 100)" style="width:250px;height:40px;right:90px;top:195px;vertical-align:top;position:absolute;"/>
+										</div>
+										<div align="center" style="right:190px;top:237px;position:fixed;font-size:07px;letter-spacing: 0px;vertical-align: bottom;">
+											<span t-field="lines.lot_id.name"/>
+										</div>
+									</td>
+									<td>
+										<div align="right">
+											<img src="de_product_move_barcode_label/static/src/img/surtex_logo.png" style="right:10px;top:160px;position:absolute;width:85px;"/>
+										</div>
+										<br/>
+										<div style="right:10px;top:205px;position:absolute;">
+											<div align="right" style="font-size:7px;position: relative;">
+												<span>Unit 202 Kingspark Business Center</span>
+											</div>
+											<div align="right" style="font-size:7px;position: relative;">
+												<span>152-178 Kingston Road, New Malden</span>
+											</div>
+											<div align="right" style="font-size:7px;position: relative;">
+												<span>Surrey KT3 3ST United Kingdom</span>
+											</div>
+											<div align="right" style="font-size:7px;position: relative;">
+												<span>sales@surtex-instruments.co.uk</span>
+											</div>
+											<div align="right" style="font-size:7px;position: relative;">
+												<span>www.surtex-instruments.co.uk</span>
+											</div>
+										</div>
+									</td>
+								 </tr>
+							 </table>
+						</t>
+					</t>
+				</div>
+			</t>
+        </template>
+    </data>
+</odoo>

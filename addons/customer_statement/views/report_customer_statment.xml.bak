@@ -8,52 +8,28 @@
 			<t t-set="product_list" t-value="[]"/>
 			<t t-set="customer_list" t-value="[]"/>
 			<t t-set="total" t-value="0"/>
-			<t t-foreach="sale_orders" t-as="l">
-
-				<t t-set="customer_list" t-value="customer_list+[l['partner']]"/>
-
-
-			</t>
+			 
 
 			<t t-set="all_total_qty" t-value="0"/>
 			<t t-set="all_total_price" t-value="0"/>
 			<t t-set="i" t-value="0"/>
-			<t t-call="web.external_layout">
-				<div class="page">
-					<div class="text-right">
-
-
-						<t t-if="data_check==True">
-							<p class="text-center">
-								<t t-if="customer"> العميل :
-									<span t-esc="customer"/>
-								</t>
-							</p>
-
-							<p class="text-center">
-								<br></br>
-								<b>لا يوجــد بيانـــــات</b>
-							</p>
-						</t>
-					</div>
-				</div>
-			</t>
+			 
 
 
 
 
 
-			<t t-foreach="set(customer_list)" t-as="customer">
+			<t t-foreach="customer_list" t-as="customer">
 				<t t-call="web.external_layout">
 					<div class="page">
 						<div class="text-right">
 
 							<p class="text-right">
-								<b>اسم العميـــــل :									<span t-esc="customer" />
+								<b>اسم العميـــــل :									<span t-esc="customer.name" />
 								</b>
 							</p>
 
-							<t t-if="data_check==False">
+						 
 								<table align="right" class="table table-bordered">
 									<thead>
 										<tr>
@@ -80,25 +56,27 @@
 
 										<t t-foreach="sale_orders" t-as="order">
 
-											<t t-if="customer==order['partner'] ">
-												
+											<t t-if="customer.id==order.partner_id.id ">
+												<t t-set="total_price" t-value="total_price+order.amount_total"/>
+												 
+												<t t-set="i" t-value="i+1"/>
 												<tr>
 													
 													<td style="white-space: text-nowrap;text-align:center">
-														<span t-esc="order['total']" />
+														<span t-esc="order.amount_total" />
 													</td>
 													 
 													<td style="white-space: text-nowrap;text-align:center">
 
-														<span t-esc="order['invoice_number']" />
+														<span t-esc="order.name" />
 													</td>
 
 													<td style="white-space: text-nowrap;text-align:center">
-														<span t-esc="order['date_in']" />
+														<span t-esc="order.invoice_date" />
 													</td>
 													
 													<td style="white-space: text-nowrap;text-align:center">
-														<span t-esc="order['partner']" />
+														<span t-esc="order.partner_id.name" />
 													</td>
 
 													<td>
@@ -146,7 +124,7 @@
 
 
 								</table>
-							</t>
+							
 						</div>
 					</div>
 				</t>

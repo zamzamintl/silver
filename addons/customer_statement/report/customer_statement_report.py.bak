@@ -57,11 +57,7 @@ class ReportProductSale(models.AbstractModel):
             if inv.state != "draft":
                 date_so = ""
 
-                sale_order = self.env["sale.order"].search([("name", "=", inv.origin)])
-                if sale_order:
-                    last_new_timezone = old_timezone.localize(sale_order.date_order).astimezone(new_timezone)
-                    last_new_timezone=last_new_timezone.strftime('%Y-%m-%d')
-                    date_so = last_new_timezone
+               
 
 
                 for line in inv.invoice_line_ids:

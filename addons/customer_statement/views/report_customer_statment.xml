@@ -11,7 +11,6 @@
 			<t t-foreach="sale_orders" t-as="l">
 
 				<t t-set="customer_list" t-value="customer_list+[l['partner']]"/>
-				<t t-set="product_list" t-value="product_list+[l['product_id']]"/>
 
 
 			</t>
@@ -49,10 +48,6 @@
 					<div class="page">
 						<div class="text-right">
 
-
-
-
-
 							<p class="text-right">
 								<b>اسم العميـــــل :									<span t-esc="customer" />
 								</b>
@@ -64,15 +59,12 @@
 										<tr>
 											
 											<th style="white-space: text-nowrap;text-align:center;width:50px"> المبلــغ</th>
-											<th style="white-space: text-nowrap;text-align:center;width:50px">قيمــه الوحــده</th>
+											 
 
-											<th style="white-space: text-nowrap;text-align:center;width:50px">   الكميــه </th>
-											<th style="white-space: text-nowrap;text-align:center;width:100px">  رقم الفــاتوره
-												<br></br>تاريــخ الفاتــوره
+											<th style="white-space: text-nowrap;text-align:center;width:50px">   رقم الفــاتوره </th>
+											<th style="white-space: text-nowrap;text-align:center;width:100px"> تاريــخ الفاتــوره
 											</th>
-											<th style="white-space: text-nowrap;text-align:center;width:100px"> الصنـــف</th>
-											<th style="white-space: text-nowrap;text-align:center;width:50px">تـــــــــــاريخ الاذن</th>
-											
+										    <th style="white-space: text-nowrap;text-align:center;width:30px"> العميــــــل</th>
 											<th style="white-space: text-nowrap;text-align:center;width:30px"> م</th>
 
 
@@ -90,33 +82,25 @@
 
 											<t t-if="customer==order['partner'] ">
 												<t t-set="total_price" t-value="total_price+order['total']"/>
-												<t t-set="total_qty" t-value="total_qty+order['quantity']"/>
+												 
 												<t t-set="i" t-value="i+1"/>
 												<tr>
 													
 													<td style="white-space: text-nowrap;text-align:center">
 														<span t-esc="order['total']" />
 													</td>
-													<td style="white-space: text-nowrap;text-align:center">
-														<span t-esc="order['price_unit']" />
-													</td>
-
-													<td style="white-space: text-nowrap;text-align:center">
-														<span t-esc="order['quantity']" />
-													</td>
+													 
 													<td style="white-space: text-nowrap;text-align:center">
 
-														<span t-esc="order['date_in']" />
-														<br></br>
 														<span t-esc="order['invoice_number']" />
 													</td>
 
 													<td style="white-space: text-nowrap;text-align:center">
-														<span t-esc="order['product_id']" />
+														<span t-esc="order['date_in']" />
 													</td>
 													
 													<td style="white-space: text-nowrap;text-align:center">
-														<span t-esc="order['so_number']" />
+														<span t-esc="order['partner']" />
 													</td>
 
 													<td>
@@ -141,15 +125,7 @@
 													<span t-esc="round(total_price,3)" />
 												</b>
 											</td>
-											<td style="white-space: text-nowrap;text-align:center">
-
-											</td>
-
-											<td style="white-space: text-nowrap;text-align:center">
-												<b>
-													<span t-esc="round(total_qty,3)" />
-												</b>
-											</td>
+											 
 											<td style="white-space: text-nowrap;text-align:center">
 
 											</td>

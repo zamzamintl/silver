@@ -54,30 +54,19 @@ class ReportProductSale(models.AbstractModel):
         old_timezone = pytz.timezone("UTC")
         new_timezone = pytz.timezone("Africa/Cairo") 
         for inv in invoice_ids:
-            if inv.state != "draft":
-                date_so = ""
-
-               
-
-
-                for line in inv.invoice_line_ids:
-
-                    list.append(
-                        {
-                            "so_number": inv.name,
-                            "date_so": date_so,
-                            "invoice_number": line.move_id.name,
-                            "product_id": line.product_id.name,
-                            "inv_name": line.move_id.name,
-                            "date_in": line.move_id.invoice_date,
-                            "partner": line.move_id.partner_id.name,
-                            "quantity": line.quantity,
-                            "price_unit": line.price_unit,
-                            "total": line.price_total,
-                             
-                           
-                        }
-                    )
+                list.append(
+                    {
+                        "so_number": inv.name,
+                         
+                        "invoice_number": inv.name,
+                        "inv_name": inv.name,
+                        "date_in": inv.invoice_date,
+                        "partner": inv.partner_id.name,
+                        "total": inv.amount_total,
+                         
+                       
+                    }
+                )
 
         if len(list) != 0:
             return {

@@ -54,6 +54,7 @@ class ReportProductSale(models.AbstractModel):
         old_timezone = pytz.timezone("UTC")
         new_timezone = pytz.timezone("Africa/Cairo") 
         for inv in invoice_ids:
+            if inv.partner_id:
                 list.append(
                     {
                         "so_number": inv.name,

@@ -74,7 +74,7 @@ class ReportProductSale(models.AbstractModel):
                             "quantity": line.quantity,
                             "price_unit": line.price_unit,
                             "total": line.price_total,
-                            "note_invoice": line.note_invoice,
+                             
                            
                         }
                     )

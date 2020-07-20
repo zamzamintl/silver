@@ -66,7 +66,7 @@ class ReportProductSale(models.AbstractModel):
                         {
                             "so_number": inv.name,
                             "date_so": date_so,
-                            "invoice_number": line.move_id.number,
+                            "invoice_number": line.move_id.name,
                             "product_id": line.product_id.name,
                             "inv_name": line.move_id.name,
                             "date_in": line.move_id.invoice_date,

@@ -188,8 +188,6 @@
 			</t>
 		</t>
 	</template>
-	<record id="customer_statement.action_report_customer_statement" model="ir.actions.report">
-		<field name="paperformat_id" ref="move_product_in_to_out.paperformat_lowmargin" />
-	</record>
+ 
 
 </odoo>

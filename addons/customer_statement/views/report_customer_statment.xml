@@ -62,7 +62,7 @@
 								<table align="right" class="table table-bordered">
 									<thead>
 										<tr>
-											<th style="white-space: text-nowrap;text-align:center;width:100px"> الملاحــظات</th>
+											
 											<th style="white-space: text-nowrap;text-align:center;width:50px"> المبلــغ</th>
 											<th style="white-space: text-nowrap;text-align:center;width:50px">قيمــه الوحــده</th>
 
@@ -72,7 +72,7 @@
 											</th>
 											<th style="white-space: text-nowrap;text-align:center;width:100px"> الصنـــف</th>
 											<th style="white-space: text-nowrap;text-align:center;width:50px">تـــــــــــاريخ الاذن</th>
-											<th style="white-space: text-nowrap;text-align:center;width:50px">  رقم الاذن </th>
+											
 											<th style="white-space: text-nowrap;text-align:center;width:30px"> م</th>
 
 
@@ -93,9 +93,7 @@
 												<t t-set="total_qty" t-value="total_qty+order['quantity']"/>
 												<t t-set="i" t-value="i+1"/>
 												<tr>
-													<td style="white-space: text-nowrap;text-align:center">
-														<span t-esc="order['note_invoice']" />
-													</td>
+													
 													<td style="white-space: text-nowrap;text-align:center">
 														<span t-esc="order['total']" />
 													</td>
@@ -116,9 +114,7 @@
 													<td style="white-space: text-nowrap;text-align:center">
 														<span t-esc="order['product_id']" />
 													</td>
-													<td style="white-space: text-nowrap;text-align:center">
-														<span t-esc="order['date_so']" />
-													</td>
+													
 													<td style="white-space: text-nowrap;text-align:center">
 														<span t-esc="order['so_number']" />
 													</td>
@@ -139,9 +135,7 @@
 
 
 										<tr>
-											<td style="white-space: text-nowrap;text-align:center">
-
-											</td>
+											
 											<td style="white-space: text-nowrap;text-align:center">
 												<b>
 													<span t-esc="round(total_price,3)" />
@@ -163,9 +157,7 @@
 											<td style="white-space: text-nowrap;text-align:center">
 
 											</td>
-											<td style="white-space: text-nowrap;text-align:center">
-
-											</td>
+											
 											<td style="white-space: text-nowrap;text-align:center">
 
 											</td>

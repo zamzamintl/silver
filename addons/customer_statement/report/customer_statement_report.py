@@ -42,15 +42,15 @@ class ReportProductSale(models.AbstractModel):
         period_value = ""
         domain = [("type", "=", "out_invoice")]
         if date_from:
-            domain.append(("date_invoice", ">=", date_from))
+            domain.append(("invoice_date", ">=", date_from))
         if date_to:
-            domain.append(("date_invoice", "<=", date_to))
+            domain.append(("invoice_date", "<=", date_to))
         if customer:
             domain.append(("partner_id", "=", customer))
 
         list = []
         order_line = []
-        invoice_ids = self.env["account.move"].search(domain, order="date_invoice asc")
+        invoice_ids = self.env["account.move"].search(domain, order="invoice_date asc")
         old_timezone = pytz.timezone("UTC")
         new_timezone = pytz.timezone("Africa/Cairo") 
         for inv in invoice_ids:
@@ -73,7 +73,7 @@ class ReportProductSale(models.AbstractModel):
                             "invoice_number": line.invoice_id.number,
                             "product_id": line.product_id.name,
                             "inv_name": line.invoice_id.name,
-                            "date_in": line.invoice_id.date_invoice,
+                            "date_in": line.invoice_id.invoice_date,
                             "partner": line.invoice_id.partner_id.name,
                             "quantity": line.quantity,
                             "price_unit": line.price_unit,

@@ -43,7 +43,7 @@
 	 <menuitem id="menu_customer_statement_report"
                   name="كشـــف حســــاب عميـل"
                   action="action_customer_statment_view_wizard"
-                  parent="sale.menu_sale_report"
+                  parent="account.menu_finance_reports"
                   sequence="1"/>
 
 </odoo>

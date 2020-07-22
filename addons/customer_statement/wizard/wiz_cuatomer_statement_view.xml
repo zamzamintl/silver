@@ -16,7 +16,7 @@
 					<field name="date_to" />
 				</group>
 				<group>
-				   <field name="customer"/>
+				   <field name="customer" widget="many2many_tags"/>
 				</group>
 				 
 				<footer>

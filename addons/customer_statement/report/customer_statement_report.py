@@ -47,17 +47,19 @@ class ReportProductSale(models.AbstractModel):
         if date_to:
             domain.append(("invoice_date", "<=", date_to))
         if customer:
-            domain.append(("partner_id", "=", customer))
+            domain.append(("partner_id", "in", customer))
 
         list = []
         customer_list = []
         invoice_ids = self.env["account.move"].search(domain, order="invoice_date asc")
         old_timezone = pytz.timezone("UTC")
         new_timezone = pytz.timezone("Africa/Cairo") 
+        total_amount=0
         for inv in invoice_ids:
             if inv.partner_id:
                 if inv.partner_id not in customer_list:
                     customer_list.append(inv.partner_id) 
+                total_amount+=inv.amount_total
                 list.append(
                     {
                         "so_number": inv.name,
@@ -67,6 +69,7 @@ class ReportProductSale(models.AbstractModel):
                         "date_in": inv.invoice_date,
                         "partner": inv.partner_id.name,
                         "total": inv.amount_total,
+                        
                          
                        
                     }
@@ -83,8 +86,8 @@ class ReportProductSale(models.AbstractModel):
                 "date_from": date_from,
                 "date_to": date_to,
                 "sale_orders": invoice_ids,
-                "customer_name": self.env["res.partner"].search([("id", "=", customer)]).name,
                 "data_check": False,
+                "total_amount":total_amount,
                 "customer_list":customer_list,
                 "name_report":'كشــف حســـاب عميل'
             }

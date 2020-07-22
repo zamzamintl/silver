@@ -15,11 +15,11 @@
 
 
 
-
-
+            <t t-call="web.external_layout">
+            <div class="page">
 			<t t-foreach="customer_list" t-as="customer">
-				<t t-call="web.external_layout">
-					<div class="page">
+				
+					
 						<div class="text-right">
 
 							<p class="text-right">
@@ -123,11 +123,23 @@
 
 								</table>
 							
-						</div>
-					</div>
+					</div>	
 				</t>
 
-			</t>
+			
+              <table align="right" class="table table-bordered">
+			     <tr>
+				 <td style="white-space: text-nowrap;text-align:center">
+				  <span t-esc="total_amount"/>
+				 </td>
+				 <td style="white-space: text-nowrap;text-align:center">
+				     الاجمـــــــــــــــــــــــــالي 
+				 </td>
+				 </tr>
+			  </table>
+			</div>
+					
+					</t>
 		</t>
 	</template>
  

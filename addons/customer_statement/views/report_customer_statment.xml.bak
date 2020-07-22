@@ -4,9 +4,7 @@
 		<t t-call="web.html_container">
 
 
-			<t t-set="product_category" t-value="[]"/>
-			<t t-set="product_list" t-value="[]"/>
-			<t t-set="customer_list" t-value="[]"/>
+			 
 			<t t-set="total" t-value="0"/>
 			 
 
@@ -17,11 +15,11 @@
 
 
 
-
-
+            <t t-call="web.external_layout">
+            <div class="page">
 			<t t-foreach="customer_list" t-as="customer">
-				<t t-call="web.external_layout">
-					<div class="page">
+				
+					
 						<div class="text-right">
 
 							<p class="text-right">
@@ -125,11 +123,23 @@
 
 								</table>
 							
-						</div>
-					</div>
+					</div>	
 				</t>
 
-			</t>
+			
+              <table align="right" class="table table-bordered">
+			     <tr>
+				 <td style="white-space: text-nowrap;text-align:center">
+				  <span t-field="total_amount"/>
+				 </td>
+				 <td style="white-space: text-nowrap;text-align:center">
+				     الاجمـــــــــــــــــــــــــالي 
+				 </td>
+				 </tr>
+			  </table>
+			</div>
+					
+					</t>
 		</t>
 	</template>
  

@@ -30,18 +30,20 @@ class PeriodicalReportProduct(models.TransientModel):
      
     date_from = fields.Date(string='تاريخ البدء')
     date_to = fields.Date(string='تاريخ الانتهاء')
-    customer=fields.Many2one('res.partner','العميل',domain="[('customer','=',True)]")
+    customer=fields.Many2many('res.partner','user_id,'id',string='العميل')
 
-    @api.multi
+  
     def check_report(self):
-         
+        list=[] 
+        for rec in self.customer:
+            list.append(rec.id)
         data = {
             'ids': self.ids,
             'model': self._name,
             'form': {
                 'date_from': self.date_from,
                 'date_to': self.date_to,
-                'customer':self.customer.id
+                'customer':list
 
             },
         }

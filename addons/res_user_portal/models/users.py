@@ -8,12 +8,14 @@ from odoo.http import request
 
 class order(models.Model):
     _inherit="res.users"
-    @api.onchange("partner_id")
+    @api.constrains("partner_id")
     def get_partner(self):
         if self.partner_id:
             partner_ids=self.env["res.users"].search([('partner_id','=',self.partner_id.id)])
-
-            if len(partner_ids):
+            _logger.info("FFFFF")
+            _logger.info(partner_ids)
+            _logger.info(self.partner_id.id)
+            if len(partner_ids)>1:
                 raise ValidationError("You can't create two user to the same customer")
    
 

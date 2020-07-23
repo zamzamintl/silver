@@ -1,0 +1,23 @@
+import logging 
+from odoo import fields, http, tools, _
+from odoo.http import request
+_logger = logging.getLogger(__name__)
+from odoo import api, fields ,models
+from odoo.exceptions import ValidationError 
+from odoo.http import request
+
+class order(models.Model):
+    _inherit="res.users"
+    @api.onchange("login")
+    def get_partner(self):
+        if self.login:
+            partner_ids=self.env["res.partner"].search([('email','=',self.login)])
+
+            self.partner_id=partner_ids.id
+    @api.constrains("login")
+    def save_partner(self):
+        if self.login:
+            partner_ids=self.env["res.partner"].search([('email','=',self.login)])
+
+            self.partner_id=partner_ids.id
+

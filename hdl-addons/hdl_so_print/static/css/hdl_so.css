@@ -1,0 +1,11 @@
+.hdl_so_table{
+  border: 1px solid #dee2e6;
+}
+
+.hdl_so_table th{
+  border: 1px solid #dee2e6;background-color:blue
+}
+
+.hdl_so_table td {
+  border: 1px solid #dee2e6;
+}

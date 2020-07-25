@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 
+
+	 <menuitem id="menu_activity_mail"
+                  name= "Activities"
+                  action="action_activity_mail"
+                  parent="front_office_management.front_office_mgmnt_main"
+                  sequence="3"/>
+</odoo>

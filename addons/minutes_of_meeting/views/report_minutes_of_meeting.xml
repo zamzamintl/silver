@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+ <report
+    id="report_mintues_of_meeting"
+    model="calendar.event"
+    string="Mintues Of Meeting"
+    report_type="qweb-pdf"
+    name="minutes_of_meeting.report_minutes_of_meeting"
+    file="minutes_of_meeting.report_minutes_of_meeting"
+	 />
+
+<template id="report_minutes_of_meeting">
+        <t t-call="web.html_container">
+		 
+
+        <t t-foreach="docs" t-as="doc">
+		    
+            <t t-call="minutes_of_meeting.print_report_minutes_meeting"  />
+        </t>
+    </t> 
+    </template>
+<template id="print_report_minutes_meeting">
+  
+ <t t-call="web.external_layout">
+        <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+  <div class="page">
+  
+            <div class="oe_structure"/>
+              <h1   class="text-center" style="font-style: oblique;text-transform: capitalize;">Meeting Details</h1>
+			  <table class="table table-bordered table-sm">
+			   <tbody class="sale_tbody">
+						  <tr>
+						     <td name="td_name">Subject:</td>
+							  <td name="td_name"><span t-field="docs.name"/></td>
+						  </tr>
+						  <tr>
+						     <td name="td_name">Participant:</td>
+							  <td name="td_name">
+							   <t t-foreach="doc.partner_ids" t-as="line"><span t-field="line.name"/>-</t></td>
+						  </tr>
+						  <tr>
+						     <td name="td_name">Presented By :</td>
+							  <td name="td_name"><span t-field="docs.presented_by"/></td>
+						  </tr>
+						  <tr>
+						     <td name="td_name">Start Date :</td>
+							  <td name="td_name"><span t-field="docs.start_datetime"/></td>
+						  </tr>
+
+			  </tbody>
+			  </table>
+              <h1   class="text-center" style="font-style: oblique;text-transform: capitalize;"> Minutes Of Meeting</h1>
+             <table class="table table-bordered table-sm">
+                     <thead>
+                           <tr>
+						      <th  class="text-left">Description</th>
+							  <th  class="text-left">Agenda</th>
+							  <th  class="text-left">Code</th>
+							  <th  class="text-left">Action By </th>
+							  <th  class="text-left">Responisble</th>
+
+						   </tr>
+					 </thead> <tbody >
+			    <t t-foreach="doc.minute_meeting" t-as="line">
+				   
+					 
+						  <tr>
+						     <td name="td_name"><span t-field="line.name"/></td>
+							 
+						     <td name="td_name"><span t-field="line.agenda.name"/></td>
+							
+						     <td name="td_name"><span t-field="line.code_agenda"/></td>
+							  <td name="td_name"><span t-field="line.action_by.name"/></td>
+							  <td name="td_name"><span t-field="line.responisble"/></td>
+						  </tr>
+
+			  
+				   
+				</t>
+			  
+                </tbody>
+
+
+				    
+				   </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
+			</div>
+			</t>
+</template>
+ 
+</odoo>

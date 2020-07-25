@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 
+
+	 <menuitem id="menu_agenda_calenar"
+                  name= "Agenda"
+                  action="action_agenda_calendar"
+                  parent="calendar.mail_menu_calendar"
+                  sequence="3"/>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 
+	<record id="action_agenda_calendar" model="ir.actions.act_window">
+			<field name="name">Agenda</field>
+			<field name="res_model">calenar.agenda</field> 
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[]</field>
+			 
+		</record>
+</odoo>

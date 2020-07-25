@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 
+	<record id="calendar_from_inherited" model="ir.ui.view">
+    <field name="name">calendar_from_inherited</field>
+	<field name="model" >calendar.event</field>
+	<field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+	<field name="arch" type="xml"> 
+	 <xpath expr="//field[@name='partner_ids']" position="after">
+	   <label for="presented_by" string="Presented By" class="oe_edit_only"/>
+	  <field name="presented_by" required="1"/>
+	 </xpath>
+	   <xpath expr="//notebook/page[@name='page_details']" position="after">
+	       <page name="agenda" string="Agendaa">
+		      <field name="agenda">
+			      <field name="name"/>
+				  <field name="code"/>
+			  </field>
+		   </page>
+		   <page name="Minutes Of meeting" string="Minutes Of meeting">
+		      <field name="minute_meeting">
+			     <tree editable="bottom">
+			      <field name="name"/>
+				  <field name="agenda"/>
+				  <field name="code_agenda"/>
+				  <field name="action_by"/>
+				  <field name="responisble"/>
+				  </tree>
+			  </field>
+		   </page>
+	   </xpath>
+	</field>
+	</record>
+	   
+    
+	</odoo>

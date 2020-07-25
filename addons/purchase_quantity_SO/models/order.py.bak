@@ -36,10 +36,11 @@ class order(models.Model):
             q_requested=q-pro.qty_available
             if q_requested<0:
                 q_requested=0
-            if pro.taxes_id:
-                 lines.append({'product_id':pro.id,"product_qty":q_requested,"product_uom":pro.uom_id.id,"taxes_id":pro.taxes_id.id,'name':pro.name,'date_planned':datetime.now()})
-            else:
-                lines.append({'product_id':pro.id,"product_qty":q_requested,"product_uom":pro.uom_id.id,'name':pro.name,'date_planned':datetime.now()})
+            if q_requested > 0:
+                if pro.taxes_id:
+                     lines.append({'product_id':pro.id,"product_qty":q_requested,"product_uom":pro.uom_id.id,"taxes_id":pro.taxes_id.id,'name':pro.name,'date_planned':datetime.now()})
+                else:
+                    lines.append({'product_id':pro.id,"product_qty":q_requested,"product_uom":pro.uom_id.id,'name':pro.name,'date_planned':datetime.now()})
 
         purchase_order=self.env['purchase.order']
         return{ 'name':'Purchase order',

@@ -6,6 +6,7 @@ from odoo import api, fields ,models
 from odoo.exceptions import ValidationError 
 from odoo.http import request
 from collections import OrderedDict
+from datetime import datetime
 
 class warehouse(models.Model):
     _name="warehouse.sales"
@@ -36,7 +37,7 @@ class order(models.Model):
             if q_requested<0:
                 q_requested=0
 
-            lines.append({'product_id':pro.id,"product_qty":q_requested,"product_uom":pro.uom_id.id,"taxes_id":pro.taxes_id.id,'name':pro.name})
+            lines.append({'product_id':pro.id,"product_qty":q_requested,"product_uom":pro.uom_id.id,"taxes_id":pro.taxes_id.id,'name':pro.name,'date_planned':datetime.now()})
         purchase_order=self.env['purchase.order']
         return{ 'name':'Purchase order',
             'res_model': 'purchase.order',

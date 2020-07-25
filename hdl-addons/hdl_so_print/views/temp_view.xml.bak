@@ -37,6 +37,10 @@
                 </t>
                 <span t-field="doc.name"/>
             </h2>-->
+			<t t-set="product_category" t-value="[]"/>
+            <t t-foreach="doc.order_line" t-as="line">
+			    <t t-set="product_category" t-value="product_category+line.product_id.categ_id"/>
+			</t>
             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
 			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
 			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
@@ -241,7 +245,7 @@
                                   Installation
                     </td>
 					<td  class="text-center">
-                                   <span t-field="doc.installation"/>
+                                   <span t-field="doc.install_value"/>
                     </td>
 					 
 				  </tr>

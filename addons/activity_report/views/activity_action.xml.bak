@@ -19,6 +19,7 @@
 			<field name="name">Activities</field>
 			<field name="res_model">mail.activity</field> 
 			<field name="view_mode">tree,form</field>
+			<field name="context">{'search_default_today': 1}</field>
 			<field name="view_ids" eval="[(5, 0, 0),
                 (0, 0, {'view_mode': 'tree', 'view_id': ref('mail_activity_tree')})]"/>
 			 

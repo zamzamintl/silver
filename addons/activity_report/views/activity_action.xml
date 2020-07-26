@@ -29,7 +29,9 @@
         <field name="model">mail.activity</field>
         <field name="arch" type="xml">
             <search string="Search CRM Reveal Rule">
-			    <filter string="Today" name="today" domain="[('date_deadline', '=', datetime.datetime.now().strftime('%Y-%m-%d'))]"/></search>
+			    <filter string="Today" name="today" domain="[('date_deadline', '=', datetime.datetime.now().strftime('%Y-%m-%d')),('user_id', '=', uid)]" /></search>
         </field>
     </record>
 </odoo>
+
+<!--domain="[('date_deadline', '=', datetime.datetime.now().strftime('%Y-%m-%d')),('user_id,'=',user.id)]"-->

@@ -11,7 +11,6 @@
 		<record id="product_custody_action" model="ir.actions.act_window">
 			<field name="name"> Custody Request</field>
 			<field name="res_model">product.custody</field>
-			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="help" type="html">
 				<p class="oe_view_nocontent_create">
@@ -23,7 +22,6 @@
 		<record id="product_custody_action_tree1" model="ir.actions.act_window">
 			<field name="name"> Custody Reconcile Request</field>
 			<field name="res_model">product.custody</field>
-			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="domain">[('state','=','Assigned')]</field>
 			<field name="help" type="html">
@@ -143,6 +141,7 @@
 
 
 		<menuitem id="product_custody_main_menuitem" name="custody" sequence="10"
+		           parent="product_custody_main_menuitem"
 				  groups="custody_requester_user,employee_management_user"/>
 
 		<menuitem id="product_custody_menuitem"

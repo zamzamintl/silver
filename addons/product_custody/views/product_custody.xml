@@ -141,6 +141,7 @@
 
 
 		<menuitem id="product_custody_main_menuitem" name="custody" sequence="10"
+		           parent="front_office_management.front_office_mgmnt_main"
 				  groups="custody_requester_user,employee_management_user"/>
 
 		<menuitem id="product_custody_menuitem"

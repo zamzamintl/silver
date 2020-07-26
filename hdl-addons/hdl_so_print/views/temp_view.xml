@@ -39,7 +39,8 @@
             </h2>-->
 			<t t-set="product_category" t-value="[]"/>
             <t t-foreach="doc.order_line" t-as="line">
-			    <t t-set="product_category" t-value="product_category+[line.product_id.categ_id]"/>
+			    <t t-if="line.product_id.categ_id not in product_category">
+			    <t t-set="product_category" t-value="product_category+[line.product_id.categ_id]"/></t>
 			</t>
             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
 			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;

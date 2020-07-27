@@ -16,8 +16,17 @@ class warehouse(models.Model):
 class order(models.Model):
     _inherit="sale.order"
   
-     
     def action_purchase_order(self):
+        _logger.info(self.env.ref('purchase_quantity_SO.po_so_form2').id)
+        return{ 'name':'Purchase order',
+            'res_model': 'warehouse.sales',
+            'target': 'new',
+             'view_type': 'form',
+             'view_mode': 'form',
+            'view_id':self.env.ref('sales_custom.po_so_form3').id ,
+            'type': 'ir.actions.act_window', }
+        
+    def action_purchase_order2(self):
         _logger.info("PURCHSE")
         product_list,lines=[],[]
         for rec in self:

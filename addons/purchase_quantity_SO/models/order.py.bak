@@ -16,8 +16,17 @@ class warehouse(models.Model):
 class order(models.Model):
     _inherit="sale.order"
   
-     
     def action_purchase_order(self):
+        _logger.info(self.env.ref('purchase_quantity_SO.po_so_form2').id)
+        """return{ 'name':'Purchase order',
+            'res_model': 'warehouse.sales',
+            'target': 'new',
+             'view_type': 'form',
+             'view_mode': 'form',
+            'view_id':self.env.ref('purchase_quantity_SO.po_so_form2').id ,
+            'type': 'ir.actions.act_window', }"""
+        
+    def action_purchase_order2(self):
         _logger.info("PURCHSE")
         product_list,lines=[],[]
         for rec in self:
@@ -37,10 +46,8 @@ class order(models.Model):
             if q_requested<0:
                 q_requested=0
             if q_requested > 0:
-                if pro.taxes_id:
-                     lines.append({'product_id':pro.id,"product_qty":q_requested,"product_uom":pro.uom_id.id,"taxes_id":pro.taxes_id.id,'name':pro.name,'date_planned':datetime.now()})
-                else:
-                    lines.append({'product_id':pro.id,"product_qty":q_requested,"product_uom":pro.uom_id.id,'name':pro.name,'date_planned':datetime.now()})
+                
+                lines.append({'product_id':pro.id,"product_qty":q_requested,"product_uom":pro.uom_id.id,'name':pro.name,'date_planned':datetime.now()})
 
         purchase_order=self.env['purchase.order']
         return{ 'name':'Purchase order',

@@ -81,15 +81,4 @@
 		</xpath>
 		</field>
 	</record>
-	<record id="po_so_form_2" model="ir.ui.view">
-    <field name="name">po_so_form_2</field>
-	<field name="model" >sale.order</field>
-	<field name="arch" type="xml">  
-	   <form>
-	      <group>
-		  <field name="partner_id"/></group>
-		   
-	   </form>
-	</field>
-	</record>
 </odoo>

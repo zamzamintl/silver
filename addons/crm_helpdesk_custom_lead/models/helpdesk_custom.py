@@ -104,13 +104,14 @@ class ticket(models.Model):
                 
                 }
             _logger.info(value)
-            self.message_ids.create(value)
+            self.message_ids.create(value)"""
 
     @api.constrains("lead_id")
     def get_count(self):
         if self.lead_id:
+             
             self.lead_id.count_lead+=1
-            group_id=self.env['ir.model.data'].search([('name','=','group_helpdesk_manager')])
+            """group_id=self.env['ir.model.data'].search([('name','=','group_helpdesk_manager')])
             group_user = self.env['res.groups'].search([('id','=',group_id.res_id)]) 
             partner_list=[]
             message_ids=self.env['mail.message'].search([])

@@ -7,10 +7,13 @@
 	<field name="arch" type="xml">  
 	   <form>
 	      <group>
-		   <field name="sales_order"/>
+ 
 		  <field name="warehouse_id" required="1"/>
 		   </group>
-		   
+		 
+         <footer>
+		       <button name="action_create_po" type="object" string="Create Purchase order" class="oe_highlight"/>
+		 </footer>
 	   </form>
 	</field>
 	</record>

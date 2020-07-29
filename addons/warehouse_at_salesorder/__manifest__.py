@@ -1,12 +1,12 @@
 
 {
-    'name': 'Purchase order  from So   ',
+    'name': 'wrehoouse  from So   ',
     'version': '1.3',
     'category': 'sale',
     'description': """create purchase order according to some of sales order
 """,
-    'depends': ['sale','warehouse_at_salesorder'],
-    'data': ["views/order_form.xml"],
+    'depends': ['sale'],
+    'data': ["views/sales_order_view.xml","security/ir.model.access.csv"],
     'installable': True,
     'auto_install': True,
 }

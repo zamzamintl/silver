@@ -7,62 +7,27 @@ from odoo.exceptions import ValidationError
 from odoo.http import request
 from collections import OrderedDict
 from datetime import datetime
-
-class warehouse(models.Model):
-    _name="warehouse.sales"
-    warehouse_id=fields.Many2one("stock.warehouse",string="WareHouse")
-    sales_order=fields.Many2many("sale.order","wh","id",string="Sales order")
+ 
      
 class order(models.Model):
     _inherit="sale.order"
   
     def action_purchase_order(self):
-        _logger.info(self.env.ref('purchase_quantity_SO.po_so_form2').id)
-        return{ 'name':'Purchase order',
+        _logger.info(self.env.ref('warehouse_at_salesorder.po_so_form2').id)
+        lines=[]
+        for rec in self:
+            lines.append(rec.id)
+        _logger.info("888888")
+        _logger.info(lines)
+        return{ 'name':'Warehouse',
             'res_model': 'warehouse.sales',
             'target': 'new',
              'view_type': 'form',
              'view_mode': 'form',
-            'view_id':self.env.ref('sales_custom.po_so_form3').id ,
+            'view_id':self.env.ref('warehouse_at_salesorder.po_so_form2').id ,
+            'context':{'default_sales_order':lines},
             'type': 'ir.actions.act_window', }
         
-    def action_purchase_order2(self):
-        _logger.info("PURCHSE")
-        product_list,lines=[],[]
-        for rec in self:
-            for line in rec.order_line:
-                if line.product_id not in product_list :
-                    product_list.append(line.product_id) 
-
-        _logger.info((product_list))
-        
-        for pro in product_list:
-            q=0
-            for order in self:
-                for line in order.order_line:
-                    if pro.id==line.product_id.id:
-                        q+=line.product_uom_qty
-            q_requested=q-pro.qty_available
-            if q_requested<0:
-                q_requested=0
-            if q_requested > 0:
-                
-                lines.append({'product_id':pro.id,"product_qty":q_requested,"product_uom":pro.uom_id.id,'name':pro.name,'date_planned':datetime.now()})
-
-        purchase_order=self.env['purchase.order']
-        return{ 'name':'Purchase order',
-            'res_model': 'purchase.order',
-            'target': 'new',
-             'view_type': 'form',
-             'view_mode': 'form',
-            'view_id':self.env.ref('purchase.purchase_order_form').id ,
-             
-            'context':{'default_order_line':lines},
-            'type': 'ir.actions.act_window', }
-
-    
-            
-         
-
+     
    
 

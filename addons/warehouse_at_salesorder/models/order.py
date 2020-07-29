@@ -7,31 +7,15 @@ from odoo.exceptions import ValidationError
 from odoo.http import request
 from collections import OrderedDict
 from datetime import datetime
- 
-     
-class order(models.Model):
-    _inherit="sale.order"
-  
-    def action_purchase_order(self):
-        _logger.info(self.env.ref('warehouse_at_salesorder.po_so_form2').id)
-        lines=[]
-        for rec in self:
-            lines.append(rec.id)
-        _logger.info("888888")
-        _logger.info(lines)
-        return{ 'name':'Warehouse',
-            'res_model': 'warehouse.sales',
-            'target': 'new',
-             'view_type': 'form',
-             'view_mode': 'form',
-            'view_id':self.env.ref('warehouse_at_salesorder.po_so_form2').id ,
-            'context':{'default_sales_order':lines},
-            'type': 'ir.actions.act_window', }
-        
-    def action_purchase_order2(self):
+
+class warehouse(models.Model):
+    _name="warehouse.sales"
+    warehouse_id=fields.Many2one("stock.warehouse",string="WareHouse")
+    sales_order=fields.Many2many("sale.order","wh","id",string="Sales order")
+    def action_create_po(self):
         _logger.info("PURCHSE")
         product_list,lines=[],[]
-        for rec in self:
+        for rec in self.sales_order:
             for line in rec.order_line:
                 if line.product_id not in product_list :
                     product_list.append(line.product_id) 
@@ -40,11 +24,16 @@ class order(models.Model):
         
         for pro in product_list:
             q=0
-            for order in self:
+            for order in self.sales_order:
                 for line in order.order_line:
                     if pro.id==line.product_id.id:
                         q+=line.product_uom_qty
-            q_requested=q-pro.qty_available
+            _logger.info("OOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+            stock_qty=self.env['stock.quant'].search([('product_id','=',pro.id),('on_hand','=',True),('location_id','=',self.warehouse_id.lot_stock_id.id)])
+            
+            q_requested=q-stock_qty.quantity
+            
+
             if q_requested<0:
                 q_requested=0
             if q_requested > 0:
@@ -52,6 +41,11 @@ class order(models.Model):
                 lines.append({'product_id':pro.id,"product_qty":q_requested,"product_uom":pro.uom_id.id,'name':pro.name,'date_planned':datetime.now()})
 
         purchase_order=self.env['purchase.order']
+        picking_type=self.env['stock.picking.type'].search([('code','=','incoming'),('warehouse_id','=',self.warehouse_id.id)])
+        picking_type_id=0
+        for rec in picking_type:
+                picking_type_id=rec.id
+                break
         return{ 'name':'Purchase order',
             'res_model': 'purchase.order',
             'target': 'new',
@@ -59,12 +53,7 @@ class order(models.Model):
              'view_mode': 'form',
             'view_id':self.env.ref('purchase.purchase_order_form').id ,
              
-            'context':{'default_order_line':lines},
+            'context':{'default_order_line':lines,'default_picking_type_id':picking_type_id},
             'type': 'ir.actions.act_window', }
 
-    
-            
-         
-
-   
-
+ 

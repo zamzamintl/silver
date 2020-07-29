@@ -110,25 +110,7 @@ class ticket(models.Model):
     def get_count(self):
         if self.lead_id:
              
-            self.lead_id.count_lead+=1
-            """group_id=self.env['ir.model.data'].search([('name','=','group_helpdesk_manager')])
-            group_user = self.env['res.groups'].search([('id','=',group_id.res_id)]) 
-            partner_list=[]
-            message_ids=self.env['mail.message'].search([])
-            
-            for rec in group_user.users:
-                partner_list.append(rec.partner_id.id)
-
-            if partner_list:
-                value={
-                'body':"Create new Ticket :"+str(self.name) ,
-                'res_id':self.lead_id.id,
-                'model':'helpdesk.ticket',
-                'message_type':'notification',
-                'partner_ids':[(6,0,partner_list)]
-                
-                }
-                message_ids.create(value)"""
+            self.lead_id.count_lead+=1 
     def create_sale_order(self):
         view = self.env.ref('sale.view_order_form')
         context=''

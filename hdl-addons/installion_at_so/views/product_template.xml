@@ -9,6 +9,10 @@
 				   <field name="installation"/>
 				     
 				</xpath>
+				<xpath expr="//field[@name='categ_id']" position="attributes">
+    <attribute name="attrs">{'required':[('installation','=',False)]}</attribut>
+				</xpath>
+				
 
 			
 			</field>

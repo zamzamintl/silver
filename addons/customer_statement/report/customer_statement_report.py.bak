@@ -86,7 +86,6 @@ class ReportProductSale(models.AbstractModel):
                 "date_from": date_from,
                 "date_to": date_to,
                 "sale_orders": invoice_ids,
-                "customer_name": self.env["res.partner"].search([("id", "=", customer)]).name,
                 "data_check": False,
                 "total_amount":total_amount,
                 "customer_list":customer_list,

@@ -10,7 +10,7 @@
 				     
 				</xpath>
 				<xpath expr="//field[@name='categ_id']" position="attributes">
-    <attribute name="attrs">{'required':[('installation','=',False)]}</attribut>
+	<attribute name="attrs">{'required':[('installation','=',False)]}</attribute>
 				</xpath>
 				
 

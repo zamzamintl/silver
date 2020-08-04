@@ -9,9 +9,10 @@
 				   <field name="installation"/>
 				     
 				</xpath>
-				<xpath expr="//field[@name='uom_po_id']" position="after">
+				<xpath expr="//field[@name='categ_id']" position="attributes">
+	<attribute name="attrs">{'required':[('installation','=',False)]}</attribute>
 				</xpath>
-				categ_id
+				
 
 			
 			</field>

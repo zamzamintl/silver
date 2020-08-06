@@ -56,7 +56,7 @@ class ReportProductSale(models.AbstractModel):
         new_timezone = pytz.timezone("Africa/Cairo") 
         total_amount=0
         for inv in invoice_ids:
-            if inv.partner_id and inv.type=='out_invoice':
+            if inv.partner_id and inv.type == 'out_invoice':
                 if inv.partner_id not in customer_list:
                     customer_list.append(inv.partner_id) 
                 total_amount+=inv.amount_total

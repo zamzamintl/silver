@@ -25,10 +25,10 @@ class state(models.Model):
     region=fields.One2many('state.region1','state_id',string='area')
 class region2(models.Model):
     _name='state.region2'
-    name=fields.Char("District")
-    region1=fields.Many2one('state.region1',string='Area')
-    region3=fields.One2many('state.region','region2',string='Partition')
-    publish=fields.Boolean("Published",default=True)
+    name = fields.Char("District")
+    region1 = fields.Many2one('state.region1',string='Area')
+    region3 = fields.One2many('state.region','region2',string='Partition')
+    publish = fields.Boolean("Published",default=True)
     def website_publish_button(self):
         if self.publish==True:
             self.publish=False

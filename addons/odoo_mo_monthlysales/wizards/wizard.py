@@ -19,23 +19,23 @@ class Wizard(models.TransientModel):
             return True
         if self.categ_id:
             domain=tuple(self.categ_id.ids) if len(self.categ_id)>1 else (self.categ_id.ids[0],0)
-            query = ("""SELECT sale_report.product_id as pro_name,sale_report.categ_id as pro_categ,qty_invoiced,sale_order.date_order as odate  FROM sale_report
+            query = ("""SELECT sale_report.product_id as pro_name,sale_report.categ_id as pro_categ,qty_invoiced,sale_order.customer_order_delivery_date as odate  FROM sale_report
                     join sale_order  on sale_order.id = sale_report.order_id
                     join product_product on product_product.id = sale_report.product_id
                     join product_category on product_category.id = sale_report.categ_id
-                    where sale_order.date_order  >=\'{date_form}\' and  sale_order.date_order <=\'{date_to}\'   and sale_report.categ_id in {categ_ids}
-                    GROUP BY pro_categ,pro_name,qty_invoiced,sale_order.date_order
-                    ORDER BY pro_categ,sale_order.date_order
+                    where sale_order.customer_order_delivery_date  >=\'{date_form}\' and  sale_order.customer_order_delivery_date <=\'{date_to}\'   and sale_report.categ_id in {categ_ids}
+                    GROUP BY pro_categ,pro_name,qty_invoiced,sale_order.customer_order_delivery_date
+                    ORDER BY pro_categ,sale_order.customer_order_delivery_date
                                  """.format(date_form=self.date_from, date_to=self.date_to,categ_ids=domain))
         else:
-            query = ("""SELECT sale_report.product_id as pro_name,sale_report.categ_id as pro_categ,qty_invoiced,sale_order.date_order as odate
+            query = ("""SELECT sale_report.product_id as pro_name,sale_report.categ_id as pro_categ,qty_invoiced,sale_order.customer_order_delivery_date as odate
                  FROM sale_report
                 join sale_order  on sale_order.id = sale_report.order_id
                 join product_product on product_product.id = sale_report.product_id
                 join product_category on product_category.id = sale_report.categ_id
-                where sale_order.date_order  >=\'{date_form}\' and  sale_order.date_order <=\'{date_to}\'
-                GROUP BY pro_categ,pro_name,qty_invoiced,sale_order.date_order
-                ORDER BY pro_categ,sale_order.date_order
+                where sale_order.customer_order_delivery_date  >=\'{date_form}\' and  sale_order.customer_order_delivery_date <=\'{date_to}\'
+                GROUP BY pro_categ,pro_name,qty_invoiced,sale_order.customer_order_delivery_date
+                ORDER BY pro_categ,sale_order.customer_order_delivery_date
                              """.format(date_form=self.date_from, date_to=self.date_to))
 
         self._cr.execute(query)

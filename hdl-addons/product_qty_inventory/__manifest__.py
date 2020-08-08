@@ -35,7 +35,7 @@ This module print daily, last week and last month sale report.
 Also print report for particular duration.
     """,
     "license": "AGPL-3",
-    'depends' : ['base_setup', 'sale_management','stock','move_product_in_to_out'],
+    'depends' : ['base_setup', 'sale_management','stock'],
     'data': [
         'wizard/wiz_periodical_report_view.xml',
         'views/periodical_report.xml',

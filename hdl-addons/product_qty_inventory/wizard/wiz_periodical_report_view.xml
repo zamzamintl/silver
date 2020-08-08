@@ -8,7 +8,7 @@
 			<form>
 			 <sheet>
 					<div class="oe_title">
-						<h1>كشف بارصده الاصناف التي لها رصيد</h1>
+						<h1> Product Stock</h1>
 					</div>
 					<br/>
 				<group col="4">
@@ -30,7 +30,7 @@
 	</record>
 
 	<record id="action_product_qt_inv_report_move" model="ir.actions.act_window">
-		<field name="name">كشف بارصده الاصناف التي لها رصيد</field>
+		<field name="name">Product Stock</field>
 		<field name="res_model">product.qty.inv</field>
 		<field name="type">ir.actions.act_window</field>
 		 
@@ -39,10 +39,10 @@
 		<field name="target">inline</field>
 	</record>
 
-	<!-- <menuitem id="menu_productqty_inv_report"
-                  name="كشف بارصده الاصناف التي لها رصيد"
-                  action="action_product_qt_inv_report_move"
+	<menuitem id="menu_productqty_inv_report"
+                    name="Product Stock"
+                   action="action_product_qt_inv_report_move"
                   parent="sale.menu_sale_report"
-                  sequence="1"/>-->
+                  sequence="1"/>
 
 </odoo>

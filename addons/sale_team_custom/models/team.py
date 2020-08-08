@@ -1,18 +1,18 @@
-# -*- coding: utf-8 -*-
-
-# from odoo import models, fields, api
-
-
-# class sale_team_custom(models.Model):
-#     _name = 'sale_team_custom.sale_team_custom'
-#     _description = 'sale_team_custom.sale_team_custom'
-
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+import logging
+from odoo import fields, http, tools, _
+from odoo.http import request
+_logger = logging.getLogger(__name__)
+from odoo import api, fields ,models
+from odoo.exceptions import ValidationError
+from odoo.http import request
+class salesteam(models.Model):
+    _inherit = 'crm.teamsorder'
+    count_memeber = fields.Integer(compute='_get_members')
+    @api.depends("member_ids")
+    def _get_members(self):
+        for rec in self.member_ids:
+            if self.user_id and rec.id not in self.user_id.members:
+                self.user_id.members=[(4,rec.id)]
+class users(models.Model):
+    _inherit = 'res.users'
+    members = fields.Many2many("res.users","member","id",string="Memebers")

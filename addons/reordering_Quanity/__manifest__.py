@@ -5,7 +5,7 @@
     'category': 'sale',
     'description': """create purchase order automatic
 """,
-    'author ':'Mohamed abd Elrhman",
+    'author ':"Mohamed abd Elrhman",
 'depends': ['sale','purchase','stock'],
     'data': ["views/order_form.xml"],
     'installable': True,

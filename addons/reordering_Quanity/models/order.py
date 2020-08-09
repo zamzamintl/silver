@@ -11,6 +11,4 @@ from datetime import datetime
      
 class order(models.Model):
     _inherit="sale.order.line"
-    @api.onchange("state")
-    def get_stata_of_quantity(self):
-        if self.state !='draft':
+

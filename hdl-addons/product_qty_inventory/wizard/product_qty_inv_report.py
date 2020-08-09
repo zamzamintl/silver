@@ -28,9 +28,10 @@ class PeriodicalReportWizard(models.TransientModel):
     _name = "product.qty.inv"
 
      
-    date_from = fields.Date(string='تاريخ البدء')
-    date_to = fields.Date(string='تاريخ الانتهاء')
-    product=fields.Many2one('product.product','المنتج')
+    date_from = fields.Date(string='Start From')
+    date_to = fields.Date(string='From to')
+    product=fields.Many2one('product.product','Product')
+    warehouse_id = fields.Many2one("stock.warehouse",string="warehouse")
 
  
     def check_report(self):
@@ -41,7 +42,8 @@ class PeriodicalReportWizard(models.TransientModel):
             'form': {
                 'date_from': self.date_from,
                 'date_to': self.date_to,
-                'product':self.product.id
+                'product':self.product.id,
+                'warehouse_id':self.warehouse_id.id
 
             },
         }

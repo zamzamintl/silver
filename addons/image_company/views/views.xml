@@ -1,0 +1,21 @@
+<odoo>
+  <data>
+    <record id="inherited_view_res_company" model="ir.ui.view">
+        <field name="name">inherited_view_res_company</field>
+        <field name="model">res.company</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+           <xpath expr="//page[last()]" position="after">
+               <page string="Image">
+                   <group>
+                       <field name="logo_profile" widget="image" class="oe_avatar"/>
+             <field name="photo" widget="image" class="oe_avatar"/>
+                   </group>
+              </page>
+           </xpath>
+        </field>
+    </record>
+
+  </data>
+</odoo>

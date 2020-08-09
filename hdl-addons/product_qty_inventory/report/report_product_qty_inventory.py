@@ -16,14 +16,16 @@ class ReportPeriodicalSale(models.AbstractModel):
         date_from = data['form']['date_from']
         date_to = data['form']['date_to']
         pro = data['form']['product']
+        warehouse_id = data['form']['warehouse_id']
 
         total_sale = 0.0
         period_value = ''
         domain = []
+        if warehouse_id:
+            domain.append(('warehouse_id', '=', warehouse_id))
         if pro :
-            domain.append([('product_id','=',pro)])
-        stock_moves = self.env['stock.move'].search(
-            domain, order='date,product_id asc')
+            domain.append(('product_id','=',pro))
+        stock_moves = self.env['stock.move'].search(domain)
 
         moves = []
         order_line = []
@@ -44,10 +46,13 @@ class ReportPeriodicalSale(models.AbstractModel):
         old_timezone = pytz.timezone("UTC")
         new_timezone = pytz.timezone("Africa/Cairo")
         product_list=[]
+        product=0
+        for rec in stock_moves:
+            if rec.product_id not in product_list:
+                product_list.append(rec.product_id)
         if date_to or date_from:
             for rec in stock_moves:
-                if rec.product_id not in product_list:
-                    product_list.append(rec.product_id)
+
                 last_new_timezone = old_timezone.localize(rec.date).astimezone(new_timezone)
                 last_new_timezone=last_new_timezone.strftime('%Y-%m-%d')
                 last_new_timezone=datetime.datetime.strptime(last_new_timezone, '%Y-%m-%d')
@@ -68,17 +73,21 @@ class ReportPeriodicalSale(models.AbstractModel):
         return_so,delivery_so,return_po,delivery_po,return_ma,delivery_ma,return_internal,delivery_internal=0,0,0,0,0,0,0,0
         value_list=[]
         i=0
+        print(product_list)
+        warehouse_id = self.env['stock.warehouse'].search([('id','=',warehouse_id)])
         for product in product_list:
             i+=1
+            return_so, delivery_so, return_po, delivery_po, \
+            return_ma, delivery_ma, return_internal, delivery_internal ,onhand= 0,0, 0, 0, 0, 0, 0, 0, 0
             for rec in stock_moves:
-                if rec.product.id == product.id:
-                    if rec.locati_id.usage=='customer':
+                if rec.product_id.id == product.id:
+                    if rec.location_id.usage=='customer':
                         return_so+=rec.product_uom_qty
-                    elif rec.locati_id.usage=='internal':
+                    elif rec.location_id.usage=='internal':
                         return_internal+=rec.product_uom_qty
-                    elif rec.locati_id.usage == 'supplier':
+                    elif rec.location_id.usage == 'supplier':
                        return_po += rec.product_uom_qty
-                    elif rec.locati_id.usage=='production':
+                    elif rec.location_id.usage=='production':
                         return_ma+=rec.product_uom_qty
                     if rec.location_dest_id.usage=='customer':
                         delivery_so+=rec.product_uom_qty
@@ -88,21 +97,31 @@ class ReportPeriodicalSale(models.AbstractModel):
                        delivery_po += rec.product_uom_qty
                     elif rec.location_dest_id.usage=='production':
                         delivery_ma+=rec.product_uom_qty
-        value_list.append({'i':i,'product_id':product,'return_so':return_so,'delivery_so':delivery_so,'return_internal':return_internal,
-                           'delivery_internal':delivery_internal,'return_po':return_po,'delivery_po':delivery_po,'return_ma':return_ma,'delivery_ma':
-                           'delivery_ma'})
+
+            if warehouse_id:
+                stock_qty = self.env['stock.quant'].search([('product_id', '=', product.id),
+                                                            ('on_hand', '=', True),
+                                                            ('location_id', '=', warehouse_id.lot_stock_id.id)])
+                onhand=stock_qty.quantity
+            else:
+                onhand = product.qty_available
+            value_list.append({'i':i,'product_id':product,'return_so':return_so,'delivery_so':delivery_so,'return_internal':return_internal,
+                           'delivery_internal':delivery_internal,'return_po':return_po,
+                               'delivery_po':delivery_po,'return_ma':return_ma,'delivery_ma':
+                           delivery_ma,'onhand':onhand})
 
 
         if date_from:
            date_from=date_from.strftime('%Y-%m-%d')
         if date_to:
            date_to=date_to.strftime('%Y-%m-%d')
+        print(value_list)
         return {
                 'doc_ids': data['ids'],
                 'doc_model': data['model'],
                 'date_from': date_from,
                 'date_to': date_to,
-                'moves': value_list,
+                'value_list': value_list,
                 'product_name': self.env['product.product'].search([('id', '=', pro)]).name,
                 'data_check': False,
 

@@ -57,7 +57,7 @@
 
 
 			<div class="col-auto mw-100 mb-2">
-                <img t-att-src="image_data_uri(doc.company_id.logo)"  width="900px" height="500px"/>
+                <img t-att-src="image_data_uri(doc.company_id.photo)"  width="900px" height="500px"/>
                 </div>
             <div class="row mt32 mb32" id="informations">
                 <!--<div t-if="doc.client_order_ref" class="col-auto mw-100 mb-2">
@@ -275,6 +275,48 @@ defect in faulty design, the  guarantee is not applied in case of defect arising
 
 			 
 			</div>
+			</t>
+     <t t-call="web.html_container">
+		 <t t-call="web.external_layout">
+
+
+                <div class="page">
+
+				    <h2 style="text-align:center;color:grey">Survey Sheet</h2>
+
+					<table class="table table-sm o_main_table" >
+					<tr style="color:blue">
+							<th>  </th>
+							<th>Location</th>
+							<th>Lighting </th>
+							<th>Lighting Dimming</th>
+							<th>Curtains</th>
+							<th>AC</th>
+							<th>Keypad</th>
+							<th>DLP</th>
+							<th>Sensors</th>
+							<th>notes</th>
+
+
+
+
+						  </tr>
+						  <t t-set="i" t-value="0"/>
+						  <t t-set="j" t-value="1"/>
+
+
+                        <t t-foreach="doc.survey_sheet.survey_line" t-as="o">
+                            <t t-set="i" t-value="i+1"/>
+                        <t t-call="crm_helpdesk_custom_lead.report_sale_visit_print_data">
+
+                            <t t-set="o" t-value="o"/>
+                        </t></t>
+
+					</table>
+
+                </div>
+
+            </t>
 			</t>
 </template>
 <template id="hdl_so_layout" inherit_id="web.assets_backend">

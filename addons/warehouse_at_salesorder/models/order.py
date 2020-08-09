@@ -29,7 +29,8 @@ class warehouse(models.Model):
                     if pro.id==line.product_id.id:
                         q+=line.product_uom_qty
             _logger.info("OOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
-            stock_qty=self.env['stock.quant'].search([('product_id','=',pro.id),('on_hand','=',True),('location_id','=',self.warehouse_id.lot_stock_id.id)])
+            stock_qty=self.env['stock.quant'].search([('product_id','=',pro.id),
+                                                      ('on_hand','=',True),('location_id','=',self.warehouse_id.lot_stock_id.id)])
             
             q_requested=q-stock_qty.quantity
             

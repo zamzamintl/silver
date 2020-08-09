@@ -12,19 +12,29 @@
 							<table  class="table table-bordered">
 								<thead>
 									<tr>
+										<th style="text-align:center;" colspan="4"></th>
+										<th style="text-align:center;" colspan="2">Sales order</th>
+										<th style="text-align:center;" colspan="2">Purchase Order</th>
+										<th style="text-align:center" colspan="2">Internal WH</th>
+										<th style="text-align:center" colspan="2">Manfurating </th>
+										<th style="text-align:center" ></th>
+									</tr>
+									<tr>
 										<th style="text-align:center;width:15%">#</th>
 										<th style="text-align:center;width:40%">Product</th>
-										<th style="text-align:center;width:7%">Product Unit </th>
 										<th style="text-align:center;width:15%">UOM</th>
+										<th style="text-align:center;width:7%">Product Unit </th>
 
-										<th style="text-align:center;width:15%">Return SO</th>
-										<th style="text-align:center;width:10%">Delivery SO</th>
-										<th style="text-align:center;width:15%">Return PO</th>
-										<th style="text-align:center;width:10%">Delivery PO</th>
-										<th style="text-align:center;width:15%">Return Internal </th>
-										<th style="text-align:center;width:10%">Delivery Imternal</th>
-										<th style="text-align:center;width:15%">Manfurturing SO</th>
-										<th style="text-align:center;width:10%">Manfurturing SO</th>
+
+										<th style="text-align:center;width:15%">Return </th>
+										<th style="text-align:center;width:10%">Delivery </th>
+										<th style="text-align:center;width:15%">Return </th>
+										<th style="text-align:center;width:10%">Delivery </th>
+										<th style="text-align:center;width:15%">Return  </th>
+										<th style="text-align:center;width:10%">Delivery </th>
+										<th style="text-align:center;width:15%"> Return</th>
+										<th style="text-align:center;width:10%"> Delivery</th>
+										<th style="text-align:center;width:10%">On Hand</th>
 
 
 									</tr>
@@ -33,43 +43,50 @@
 
 						<t t-foreach="value_list" t-as="record">
 
-							 
+
 
 
 									<tr>
 										 <td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="record[i]" />
+												<span t-esc="record['i']" />
 										</td>
 										<td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="record[product]" />
+												<span t-esc="record['product_id'].name" />
 										</td>
 										<td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="round(record[i],3)" />
+												<span t-esc="record['product_id'].uom_id.name" />
 										</td>
 										<td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="round(record[return_so],3)" />
+												<span t-esc="record['product_id'].list_price" />
 										</td>
 										<td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="round(record[delivery_so],3)" />
+												<span t-esc="round(record['return_so'],3)" />
 										</td>
 										<td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="round(record[return_po],3)" />
+												<span t-esc="round(record['delivery_so'],3)" />
 										</td>
 										<td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="round(record[delivery_po],3)" />
+												<span t-esc="round(record['return_po'],3)" />
 										</td>
 										<td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="round(record[return_internal],3)" />
+												<span t-esc="round(record['delivery_po'],3)" />
 										</td>
 										<td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="round(record[delivery_internal],3)" />
-										</td><td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="round(record[return_ma],3)" />
+												<span t-esc="round(record['return_internal'],3)" />
 										</td>
 										<td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="round(record[delivery_ma],3)" />
+												<span t-esc="round(record['delivery_internal'],3)" />
 										</td>
+										<td style="white-space: text-nowrap;text-align:center">
+												<span t-esc="round(record['return_ma'],3)" />
+										</td>
+										<td style="white-space: text-nowrap;text-align:center">
 
+											<span t-esc="round(record['delivery_ma'],3)" />
+										</td>
+                                       <td style="white-space: text-nowrap;text-align:center">
+												<span t-esc="round(record['onhand'],3)" />
+										</td>
 
 
 							</tr>
@@ -91,5 +108,22 @@
 			</t>
 		</t>
 	</template>
-
+<record id="paperformat_lowmargin" model="report.paperformat">
+<field name="name">landscap report paper express</field>
+<field name="default" eval="True"/>
+<field name="format">A4</field>
+<field name="page_height">0</field>
+<field name="page_width">0</field>
+<field name="orientation">Landscape</field>
+<field name="margin_top">40.00</field>
+<field name="margin_bottom">28.00</field>
+<field name="margin_left">0</field>
+<field name="margin_right">0</field>
+<field name="header_line" eval="False"/>
+<field name="header_spacing">45</field>
+<field name="dpi">90</field>
+</record>
+<record id="product_qty_inventory.action_report_product_qty_inv" model="ir.actions.report">
+<field name="paperformat_id" ref="product_qty_inventory.paperformat_lowmargin"/>
+</record>
 </odoo>

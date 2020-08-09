@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+
+ <record model="ir.ui.view" id="sale_team_custom.list">
+      <field name="name">sale_team_custom list</field>
+      <field name="model">res.users</field>
+      <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[last()]" position="replace">
+                   <page string = "Users">
+                     <field name="users" nocreate="0" noedit="0">
+                       <tree editable="top">
+                         <field name="name"/>
+                         <field name="login"/>
+                       </tree>
+                     </field>
+                   </page>
+                </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

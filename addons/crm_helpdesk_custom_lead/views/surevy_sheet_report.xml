@@ -89,6 +89,7 @@
                     <t t-foreach="docs" t-as="doc">
                         <t t-foreach="doc.survey_line" t-as="o">
                         <t t-call="crm_helpdesk_custom_lead.report_sale_visit_print_data">
+
                             <t t-set="o" t-value="o"/>
                         </t></t>
                     </t>

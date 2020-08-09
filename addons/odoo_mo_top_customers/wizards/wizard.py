@@ -15,8 +15,8 @@ class Wizard(models.TransientModel):
                             readonly=True)
 
     def _get_lines(self):
-        where="date(date_order)>=\'"+str(self.date_from)+"\'"
-        where+=" and date(date_order)<=\'"+str(self.date_to)+"\'"
+        where="date(customer_order_delivery_date)>=\'"+str(self.date_from)+"\'"
+        where+=" and date(customer_order_delivery_date)<=\'"+str(self.date_to)+"\'"
         where+=" and state='sale'"
         if self.customers:
             if len(self.customers)>1:

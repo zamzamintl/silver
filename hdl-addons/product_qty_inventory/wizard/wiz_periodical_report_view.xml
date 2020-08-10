@@ -43,7 +43,7 @@
 	<menuitem id="menu_productqty_inv_report"
                     name="Product Stock"
                    action="action_product_qt_inv_report_move"
-                  parent="sale.menu_sale_report"
+                  parent="stock.menu_warehouse_report"
                   sequence="1"/>
 
 </odoo>

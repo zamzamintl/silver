@@ -102,7 +102,8 @@ class ReportPeriodicalSale(models.AbstractModel):
                 stock_qty = self.env['stock.quant'].search([('product_id', '=', product.id),
                                                             ('on_hand', '=', True),
                                                             ('location_id', '=', warehouse_id.lot_stock_id.id)])
-                onhand=stock_qty.quantity
+                for line  in stock_qty:
+                        onhand+=line.quantity
             else:
                 onhand = product.qty_available
             value_list.append({'i':i,'product_id':product,'return_so':return_so,'delivery_so':delivery_so,'return_internal':return_internal,

@@ -11,30 +11,31 @@
 					<div class="page">
 							<table  class="table table-bordered">
 								<thead>
-									<tr>
-										<th style="text-align:center;" colspan="4"></th>
+									<tr style="background-color:#d6d6c2;border: 2px solid black;">
+										<th style="text-align:center;width:20px" rowspan="2">#</th>
+										<th style="text-align:center;width:200px" rowspan="2">Product</th>
+										<th style="text-align:center;width:40px" rowspan="2">UOM</th>
+										<th style="text-align:center;width:40px" rowspan="2">Product Unit </th>
+
 										<th style="text-align:center;" colspan="2">Sales order</th>
 										<th style="text-align:center;" colspan="2">Purchase Order</th>
 										<th style="text-align:center" colspan="2">Internal WH</th>
 										<th style="text-align:center" colspan="2">Manfurating </th>
-										<th style="text-align:center" ></th>
+											<th style="text-align:center;width:50px" rowspan="2">Ending</th>
 									</tr>
-									<tr>
-										<th style="text-align:center;width:15%">#</th>
-										<th style="text-align:center;width:40%">Product</th>
-										<th style="text-align:center;width:15%">UOM</th>
-										<th style="text-align:center;width:7%">Product Unit </th>
+									<tr style="background-color:#d6d6c2;border: 2px solid black;">
 
 
-										<th style="text-align:center;width:15%">Return </th>
-										<th style="text-align:center;width:10%">Delivery </th>
-										<th style="text-align:center;width:15%">Return </th>
-										<th style="text-align:center;width:10%">Delivery </th>
-										<th style="text-align:center;width:15%">Return  </th>
-										<th style="text-align:center;width:10%">Delivery </th>
-										<th style="text-align:center;width:15%"> Return</th>
-										<th style="text-align:center;width:10%"> Delivery</th>
-										<th style="text-align:center;width:10%">On Hand</th>
+
+										<th style="text-align:center;width:15px">Return </th>
+										<th style="text-align:center;width:15px">Delivery </th>
+										<th style="text-align:center;width:15px">Return </th>
+										<th style="text-align:center;width:15px">Delivery </th>
+										<th style="text-align:center;width:15px">In  </th>
+										<th style="text-align:center;width:15px">Out </th>
+										<th style="text-align:center;width:15px"> Return</th>
+										<th style="text-align:center;width:15px"> Delivery</th>
+
 
 
 									</tr>

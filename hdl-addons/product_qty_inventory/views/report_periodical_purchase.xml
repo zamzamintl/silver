@@ -15,13 +15,13 @@
 										<th style="text-align:center;width:20px" rowspan="2">#</th>
 										<th style="text-align:center;width:200px" rowspan="2">Product</th>
 										<th style="text-align:center;width:40px" rowspan="2">UOM</th>
-										<th style="text-align:center;width:40px" rowspan="2">Product Unit </th>
+										<th style="text-align:center;width:30px" rowspan="2">Product Unit </th>
 
 										<th style="text-align:center;" colspan="2">Sales order</th>
 										<th style="text-align:center;" colspan="2">Purchase Order</th>
 										<th style="text-align:center" colspan="2">Internal WH</th>
 										<th style="text-align:center" colspan="2">Manfurating </th>
-											<th style="text-align:center;width:50px" rowspan="2">Ending</th>
+											<th style="text-align:center;width:70px" rowspan="2">Ending</th>
 									</tr>
 									<tr style="background-color:#d6d6c2;border: 2px solid black;">
 
@@ -58,7 +58,7 @@
 												<span t-esc="record['product_id'].uom_id.name" />
 										</td>
 										<td style="white-space: text-nowrap;text-align:center">
-												<span t-esc="record['product_id'].list_price" />
+												<span t-esc="round(record['product_id'].list_price,3)" />
 										</td>
 										<td style="white-space: text-nowrap;text-align:center">
 												<span t-esc="round(record['return_so'],3)" />

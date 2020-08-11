@@ -19,6 +19,7 @@ from odoo.tools import float_is_zero, float_compare
 class order(models.Model):
     _inherit='sale.order'
     phone_cst=fields.Char(related='partner_id.phone',string='Phone')
+
     def _create_invoices(self, grouped=False, final=False):
         """
         Create the invoice associated to the SO.
@@ -43,26 +44,27 @@ class order(models.Model):
 
             # Invoice values.
             invoice_vals = order._prepare_invoice()
-            print("++++++++++++++++++final",final)
-            print("&&&&&&&&&&&&&",order.order_line)
+            print("++++++++++++++++++final", final)
+            print("&&&&&&&&&&&&&", order.order_line)
             # Invoice line values (keep only necessary sections).
             for line in order.order_line:
                 if line.display_type == 'line_section':
                     pending_section = line
-                    print("!!!!!!!!!!!!!",line.display_type)
+                    print("!!!!!!!!!!!!!", line.display_type)
                     continue
                 """if float_is_zero(line.qty_to_invoice, precision_digits=precision):
                     print("%%%%%%%%%%%%",float_is_zero(line.qty_to_invoice, precision_digits=precision))
                     continue"""
-                print('***********',line.qty_to_invoice)
+                print('***********', line.qty_to_invoice)
 
-            if pending_section:
-                invoice_vals['invoice_line_ids'].append((0, 0, pending_section._prepare_invoice_line()))
-                pending_section = None
-            invoice_vals['invoice_line_ids'].append((0, 0, line._prepare_invoice_line()))
+                if pending_section:
+                    invoice_vals['invoice_line_ids'].append((0, 0, pending_section._prepare_invoice_line()))
+                    pending_section = None
+                invoice_vals['invoice_line_ids'].append((0, 0, line._prepare_invoice_line()))
             print("++++++++++++++++++final", invoice_vals['invoice_line_ids'])
             if not invoice_vals['invoice_line_ids']:
-                raise UserError(_('There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
+                raise UserError(_(
+                    'There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
 
             invoice_vals_list.append(invoice_vals)
 
@@ -74,7 +76,9 @@ class order(models.Model):
         if not grouped:
             new_invoice_vals_list = []
             invoice_grouping_keys = self._get_invoice_grouping_keys()
-            for grouping_keys, invoices in groupby(invoice_vals_list, key=lambda x: [x.get(grouping_key) for grouping_key in invoice_grouping_keys]):
+            for grouping_keys, invoices in groupby(invoice_vals_list,
+                                                   key=lambda x: [x.get(grouping_key) for grouping_key in
+                                                                  invoice_grouping_keys]):
                 origins = set()
                 payment_refs = set()
                 refs = set()
@@ -106,9 +110,9 @@ class order(models.Model):
             moves.sudo().filtered(lambda m: m.amount_total < 0).action_switch_invoice_into_refund_credit_note()
         for move in moves:
             move.message_post_with_view('mail.message_origin_link',
-                values={'self': move, 'origin': move.line_ids.mapped('sale_line_ids.order_id')},
-                subtype_id=self.env.ref('mail.mt_note').id
-            )
+                                        values={'self': move, 'origin': move.line_ids.mapped('sale_line_ids.order_id')},
+                                        subtype_id=self.env.ref('mail.mt_note').id
+                                        )
         return moves
     @api.constrains("customer_order_delivery_date","order_line")
     def get_changes_order_line(self):

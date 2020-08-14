@@ -6,6 +6,7 @@
                 <img t-att-src="image_data_uri(o.company_id.logo_profile)"  width="150px" height="150px"/>
                 </div>
 
+
         </xpath>
     </template>
     </data>

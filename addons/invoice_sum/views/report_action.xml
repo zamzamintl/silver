@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<report
+    id="invoice_sum"
+    model="account.move"
+    string="Invoice Sum"
+    report_type="qweb-pdf"
+    name="invoice_sum.invoice_sum_report"
+    file="invoice_sum.invoice_sum_report"
+     
+/>
+
+</odoo>

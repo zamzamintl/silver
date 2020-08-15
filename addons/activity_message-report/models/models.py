@@ -25,7 +25,7 @@ class activity(models.Model):
     created =fields.Boolean("Note",compute='_create_activity_record',store=True,default=False)
     @api.depends("date_deadline")
     def _create_activity_record(self):
-        print("%%%%%%%%%%%%%%%%")
+
         activity=self.env["activity.message.report"]
         for rec  in self.search([]):
             if not rec.created:
@@ -47,10 +47,14 @@ class  notes(models.Model):
 
     @api.depends("date")
     def _create_activity_record(self):
-        print("NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")
+
         activity=self.env["activity.message.report"]
         for rec  in self.search([]):
             if not rec.note:
                 rec.note=True
-                activity.create({'description':rec.description,'res_model':str(rec.model),'due_date':rec.date,
-                'res_id':rec.res_id,'author_id':rec.author_id.id,})
+                if rec.author_id:
+                    activity.create({'description':rec.description,'res_model':str(rec.model),'due_date':rec.date,
+                    'res_id':rec.res_id,'author_id':rec.author_id.id,})
+                else:
+                    activity.create({'description': rec.description, 'res_model': str(rec.model), 'due_date': rec.date,
+                                     'res_id': rec.res_id, })

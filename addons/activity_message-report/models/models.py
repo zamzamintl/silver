@@ -20,7 +20,7 @@ class activity_message_report(models.Model):
              'type': 'ir.actions.act_window',
              'target': 'current'
          }
-class IVITY(models.Model):
+class activity(models.Model):
     _inherit ="mail.activity"
     created =fields.Boolean("Note",compute='_create_activity_record',store=True,default=False)
     @api.depends("date_deadline")

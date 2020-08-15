@@ -30,9 +30,17 @@ class activity(models.Model):
         for rec  in self.search([]):
             if not rec.created:
                 rec.created=True
-                activity.create({'description':rec.res_name,'res_model':str(rec.res_model),'due_date':rec.date_deadline,
-                'res_id':rec.res_id,'author_id':rec.create_uid.id,'type':rec.activity_type_id.name,
-                                 'user_id':rec.user_id.partner_id.id})
+                if rec.user_id.partner_id:
+                    activity.create({'description':rec.res_name,'res_model':str(rec.res_model),'due_date':rec.date_deadline,
+                    'res_id':rec.res_id,'author_id':rec.create_uid.id,'type':rec.activity_type_id.name,
+                                      'user_id':rec.user_id.partner_id.id})
+                else:
+
+                        activity.create({'description': rec.res_name, 'res_model': str(rec.res_model),
+                                         'due_date': rec.date_deadline,
+                                         'res_id': rec.res_id, 'author_id': rec.create_uid.id,
+                                         'type': rec.activity_type_id.name,
+                                         })
 class  notes(models.Model):
     _inherit ="mail.message"
     note =fields.Boolean("Note",compute='_create_activity_record',store=True,default=False)

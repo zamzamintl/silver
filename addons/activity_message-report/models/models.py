@@ -35,14 +35,14 @@ class activity(models.Model):
                                  'user_id':rec.user_id.partner_id.id})
 class  notes(models.Model):
     _inherit ="mail.message"
-    created =fields.Boolean("Note",compute='_create_activity_record',store=True,default=False)
+    note =fields.Boolean("Note",compute='_create_activity_record',store=True,default=False)
 
     @api.depends("date")
     def _create_activity_record(self):
         print("NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")
         activity=self.env["activity.message.report"]
         for rec  in self.search([]):
-            if not rec.created:
-                rec.created=True
+            if not rec.note:
+                rec.note=True
                 activity.create({'description':rec.description,'res_model':str(rec.model),'due_date':rec.date,
                 'res_id':rec.res_id,'author_id':rec.author_id.id,})

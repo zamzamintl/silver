@@ -23,7 +23,6 @@ class activity_message_report(models.Model):
 class IVITY(models.Model):
     _inherit ="mail.activity"
     created =fields.Boolean("Note",compute='_create_activity_record',store=True,default=False)
-
     @api.depends("date_deadline")
     def _create_activity_record(self):
         print("%%%%%%%%%%%%%%%%")

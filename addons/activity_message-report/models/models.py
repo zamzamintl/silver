@@ -5,7 +5,7 @@ class activity_message_report(models.Model):
      _name = 'activity.message.report'
      description =fields.Char("Description")
      res_model = fields.Char("Model")
-     user_id = fields.Many2one("res.users","Assigned")
+     user_id = fields.Many2one("res.partner","Assigned")
      due_date = fields.Date("Due date")
      res_id = fields.Char("res_id")
      author_id = fields.Many2one("res.partner","Author")

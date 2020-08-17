@@ -32,7 +32,7 @@ class activity(models.Model):
                 rec.created=True
                 if rec.user_id.partner_id:
                     activity.create({'description':rec.res_name,'res_model':str(rec.res_model),'due_date':rec.date_deadline,
-                    'res_id':rec.res_id,'author_id':rec.create_uid.id,'type':rec.activity_type_id.name,
+                    'res_id':rec.res_id,'author_id':rec.create_uid.partner_id.id,'type':rec.activity_type_id.name,
                                       'user_id':rec.user_id.partner_id.id})
                 else:
 

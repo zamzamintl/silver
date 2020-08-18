@@ -6,10 +6,10 @@
     model="sale.order"
     string="HDL SO"
     report_type="qweb-pdf"
-    name="hdl_so_print.print_sale_order"
-    file="hdl_so_print.temp_view"
+    name="hdl_so_print.hdl_sale_order"
+    file="hdl_so_print.hdl_sale_order"
 	print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"/>
-<template id="print_sale_order">
+<template id="hdl_sale_order">
         <t t-call="web.html_container">
 		 
 

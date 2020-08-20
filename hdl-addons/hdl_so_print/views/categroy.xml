@@ -1,12 +1,12 @@
 <odoo>
-   <record id="product.category_inherited" model="ir.ui.view">
-        <field name="name">product.category_inherited</field>
+   <record id="product_category_inherited_hidden" model="ir.ui.view">
+        <field name="name">product_category_inherited_hidden</field>
         <field name="model">product.category</field>
         <field name="inherit_id" ref="product.product_category_form_view"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//field[@name='property_valuation']" position="after">
-                <field name="hidden" />
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="visible" />
             </xpath>
 
 

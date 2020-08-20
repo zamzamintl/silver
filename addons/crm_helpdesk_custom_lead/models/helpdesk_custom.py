@@ -302,6 +302,7 @@ class survey_sheet(models.Model):
     DLP=fields.Integer("DLP")
     Sensors=fields.Integer("Sensors")
     Speakers=fields.Integer("Speakers")
+    company_id = fields.Many2one("res.company",string="company",default=lambda self: self.env.company.id )
     @api.constrains("survey_line")
     def get_survey_details(self):
         lighting,Lighting_dimming,Curtains,AC,Keypad,DLP,Sensors,Speakers=0,0,0,0,0,0,0,0

@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+
+<!-- Everyone own drafts -->
+    <record model="ir.rule" id="prt_mactivity_report">
+        <field name="name">prt_mactivity_report</field>
+        <field name="model_id" ref="activity_message-report.model_activity_message_report"/>
+
+        <field name="domain_force">[('company_id', '=', user.company_id.id)]</field>
+    </record>
+  </data>
+</odoo>

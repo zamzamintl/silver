@@ -7,7 +7,6 @@
 """,
     'author ':"Mohamed abd Elrhman",
 'depends': ['sale','purchase','stock'],
-    'data': ["views/order_form.xml"],
     'installable': True,
     'auto_install': True,
 }

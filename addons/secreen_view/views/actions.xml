@@ -1,0 +1,63 @@
+<odoo>
+
+    <record model="ir.actions.act_window" id="action_window_screen_1">
+      <field name="name">Transfer</field>
+      <field name="res_model">stock.picking</field>
+
+         <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','not in',['done','cancel']),('location_id.usage','=','supplier'),('purchase_order','=',True)]</field>
+
+    </record>
+     <record model="ir.actions.act_window" id="action_window_pisonij">
+      <field name="name">Transfer</field>
+      <field name="res_model">stock.picking</field>
+
+         <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','not in',['done','cancel']),('location_id.usage','=','supplier'),('pisonaj','=',True)]</field>
+
+    </record>
+    <record model="ir.actions.act_window" id="action_window_screen_washing_order">
+      <field name="name">Transfer</field>
+      <field name="res_model">stock.picking</field>
+
+         <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','not in',['done','cancel']),('location_id.usage','=','supplier'),('washing_inv','=',True)]</field>
+
+    </record>
+    <record model="ir.actions.act_window" id="action_window_inventory">
+      <field name="name">Transfer</field>
+      <field name="res_model">stock.picking</field>
+
+         <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','not in',['done','cancel']),('location_id.usage','!=','supplier')]</field>
+
+    </record>
+     <record model="ir.actions.act_window" id="action_window_preparation">
+      <field name="name">preparation</field>
+      <field name="res_model">mrp.workorder</field>
+     <field name="view_mode">kanban,tree,form</field>
+    <field name="domain">[('workcenter_id.preparation','=',True)]</field>
+    </record>
+    <record model="ir.actions.act_window" id="action_window_other">
+      <field name="name">other</field>
+      <field name="res_model">mrp.workorder</field>
+     <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('workcenter_id.other_workcenter','=',True)]</field>
+
+    </record>
+    <record model="ir.actions.act_window" id="action_window_covering">
+      <field name="name">Covering</field>
+      <field name="res_model">mrp.workorder</field>
+     <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('workcenter_id.covering','=',True)]</field>
+
+    </record>
+    <record model="ir.actions.act_window" id="action_window_cwashing">
+      <field name="name">washing</field>
+      <field name="res_model">mrp.workorder</field>
+     <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('workcenter_id.washing','=',True)]</field>
+
+    </record>
+
+</odoo>

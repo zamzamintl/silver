@@ -1,0 +1,37 @@
+<odoo>
+  <record id="view_workcenter_custom" model="ir.ui.view">
+            <field name="name">view_workcenter_custom</field>
+            <field name="model">mrp.workcenter</field>
+            <field name="inherit_id" ref="mrp.mrp_workcenter_view" />
+            <field name="arch" type="xml">
+              <xpath expr="//page[last()]" position="after">
+                <page string ="screens" >
+                  <group>
+                    <group>
+                      <field name="preparation"/>
+                      <field name="washing"/>
+                    </group>
+                    <group>
+                      <field name="covering"/>
+                      <field name="other_workcenter"/>
+                    </group>
+                  </group>
+                </page>
+              </xpath>
+            </field>
+  </record>
+    <record id="view_warehouse_custom" model="ir.ui.view">
+            <field name="name">view_warehouse_custom</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form" />
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='comment']" position="after">
+                  <group>
+                      <field name="purchase_order" attrs="{'invisible':[('state','!=','supplier')]}"/>
+                      <field name="pisonaj" attrs="{'invisible':[('state','!=','supplier')]}"/>
+                      <field name="washing_inv" attrs="{'invisible':[('state','!=','supplier')]}"/>
+                  </group>
+              </xpath>
+            </field>
+    </record>
+</odoo>

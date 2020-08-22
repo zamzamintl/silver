@@ -46,13 +46,13 @@
         <field name="name">product custody company rule</field>
         <field name="model_id" ref="model_product_custody"/>
         <field name="global" eval="True"/>
-        <field name="domain_force"> ['|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+        <field name="domain_force"> ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
     </record>
      <record model="ir.rule" id="product_reconcile_custody_comp_rule">
         <field name="name">product reconcile custody company rule</field>
         <field name="model_id" ref="model_product_custody_reconcile"/>
         <field name="global" eval="True"/>
-        <field name="domain_force"> ['|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+        <field name="domain_force"> ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
     </record>
 
 </data>

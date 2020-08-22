@@ -55,7 +55,7 @@
 
 			<div class="col-auto mw-100 mb-2">
                 <t t-if ="doc.company_id.photo">
-                    <img t-att-src="image_data_uri(doc.company_id.photo)"  width="900px" height="500px"/></t>
+                    <img t-att-src="image_data_uri(doc.company_id.photo)"  width="900px" height="800px"/></t>
                 </div>
   </div>
  </t>
@@ -73,16 +73,18 @@
                 </div>
 
 
-                <div t-if="doc.partner_id.name" class="col-auto mw-100 mb-2">
-                    <strong>Customer: <p class="m-0" t-field="doc.partner_id.name"/></strong>
-
+                <div t-if="doc.partner_id.name" >
+                    <p>Customer: <span class="text-left" t-field="doc.partner_id.name"/></p>
+                    <t t-if="doc.user_id">
+                    <p class="text-center">Sales Person : <span class="text-center" t-field="doc.user_id.name"/></p>
+                     </t>
                 </div>
             </div>
 
              <div>
-			    <p class="text-left" style="font-size: 40px;font-style: oblique;font-weight:normal">Concept of design</p>
-				<p class="text-left" style="font-size: 25px;font-weight:normal">We make the Home automation design to full fill the customers need based on his requirements,</p>
-				<p class="text-left" style="font-size: 25px;font-weight:normal">Mentioned below the project scope in points. </p>
+			    <p class="text-left" style="font-size: 30px;font-style: oblique;font-weight:normal">Concept of design</p>
+				<p class="text-left" style="font-size: 15px;font-weight:normal">We make the Home automation design to full fill the customers need based on his requirements,</p>
+				<p class="text-left" style="font-size: 15px;font-weight:normal">Mentioned below the project scope in points. </p>
 
 			 </div>
 

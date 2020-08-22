@@ -1,0 +1,20 @@
+<odoo>
+    <menuitem name="Screen" id="menu_root_search"/>
+
+
+
+    <menuitem name="Recieve orders" id="secreen_view_1" parent="menu_root_search" action="action_window_screen_1"
+              groups="group_recive_order" />
+    <menuitem name="Recieve Pisonij order" id="secreen_view_pisonij" parent="menu_root_search" action="action_window_pisonij"
+              groups="group_pisonij_move" />
+    <menuitem name="Washin recieve orders" id="secreen_view_washing_order" parent="menu_root_search"
+              action="action_window_screen_washing_order"
+              groups="group_washing_recieve_order" />
+ <menuitem name="Inventory Transaction" id="Recieve_orders" parent="menu_root_search" action="action_window_inventory"
+               groups="group_inventroy_move"/>
+    <menuitem name="preparation" id="secreen_preparation" parent="menu_root_search" action="action_window_preparation"
+    groups="group_preparation"/>
+    <menuitem name="other" id="secreen_other" parent="menu_root_search" action="action_window_other" groups="group_other_workcenter"/>
+    <menuitem name="Covering" id="secreen_Covering" parent="menu_root_search" action="action_window_covering" groups="group_covering"/>
+    <menuitem name="washing" id="secreen_washing" parent="menu_root_search" action="action_window_cwashing" groups="group_washing"/>
+    </odoo>

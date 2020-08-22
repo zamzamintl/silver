@@ -19,13 +19,20 @@
 
 
      <record id="group_pisonij_move" model="res.groups">
-      <field name="name">Pisomij  Order Recieve</field>
+      <field name="name">Pisonij  Order Recieve</field>
     <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
       <field name="category_id" ref="secreen_view.screen_view"/>
     </record>
 
+
     <record id="group_washing_recieve_order" model="res.groups">
       <field name="name">washing Order Recieve</field>
+    <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+      <field name="category_id" ref="secreen_view.screen_view"/>
+    </record>
+
+     <record id="group_deliver_order_screen" model="res.groups">
+      <field name="name">Delivery Order</field>
     <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
       <field name="category_id" ref="secreen_view.screen_view"/>
     </record>

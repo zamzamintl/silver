@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class secreen_view(models.Model):
     _inherit ='mrp.workcenter'
-    preparation = fields.Boolean("Preparation")
+    #preparation = fields.Boolean("Preparation")
     washing = fields.Boolean("Washing")
     covering = fields.Boolean("Covering")
     other_workcenter = fields.Boolean("Other")

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<!-- Translatable template -->
+
+
+<template id="pisonaj_sum_report">
+
+          <t t-call="web.html_container">
+
+		 <t t-call="web.external_layout">
+
+
+                <div class="page" style="bgcolor:green">
+					<div style="background-color:green;width:100px;display: inline-block;height:800px" class="text-right">
+						 dfdsf
+					</div>
+                    <div style="width:650px;display: inline-block;" class="text-center">
+
+					<table align="right" class="table table-bordered" style="width:325px">
+                      <thead>
+						  <tr>
+
+							<th>Product</th>
+							<th>Price</th>
+
+
+
+						  </tr>
+						  </thead>
+
+
+                   <tbody>
+						  <t t-foreach="docs_right" t-as="o">
+                          <tr>
+						   <td>
+														<t t-esc="o['product_tmpl_id']"/>
+													</td>
+													 <td>
+														<t t-esc="o['fixed_price']"/>
+													</td>
+
+
+						  </tr>
+
+						  </t>
+						  </tbody>
+				   </table>
+					<table align="left" class="table table-bordered" style="width:325px">
+                      <thead>
+						  <tr>
+
+							<th>Product</th>
+							<th>Price</th>
+
+
+
+						  </tr>
+						  </thead>
+
+
+                   <tbody>
+						  <t t-foreach="docs_left" t-as="o">
+                          <tr>
+						   <td>
+														<t t-esc="o['product_tmpl_id']"/>
+													</td>
+													 <td>
+														<t t-esc="o['fixed_price']"/>
+													</td>
+
+
+						  </tr>
+
+						  </t>
+						  </tbody>
+				   </table>
+					</div>
+					<div style="background-color:blue;width:100px;display: inline-block;height:400px" class="text-left">
+                            dfdfdsfsdfdsf
+					</div>
+                </div>
+
+            </t>
+
+			</t>
+    </template>
+
+
+</odoo>

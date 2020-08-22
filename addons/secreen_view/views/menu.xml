@@ -4,12 +4,15 @@
 
 
     <menuitem name="Recieve orders" id="secreen_view_1" parent="menu_root_search" action="action_window_screen_1"
-              groups="group_recive_order" />
+              groups="group_recive_order"/>
     <menuitem name="Recieve Pisonij order" id="secreen_view_pisonij" parent="menu_root_search" action="action_window_pisonij"
-              groups="group_pisonij_move" />
+              groups="group_pisonij_move"/>
     <menuitem name="Washin recieve orders" id="secreen_view_washing_order" parent="menu_root_search"
               action="action_window_screen_washing_order"
-              groups="group_washing_recieve_order" />
+              groups="group_washing_recieve_order"/>
+    <menuitem name="Delivery orders" id="secreen_view_delivery_order" parent="menu_root_search"
+              action="action_delivery_order_screen"
+               groups="group_deliver_order_screen"/>
  <menuitem name="Inventory Transaction" id="Recieve_orders" parent="menu_root_search" action="action_window_inventory"
                groups="group_inventroy_move"/>
     <menuitem name="preparation" id="secreen_preparation" parent="menu_root_search" action="action_window_preparation"

@@ -32,11 +32,21 @@
             <field name="domain">[('state','not in',['done','cancel']),('location_id.usage','!=','supplier')]</field>
 
     </record>
+
+    <record model="ir.actions.act_window" id="action_delivery_order_screen">
+      <field name="name">Transfer</field>
+      <field name="res_model">stock.picking</field>
+
+         <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','assigned')]</field>
+
+    </record>
+
      <record model="ir.actions.act_window" id="action_window_preparation">
       <field name="name">preparation</field>
-      <field name="res_model">mrp.workorder</field>
+      <field name="res_model">mrp.production</field>
      <field name="view_mode">kanban,tree,form</field>
-    <field name="domain">[('workcenter_id.preparation','=',True)]</field>
+    <field name="domain">[('state','!=','done')]</field>
     </record>
     <record model="ir.actions.act_window" id="action_window_other">
       <field name="name">other</field>

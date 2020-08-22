@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<!-- Translatable template -->
+ 
+
+<template id="pisonaj_sum_report">
+
+          <t t-call="web.html_container">
+
+		 <t t-call="web.external_layout">
+
+		<style type="text/css">
+* {margin: 0; padding: 0;}
+#container {height: 100%; width:100%; font-size: 0;}
+#left, #middle, #right {display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size: 12px;}
+#left {width: 100px; background: green;height:900px}
+#middle {width: 650px;border-style: solid;font-size:20px}
+#right {width: 100px; background: green;height:900px}
+</style>
+
+
+                <div class="page" style="bgcolor:green">
+
+					<div id="left">
+						 <p></p>
+					</div>
+                    <div id="middle" class="text-center">
+                  <t t-if="check==True">
+					<table align="right"     style="border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;width:325px">
+						<thead>
+						  <tr>
+
+							<th> </th>
+							<th></th>
+
+
+
+						  </tr>
+						  </thead>
+
+
+
+                   <tbody>
+						  <t t-foreach="docs_right" t-as="o">
+                          <tr>
+						   <td>
+														<t t-esc="o['product_tmpl_id']"/>
+													</td>
+													 <td>
+														<t t-esc="o['fixed_price']"/>
+													</td>
+
+
+						  </tr>
+
+						  </t>
+						  </tbody>
+				   </table>
+					<table align="left"   style="border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;width:325px;" >
+
+                  <thead>
+						  <tr>
+
+							<th></th>
+							<th></th>
+
+
+
+						  </tr>
+						  </thead>
+
+                   <tbody>
+						  <t t-foreach="docs_left" t-as="o">
+                          <tr>
+						   <td>
+														<t t-esc="o['product_tmpl_id']"/>
+													</td>
+													 <td>
+														<t t-esc="o['fixed_price']"/>
+													</td>
+
+
+						  </tr>
+
+						  </t>
+						  </tbody>
+					</table></t>
+						<t t-if="check==False">
+							<table align="left"   style="border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;width:650px;" >
+
+                  <thead>
+						  <tr>
+
+							<th></th>
+							<th></th>
+
+
+
+						  </tr>
+						  </thead>
+
+                   <tbody>
+						  <t t-foreach="docs" t-as="o">
+                          <tr>
+						   <td>
+														<t t-esc="o['product_tmpl_id']"/>
+													</td>
+													 <td>
+														<t t-esc="o['fixed_price']"/>
+													</td>
+
+
+						  </tr>
+
+						  </t>
+						  </tbody>
+					</table>
+						</t>
+
+					</div>
+					<div id="right">
+						<p></p>
+					</div>
+                </div>
+
+            </t>
+			
+			</t>
+    </template>
+	
+        
+</odoo>

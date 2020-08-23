@@ -23,7 +23,7 @@ class activity_message_report(models.Model):
          }
 class activity(models.Model):
     _inherit ="mail.activity"
-    company_id = fields.Many2one("res.company",string="company",default=lambda self: self.env.company.id )
+
 
     created =fields.Boolean("Note",compute='_create_activity_record',store=True,default=False)
     @api.depends("date_deadline")
@@ -31,24 +31,28 @@ class activity(models.Model):
 
         activity=self.env["activity.message.report"]
         for rec  in self.search([]):
-
+            company = self.env['ir.model.fields'].search([('model_id', '=',rec.res_model),('relation','=','res.company')])
+            company_name=''
+            if company:
+                company_id=company.name
+                company_name=self.env['rec.res_model'].company_id.name
             if not rec.created:
                 rec.created=True
                 if rec.user_id.partner_id:
                     activity.create({'description':rec.res_name,'res_model':str(rec.res_model),'due_date':rec.date_deadline,
                     'res_id':rec.res_id,'author_id':rec.create_uid.partner_id.id,'type':rec.activity_type_id.name,
-                                      'user_id':rec.user_id.partner_id.id,'company_id':self.company_id.id})
+                                      'user_id':rec.user_id.partner_id.id,'company_id':company_name})
                 else:
 
                         activity.create({'description': rec.res_name, 'res_model': str(rec.res_model),
                                          'due_date': rec.date_deadline,
                                          'res_id': rec.res_id, 'author_id': rec.create_uid.id,
-                                         'type': rec.activity_type_id.name,'company_id':self.company_id.id
+                                         'type': rec.activity_type_id.name,'company_id':company_name
                                          })
 class  notes(models.Model):
     _inherit ="mail.message"
     note =fields.Boolean("Note",compute='_create_activity_record',store=True,default=False)
-    company_id = fields.Many2one("res.company",string="company",default=lambda self: self.env.company.id )
+
 
     @api.depends("date")
     def _create_activity_record(self):
@@ -57,10 +61,16 @@ class  notes(models.Model):
         for rec  in self.search([]):
 
             if not rec.note:
+                company = self.env['ir.model.fields'].search(
+                    [('model_id', '=', rec.res_model), ('relation', '=', 'res.company')])
+                company_name = ''
+                if company:
+                    company_id = company.name
+                    company_name = self.env['rec.res_model'].company_id.name
                 rec.note=True
                 if rec.author_id:
                     activity.create({'description':rec.description,'res_model':str(rec.model),'due_date':rec.date,
-                    'res_id':rec.res_id,'author_id':rec.author_id.id,'company_id':self.company_id.id})
+                    'res_id':rec.res_id,'author_id':rec.author_id.id,'company_id':company_name})
                 else:
                     activity.create({'description': rec.description, 'res_model': str(rec.model), 'due_date': rec.date,
-                                     'res_id': rec.res_id,'company_id':self.company_id.id })
+                                     'res_id': rec.res_id,'company_id':company_name })

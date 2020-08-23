@@ -19,7 +19,7 @@
 #middle {width: 650px;border-style: solid;font-size:20px}
 #right {width: 100px; background: green;height:900px}
 </style>
-
+  <t t-foreach="pages" t-as="p">
 
                 <div class="page" style="bgcolor:green">
 
@@ -47,6 +47,7 @@
 
                    <tbody>
 						  <t t-foreach="docs_right" t-as="o">
+							  <t t-if ="o['page']==p"/>
                           <tr>
 						   <td>
 														<t t-esc="o['product_tmpl_id']"/>
@@ -112,6 +113,7 @@
 
                    <tbody>
 						  <t t-foreach="docs" t-as="o">
+							   <t t-if ="o['page']==p"/>
                           <tr>
 						   <td>
 														<t t-esc="o['product_tmpl_id']"/>
@@ -122,8 +124,8 @@
 
 
 						  </tr>
-
 						  </t>
+
 						  </tbody>
 					</table>
 						</t>
@@ -133,6 +135,7 @@
 						<p></p>
 					</div>
                 </div>
+  </t>
 
             </t>
 			

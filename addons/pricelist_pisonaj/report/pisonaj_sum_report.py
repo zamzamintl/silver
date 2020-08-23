@@ -17,16 +17,25 @@ class ReportProductSale(models.AbstractModel):
     def _get_report_values(self, docids, data=None):
         docs_right,docs_left,docs=[],[],[]
         pricelis =self.env['product.pricelist'].search([('id','in',docids)])
-        i=1
+        i,j=1,1
+        pages=[]
         check=False
 
         for rec in pricelis.item_ids:
 
-            if i%2==0:
-                 docs_right.append({'product_tmpl_id':rec.product_tmpl_id.name,'fixed_price':rec.fixed_price})
-            else:
-                docs_left.append({'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
-            docs.append({'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+
+            if i<=30:
+                if i % 2 == 0:
+                    docs_right.append(
+                        {'page': j, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                else:
+                    docs_left.append(
+                        {'page': j, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                docs.append({'page':j,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+
+                pages.append(j)
+                i=0
+                j += 1
             i+=1
         print(len(docs_left))
         height_field=1
@@ -44,5 +53,6 @@ class ReportProductSale(models.AbstractModel):
             'docs':docs,
             'height_field':height_field,
             'check':check,
+            'pages':pages,
             'proforma': True
         }

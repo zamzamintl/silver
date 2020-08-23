@@ -31,11 +31,13 @@ class activity(models.Model):
 
         activity=self.env["activity.message.report"]
         for rec  in self.search([]):
-            company = self.env['ir.model.fields'].search([('model_id', '=',rec.res_model),('relation','=','res.company')])
-            company_name=''
-            if company:
-                company_id=company.name
-                company_name=self.env[rec.res_model].company_id.name
+            if not rec.note:
+                company = self.env['ir.model.fields'].search(
+                    [('model_id', '=', rec.res_model), ('relation', '=', 'res.company'), ('ttype', '=', 'many2one')])[0]
+                company_name = ''
+                if company:
+                    company_id = company.name
+                    company_name = self.env[rec.res_model].company_id.name
             if not rec.created:
                 rec.created=True
                 if rec.user_id.partner_id:
@@ -62,7 +64,7 @@ class  notes(models.Model):
 
             if not rec.note:
                 company = self.env['ir.model.fields'].search(
-                    [('model_id', '=', rec.res_model), ('relation', '=', 'res.company')])
+                    [('model_id', '=', rec.res_model), ('relation', '=', 'res.company'),('ttype','=','many2one')])[0]
                 company_name = ''
                 if company:
                     company_id = company.name

@@ -20,28 +20,33 @@ class ReportProductSale(models.AbstractModel):
         i,j=1,1
         pages=[]
         check=False
-
+        pages.append(j)
         for rec in pricelis.item_ids:
 
-
-            if i<=30:
+            if len(pricelis.item_ids)<=30:
+                docs.append(
+                    {'page': j, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+            if i<=60:
                 if i % 2 == 0:
                     docs_right.append(
                         {'page': j, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
                 else:
                     docs_left.append(
                         {'page': j, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
-                docs.append({'page':j,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
 
-                pages.append(j)
-                i=0
+            else:
                 j += 1
+                pages.append(j)
+                i = 0
+
             i+=1
-        print(len(docs_left))
+        print(docs)
+        print(pages)
+        print(len(pricelis.item_ids))
         height_field=1
         height=[]
-        if i > 29:
-            # check = True
+        if len(pricelis.item_ids) >= 30:
+            check = True
             height_field = math.ceil(i/29)
 
 

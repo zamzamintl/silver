@@ -35,7 +35,7 @@ class activity(models.Model):
             company_name=''
             if company:
                 company_id=company.name
-                company_name=self.env['rec.res_model'].company_id.name
+                company_name=self.env[rec.res_model].company_id.name
             if not rec.created:
                 rec.created=True
                 if rec.user_id.partner_id:
@@ -66,7 +66,7 @@ class  notes(models.Model):
                 company_name = ''
                 if company:
                     company_id = company.name
-                    company_name = self.env['rec.res_model'].company_id.name
+                    company_name = self.env[rec.res_model].company_id.name
                 rec.note=True
                 if rec.author_id:
                     activity.create({'description':rec.description,'res_model':str(rec.model),'due_date':rec.date,

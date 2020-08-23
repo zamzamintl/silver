@@ -35,7 +35,7 @@ class ReportProductSale(models.AbstractModel):
             # check = True
             height_field = math.ceil(i/29)
 
-        print("++++++++++++++++++++++++++++++++",height_field*height)
+
         return {
             # 'doc_ids': docs.ids,
             'doc_model': 'account.move',

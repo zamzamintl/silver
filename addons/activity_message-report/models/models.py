@@ -70,7 +70,7 @@ class  notes(models.Model):
                 if company:
                     for record in company:
                         company_id = company.name
-                        company_name = self.env[rec.res_model].sudo().company_id.name
+                        company_name = self.env[rec.model].sudo().company_id.name
                         break
                 rec.note=True
                 if rec.author_id:

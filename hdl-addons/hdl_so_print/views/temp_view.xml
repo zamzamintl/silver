@@ -235,14 +235,27 @@
                                   Installation
                     </td>
 					<td  class="text-center">
-<!--                                   <span t-field="doc.install_value"/>-->
+                              <span t-field="doc.install_value"/>
+                    </td>
+
+				  </tr>
+		<tr>
+            <tr>
+					<td  class="text-center">
+                                   <span t-esc="i+1"/>
+                    </td>
+				    <td  class="text-center">
+                                  Taxes
+                    </td>
+					<td  class="text-center">
+                              <span t-field="doc.amount_tax"/>
                     </td>
 
 				  </tr>
 		<tr>
 		<td></td>
 		<td class="text-right">Grand Total</td>
-		<td class="text-center"><span t-esc="total+doc.installation"/></td>
+		<td class="text-center"><span t-esc="total+doc.install_value+doc.amount_tax"/></td>
 		</tr></tbody></table>
 
         </div>

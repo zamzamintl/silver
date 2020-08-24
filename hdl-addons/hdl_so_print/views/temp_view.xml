@@ -239,7 +239,7 @@
                     </td>
 
 				  </tr>
-		<tr>
+
             <tr>
 					<td  class="text-center">
                                    <span t-esc="i+1"/>

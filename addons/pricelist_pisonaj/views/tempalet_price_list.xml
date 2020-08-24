@@ -9,7 +9,7 @@
 
           <t t-call="web.html_container">
 
-		 <t t-call="web.external_layout">
+		 <t t-call="web.basic_layout">
 
             <div  class="header">
 		      <p></p>
@@ -18,30 +18,32 @@
 * {margin: 0; padding: 0;}
 #container {height: 100%; width:100%; font-size: 0;}
 #left, #middle, #right {display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size: 12px;}
-#left {width: 100px; background: #13D607;height:900px}
-#middle {width: 650px;border-style: solid;font-size:20px}
-#right {width: 100px; background: #13D607;height:900px}
+#left {width: 50px; background: #13D607;height:900px}
+#middle {width: 750px;border-style: solid;font-size:20px}
+#right {width: 50px; background: #13D607;height:900px}
 </style>
 
-  <t t-foreach="pages" t-as="p">
-
+                   <h3 align="center" style="fbackground-color:#13D607" >Pisonaj</h3>
+        <t t-foreach="cate_id" t-as="cat">
                 <div class="page" style="bgcolor:green">
 
 					<div id="left">
 						 <p></p>
 					</div>
                     <div id="middle" class="text-center">
-						<h3 align="center" style="fbackground-color:#13D607" >Pisonaj</h3>
-                  <t t-if="check==True">
+						<h3 align="center" style="fbackground-color:#13D607" ><span t-esc="cat['cat'].name"/></h3>
+                  <t t-if="cat['check']==True">
 					<table align="right"     style="border-collapse:separate;
     border:solid black 1px;
     border-radius:6px;
-    -moz-border-radius:6px;width:325px">
+    -moz-border-radius:6px;width:375px">
 						<thead>
 						  <tr>
 
 							<th> </th>
 							<th></th>
+							  <th></th>
+							  <th></th>
 
 
 
@@ -52,7 +54,8 @@
 
                    <tbody>
 						  <t t-foreach="docs_right" t-as="o">
-							  <t t-if ="o['page']==p">
+							  <t t-if ="o['page']==cat['page']">
+								   <t t-if="cat['cat']==o['categ_id']">
                           <tr>
 						   <td>
 														<t t-esc="o['product_tmpl_id']"/>
@@ -61,16 +64,21 @@
 														<t t-esc="o['fixed_price']"/>
 													</td>
 
-
-						  </tr>   </t>
-
+                                                  <td>
+													  <t t-esc="o['pro_id'].uom_id.name"/>
+												  </td>
+							                       <td><t t-if ="o['pro_id'].image_1024">
+                    <img t-att-src="image_data_uri(o['pro_id'].image_1024)"  width="25px" height="30px"/></t>
+                </td>
+						  </tr>
+								   </t></t>
 						  </t>
 						  </tbody>
 				   </table>
 					<table align="left"   style="border-collapse:separate;
     border:solid black 1px;
     border-radius:6px;
-    -moz-border-radius:6px;width:325px;" >
+    -moz-border-radius:6px;width:375px;" >
 
                   <thead>
 						  <tr>
@@ -78,14 +86,16 @@
 							<th></th>
 							<th></th>
 
-
+                            <th></th>
+							  <th></th>
 
 						  </tr>
 						  </thead>
 
                    <tbody>
 						  <t t-foreach="docs_left" t-as="o">
-							  <t t-if ="o['page']==p">
+							    <t t-if ="o['page']==cat['page']">
+								   <t t-if="cat['cat']==o['categ_id']">
                           <tr>
 						   <td>
 														<t t-esc="o['product_tmpl_id']"/>
@@ -94,17 +104,23 @@
 														<t t-esc="o['fixed_price']"/>
 													</td>
 
-
-						  </tr>       </t>
+                                                  <td>
+													  <t t-esc="o['pro_id'].uom_id.name"/>
+												  </td>
+							                       <td><t t-if ="o['pro_id'].image_1024">
+                    <img t-att-src="image_data_uri(o['pro_id'].image_1024)"  width="25px" height="30px"/></t>
+                </td>
+						  </tr>
+								   </t></t>
 
 						  </t>
 						  </tbody>
 					</table></t>
-						<t t-if="check==False">
+						<t t-if="cat['check']==False">
 							<table align="left"   style="border-collapse:separate;
     border:solid black 1px;
     border-radius:6px;
-    -moz-border-radius:6px;width:650px;" >
+    -moz-border-radius:6px;width:750px;" >
 
                   <thead>
 						  <tr>
@@ -112,14 +128,15 @@
 							<th></th>
 							<th></th>
 
-
-
+                             <th></th>
+                            <th></th>
 						  </tr>
 						  </thead>
 
                    <tbody>
 						  <t t-foreach="docs" t-as="o">
-							   <t t-if ="o['page']==p">
+							   <t t-if ="o['page']==cat['page']">
+								   <t t-if="cat['cat']==o['categ_id']">
                           <tr>
 						   <td>
 														<t t-esc="o['product_tmpl_id']"/>
@@ -128,9 +145,14 @@
 														<t t-esc="o['fixed_price']"/>
 													</td>
 
-
+                                                  <td>
+													  <t t-esc="o['pro_id'].uom_id.name"/>
+												  </td>
+							                       <td><t t-if ="o['pro_id'].image_1024">
+                    <img t-att-src="image_data_uri(o['pro_id'].image_1024)"  width="25px" height="30px"/></t>
+                </td>
 						  </tr>
-							   </t>
+								   </t></t>
 						  </t>
 
 						  </tbody>
@@ -147,8 +169,8 @@
 		      <p></p>
 		   </div>
             </t>
-			
-			</t>
+		 </t>
+
     </template>
 	
         

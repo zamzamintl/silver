@@ -255,7 +255,7 @@
 
 		<td></td>
 		<td class="text-right">Grand Total</td>
-		<td class="text-center"><span t-esc="total+doc.install_value+doc.amount_tax"/></td>
+		<td class="text-center"><span t-esc="round(total+doc.install_value+doc.amount_tax,3)"/></td>
 		</tr></tbody></table>
 
         </div>

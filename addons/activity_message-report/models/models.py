@@ -65,7 +65,7 @@ class  notes(models.Model):
 
             if not rec.note:
                 company = self.env['ir.model.fields'].sudo().search(
-                    [('model_id', '=', rec.res_model), ('relation', '=', 'res.company'),('ttype','=','many2one')])[0]
+                    [('model_id', '=', rec.model), ('relation', '=', 'res.company'),('ttype','=','many2one')])
                 company_name =''
                 if company:
                     for record in company:

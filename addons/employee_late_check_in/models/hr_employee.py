@@ -48,6 +48,8 @@ class HrEmployee(models.Model):
 
 class HrEmployees(models.Model):
     _inherit = 'hr.employee.public'
+    mail_button = fields.Selection([('send_status_report','Send Daily Stauts Report')], help="Status Report Mail to Manger")
+
 
     late_check_in_count = fields.Integer(string="Late Check-In", compute="get_late_check_in_count")
 

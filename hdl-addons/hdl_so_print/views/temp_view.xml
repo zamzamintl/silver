@@ -239,8 +239,7 @@
                     </td>
 
 				  </tr>
-
-            <tr>
+                       <tr>
 					<td  class="text-center">
                                    <span t-esc="i+1"/>
                     </td>
@@ -253,6 +252,7 @@
 
 				  </tr>
 		<tr>
+
 		<td></td>
 		<td class="text-right">Grand Total</td>
 		<td class="text-center"><span t-esc="total+doc.install_value+doc.amount_tax"/></td>

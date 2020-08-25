@@ -31,13 +31,14 @@ class activity(models.Model):
 
         activity=self.env["activity.message.report"]
         for rec  in self.search([]):
-            if not rec.note:
-                company = self.env['ir.model.fields'].search(
-                    [('model_id', '=', rec.res_model), ('relation', '=', 'res.company'), ('ttype', '=', 'many2one')])[0]
-                company_name = ''
-                if company:
+            company = self.env['ir.model.fields'].sudo().search(
+                [('model_id', '=', rec.res_model), ('relation', '=', 'res.company'), ('ttype', '=', 'many2one')])
+            company_name = ''
+            if company:
+                for record in company:
                     company_id = company.name
-                    company_name = self.env[rec.res_model].company_id.name
+                    company_name = self.env[rec.res_model].sudo().company_id.name
+                    break
             if not rec.created:
                 rec.created=True
                 if rec.user_id.partner_id:
@@ -63,12 +64,14 @@ class  notes(models.Model):
         for rec  in self.search([]):
 
             if not rec.note:
-                company = self.env['ir.model.fields'].search(
-                    [('model_id', '=', rec.res_model), ('relation', '=', 'res.company'),('ttype','=','many2one')])[0]
+                company = self.env['ir.model.fields'].sudo().search(
+                    [('model_id', '=', rec.model), ('relation', '=', 'res.company'),('ttype','=','many2one')])
                 company_name =''
                 if company:
-                    company_id = company.name
-                    company_name = self.env[rec.res_model].company_id.name
+                    for record in company:
+                        company_id = company.name
+                        company_name = self.env[rec.model].sudo().company_id.name
+                        break
                 rec.note=True
                 if rec.author_id:
                     activity.create({'description':rec.description,'res_model':str(rec.model),'due_date':rec.date,

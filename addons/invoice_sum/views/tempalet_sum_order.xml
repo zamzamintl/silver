@@ -33,8 +33,7 @@
                         </span>
                         <span t-if="move.type == 'in_invoice'">Vendor Bill</span>
 
-                        <span t-if="move.type == 'out_invoice' and move.state == 'draft'"
-                              t-field="move.draft_number"/>
+
                     </h2>
 
                     <div id="informations" class="row mt32 mb32">

@@ -68,11 +68,8 @@ class ReportProductSale(models.AbstractModel):
             j+=1
 
 
-        print("++++++++++++++++++++++++++++++++***********",cate_id)
-        print(docs)
-        print(pages)
-        print(docs_left)
-        print(docs_right)
+        website = self.env['website'].sudo().search([('domain','=','odoo')])
+        print("5555555555555",website)
         height_field=1
         height=[]
         if len(pricelis.item_ids) >= 30:
@@ -82,13 +79,14 @@ class ReportProductSale(models.AbstractModel):
 
         return {
             # 'doc_ids': docs.ids,
-            'doc_model': 'account.move',
+            'doc_model': 'product.pricelist',
             'docs_left': docs_left,
             'docs_right':docs_right,
             'docs':docs,
             'height_field':height_field,
             'check':check,
             'pages':pages,
+            'website':website,
             'product_cate':product_cate,
             'cate_id':cate_id,
             'proforma': True

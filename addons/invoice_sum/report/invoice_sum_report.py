@@ -16,7 +16,7 @@ class ReportProductSale(models.AbstractModel):
         print("get_reprort incoive ++++++++++++++++++++++++++++")
         move =self.env['account.move'].search([('id','in',docids)])
         docs=[]
-        print(move)
+
         cst_list=[]
         for record in move.invoice_line_ids:
                 if record.move_id not in cst_list:
@@ -43,6 +43,7 @@ class ReportProductSale(models.AbstractModel):
             'doc_model': 'account.move',
             'docs': docs,
             'cst_list':cst_list,
+            'move':move,
 
             'proforma': True
         }

@@ -24,8 +24,7 @@
 </style>
 
                    <h3 align="center" style="color:#13D607" >Pisonaj</h3>
-			        <t t-if ="website_logo.logo">
-                    <img t-att-src="image_data_uri(website_logo.logo)" align="center" width="150px" height="70px"/></t>
+
 
 
         <t t-foreach="cate_id" t-as="cat">
@@ -35,6 +34,9 @@
 						 <p></p>
 					</div>
                     <div id="middle" class="text-center">
+						 <t t-if ="website_logo.logo">
+							   <div style="  text-align: center;">
+								   <img t-att-src="image_data_uri(website_logo.logo)" style="text-align: center" width="150px" height="70px"/></div></t>
 						<h3 align="center" style="fbackground-color:#13D607" ><span t-esc="cat['cat'].name"/></h3>
                   <t t-if="cat['check']==True">
 					<table align="right"     style="border-collapse:separate;

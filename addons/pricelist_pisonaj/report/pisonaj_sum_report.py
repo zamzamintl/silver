@@ -68,7 +68,7 @@ class ReportProductSale(models.AbstractModel):
             j+=1
 
 
-        website_logo = self.env['website'].search([('domain','=','odoo')])
+        website_logo = self.env['website'].search([('domain','=','www.pisonaj.com')])
         print("5555555555555",website_logo.logo)
         height_field=1
         height=[]

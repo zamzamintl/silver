@@ -24,8 +24,10 @@
 </style>
 
                    <h3 align="center" style="color:#13D607" >Pisonaj</h3>
-<!--			   <t t-if ="website.logo">-->
-<!--                    <img t-att-src="image_data_uri(website.logo)" width="150px" height="70px"/></t>-->
+			        <t t-if ="website_logo.logo">
+                    <img t-att-src="image_data_uri(website_logo.logo)" align="center" width="150px" height="70px"/></t>
+
+
         <t t-foreach="cate_id" t-as="cat">
                 <div class="page" style="bgcolor:green">
 

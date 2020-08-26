@@ -68,8 +68,8 @@ class ReportProductSale(models.AbstractModel):
             j+=1
 
 
-        website = self.env['website'].sudo().search([('domain','=','odoo')])
-        print("5555555555555",website)
+        website_logo = self.env['website'].search([('domain','=','odoo')])
+        print("5555555555555",website_logo.logo)
         height_field=1
         height=[]
         if len(pricelis.item_ids) >= 30:
@@ -86,7 +86,7 @@ class ReportProductSale(models.AbstractModel):
             'height_field':height_field,
             'check':check,
             'pages':pages,
-            'website':website,
+            'website_logo':website_logo,
             'product_cate':product_cate,
             'cate_id':cate_id,
             'proforma': True

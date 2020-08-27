@@ -63,17 +63,17 @@
 							  <t t-if ="o['page']==cat['page']">
 								   <t t-if="cat['cat']==o['categ_id']">
                           <tr>
-						   <td>
+						   <td align="right">
 														<t t-esc="o['product_tmpl_id']"/>
 													</td>
-													 <td>
+													 <td align="center">
 														<t t-esc="o['fixed_price']"/>
 													</td>
 
-                                                  <td>
+                                                  <td align="center">
 													  <t t-esc="o['pro_id'].uom_id.name"/>
 												  </td>
-							                       <td><t t-if ="o['pro_id'].image_1024">
+							                       <td align="center"><t t-if ="o['pro_id'].image_1024">
                     <img t-att-src="image_data_uri(o['pro_id'].image_1024)"  width="25px" height="30px"/></t>
                 </td>
 						  </tr>
@@ -103,17 +103,17 @@
 							    <t t-if ="o['page']==cat['page']">
 								   <t t-if="cat['cat']==o['categ_id']">
                           <tr>
-						   <td>
+						   <td align="right">
 														<t t-esc="o['product_tmpl_id']"/>
 													</td>
-													 <td>
+													 <td align="center">
 														<t t-esc="o['fixed_price']"/>
 													</td>
 
-                                                  <td>
+                                                  <td align="center">
 													  <t t-esc="o['pro_id'].uom_id.name"/>
 												  </td>
-							                       <td><t t-if ="o['pro_id'].image_1024">
+							                       <td align="center"><t t-if ="o['pro_id'].image_1024">
                     <img t-att-src="image_data_uri(o['pro_id'].image_1024)"  width="25px" height="30px"/></t>
                 </td>
 						  </tr>
@@ -141,20 +141,20 @@
 
                    <tbody>
 						  <t t-foreach="docs" t-as="o">
-							   <t t-if ="o['page']==cat['page']">
+							  <t t-if ="o['page']==cat['page']">
 								   <t t-if="cat['cat']==o['categ_id']">
                           <tr>
-						   <td>
+						   <td align="right">
 														<t t-esc="o['product_tmpl_id']"/>
 													</td>
-													 <td>
+													 <td align="center">
 														<t t-esc="o['fixed_price']"/>
 													</td>
 
-                                                  <td>
+                                                  <td align="center">
 													  <t t-esc="o['pro_id'].uom_id.name"/>
 												  </td>
-							                       <td><t t-if ="o['pro_id'].image_1024">
+							                       <td align="center"><t t-if ="o['pro_id'].image_1024">
                     <img t-att-src="image_data_uri(o['pro_id'].image_1024)"  width="25px" height="30px"/></t>
                 </td>
 						  </tr>

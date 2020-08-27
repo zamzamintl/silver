@@ -29,12 +29,13 @@ class ReportProductSale(models.AbstractModel):
 
         cate_id=[]
         pages.append(j)
+        print("**********8",product_cate)
         for record in product_cate:
             i=0
 
             count=0
             for lst in pricelis.item_ids:
-                if record.id in  lst.product_tmpl_id.public_categ_ids.ids and rec.product_tmpl_id.is_published==True:
+                if record.id in  lst.product_tmpl_id.public_categ_ids.ids and lst.product_tmpl_id.is_published==True:
                     count+=1
 
             print("&&&&&&&&&&&",count)

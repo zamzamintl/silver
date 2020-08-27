@@ -22,9 +22,10 @@ class ReportProductSale(models.AbstractModel):
         check=False
 
         product_cate=[]
-        for rec in pricelis.item_ids:
-            if rec.product_tmpl_id.categ_id not in product_cate and rec.product_tmpl_id.categ_id :
-                product_cate.append(rec.product_tmpl_id.categ_id)
+        for record in pricelis.item_ids:
+            for rec in record.product_tmpl_id.public_categ_ids:
+                if rec not in product_cate and rec:
+                    product_cate.append(rec)
 
         cate_id=[]
         pages.append(j)
@@ -33,49 +34,54 @@ class ReportProductSale(models.AbstractModel):
 
             count=0
             for lst in pricelis.item_ids:
-                if record.id == lst.product_tmpl_id.categ_id.id:
+                if record.id in  lst.product_tmpl_id.public_categ_ids.ids:
                     count+=1
 
             print("&&&&&&&&&&&",count)
             if count<=30:
-                cate_id.append({'page': j, 'cat': record,'check':False})
+                cate_id.append({'page': j, 'cat': record,'check':False,'name':record.name})
             else:
-                cate_id.append({'page': j, 'cat': record, 'check': True})
+                cate_id.append({'page': j, 'cat': record, 'check': True,'name':record.name})
 
             for rec in pricelis.item_ids:
-                if record.id == rec.product_tmpl_id.categ_id.id:
+                print("%%%%%%%%%%5",record)
+                print("*********8",rec.product_tmpl_id.public_categ_ids.ids)
+                if record.id in  rec.product_tmpl_id.public_categ_ids.ids:
                     if count<=30:
                         docs.append(
-                            {'page': j,'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.categ_id, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                            {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.public_categ_ids, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
                     else:
                          if i<=60:
                             if j not in pages:
                                 pages.append(j)
                             if i % 2 == 0:
                                 docs_right.append(
-                                    {'page': j, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.categ_id,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                                    {'page': j, 'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.public_categ_ids,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
                             else:
                                 docs_left.append(
-                                    {'page': j,'pro_id':rec.product_tmpl_id, 'categ_id':rec.product_tmpl_id.categ_id,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                                    {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id, 'categ_id':rec.product_tmpl_id.public_categ_ids,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
 
                          else:
                             j += 1
                             pages.append(j)
                             i = 0
-                            cate_id.append({'page': j, 'cat': record,'check': True})
+                            cate_id.append({'page': j, 'cat': record,'check': True,'name':record.name})
 
                 i+=1
             j+=1
-
-
-        website_logo = self.env['website'].search([('domain','=','odoo')])
-        print("5555555555555",website_logo.logo)
+        website_logo=[]
+        if len(pricelis)==1:
+           website_logo = pricelis.website_id
         height_field=1
         height=[]
-        if len(pricelis.item_ids) >= 30:
-            check = True
-            height_field = math.ceil(i/29)
-
+        docs_left = sorted(docs_left, key=lambda i: i['product_name'])
+        docs_right = sorted(docs_right, key=lambda i: i['product_name'])
+        docs = sorted(docs, key=lambda i: i['product_name'])
+        cate_id = sorted(cate_id, key=lambda i: i['name'])
+        print(cate_id)
+        print(docs)
+        print(docs_right)
+        print(docs_left)
 
         return {
             # 'doc_ids': docs.ids,

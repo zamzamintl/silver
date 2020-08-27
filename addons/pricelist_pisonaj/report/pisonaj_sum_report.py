@@ -66,7 +66,7 @@ class ReportProductSale(models.AbstractModel):
                             i = 0
                             cate_id.append({'page': j, 'cat': record,'check': True,'name':record.name})
 
-                i+=1
+                         i+=1
             j+=1
         website_logo=[]
         if len(pricelis)==1:

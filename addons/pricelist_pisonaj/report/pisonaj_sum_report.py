@@ -44,9 +44,7 @@ class ReportProductSale(models.AbstractModel):
                 cate_id.append({'page': j, 'cat': record, 'check': True,'name':record.name})
 
             for rec in pricelis.item_ids:
-                print("%%%%%%%%%%5",record)
-                print("*********8",rec.product_tmpl_id.public_categ_ids.ids)
-                if record.id in  rec.product_tmpl_id.public_categ_ids.ids:
+                if record.id in  rec.product_tmpl_id.public_categ_ids.ids and rec.product_tmpl_id.is_published==True:
                     if count<=30:
                         docs.append(
                             {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.public_categ_ids, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})

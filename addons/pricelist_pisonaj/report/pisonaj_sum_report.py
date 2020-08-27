@@ -39,18 +39,18 @@ class ReportProductSale(models.AbstractModel):
                     count+=1
 
             print("&&&&&&&&&&&",count)
-            if count<=30:
+            if count<=26:
                 cate_id.append({'page': j, 'cat': record,'check':False,'name':record.name})
             else:
                 cate_id.append({'page': j, 'cat': record, 'check': True,'name':record.name})
 
             for rec in pricelis.item_ids:
                 if record.id in  rec.product_tmpl_id.public_categ_ids.ids and rec.product_tmpl_id.is_published==True:
-                    if count<=30:
+                    if count<=26:
                         docs.append(
                             {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.public_categ_ids, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
                     else:
-                         if i<=60:
+                         if i<=52:
                             if j not in pages:
                                 pages.append(j)
                             if i % 2 == 0:

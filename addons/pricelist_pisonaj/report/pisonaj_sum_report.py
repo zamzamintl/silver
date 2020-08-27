@@ -1,3 +1,5 @@
+import collections
+
 from odoo import api, models
 from dateutil.relativedelta import relativedelta
 import datetime
@@ -9,6 +11,7 @@ import operator
 from collections import OrderedDict
 from collections import OrderedDict
 _logger = logging.getLogger(__name__)
+from operator import itemgetter
 
 
 class ReportProductSale(models.AbstractModel):
@@ -38,38 +41,46 @@ class ReportProductSale(models.AbstractModel):
 
             print("&&&&&&&&&&&",count)
             if count<=30:
-                cate_id.append({'page': j, 'cat': record,'check':False})
+                cate_id.append({'page': j, 'cat': record,'check':False,'name':record.name})
             else:
-                cate_id.append({'page': j, 'cat': record, 'check': True})
+                cate_id.append({'page': j, 'cat': record, 'check': True,'name':record.name})
 
             for rec in pricelis.item_ids:
                 if record.id == rec.product_tmpl_id.categ_id.id:
                     if count<=30:
                         docs.append(
-                            {'page': j,'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.categ_id, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                            {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.categ_id, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
                     else:
                          if i<=60:
                             if j not in pages:
                                 pages.append(j)
                             if i % 2 == 0:
                                 docs_right.append(
-                                    {'page': j, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.categ_id,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                                    {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.categ_id,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
                             else:
                                 docs_left.append(
-                                    {'page': j,'pro_id':rec.product_tmpl_id, 'categ_id':rec.product_tmpl_id.categ_id,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                                    {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id, 'categ_id':rec.product_tmpl_id.categ_id,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
 
                          else:
                             j += 1
                             pages.append(j)
                             i = 0
-                            cate_id.append({'page': j, 'cat': record,'check': True})
+                            cate_id.append({'page': j, 'cat': record,'check': True,'name':record.name})
 
                 i+=1
             j+=1
 
 
         website_logo = self.env['website'].search([('domain','=','www.pisonaj.com')])
-        print("5555555555555",website_logo.logo)
+
+
+
+        docs_left=sorted(docs_left, key=lambda i: i['product_name'])
+        docs_right=sorted(docs_right, key=lambda i: i['product_name'])
+        docs=sorted(docs, key=lambda i: i['product_name'])
+        cate_id=sorted(cate_id, key=lambda i: i['name'])
+        print(cate_id)
+
         height_field=1
         height=[]
         if len(pricelis.item_ids) >= 30:

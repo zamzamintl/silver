@@ -34,7 +34,7 @@ class ReportProductSale(models.AbstractModel):
 
             count=0
             for lst in pricelis.item_ids:
-                if record.id in  lst.product_tmpl_id.public_categ_ids.ids:
+                if record.id in  lst.product_tmpl_id.public_categ_ids.ids and rec.product_tmpl_id.is_published==True:
                     count+=1
 
             print("&&&&&&&&&&&",count)

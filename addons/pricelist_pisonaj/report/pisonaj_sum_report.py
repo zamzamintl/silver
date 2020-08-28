@@ -30,6 +30,8 @@ class ReportProductSale(models.AbstractModel):
         cate_id=[]
         pages.append(j)
         print("**********8",product_cate)
+        lines=self.env['product.pricelist.item'].search([('pricelist_id','in',pricelis.ids)],order="product_tmpl_id asc")
+
         for record in product_cate:
             i=0
 
@@ -44,7 +46,7 @@ class ReportProductSale(models.AbstractModel):
             else:
                 cate_id.append({'page': j, 'cat': record, 'check': True,'name':record.name})
 
-            for rec in pricelis.item_ids:
+            for rec in lines:
                 if record.id in  rec.product_tmpl_id.public_categ_ids.ids and rec.product_tmpl_id.is_published==True:
                     if count<=26:
                         docs.append(

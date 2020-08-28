@@ -43,7 +43,7 @@ class ReportProductSale(models.AbstractModel):
             print("&&&&&&&&&&&",count)
             if count<=24:
                 cate_id.append({'page': j, 'cat': record,'check':False,'name':record.name})
-            else:
+            elif count>24:
                 cate_id.append({'page': j, 'cat': record, 'check': True,'name':record.name})
 
             for rec in lines:

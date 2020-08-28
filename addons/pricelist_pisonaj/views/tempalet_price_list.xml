@@ -144,7 +144,7 @@
 							  <t t-if ="o['page']==cat['page']">
 								   <t t-if="cat['cat']==o['categ_id']">
                           <tr>
-						   <td align="right">
+						   <td align="center">
 														<t t-esc="o['product_tmpl_id']"/>
 													</td>
 													 <td align="center">

@@ -34,6 +34,8 @@ class ProjectTask(models.Model):
             orders=self.env['sale.order'].search([('source_project_task_id','=',rec.id)])
             if rec.task_sale_order_id:
                  rec.count_order=len(orders)
+            else:
+                rec.count=0
     def create_warning(self,context=None):
         for recrod in self:
             store_partner_id_task = self.partner_id.id

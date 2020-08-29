@@ -16,6 +16,7 @@
                 <div class="page">
  
 				    <h2 style="text-align:center;color:grey">Customer Details <span t-esc="sales_rep"/></h2>
+					<h4>Date :<span t-esc="datetime.datetime.now().strftime('%Y-%m-%d')"/></h4>
                       <table align="right" class="table table-bordered">
                       <thead>
 						<tr style="color:blue">

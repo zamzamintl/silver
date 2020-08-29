@@ -17,7 +17,8 @@
         'contacts',
         'digest',
         'phone_validation',],
-    'data': ['views/ticket_sale.xml','views/survey_sheet.xml','secuirty/ir.model.access.csv','views/menus.xml','views/surevy_sheet_report.xml'],
+    'data': ['views/ticket_sale.xml','views/survey_sheet.xml','secuirty/ir.model.access.csv',
+             'views/menus.xml','views/surevy_sheet_report.xml',"views/sale_order.xml"],
      
     'installable': True,
     'auto_install': True,

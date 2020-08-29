@@ -26,8 +26,14 @@ class ProjectTask(models.Model):
 
 
     task_sale_order_id = fields.Many2one('sale.order', string='Sale Order',readonly=True, help='This field displays Sales Order')
-
+    count_order= fields.Integer("Count_order",compute="_get_orders")
     # This function is used to check customer is selected or not if customer is selected than create a wizard
+    @api.depends("task_sale_order_id")
+    def _get_orders(self):
+        for rec in self:
+            orders=self.env['sale.order'].search([('source_project_task_id','=',rec.id)])
+            if rec.task_sale_order_id:
+                 rec.count_order=len(orders)
     def create_warning(self,context=None):
         for recrod in self:
             store_partner_id_task = self.partner_id.id
@@ -45,5 +51,14 @@ class ProjectTask(models.Model):
                 raise ValidationError(_('Please Select Customer'))
 
 
+    def action_view_sale_order(self):
+        return {
+            'name': ('orders'),
+            'view_mode': 'tree,form',
+            'res_model': 'sale.order',
+            'type': 'ir.actions.act_window',
 
+            'domain': [('source_project_task_id', '=', self.id)],
+            'target': 'current'
+        }
     

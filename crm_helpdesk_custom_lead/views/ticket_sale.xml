@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
      <record id="ticket_sale_view_form" model="ir.ui.view">
         <field name="name">helpdesk.ticket.form.custom</field>
         <field name="model">helpdesk.ticket</field>
-        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form" />
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
         <field name="arch" type="xml">
 		   <xpath expr="//button[last()]" position="after">
 		        <field name="survey_team" invisible="1"/>
-		       <button type="object" name="create_sale_order" string="Create Sale order" class="btn-primary"  />
-			   <button type="object" name="create_lead" string="Create Lead" class="btn-primary"  />
-			   <button type="object" name="create_survey_sheet" string="Create Survey Sheet" class="btn-primary" attrs="{'invisible':[('survey_team','=',False)]}"  />
+		       <button type="object" name="create_sale_order" string="Create Sale order" class="btn-primary"/>
+			   <button type="object" name="create_lead" string="Create Lead" class="btn-primary"/>
+			   <button type="object" name="create_survey_sheet" string="Create Survey Sheet" class="btn-primary" attrs="{'invisible':[('survey_team','=',False)]}"/>
 		   </xpath>
 		   <xpath expr="//field[@name='legend_blocked']" position="before">
 		   <field name="count_order" invisible="1"/>

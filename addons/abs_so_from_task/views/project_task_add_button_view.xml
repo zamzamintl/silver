@@ -6,6 +6,12 @@
 	<field name="model">project.task</field>	
 	<field name="inherit_id" ref="project.view_task_form2"></field>
 	<field name="arch" type="xml">
+		<xpath expr="//button[@name='action_subtask']"  position="after">
+
+		    <button class="oe_stat_button" type="object" name="action_view_sale_order"  attrs="{'invisible':[('count_order','=',0)]}" icon="fa-pencil-square-o" >
+                        <field name="count_order" widget="statinfo" string="Orders"/>
+			</button>
+		</xpath>
 	    <xpath expr="/form/header" position ="inside">
 		<button name="create_warning" string="Create Quotation" type="object" />
 	    </xpath>

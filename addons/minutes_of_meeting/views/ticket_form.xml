@@ -1,0 +1,30 @@
+<odoo>
+<record id="ticket_crm_view_form2" model="ir.ui.view">
+        <field name="name">ticket_crm_view_form2</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[last()]" position="after">
+                <button string="Create Meeting" name="create_meeting" type="object" class="btn-primary"/>
+            </xpath>
+        </field>
+    </record>
+
+     <record id="ticket_sale_view_form2" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.custom2</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[last()]" position="after">
+                <button string="Create Meeting" name="create_meeting" type="object" class="btn-primary"/>
+            </xpath>
+            <xpath expr="//button[@name='action_view_survey_sheet']" position="after">
+
+                <button class="oe_stat_button" type="object" name="action_view_meeting"  attrs="{'invisible':[('count_meeting','=',0)]}" icon="fa-calendar" >
+                        <field name="count_meeting" widget="statinfo" string="Meeting"/>
+                    </button>
+            </xpath>
+
+        </field>
+    </record>
+    </odoo>

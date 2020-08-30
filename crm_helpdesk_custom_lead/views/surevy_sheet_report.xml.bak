@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_sale_visit_print_data">
+                       
+                      
+						  <tr>
+						  <t t-if="j==0">
+						  
+                           <td>
+						   <span t-field="doc.name"  rowspan="4" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td></t>
+						     
+
+                            <td>
+						   <span t-field="o.name" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.lighting" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.Lighting_dimming" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.Curtains" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.AC" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.Keypad" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.DLP" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.Sensors" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.Speakers" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+						   <td>
+						   <span t-field="o.notes" style="padding:5px; text-overflow: ellipsis;"/>
+						   </td>
+                             <t t-set="j" t-value="j+1"/>
+						  </tr>
+					  
+					 
+  
+                 
+         
+    
+</template>
+
+<!-- Translatable template -->
+ 
+
+<template id="report_saleorder_document">
+        
+          <t t-call="web.html_container">
+		 <t t-call="web.external_layout">
+		       		     
+
+                <div class="page">
+
+				    <h2 style="text-align:center;color:grey">Survey Sheet</h2>
+                      
+					<table class="table table-sm o_main_table" style="width:100%;text-align:center;padding-left:20px;padding-right:20px">
+					<tr style="color:blue">
+							<th>  </th>
+							<th>Location</th> 
+							<th>Lighting </th>
+							<th>Lighting Dimming</th>
+							<th>Curtains</th>
+							<th>AC</th>
+							<th>Keypad</th>
+							<th>DLP</th>
+							<th>Sensors</th>
+							<th>notes</th>
+
+							
+				     
+			
+						  </tr>
+						  <t t-set="i" t-value="0"/>
+						  <t t-set="j" t-value="0"/>
+						  <t t-foreach="docs.survey_line" t-as="o">
+						    <t t-set="i" t-value="i+1"/>
+						  </t>
+                    <t t-foreach="docs" t-as="doc">
+                        <t t-foreach="doc.survey_line" t-as="o">
+                        <t t-call="crm_helpdesk_custom_lead.report_sale_visit_print_data">
+                            <t t-set="o" t-value="o"/>
+                        </t></t>
+                    </t>
+					</table>
+					 
+                </div>
+				 
+            </t>
+			</t>
+    </template>
+	
+        
+</odoo>

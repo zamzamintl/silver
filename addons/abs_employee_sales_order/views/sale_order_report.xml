@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_order_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page"> 
+                    <br/>
+                    <center><h3>Sales Order Summary Report of <strong><span t-esc="employee_id.name" /></strong></h3></center>
+                </div>
+                <br/>
+                <table class="table table-bordered">
+                    <tr>
+                        <td align='center'><b>From Date: </b></td>
+                        <td align='center'><span t-esc="start_date" /></td>
+                        <td align='center'><b>To Date: </b></td>
+                        <td align='center'><span t-esc="end_date" /></td>
+                    </tr>
+                </table><br/>
+                <table class="table table-sm o_main_table">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Name</th>
+                            <th class="text-left">Customer</th>
+                            <th class="text-left">Date</th>
+                            <th class="text-left">Status</th>
+                            <th class="text-right">Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="order_list" t-as="order">
+                            <tr>
+                                <td class="text-left"><span t-esc="order.name" /></td>
+                                <td class="text-left"><span t-esc="order.partner_id.name" /></td>
+                                <td class="text-left"><span t-esc="order.date_order.strftime('%m/%d/%Y')" /></td>
+                                <td class="text-left"><span t-esc="dict(order.fields_get(allfields=['invoice_status'])['invoice_status']['selection'])[order.invoice_status]" /></td>
+                                <td class="text-right"><span t-esc="order.currency_id.symbol" /><span t-esc="order.amount_total" t-field-options='{"widget": "monetary"}' /></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+
+</odoo>

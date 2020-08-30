@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_add_date_form" model="ir.ui.view">
+        <field name="name">add.date.form</field>
+        <field name="model">add.date</field>
+        <field name="arch" type="xml">
+            <form string="Add Date">
+                <group>
+                    <group>
+                        <field name="start_date"/>
+                    </group>
+                    <group>
+                        <field name="end_date"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Print" name="print_date" type="object" class="btn-primary" />
+                    <button string="Discard" special="cancel" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+        <record id="action_date" model="ir.actions.act_window">
+            <field name="name">Sale Order Summary</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">add.date</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_add_date_form"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="hr.model_hr_employee"/>
+        </record>
+</odoo>

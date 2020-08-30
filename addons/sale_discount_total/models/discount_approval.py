@@ -26,7 +26,16 @@ from odoo import api, fields, models
 class sale_discount(models.Model):
     _inherit = 'sale.order'
 
- 
+    state = fields.Selection([
+        ('draft', 'Quotation'),
+        ('sent', 'Quotation Sent'),
+        ('waiting', 'Waiting Approval'),
+        ('sale', 'Sales Order'),
+        ('done', 'Locked'),
+        ('cancel', 'Cancelled'),
+        ], string='Status', readonly=True, copy=False, index=True, track_visibility='onchange', default='draft')
+
+
     def action_confirm(self):
         discnt = 0.0
         no_line = 0.0
@@ -36,7 +45,7 @@ class sale_discount(models.Model):
                 discnt += line.discount
             discnt = (discnt / no_line)
             if self.company_id.so_double_validation_limit and discnt > self.company_id.so_double_validation_limit:
-                self.state = 'waiting_for_approval'
+                self.state = 'waiting'
                 return True
         super(sale_discount, self).action_confirm()
 

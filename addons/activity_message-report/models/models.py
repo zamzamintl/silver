@@ -13,7 +13,7 @@ class activity_message_report(models.Model):
      company_id =fields.Many2one("res.company",string="Company")
      def action_open_record(self):
          return {
-             'name':'Activity',
+             'name':'Activity',31/08/2020 12:45:55
              'view_mode': 'tree,form',
              'view_type': 'form',
              'res_model': self.res_model,

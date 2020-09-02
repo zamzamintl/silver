@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<report
+    id="price_list_hdl"
+    model="product.pricelist"
+    string="hdl pricelist"
+    report_type="qweb-pdf"
+    name="pricelist_hdl.hdl_sum_report"
+    file="pricelist_hdl.hdl_sum_report"
+     
+/>
+
+</odoo>

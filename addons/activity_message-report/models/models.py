@@ -13,7 +13,7 @@ class activity_message_report(models.Model):
      company_id =fields.Many2one("res.company",string="Company")
      def action_open_record(self):
          return {
-             'name':'Activity',31/08/2020 12:45:55
+             'name':'Activity',
              'view_mode': 'tree,form',
              'view_type': 'form',
              'res_model': self.res_model,
@@ -32,7 +32,7 @@ class activity(models.Model):
         activity=self.env["activity.message.report"]
         for rec  in self.search([]):
             company = self.env['ir.model.fields'].sudo().search(
-                [('model_id', '=', rec.res_model), ('relation', '=', 'res.company'), ('ttype', '=', 'many2one')])
+                [('model_id', '=', rec.res_model), ('relation', '=', 'res.company'), ('type', '=', 'many2one')])
             company_name = ''
             if company:
                 for record in company:
@@ -65,7 +65,7 @@ class  notes(models.Model):
 
             if not rec.note:
                 company = self.env['ir.model.fields'].sudo().search(
-                    [('model_id', '=', rec.model), ('relation', '=', 'res.company'),('ttype','=','many2one')])
+                    [('model_id', '=', rec.model), ('relation', '=', 'res.company'),('type','=','many2one')])
                 company_name =''
                 if company:
                     for record in company:

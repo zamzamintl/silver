@@ -37,7 +37,7 @@ class ReportProductSale(models.AbstractModel):
 
             count=0
             for lst in pricelis.item_ids:
-                if record.id in  lst.product_tmpl_id.categ_id.ids and lst.product_tmpl_id.is_published==True:
+                if record.id in  lst.product_tmpl_id.categ_id.ids :
                     count+=1
 
 
@@ -47,7 +47,7 @@ class ReportProductSale(models.AbstractModel):
                 cate_id.append({'page': j, 'cat': record, 'check': True,'name':record.name})
 
             for rec in lines:
-                if record.id in  rec.product_tmpl_id.categ_id.ids and rec.product_tmpl_id.is_published==True:
+                if record.id in  rec.product_tmpl_id.categ_id.ids :
                     if count<=24:
                         docs.append(
                             {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.categ_id, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
@@ -72,7 +72,7 @@ class ReportProductSale(models.AbstractModel):
             j+=1
         website_logo=[]
         if len(pricelis)==1:
-           website_logo = pricelis.website_id
+           website_logo = pricelis.company_id
         height_field=1
         height=[]
         docs_left = sorted(docs_left, key=lambda i: i['product_name'])

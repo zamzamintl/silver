@@ -7,7 +7,7 @@ import operator
 from collections import OrderedDict
 from collections import OrderedDict
 _logger = logging.getLogger(__name__)
-
+import itertools
 
 class ReportProductSale(models.AbstractModel):
     _name = "report.invoice_sum.invoice_sum_report"
@@ -18,32 +18,49 @@ class ReportProductSale(models.AbstractModel):
         docs=[]
 
         cst_list=[]
-        for rec in move:
-            for record in rec.invoice_line_ids:
-                if record.move_id not in cst_list:
-                    cst_list.append(record.move_id.partner_id)
 
-                res = self.search_docs(docs,record.product_id,rec)
+        for record in move.invoice_line_ids:
+            docs.append({'move_id': record.move_id, 'product_id': record.product_id, 'price_unit': record.price_unit,
+                         'quantity': record.quantity
+                            , "tax_ids": record.tax_ids, "price_total": record.price_subtotal, 'check': False})
 
-                if res ==False:
-                    docs.append({'move_id':rec,'product_id':record.product_id,'price_unit':record.price_unit,'quantity':record.quantity
-                                    ,"tax_ids":record.tax_ids,"price_total":record.price_subtotal,'check':False})
-                else:
-                    for item in docs:
 
-                        if item["product_id"] ==record.product_id and item["price_unit"] ==record.price_unit and item['move_id']==rec:
-                                    item["quantity"]+=record.quantity
-                                    item["price_total"] += record.price_subtotal
-                        elif item["product_id"] ==record.product_id and item["price_unit"] !=record.price_unit  and item['move_id']==rec:
-                                    docs.append(
-                                    {'move_id':rec,'product_id': record.product_id, 'price_unit': record.price_unit, 'quantity': record.quantity
-                                        , "tax_ids": record.tax_ids, "price_total": record.price_subtotal})
+
+        docs_list = []
+
+        for key, group in itertools.groupby(docs, key=lambda x: (x['product_id'], x['price_unit'])):
+
+            price_total,quantity,i,j=0,0,0,0
+            for item in group:
+
+                if i==0:
+                    docs_list.append(
+                        {'move_id': item["move_id"], 'product_id': item["product_id"], 'price_unit': item["price_unit"],
+                         'quantity': item["quantity"]
+                            , "tax_ids": item["tax_ids"], "price_total": item["price_total"], 'check': False})
+                    j += 1
+
+                price_total += item["price_total"]
+                quantity += item["quantity"]
+                i += 1
+                print("*********",price_total)
+
+
+            if i>1:
+
+                docs_list[j-1]["price_total"]=str(price_total)
+                docs_list[j-1]["quantity"]=str(quantity)
+
+
+
+
+
 
 
         return {
             # 'doc_ids': docs.ids,
             'doc_model': 'account.move',
-            'docs': docs,
+            'docs': docs_list,
             'cst_list':cst_list,
             'move':move,
 

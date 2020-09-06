@@ -40,10 +40,10 @@
                             <strong>Due Date:</strong>
                             <p class="m-0" t-field="mv.invoice_date_due"/>
                         </div>
-                        <div class="col-auto mw-100 mb-2" t-if="mv.invoice_origin" name="origin">
-                            <strong>Source:</strong>
-                            <p class="m-0" t-field="mv.invoice_origin"/>
-                        </div>
+<!--                        <div class="col-auto mw-100 mb-2" t-if="mv.invoice_origin" name="origin">-->
+<!--                            <strong>Source:</strong>-->
+<!--                            <p class="m-0" t-field="mv.invoice_origin"/>-->
+<!--                        </div>-->
                         <div class="col-auto mw-100 mb-2" t-if="mv.partner_id.ref" name="customer_code">
                             <strong>Customer Code:</strong>
                             <p class="m-0" t-field="mv.partner_id.ref"/>

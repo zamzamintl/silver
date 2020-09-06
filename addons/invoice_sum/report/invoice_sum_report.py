@@ -21,17 +21,21 @@ class ReportProductSale(models.AbstractModel):
 
         for record in move.invoice_line_ids:
             docs.append({'move_id': record.move_id, 'product_id': record.product_id, 'price_unit': record.price_unit,
-                         'quantity': record.quantity
+                         'quantity': record.quantity,'name':record.product_id.name,'name':record.product_id.name
                             , "tax_ids": record.tax_ids, "price_total": record.price_subtotal, 'check': False})
 
 
 
         docs_list = []
+        docs=sorted(docs, key=lambda i: (i['name'],i['price_unit']))
+        print(docs)
 
-        for key, group in itertools.groupby(docs, key=lambda x: (x['product_id'], x['price_unit'])):
+        for key, group in itertools.groupby( docs, key=lambda x: (x['product_id'], x['price_unit'])):
 
             price_total,quantity,i,j=0,0,0,0
             lst={}
+            print(key)
+            print(group)
             for item in group:
                 price_total += item["price_total"]
                 quantity += item["quantity"]

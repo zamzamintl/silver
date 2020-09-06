@@ -93,7 +93,7 @@
 														<t t-esc="o['tax_ids'].name"/>
 													</td>
 							  <td>
-														<t t-esc="o['price_total']"/>
+														<t t-esc="round(o['price_total'],3)"/>
 													</td>
 
 						  </tr>

@@ -31,25 +31,23 @@ class ReportProductSale(models.AbstractModel):
         for key, group in itertools.groupby(docs, key=lambda x: (x['product_id'], x['price_unit'])):
 
             price_total,quantity,i,j=0,0,0,0
+            lst={}
             for item in group:
-
-                if i==0:
-                    docs_list.append(
-                        {'move_id': item["move_id"], 'product_id': item["product_id"], 'price_unit': item["price_unit"],
-                         'quantity': item["quantity"]
-                            , "tax_ids": item["tax_ids"], "price_total": item["price_total"], 'check': False})
-                    j += 1
-
                 price_total += item["price_total"]
                 quantity += item["quantity"]
-                i += 1
-                print("*********",price_total)
+                lst= {'move_id': item["move_id"], 'product_id': item["product_id"], 'price_unit': item["price_unit"],
+                     'quantity': quantity
+                        , "tax_ids": item["tax_ids"], "price_total": price_total, 'check': False}
 
 
-            if i>1:
 
-                docs_list[j-1]["price_total"]=str(price_total)
-                docs_list[j-1]["quantity"]=str(quantity)
+            if lst:
+                docs_list.append(lst)
+
+
+
+
+
 
 
 

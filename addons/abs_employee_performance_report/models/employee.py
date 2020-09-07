@@ -40,7 +40,7 @@ class Employee(models.Model):
                 if task_ids:
                     record.task_ids=task_ids
                 else:
-                    record.task_ids = ''
+                    record.task_ids = False
 
 
     #Define function to get total planned hours of each task,total spent hours on each task

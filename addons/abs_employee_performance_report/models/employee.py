@@ -39,8 +39,7 @@ class Employee(models.Model):
                 task_ids=self.env['project.task'].search([('user_id','=',record.user_id.id)])
                 if task_ids:
                     record.task_ids=task_ids
-                else:
-                    record.task_ids = False
+
 
 
     #Define function to get total planned hours of each task,total spent hours on each task

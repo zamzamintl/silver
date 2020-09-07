@@ -1,0 +1,17 @@
+<odoo>
+ <record id="product_template_purchase_price" model="ir.ui.view">
+            <field name="name">product_template_purchase_price</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="before">
+                     <field name="type_cal"/>
+                     <field name="puchase_price"/>
+                    <field name="amount_list" attrs="{'invisible':[('type_cal','!=','Purchase Price')],'required':[('type_cal','=','Purchase Price')]}"/>
+                    <field name="amount" attrs="{'invisible':[('amount_list','!=','Amount')],'required':[('amount_list','=','Amount')]}"/>
+                    <field name="precentage" attrs="{'invisible':[('amount_list','=','Amount')],'required':[('amount_list','!=','Amount')]}"/>
+                </xpath>
+
+            </field>
+        </record>
+ </odoo>

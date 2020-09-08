@@ -17,6 +17,7 @@ class ResPartner(models.Model):
         res=''
         if not self._get_duplicate_check():
             res = super(ResPartner, self).create(vals)
+            return res
         else:
             fields_to_check = self._get_duplicate_check_fields()
             if fields_to_check:
@@ -32,8 +33,9 @@ class ResPartner(models.Model):
                             if not duplicate.duplicate_have:
                                 duplicate.duplicate_have = True
                     res.duplicate_have = True
+                return res
 
-        return res
+
 
     def write(self, vals):
         res = super(ResPartner, self).write(vals)

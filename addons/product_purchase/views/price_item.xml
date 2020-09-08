@@ -6,10 +6,10 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='fixed_price']" position="after">
 
-                     <field name="puchase_price"/>
+                     <field name="puchase_price" attrs="{'invisible':[('compute_price','!=','Purchase Price')]}"/>
                     <field name="amount_list" attrs="{'invisible':[('compute_price','!=','Purchase Price')],'required':[('compute_price','=','Purchase Price')]}"/>
-                    <field name="amount" attrs="{'invisible':[('compute_price','!=','Purchase Price'),('amount_list','!=','Amount')],'required':[('amount_list','=','Amount')]}"/>
-                    <field name="precentage" attrs="{'invisible':[('compute_price','!=','Purchase Price'),('amount_list','=','Amount')],'required':[('amount_list','!=','Amount')]}"/>
+                    <field name="amount" attrs="{'invisible':['|',('compute_price','!=','Purchase Price'),('amount_list','!=','Amount')],'required':[('amount_list','=','Amount')]}"/>
+                    <field name="precentage" attrs="{'invisible':['|',('compute_price','!=','Purchase Price'),('amount_list','=','Amount')],'required':[('amount_list','!=','Amount')]}"/>
                 </xpath>
 
             </field>

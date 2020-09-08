@@ -1,0 +1,17 @@
+<odoo>fixed_price
+ <record id="product_price_list_purchase_price" model="ir.ui.view">
+            <field name="name">	product.product_pricelist_item_form_view</field>
+            <field name="model">product.pricelist.item</field>
+            <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='fixed_price']" position="after">
+
+                     <field name="puchase_price"/>
+                    <field name="amount_list" attrs="{'invisible':[('compute_price','!=','Purchase Price')],'required':[('compute_price','=','Purchase Price')]}"/>
+                    <field name="amount" attrs="{'invisible':[('compute_price','!=','Purchase Price'),('amount_list','!=','Amount')],'required':[('amount_list','=','Amount')]}"/>
+                    <field name="precentage" attrs="{'invisible':[('compute_price','!=','Purchase Price'),('amount_list','=','Amount')],'required':[('amount_list','!=','Amount')]}"/>
+                </xpath>
+
+            </field>
+        </record>
+ </odoo>

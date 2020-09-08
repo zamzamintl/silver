@@ -8,8 +8,8 @@
                      <field name="type_cal"/>
                      <field name="puchase_price"/>
                     <field name="amount_list" attrs="{'invisible':[('type_cal','!=','Purchase Price')],'required':[('type_cal','=','Purchase Price')]}"/>
-                    <field name="amount" attrs="{'invisible':[('amount_list','!=','Amount')],'required':[('amount_list','=','Amount')]}"/>
-                    <field name="precentage" attrs="{'invisible':[('amount_list','=','Amount')],'required':[('amount_list','!=','Amount')]}"/>
+                    <field name="amount" attrs="{'invisible':['|',('amount_list','!=','Amount')],'required':[('amount_list','=','Amount')]}"/>
+                    <field name="precentage" attrs="{'invisible':['|',('amount_list','=','Amount')],'required':[('amount_list','!=','Amount')]}"/>
                 </xpath>
 
             </field>

@@ -14,6 +14,7 @@ class ResPartner(models.Model):
 
     @api.model
     def create(self, vals):
+        res=''
         if not self._get_duplicate_check():
             res = super(ResPartner, self).create(vals)
         else:
@@ -31,6 +32,7 @@ class ResPartner(models.Model):
                             if not duplicate.duplicate_have:
                                 duplicate.duplicate_have = True
                     res.duplicate_have = True
+
         return res
 
     def write(self, vals):

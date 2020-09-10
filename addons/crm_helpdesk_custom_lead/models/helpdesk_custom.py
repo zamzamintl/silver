@@ -51,7 +51,10 @@ class ticket(models.Model):
     count_sheet=fields.Integer("Count Survey Sheet")
     survey_team=fields.Boolean("Survey sheet")
 
-
+    @api.constrains("sale_order_id")
+    def get_count_orders_sales(self):
+        if self.sale_order_id:
+            self.sale_order_id.count_ticket += 1
     @api.onchange("team_id")
     def get_change_team(self):
         if self.team_id:
@@ -179,10 +182,7 @@ class sales_cus(models.Model):
     _inherit='sale.order'
     lead_id = fields.Many2one('crm.lead', string='Lead')
     ticket_id= fields.Many2one('helpdesk.ticket', string='Ticket')
-    @api.constrains("sale_order_id")
-    def get_count_orders_sales(self):
-        if self.sale_order_id:
-            self.sale_order_id.count_ticket+=1
+
     @api.constrains("ticket_id")
     def get_count(self):
         if self.ticket_id:

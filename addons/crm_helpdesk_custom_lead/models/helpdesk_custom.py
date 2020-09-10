@@ -3,6 +3,7 @@ import logging
 _logger = logging.getLogger(__name__)
 class crm_help(models.TransientModel):
     _inherit='crm.lead.convert2ticket'
+
     def action_lead_to_helpdesk_ticket(self):
         self.ensure_one()
         # get the lead to transform
@@ -49,6 +50,8 @@ class ticket(models.Model):
     count_lead=fields.Integer("Count Leads")
     count_sheet=fields.Integer("Count Survey Sheet")
     survey_team=fields.Boolean("Survey sheet")
+
+
     @api.onchange("team_id")
     def get_change_team(self):
         if self.team_id:
@@ -176,7 +179,10 @@ class sales_cus(models.Model):
     _inherit='sale.order'
     lead_id = fields.Many2one('crm.lead', string='Lead')
     ticket_id= fields.Many2one('helpdesk.ticket', string='Ticket')
-    
+    @api.constrains("sale_order_id")
+    def get_count_orders_sales(self):
+        if self.sale_order_id:
+            self.sale_order_id.count_ticket+=1
     @api.constrains("ticket_id")
     def get_count(self):
         if self.ticket_id:

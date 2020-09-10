@@ -38,15 +38,7 @@ class sale_order(models.Model):
         }
     def create_ticket(self):
         view = self.env.ref('helpdesk.helpdesk_ticket_view_form')
-        return {
-            'name': _('Tickets'),
-            'view_mode': 'form',
-            'view_id': view.id,
-            'res_model': 'helpdesk.ticket',
-            'type': 'ir.actions.act_window',
-            'context': {'default_sale_order_id': self.id,},
-            'target': 'current'
-        }
+        c
 class task(models.Model):
     _inherit='project.task'
     @api.constrains("task_sale_order_id")

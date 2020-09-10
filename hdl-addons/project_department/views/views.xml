@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="inherit_project_department" model="ir.ui.view">
+            <field name="name">inherit_project_department</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="department_id"/>
+
+                </xpath>
+
+            </field>
+        </record>
+
+         <record id="inherit_project_department_search" model="ir.ui.view">
+            <field name="name">inherit_project_department_search</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_project_filter"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="department_id" string="Department"/>
+
+                </xpath>
+                 <xpath expr="//filter[@name='Partner']" position="after">
+                      <filter string="Department" name="Department" context="{'group_by': 'department_id'}"/>
+
+                </xpath>
+
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

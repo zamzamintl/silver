@@ -1,7 +1,7 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 from odoo.tools import float_repr
-
+import  math
 class PricelistItem(models.Model):
     _inherit = 'product.pricelist.item'
     puchase_price= fields.Float("Price of Purchase ",store=False,compute='_get_last_purchase_price')
@@ -62,12 +62,39 @@ class PricelistItem(models.Model):
             elif item.compute_price == 'percentage':
                 item.price = _("%s %% discount") % (item.percent_price)
             elif item.amount_list=='Precentage':
-                item.price=((item.puchase_price*item.precentage)/100)+item.puchase_price
+                x = ((item.puchase_price*item.precentage)/100)+item.puchase_price
+                y = x - math.floor(x)
+                y = round(y, 2)
+
+                print(y)
+                if y < 0.25:
+                    y = 0.25
+                elif y > 0.25 and y <= 0.5:
+                    y = 0.5
+                elif y > 0.5 and y <= 0.75:
+                    y = 0.75
+                else:
+                    y = 1
+                item.price = math.floor(x) + y
 
 
 
             elif  item.amount_list=='Amount':
-                item.price=item.puchase_price+item.amount
+                x=item.puchase_price + item.amount
+                y = x - math.floor(x)
+                y = round(y, 2)
+
+                print(y)
+                if y < 0.25:
+                    y = 0.25
+                elif y > 0.25 and y <= 0.5:
+                    y = 0.5
+                elif y > 0.5 and y <= 0.75:
+                    y = 0.75
+                else:
+                    y = 1
+                item.price = math.floor(x) + y
+
                 print(item.price)
             else:
                 item.price = _("%s %% discount and %s surcharge") % (item.price_discount, item.price_surcharge)

@@ -2,7 +2,7 @@ from odoo import models, fields, api
 
 
 class user(models.Model):
-    _inherit = 'product.category'
+    _inherit = 'res.users'
     def create_purchase(self):
 
         view = self.env.ref('purchase.purchase_order_form')

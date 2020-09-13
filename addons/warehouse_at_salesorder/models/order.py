@@ -55,6 +55,9 @@ class warehouse(models.Model):
             'view_id':self.env.ref('purchase.purchase_order_form').id ,
              
             'context':{'default_order_line':lines,'default_picking_type_id':picking_type_id},
-            'type': 'ir.actions.act_window', }
+            'type': 'ir.actions.act_window',}
 
- 
+
+class stock_warhouse(models.Model):
+     _inherit = 'stock.warehouse'
+     defualt_warhouse = fields.Boolean("default warehouse ",default=False)

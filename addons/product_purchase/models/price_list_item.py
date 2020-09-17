@@ -11,14 +11,35 @@ class PricelistItem(models.Model):
     amount_list= fields.Selection([('Precentage','Precentage'),('Amount','Amount')],'Type')
     amount= fields.Float("Amount")
     precentage= fields.Float("Precentage")
+    update_price = fields.Float("Update Purchase price")
     compute_price = fields.Selection([
         ('fixed', 'Fixed Price'),
         ('percentage', 'Percentage (discount)'),
         ('formula', 'Formula'),('Purchase Price', 'Purchase Price')], index=True, default='fixed', required=True)
-    @api.depends('product_tmpl_id')
+    def action_save(self):
+        return {'type': 'ir.actions.act_window_close'}
+    def update_purchase_order(self):
+        view = self.env.ref('product_purchase.update_pricelist_purchase_price')
+        print("Id",self.id)
+        print({'default_res_id':self.id})
+        return {
+            'name': _('Update Purchase Price'),
+            'view_type': 'form',
+            "view_mode": 'form',
+            'view_id': view.id,
+            'res_model': 'product.pricelist.item',
+            'type': 'ir.actions.act_window',
+             'res_id': self.id,
+            'target': 'new'
+        }
+
+    @api.depends('product_tmpl_id','update_price')
     def _get_last_purchase_price(self):
+
         for rec in self:
-            if rec.product_tmpl_id:
+            if rec.update_price !=0:
+                rec.puchase_price=rec.update_price
+            elif rec.product_tmpl_id:
                 purchase_order_line = rec.env['purchase.order.line'].search([('state','=','purchase'),('product_id.product_tmpl_id','=',rec.product_tmpl_id.id)],order ='write_date desc')
 
                 if purchase_order_line:
@@ -70,7 +91,7 @@ class PricelistItem(models.Model):
                 y = round(y, 2)
 
                 print(y)
-                if y < 0.25:
+                if y>0 and y < 0.25:
                     y = 0.25
                 elif y > 0.25 and y <= 0.5:
                     y = 0.5
@@ -88,7 +109,7 @@ class PricelistItem(models.Model):
                 y = round(y, 2)
 
                 print(y)
-                if y < 0.25:
+                if y>0 and y < 0.25:
                     y = 0.25
                 elif y > 0.25 and y <= 0.5:
                     y = 0.5

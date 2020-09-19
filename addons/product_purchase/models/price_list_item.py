@@ -97,7 +97,7 @@ class PricelistItem(models.Model):
                     y = 0.5
                 elif y > 0.5 and y <= 0.75:
                     y = 0.75
-                else:
+                elif y>0.75:
                     y = 1
                 item.price = math.floor(x) + y
 
@@ -115,7 +115,7 @@ class PricelistItem(models.Model):
                     y = 0.5
                 elif y > 0.5 and y <= 0.75:
                     y = 0.75
-                else:
+                elif y > 0.75:
                     y = 1
                 item.price = math.floor(x) + y
                 item

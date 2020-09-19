@@ -11,9 +11,17 @@
 		    <button class="oe_stat_button" type="object" name="action_view_sale_order"  attrs="{'invisible':[('count_order','=',0)]}" icon="fa-pencil-square-o" >
                         <field name="count_order" widget="statinfo" string="Orders"/>
 			</button>
+			<button class="oe_stat_button" type="object" name="action_view_lead"  attrs="{'invisible':[('count_lead','=',0)]}" icon="fa-pencil-square-o" >
+                        <field name="count_lead" widget="statinfo" string="Leads"/>
+			</button>
+			<button class="oe_stat_button" type="object" name="action_view_ticket"  attrs="{'invisible':[('count_ticket','=',0)]}" icon="fa-pencil-square-o" >
+                        <field name="count_ticket" widget="statinfo" string="Tickets"/>
+			</button>
 		</xpath>
 	    <xpath expr="/form/header" position ="inside">
 		<button name="create_warning" string="Create Quotation" type="object" />
+		<button name="create_lead" string="Create lead" type="object" />
+		<button name="create_ticket" string="Create Ticket" type="object" />
 	    </xpath>
 	    <xpath expr="//field[@name='partner_id']" position ="before">
 		<field name="task_sale_order_id" ></field>

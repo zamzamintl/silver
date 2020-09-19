@@ -1,23 +1,4 @@
-# -*- coding: utf-8 -*-
-#################################################################################
-#
-#    Odoo, Open Source Management Solution
-#    Copyright (C) 2020-today Ascetic Business Solution <www.asceticbs.com>
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-#################################################################################
+
 from odoo import api,fields,models,_
 from odoo.exceptions import ValidationError
 
@@ -27,6 +8,8 @@ class ProjectTask(models.Model):
 
     task_sale_order_id = fields.Many2one('sale.order', string='Sale Order',readonly=True, help='This field displays Sales Order')
     count_order= fields.Integer("Count_order",compute="_get_orders")
+    count_lead= fields.Integer("Count Tasks")
+    count_ticket= fields.Integer("Count Tickets")
     # This function is used to check customer is selected or not if customer is selected than create a wizard
     @api.depends("task_sale_order_id")
     def _get_orders(self):
@@ -63,4 +46,62 @@ class ProjectTask(models.Model):
             'domain': [('source_project_task_id', '=', self.id)],
             'target': 'current'
         }
-    
+
+    def create_lead(self):
+        view = self.env.ref('crm.crm_lead_view_form')
+
+        return {
+            'name': _('Lead'),
+            'view_mode': 'form',
+            'view_id': view.id,
+            'res_model': 'crm.lead',
+            'type': 'ir.actions.act_window',
+            'context': {'default_task_id': self.id,},
+            'target': 'current'
+        }
+    def create_ticket(self):
+        view = self.env.ref('helpdesk.helpdesk_ticket_view_form')
+
+        return {
+            'name': _('Lead'),
+            'view_mode': 'form',
+            'view_id': view.id,
+            'res_model': 'helpdesk.ticket',
+            'type': 'ir.actions.act_window',
+            'context': {'default_task_id': self.id,},
+            'target': 'current'
+        }
+    def action_view_leads(self):
+        view = self.env.ref('crm.crm_case_tree_view_leads')
+        view_form = self.env.ref('crm.crm_lead_view_form')
+        orders = self.env['crm.lead'].search([('task_id', '=', self.id)])
+        ids = []
+        for rec in orders:
+            ids.append(rec.id)
+        return {
+            'name': _('leads'),
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'views': [(view.id, 'tree'), (view_form.id, 'form')],
+            'res_model': 'crm.lead',
+            'domain': [('id', 'in', ids)],
+            'type': 'ir.actions.act_window',
+            'target': 'current'
+        }
+    def action_view_ticket(self):
+        view = self.env.ref('helpdesk.helpdesk_tickets_view_tree')
+        view_form=self.env.ref('helpdesk.helpdesk_ticket_view_form')
+        orders=self.env['helpdesk.ticket'].search([('task_id','=',self.id)])
+        ids=[]
+        for rec in orders:
+            ids.append(rec.id)
+        return {
+            'name': _('Tickets'),
+            'view_mode': 'tree,form',
+            'view_type':'form',
+            'views': [(view.id,'tree'),(view_form.id,'form')],
+            'res_model': 'helpdesk.ticket',
+            'domain':[('id','in',ids)],
+            'type': 'ir.actions.act_window',
+            'target':'current'
+        }

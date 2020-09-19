@@ -1,0 +1,12 @@
+<odoo>
+
+
+     <record id="person_purchase_user" model="res.groups">
+            <field name="name">Person Purchase</field>
+        </record>
+
+
+
+
+
+</odoo>

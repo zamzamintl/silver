@@ -7,7 +7,7 @@
                 <xpath expr="//field[@name='fixed_price']" position="after">
 
                      <field name="puchase_price" attrs="{'invisible':[('compute_price','!=','Purchase Price')]}"/>
-                    <button type="object" name="update_purchase_order" string="Update" class="btn-primary"/>
+                    <button type="object" name="update_purchase_order" string="Update" class="btn-primary" attrs="{'invisible':[('compute_price','!=','Purchase Price')]}"/>
                     <field name="amount_list" attrs="{'invisible':[('compute_price','!=','Purchase Price')],'required':[('compute_price','=','Purchase Price')]}"/>
                     <field name="amount" attrs="{'invisible':['|',('compute_price','!=','Purchase Price'),('amount_list','!=','Amount')],'required':[('amount_list','=','Amount')]}"/>
                     <field name="precentage" attrs="{'invisible':['|',('compute_price','!=','Purchase Price'),('amount_list','=','Amount')],'required':[('amount_list','!=','Amount')]}"/>

@@ -16,8 +16,15 @@ class address_book(models.Model):
 
     @api.constrains("product_id","purchase_price")
     def save_last_purchase(self):
-        price_item = self.env['product.pricelist.item'].search([('product_id','=',self.product_id.id)])
+
+        #('product_id','=',self.product_id.id)
+        price_item = self.env['product.pricelist.item'].search(['|',('product_id','=',self.product_id.id),('product_tmpl_id','=',self.product_id.product_tmpl_id.id)])
         print(price_item)
         for rec in price_item:
-            rec.update_price = self.purchase_price
+            if rec.product_id == self.product_id and rec.product_id:
+                 rec.update_price = self.purchase_price
+            elif rec.product_tmpl_id==self.product_id.product_tmpl_id and rec.product_tmpl_id:
+                rec.update_price = self.purchase_price
+
+
         self.product_id.update_price = self.purchase_price

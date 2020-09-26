@@ -23,8 +23,11 @@ class ReportProductSale(models.AbstractModel):
 
         product_cate=[]
         for record in pricelis.item_ids:
-
-            for rec in record.product_tmpl_id.public_categ_ids:
+            if record.product_tmpl_id:
+                new_pro = record.product_tmpl_id
+            elif record.product_id:
+                new_pro = record.product_id.product_tmpl_id
+            for rec in new_pro.public_categ_ids:
                 if rec not in product_cate and rec:
                     product_cate.append(rec)
 

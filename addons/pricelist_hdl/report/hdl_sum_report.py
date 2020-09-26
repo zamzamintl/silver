@@ -23,13 +23,17 @@ class ReportProductSale(models.AbstractModel):
 
         product_cate=[]
         for record in pricelis.item_ids:
-            for rec in record.product_tmpl_id.categ_id:
+            if record.product_tmpl_id:
+                new_pro = record.product_tmpl_id
+            elif record.product_id:
+                new_pro = record.product_id.product_tmpl_id
+            for rec in new_pro.categ_id:
                 if rec not in product_cate and rec:
                     product_cate.append(rec)
 
         cate_id=[]
         pages.append(j)
-        print("**********8",product_cate)
+
         lines=self.env['product.pricelist.item'].search([('pricelist_id','in',pricelis.ids)],order="product_tmpl_id asc")
 
         for record in product_cate:
@@ -37,7 +41,11 @@ class ReportProductSale(models.AbstractModel):
 
             count=0
             for lst in pricelis.item_ids:
-                if record.id in  lst.product_tmpl_id.categ_id.ids :
+                if lst.product_tmpl_id:
+                    new_pro=lst.product_tmpl_id
+                elif lst.product_id:
+                    new_pro = lst.product_id.product_tmpl_id
+                if record.id in  new_pro.categ_id.ids :
                     count+=1
 
 
@@ -47,20 +55,24 @@ class ReportProductSale(models.AbstractModel):
                 cate_id.append({'page': j, 'cat': record, 'check': True,'name':record.name})
 
             for rec in lines:
+                if rec.product_tmpl_id:
+                    new_pro_add=rec.product_tmpl_id
+                elif rec.product_id:
+                    new_pro_add = rec.product_id.product_tmpl_id
                 if record.id in  rec.product_tmpl_id.categ_id.ids :
                     if count<=24:
                         docs.append(
-                            {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.categ_id, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                            {'page': j,'product_name':new_pro_add.name, 'pro_id':new_pro_add,'categ_id':new_pro_add.categ_id, 'product_tmpl_id': new_pro_add.name, 'fixed_price': rec.fixed_price})
                     else:
                          if i<=48:
                             if j not in pages:
                                 pages.append(j)
                             if i<=24:
                                 docs_right.append(
-                                    {'page': j, 'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.categ_id,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                                    {'page': j, 'product_name':new_pro_add.name, 'pro_id':new_pro_add,'categ_id':new_pro_add.categ_id,'product_tmpl_id': new_pro_add.name, 'fixed_price': rec.fixed_price})
                             elif i>24:
                                 docs_left.append(
-                                    {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id, 'categ_id':rec.product_tmpl_id.categ_id,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                                    {'page': j,'product_name':new_pro_add.name, 'pro_id':new_pro_add, 'categ_id':new_pro_add.categ_id,'product_tmpl_id': new_pro_add.name, 'fixed_price': rec.fixed_price})
 
                          else:
                             j += 1

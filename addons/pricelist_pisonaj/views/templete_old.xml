@@ -21,12 +21,6 @@
 #left {width: 50px; background: #13D607;height:900px}
 #middle {width: 750px;border-style: solid;font-size:20px}
 #right {width: 50px; background: #13D607;height:900px}
-            table,td,th {
-  border: 1px solid black;
-  border-radius:6px;
-  border-collapse: collapse;
-
-}
 </style>
 
 
@@ -44,7 +38,10 @@
 								   <img t-att-src="image_data_uri(website_logo.logo)" style="text-align: center" width="150px" height="70px"/></div></t>
 						<h3 align="center" style="fbackground-color:#13D607" ><span t-esc="cat['cat'].name"/></h3>
                   <t t-if="cat['check']==True">
-					<table align="right"     style=";width:375px">
+					<table align="right"     style="border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;width:375px">
 						<thead>
 						  <tr>
 
@@ -83,7 +80,10 @@
 						  </t>
 						  </tbody>
 				   </table>
-					<table align="left"   style="width:375px;" >
+					<table align="left"   style="border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;width:375px;" >
 
                   <thead>
 						  <tr>
@@ -122,7 +122,10 @@
 						  </tbody>
 					</table></t>
 						<t t-if="cat['check']==False">
-							<table align="left"   style="width:750px;" >
+							<table align="left"   style="border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;width:750px;" >
 
                   <thead>
 						  <tr>

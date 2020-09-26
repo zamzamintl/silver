@@ -30,38 +30,48 @@ class ReportProductSale(models.AbstractModel):
 
         cate_id=[]
         pages.append(j)
-        print("**********8",product_cate)
         lines=self.env['product.pricelist.item'].search([('pricelist_id','in',pricelis.ids)],order="product_tmpl_id asc")
 
         for record in product_cate:
             i=0
 
             count=0
+            print ("name",record["name"])
             for lst in pricelis.item_ids:
-                if record.id in  lst.product_tmpl_id.public_categ_ids.ids and lst.product_tmpl_id.is_published==True:
+                if lst.product_tmpl_id:
+                    new_pro=lst.product_tmpl_id
+                elif lst.product_id:
+                    new_pro = lst.product_id.product_tmpl_id
+                    
+                if record.id in  new_pro.public_categ_ids.ids and new_pro.is_published==True:
+                   
                     count+=1
 
-            print("&&&&&&&&&&&",count)
+
             if count<=24:
                 cate_id.append({'page': j, 'cat': record,'check':False,'name':record.name})
             elif count>24:
                 cate_id.append({'page': j, 'cat': record, 'check': True,'name':record.name})
 
             for rec in lines:
-                if record.id in  rec.product_tmpl_id.public_categ_ids.ids and rec.product_tmpl_id.is_published==True:
+                if rec.product_tmpl_id:
+                    new_pro_add=rec.product_tmpl_id
+                elif rec.product_id:
+                    new_pro_add = rec.product_id.product_tmpl_id
+                if record.id in  new_pro_add.public_categ_ids.ids and new_pro_add.is_published==True:
                     if count<=24:
                         docs.append(
-                            {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.public_categ_ids, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.price})
+                            {'page': j,'product_name':new_pro_add.name, 'pro_id':new_pro_add,'categ_id':new_pro_add.public_categ_ids, 'product_tmpl_id': new_pro_add.name, 'fixed_price': rec.price})
                     else:
                          if i<=48:
                             if j not in pages:
                                 pages.append(j)
                             if i<=24:
                                 docs_right.append(
-                                    {'page': j, 'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.public_categ_ids,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.price})
+                                    {'page': j, 'product_name':new_pro_add.name, 'pro_id':new_pro_add,'categ_id':new_pro_add.public_categ_ids,'product_tmpl_id': new_pro_add.name, 'fixed_price': rec.price})
                             elif i>24:
                                 docs_left.append(
-                                    {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id, 'categ_id':rec.product_tmpl_id.public_categ_ids,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.price})
+                                    {'page': j,'product_name':new_pro_add.name, 'pro_id':new_pro_add, 'categ_id':new_pro_add.public_categ_ids,'product_tmpl_id': new_pro_add.name, 'fixed_price': rec.price})
 
                          else:
                             j += 1
@@ -80,10 +90,7 @@ class ReportProductSale(models.AbstractModel):
         docs_right = sorted(docs_right, key=lambda i: i['product_name'])
         docs = sorted(docs, key=lambda i: i['product_name'])
         cate_id = sorted(cate_id, key=lambda i: i['name'])
-        print(cate_id)
-        print(docs)
-        print(docs_right)
-        print(docs_left)
+
 
         return {
             # 'doc_ids': docs.ids,

@@ -50,17 +50,17 @@ class ReportProductSale(models.AbstractModel):
                 if record.id in  rec.product_tmpl_id.public_categ_ids.ids and rec.product_tmpl_id.is_published==True:
                     if count<=24:
                         docs.append(
-                            {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.public_categ_ids, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                            {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.public_categ_ids, 'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.price})
                     else:
                          if i<=48:
                             if j not in pages:
                                 pages.append(j)
                             if i<=24:
                                 docs_right.append(
-                                    {'page': j, 'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.public_categ_ids,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                                    {'page': j, 'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id,'categ_id':rec.product_tmpl_id.public_categ_ids,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.price})
                             elif i>24:
                                 docs_left.append(
-                                    {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id, 'categ_id':rec.product_tmpl_id.public_categ_ids,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.fixed_price})
+                                    {'page': j,'product_name':rec.product_tmpl_id.name, 'pro_id':rec.product_tmpl_id, 'categ_id':rec.product_tmpl_id.public_categ_ids,'product_tmpl_id': rec.product_tmpl_id.name, 'fixed_price': rec.price})
 
                          else:
                             j += 1

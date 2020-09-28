@@ -6,7 +6,7 @@
 			<field name="inherit_id" ref="sale.view_order_form"/>
 			<field name="arch" type="xml">
 				  <xpath expr="/form/header/field[@name='state']"  position="replace">
-                  <field name="state" widget="statusbar" statusbar_visible="draft,sent,waiting_for_approval,sale"/>
+                  <field name="state" widget="statusbar"  statusbar_visible="draft,sent,waiting_for_approval,sale"/>
               </xpath>
 				<xpath expr="//form/header/button[@name='action_cancel']" position="after">
 					<button name="action_revision" states="sent" type="object" string="Revision"/>

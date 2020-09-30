@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="wiz_competitors_view" model="ir.ui.view">
+		<field name="name">wiz_competitors_view</field>
+		<field name="model">competitors.data</field>
+		<field name="arch" type="xml">
+			<form>
+				  <sheet>
+
+				<group >
+					<field name="creation_date" />
+<!--					<field name="competitor_id" widget="many2many_tags"/>-->
+				</group>
+
+				<footer>
+					<button name="check_report" string="Print" type="object" default_focus="1" class="oe_highlight" />
+					or
+					<button string="Cancel" class="oe_link" special="cancel" />
+				</footer>
+				  </sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_competitors_wizard" model="ir.actions.act_window">
+		<field name="name"> Competitors Report</field>
+		<field name="res_model">competitors.data</field>
+		<field name="type">ir.actions.act_window</field>
+
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="wiz_competitors_view"/>
+		<!--<field name="target">new</field>-->
+		<field name="target">inline</field>
+	</record>
+
+	 <menuitem id="menu_competitors_report_wizard"
+                  name="Competitors Report"
+                  action="action_competitors_wizard"
+                  parent="competitor_user.menu_root_competitor"
+                  sequence="3"/>
+
+</odoo>

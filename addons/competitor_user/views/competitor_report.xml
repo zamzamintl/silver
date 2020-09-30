@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="action_competitor_report"
+            model="competitors.data"
+            string="Competitors Reports"
+            report_type="qweb-pdf"
+            name="competitor_user.competitor_report"
+            file="competitor_user.competitor_report"
+            />
+
+	<template id="competitor_report">
+		<t t-call="web.html_container">
+
+
+
+            <t t-call="web.external_layout">
+            <div class="page">
+			<t t-foreach="products" t-as="product">
+
+
+						<div class="text-right">
+								<table align="right" class="table table-bordered">
+									<thead>
+										<tr>
+											<th>Creation Date</th>
+											<th>Production</th>
+                                           <th>Competitors</th>
+                                           <th>Price </th>
+                                           <th>My Price </th>
+
+
+										</tr>
+									</thead>
+                        <t t-foreach="lines" t-as="line">
+
+
+
+
+									<tbody>
+										<t t-if="product==line.person_competitor_id.creation_date">
+										<tr>
+											<td><span t-field="line.person_competitor_id.creation_date"/></td>
+										   <td><span t-field="line.product_id.name"/></td>
+                                           <td><span t-field="line.person_competitor_id.competitor_id.name"/></td>
+                                           <td><span t-field="line.competitor_price"/> </td>
+                                           <td><span t-field="line.my_price"/> </td>
+										</tr>
+									</t>
+
+
+									</tbody>
+
+
+
+						</t>
+								</table>
+					</div>
+				</t>
+
+
+            </div>
+					</t>
+		</t>
+	</template>
+
+
+    </data>
+</odoo>

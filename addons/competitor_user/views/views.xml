@@ -1,0 +1,68 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="person_competitor_list">
+      <field name="name">person_competitor list</field>
+      <field name="model">person.competitor</field>
+      <field name="arch" type="xml">
+        <tree >
+
+          <field name="create_date" required="True"/>
+          <field name="competitor_id" required="True"/>
+          <field name="create_uid" required="True"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="person_competitor_form">
+      <field name="name">person_competitor form</field>
+      <field name="model">person.competitor</field>
+      <field name="arch" type="xml">
+        <form>
+           <group>
+
+          <field name="competitor_id" required="True"/>
+          </group>
+          <notebook>
+            <page string="Lines">
+            <field name="person_lines">
+              <tree editable="top">
+                <field name="person_competitor_id" invisible="1"/>
+                <field name="product_id"  required="1"/>
+                <field name="competitor_price"  string="Price" required="1"/>
+                <field name="my_price"  string="MY Price" required="1"/>
+
+              </tree>
+
+            </field>
+            </page>
+          </notebook>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="action_person_competitor">
+      <field name="name">competitor Data</field>
+      <field name="res_model">person.competitor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_res_competitor">
+      <field name="name">competitor </field>
+      <field name="res_model">res.competitor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="competitor Data" id="menu_root_competitor" />
+    <menuitem name="competitor Data" id="menu_root_com_data" action="action_person_competitor" parent="menu_root_competitor" />
+    <menuitem name="competitor" id="menu_root_competitor_res" action="action_res_competitor" parent="menu_root_competitor"/>
+
+
+    -->
+  </data>
+</odoo>

@@ -52,13 +52,14 @@ class ReportProductSale(models.AbstractModel):
             for rec in record.order_line:
 
                 col+=1
-                sheet.write(row, 2, record.partner_id.name, unbold)
+
                 if record.partner_id.region_id:
                     sheet.write(row, 3, record.partner_id.region_id.name, unbold)
                 else:
                     sheet.write(row, 3 , '', unbold)
 
                 if col == 3:
+                   sheet.write(row, 2, record.partner_id.name, unbold)
                    if record.customer_order_delivery_date:
                         sheet.write(row, 4, record.customer_order_delivery_date, unbold)
                    else:
@@ -66,6 +67,7 @@ class ReportProductSale(models.AbstractModel):
 
                    sheet.write(row, 5, record.name, unbold)
                 else:
+                    sheet.write(row, 2, '', unbold)
                     sheet.write(row, 4 , '', unbold)
                     sheet.write(row, 5 , '', unbold)
 

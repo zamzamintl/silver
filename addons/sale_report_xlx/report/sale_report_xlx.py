@@ -5,6 +5,7 @@ import datetime
 import logging
 import pytz
 from collections import OrderedDict
+
 _logger = logging.getLogger(__name__)
 
 
@@ -13,9 +14,11 @@ class ReportProductSale(models.AbstractModel):
     _inherit = 'report.report_xlsx.abstract'
     def generate_xlsx_report(self, workbook, data, lines):
         report_name='SO'
+
         sheet = workbook.add_worksheet(report_name[:31])
-        bold = workbook.add_format({'bold': True})
-        unbold = workbook.add_format({'bold': False})
+        bold = workbook.add_format({'bold': True,'border':6,'bg_color':'#6F856D','align': 'center' })
+        unbold = workbook.add_format({'bold': False,'border':6,'align': 'center'})
+        datetime_style = workbook.add_format({'text_wrap': True,'border':6, 'num_format': 'dd-mm-yyyy','align': 'center'})
         date_from = data["form"]["date_from"]
         date_to = data["form"]["date_to"]
         customer = data["form"]["customer"]
@@ -23,7 +26,7 @@ class ReportProductSale(models.AbstractModel):
         if date_from:
             domain.append(('customer_order_delivery_date','>=',date_from))
         if date_to:
-            domain.append(('customer_order_delivery_date', '>=', date_to))
+            domain.append(('customer_order_delivery_date', '<=', date_to))
         if customer:
             report_name= self.env['res.partner'].search([('id','=',customer)]).name
             ids=[]
@@ -34,7 +37,6 @@ class ReportProductSale(models.AbstractModel):
             domain.append(('partner_id', 'in', ids))
         sheet.write(1, 2, 'Customer', bold)
         sheet.write(1, 3, 'Store', bold)
-
         sheet.write(1, 4, 'Date', bold)
         sheet.write(1, 5, 'So', bold)
         sheet.write(1, 6, 'Item', bold)
@@ -42,32 +44,36 @@ class ReportProductSale(models.AbstractModel):
         sheet.write(1, 8, 'Price', bold)
         sheet.write(1, 9, 'Value', bold)
         sheet.write(1, 10, 'Amount After Vat', bold)
-        row = 1
+        row = 2
         col = 2
         sale_order = self.env['sale.order'].search(domain,order='customer_order_delivery_date asc')
         for record in sale_order:
-            row+=1
+
             col = 2
-
+            print("SOOOOOOO",record.name)
             for rec in record.order_line:
+                print(rec)
 
-                col+=1
 
+                if col ==2 :
+                    sheet.write(row, 2, record.partner_id.name, unbold)
+                else:
+                    sheet.write(row, 2, '', unbold)
                 if record.partner_id.region_id:
                     sheet.write(row, 3, record.partner_id.region_id.name, unbold)
                 else:
                     sheet.write(row, 3 , '', unbold)
 
-                if col == 3:
-                   sheet.write(row, 2, record.partner_id.name, unbold)
+                if col == 2:
+
                    if record.customer_order_delivery_date:
-                        sheet.write(row, 4, record.customer_order_delivery_date, unbold)
+                        sheet.write(row, 4, record.customer_order_delivery_date, datetime_style)
                    else:
                        sheet.write(row, 4, '', unbold)
 
                    sheet.write(row, 5, record.name, unbold)
                 else:
-                    sheet.write(row, 2, '', unbold)
+
                     sheet.write(row, 4 , '', unbold)
                     sheet.write(row, 5 , '', unbold)
 
@@ -77,7 +83,8 @@ class ReportProductSale(models.AbstractModel):
                 sheet.write(row, 9, rec.price_subtotal, unbold)
                 sheet.write(row, 10, rec.price_total, unbold)
 
-
+                row+=1
+                col=3
 
 
 

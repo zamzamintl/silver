@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="action_report_sale_report_excel"
+            model="sale.report.xlx"
+            string="Sale Report Excel "
+            report_type="xlsx"
+            name="sale_report_xlx.sale_report_xlx"
+            file="sale_report_xlx.sale_report_xlx"
+            />
+    </data>
+</odoo>

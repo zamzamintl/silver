@@ -1,0 +1,1 @@
+from . import wiz_sale_report_report

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="sale_report_xlx">
+		<t t-call="web.html_container">
+
+
+			 
+			<t t-set="total" t-value="0"/>
+			 
+
+			<t t-set="all_total_qty" t-value="0"/>
+			<t t-set="all_total_price" t-value="0"/>
+			<t t-set="i" t-value="0"/>
+			 
+
+
+
+            <t t-call="web.external_layout">
+            <div class="page">
+			<t t-foreach="customer_list" t-as="customer">
+				
+					
+						<div class="text-right">
+
+							<p class="text-right">
+								<b>اسم العميـــــل :									<span t-esc="customer.name" />
+								</b>
+							</p>
+
+						 
+								<table align="right" class="table table-bordered">
+									<thead>
+										<tr>
+											
+											<th style="white-space: text-nowrap;text-align:center;width:50px"> المبلــغ</th>
+											 
+
+											<th style="white-space: text-nowrap;text-align:center;width:50px">   رقم الفــاتوره </th>
+											<th style="white-space: text-nowrap;text-align:center;width:100px"> تاريــخ الفاتــوره
+											</th>
+										    <th style="white-space: text-nowrap;text-align:center;width:30px"> العميــــــل</th>
+											<th style="white-space: text-nowrap;text-align:center;width:30px"> م</th>
+
+
+
+										</tr>
+									</thead>
+									<tbody>
+
+										<t t-set="total_price" t-value="0"/>
+										<t t-set="total_qty" t-value="0"/>
+
+										<t t-set="i" t-value="0"/>
+
+										<t t-foreach="sale_orders" t-as="order">
+
+											<t t-if="customer.id==order.partner_id.id ">
+												<t t-set="total_price" t-value="total_price+order.amount_total"/>
+												 
+												<t t-set="i" t-value="i+1"/>
+												<tr>
+													
+													<td style="white-space: text-nowrap;text-align:center">
+														<span t-esc="order.amount_total" />
+													</td>
+													 
+													<td style="white-space: text-nowrap;text-align:center">
+
+														<span t-esc="order.name" />
+													</td>
+
+													<td style="white-space: text-nowrap;text-align:center">
+														<span t-esc="order.invoice_date" />
+													</td>
+													
+													<td style="white-space: text-nowrap;text-align:center">
+														<span t-esc="order.partner_id.name" />
+													</td>
+
+													<td>
+														<span t-esc="i" />
+													</td>
+
+												</tr>
+
+											</t>
+
+
+
+										</t>
+
+
+
+
+										<tr>
+											
+											<td style="white-space: text-nowrap;text-align:center">
+												<b>
+													<span t-esc="round(total_price,3)" />
+												</b>
+											</td>
+											 
+											<td style="white-space: text-nowrap;text-align:center">
+
+											</td>
+
+											<td style="white-space: text-nowrap;text-align:center">
+
+											</td>
+											
+											<td style="white-space: text-nowrap;text-align:center">
+
+											</td>
+
+											<td>
+
+											</td>
+
+										</tr>
+
+									</tbody>
+
+
+								</table>
+							
+					</div>	
+				</t>
+
+			
+              <table align="right" class="table table-bordered">
+			     <tr>
+				 <td style="white-space: text-nowrap;text-align:center">
+				  <span t-esc="total_amount"/>
+				 </td>
+				 <td style="white-space: text-nowrap;text-align:center">
+				     الاجمـــــــــــــــــــــــــالي 
+				 </td>
+				 </tr>
+			  </table>
+			</div>
+					
+					</t>
+		</t>
+	</template>
+ 
+
+</odoo>

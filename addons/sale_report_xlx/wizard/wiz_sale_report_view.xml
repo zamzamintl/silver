@@ -41,7 +41,7 @@
 	 <menuitem id="menu_sale_report_report"
                   name="Sale Report Excel"
                   action="action_sale_report_view_wizard"
-                  parent = "sale.sale_menu_root"
+                  parent = "sale.menu_sale_report"
                   sequence="1"/>
 
 </odoo>

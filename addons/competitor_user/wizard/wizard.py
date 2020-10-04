@@ -7,6 +7,7 @@ class PeriodicalReportProduct(models.TransientModel):
     creation_date = fields.Date(string='creation data')
 
     competitor_id = fields.Many2many('res.competitor', string='Competitor')
+    sale_order_id = fields.Many2one('sale.order',"Sale order")
 
     def check_report(self):
         list = []
@@ -17,7 +18,8 @@ class PeriodicalReportProduct(models.TransientModel):
             'model': self._name,
             'form': {
                 'creation_date':self.creation_date,
-                'competitor_id': list
+                'competitor_id': list,
+                'sale_order_id':self.sale_order_id.id
 
             },
         }

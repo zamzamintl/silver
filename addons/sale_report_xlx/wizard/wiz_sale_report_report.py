@@ -10,6 +10,7 @@ class PeriodicalReportProduct(models.TransientModel):
     date_to = fields.Date(string='Date to')
     # customer=fields.Many2many('res.partner','user_id','id',string='العميل')
     customer=fields.Many2one('res.partner',string='Customer')
+    name= fields.Char("ffffff",default='fff')
 
   
     def check_report(self):
@@ -27,4 +28,6 @@ class PeriodicalReportProduct(models.TransientModel):
 
             },
         }
-        return self.env.ref('sale_report_xlx.action_report_sale_report_excel').report_action(self, data=data)
+        return self.env.ref('sale_report_xlx.action_report_sale_report_excel').report_action(self, data=data,)
+    # def _get_report_base_filename(self):
+    #     return "ssss"

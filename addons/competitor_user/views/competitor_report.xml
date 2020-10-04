@@ -17,7 +17,7 @@
 
             <t t-call="web.external_layout">
             <div class="page">
-			<t t-foreach="products" t-as="product">
+			<t t-foreach="dates" t-as="d">
 
 
 						<div class="text-right">
@@ -27,6 +27,7 @@
 											<th>Creation Date</th>
 											<th>Production</th>
                                            <th>Competitors</th>
+                                           <th>Region</th>
                                            <th>Price </th>
                                            <th>My Price </th>
 
@@ -39,13 +40,14 @@
 
 
 									<tbody>
-										<t t-if="product==line.person_competitor_id.creation_date">
+										<t t-if="d==line['creation_date']">
 										<tr>
-											<td><span t-field="line.person_competitor_id.creation_date"/></td>
-										   <td><span t-field="line.product_id.name"/></td>
-                                           <td><span t-field="line.person_competitor_id.competitor_id.name"/></td>
-                                           <td><span t-field="line.competitor_price"/> </td>
-                                           <td><span t-field="line.my_price"/> </td>
+											<td><span t-esc="line['creation_date']"/></td>
+										   <td><span t-esc="line['product_id'].name"/></td>
+                                           <td><span t-esc="line['competitor_id'].name"/></td>
+                                           <td><span t-esc="line['competitor_id'].region_id.name"/></td>
+                                           <td><span t-esc="line['competitor_price']"/> </td>
+                                           <td><span t-esc="line['my_price']"/> </td>
 										</tr>
 									</t>
 

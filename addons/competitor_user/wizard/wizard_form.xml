@@ -9,7 +9,8 @@
 				  <sheet>
 
 				<group >
-					<field name="creation_date" />
+					<field name="creation_date" required="1" />
+					<field name="sale_order_id"/>
 <!--					<field name="competitor_id" widget="many2many_tags"/>-->
 				</group>
 

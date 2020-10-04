@@ -31,7 +31,7 @@
                 <field name="person_competitor_id" invisible="1"/>
                 <field name="product_id"  required="1"/>
                 <field name="competitor_price"  string="Price" required="1"/>
-                <field name="my_price"  string="MY Price" required="1"/>
+                <field name="my_price"  string="MY Price" invisible="1"/>
 
               </tree>
 
@@ -56,11 +56,17 @@
       <field name="res_model">res.competitor</field>
       <field name="view_mode">tree,form</field>
     </record>
+    <record model="ir.actions.act_window" id="action_res_competitor_category">
+      <field name="name">Categ </field>
+      <field name="res_model">res.competitor.category</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <!-- Top menu item -->
     <menuitem name="competitor Data" id="menu_root_competitor" />
     <menuitem name="competitor Data" id="menu_root_com_data" action="action_person_competitor" parent="menu_root_competitor" />
     <menuitem name="competitor" id="menu_root_competitor_res" action="action_res_competitor" parent="menu_root_competitor"/>
+    <menuitem name="Category" id="menu_root_competitor_res_category" action="action_res_competitor_category" parent="menu_root_competitor"/>
 
 
     -->

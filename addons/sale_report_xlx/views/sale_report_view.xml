@@ -8,7 +8,6 @@
             report_type="xlsx"
             name="sale_report_xlx.sale_report_xlx"
             file="sale_report_xlx.sale_report_xlx"
-            attachment_use="True"
 
 
             />

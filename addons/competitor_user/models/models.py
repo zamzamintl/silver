@@ -19,6 +19,7 @@ class address_book(models.Model):
     product_id = fields.Many2one("product.product",string="Product")
     competitor_price = fields.Float("competitor Price")
     my_price = fields.Float(related='product_id.lst_price')
+    creation_date = fields.Date(related='person_competitor_id.creation_date',string="Creation Date")
     # product_ids = fields.Many2many("product.product", string="Product")
     @api.onchange("product_id")
     def get_domain(self):
@@ -39,4 +40,11 @@ class address_book(models.Model):
 class competitor(models.Model):
     _name = 'res.competitor'
     name = fields.Char("Name")
+    region_id = fields.Many2one("state.region1","Region")
+    website = fields.Char("Website")
+class category_competitor(models.Model):
+    _name = 'res.competitor.category'
+    name = fields.Char("Name")
+
+
 

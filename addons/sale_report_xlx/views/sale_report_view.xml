@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <report 
+        <report
             id="action_report_sale_report_excel"
             model="sale.report.xlx"
             string="Sale Report Excel "
@@ -11,5 +11,6 @@
 
 
             />
+
     </data>
 </odoo>

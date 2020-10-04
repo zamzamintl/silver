@@ -20,14 +20,16 @@ class PeriodicalReportProduct(models.TransientModel):
         data = {
             'ids': self.ids,
             'model': self._name,
+            'report_name':'dddd',
             'form': {
                 'date_from': self.date_from,
                 'date_to': self.date_to,
+                'name':self.name,
                 # 'customer':list
                 'customer':self.customer.id
 
+
             },
         }
+
         return self.env.ref('sale_report_xlx.action_report_sale_report_excel').report_action(self, data=data,)
-    # def _get_report_base_filename(self):
-    #     return "ssss"

@@ -47,7 +47,7 @@ class ReportProductSale(models.AbstractModel):
         sheet.write(1, 9, 'Amount After Vat', bold)
         row = 2
         col = 2
-        sale_order = self.env['sale.order'].search(domain,order='customer_order_delivery_date,partner_id asc')
+        sale_order = self.env['sale.order'].search(domain,order='customer_order_delivery_date asc')
         partner_ids=[]
         for rec in sale_order:
             partner_ids.append(rec.partner_id)

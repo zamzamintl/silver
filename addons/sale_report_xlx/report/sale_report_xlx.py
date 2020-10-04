@@ -49,11 +49,15 @@ class ReportProductSale(models.AbstractModel):
         col = 2
         sale_order = self.env['sale.order'].search(domain,order='customer_order_delivery_date asc')
         partner_ids=[]
+        ids=[]
         for rec in sale_order:
             partner_ids.append(rec.partner_id)
+            ids.append(rec.id)
         total,total_sub=0,0
+        domain=[]
         for part in partner_ids:
-                  so_id = sale_order.search([('partner_id','=',part.id)])
+
+                  so_id = sale_order.search([('partner_id','=',part.id),('id','in',ids)],order='customer_order_delivery_date asc')
                   totol_customer,totol_customer_sub = 0,0
                   for record in so_id:
 

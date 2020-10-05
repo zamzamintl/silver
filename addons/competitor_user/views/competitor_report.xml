@@ -30,6 +30,7 @@
                                            <th>Region</th>
                                            <th>Price </th>
                                            <th>My Price </th>
+                                           <th>Publish </th>
 
 
 										</tr>
@@ -48,6 +49,7 @@
                                            <td><span t-esc="line['competitor_id'].region_id.name"/></td>
                                            <td><span t-esc="line['competitor_price']"/> </td>
                                            <td><span t-esc="line['my_price']"/> </td>
+                                           <td><span t-esc="line['product_id'].is_published"/> </td>
 										</tr>
 									</t>
 

@@ -16,19 +16,19 @@ class address_book(models.Model):
     _name="person.competitor.line"
     person_competitor_id = fields.Many2one("person.competitor")
 
-    product_id = fields.Many2one("product.product",string="Product")
+    product_id = fields.Many2one("product.product",string="Product",auto_join=True)
+    published = fields.Boolean(related='product_id.is_published',string="publish")
     competitor_price = fields.Float("competitor Price")
     my_price = fields.Float(related='product_id.lst_price')
     creation_date = fields.Date(related='person_competitor_id.creation_date',string="Creation Date")
-    # product_ids = fields.Many2many("product.product", string="Product")
-    @api.onchange("product_id")
-    def get_domain(self):
-        return {'domain': {'product_id': [('id', 'not in', [seller.product_id.id for seller in self.search([])])]}}
-
-    # @api.onchange("product_id")
-    # def get_domain(self):
+    # product_ids = fields.Many2many("product.product", string="Product",compute='_get_domain')
+    #
+    #
+    # @api.depends("product_id")
+    # def _get_domain(self):
     #     if self.product_id:
-    #         self.product_ids=[(4,self.product_id)]
+    #         self.product_ids=[(4,self.product_id.id)]
+    #     print("oooo",self.product_ids)
     # def unlink(self):
     #     if self.product_id:
     #         self.product_ids = [(3, self.product_id)]

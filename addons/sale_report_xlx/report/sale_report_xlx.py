@@ -51,7 +51,8 @@ class ReportProductSale(models.AbstractModel):
         partner_ids=[]
         ids=[]
         for rec in sale_order:
-            partner_ids.append(rec.partner_id)
+            if rec.partner_id not in partner_ids:
+                  partner_ids.append(rec.partner_id)
             ids.append(rec.id)
         total,total_sub=0,0
         domain=[]

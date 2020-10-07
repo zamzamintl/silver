@@ -16,6 +16,11 @@ class ProductTemplate(models.Model):
         for product in self:
             # manu_orer  = self.env[''].search([])
             purchase_order_line = self.env['purchase.order.line'].search([('state','=','purchase'),('product_id','=',product.id)],order ='write_date desc')
+            bom =self.env['mrp.bom.line'].search([('product_id','=',product.id)],limit=1)
+            if bom:
+                print(bom)
+
+
             if product.update_price > 0:
                 print("up", product.update_price)
                 product.puchase_price = product.update_price

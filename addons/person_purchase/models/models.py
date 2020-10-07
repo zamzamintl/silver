@@ -12,6 +12,7 @@ class address_book(models.Model):
     categ_id = fields.Many2one(related='person_purchase_id.categ_id', string="Category")
     product_id = fields.Many2one("product.product",string="Product",domain="[('type_pro','=','vegetables and fruits'),('public_categ_ids','=',categ_id)]")
     purchase_price = fields.Float("Purchase Price")
+    is_published =fields.Boolean(related='product_id.is_published')
 
 
     @api.constrains("product_id","purchase_price")

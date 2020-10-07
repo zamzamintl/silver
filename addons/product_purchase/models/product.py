@@ -14,7 +14,7 @@ class ProductTemplate(models.Model):
     @api.depends('purchased_product_qty','update_price')
     def _get_last_purchase_price(self):
         for product in self:
-
+            # manu_orer  = self.env[''].search([])
             purchase_order_line = self.env['purchase.order.line'].search([('state','=','purchase'),('product_id','=',product.id)],order ='write_date desc')
             if product.update_price > 0:
                 print("up", product.update_price)

@@ -10,7 +10,7 @@ class address_book(models.Model):
     _name="person.purchase.line"
     person_purchase_id = fields.Many2one("person.purchase")
     categ_id = fields.Many2one(related='person_purchase_id.categ_id', string="Category")
-    product_id = fields.Many2one("product.product",string="Product",domain="[('type_pro','=','vegetables and fruits'),('public_categ_ids','=',categ_id)]",copied=True)
+    product_id = fields.Many2one("product.product",string="Product",domain="[('type_pro','=','vegetables and fruits'),('public_categ_ids','=',categ_id)]")
     purchase_price = fields.Float("Purchase Price")
     is_published =fields.Boolean(related='product_id.is_published')
 

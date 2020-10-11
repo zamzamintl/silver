@@ -98,4 +98,5 @@ class stock_warhouse(models.Model):
      defualt_warhouse = fields.Boolean("default warehouse ",default=False)
 class Picking (models.Model):
     _inherit = 'stock.picking.type'
-    defualt_warhouse_purchase = fields.Boolean("default warehouse ",default=False)
+    defualt_warhouse_purchase = fields.Boolean("default warehouse Purchase",default=False)
+

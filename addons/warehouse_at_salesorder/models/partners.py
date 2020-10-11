@@ -9,4 +9,4 @@ from collections import OrderedDict
 from datetime import datetime
 class partner(models.Model):
     _inherit = 'res.partner'
-    default_purchase_oer = fields.Boolean(default=False)
+    default_purchase_oer = fields.Boolean(default=False,string="Default vendor")

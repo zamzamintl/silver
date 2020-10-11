@@ -1,2 +1,2 @@
-from . import order
 from  . import  partners
+from . import order

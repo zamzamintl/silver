@@ -37,7 +37,26 @@ class PricelistItem(models.Model):
     def _get_last_purchase_price(self):
 
         for rec in self:
-            if rec.update_price !=0:
+            bom=[]
+            if rec.product_id:
+                bom = self.env['mrp.bom'].search([('product_id', '=', rec.product_id.id)], order='write_date desc',
+                                                 limit=1)
+
+            elif rec.product_tmpl_id:
+               bom = self.env['mrp.bom'].search([('product_tmpl_id', '=', rec.product_tmpl_id.id)] ,order='write_date desc', limit=1)
+            if bom :
+                pur_price=0
+                for record in bom.bom_line_ids:
+                    po = self.env['purchase.order.line'].search(
+                        [('state', '=', 'purchase'), ('product_id', '=', record.product_id.id)],
+                        order='write_date desc', limit=1)
+                    print(po)
+                    pur_price += (po.price_unit * record.product_qty)
+
+                if pur_price > 0 and rec.update_price ==0:
+                    rec.puchase_price = pur_price
+                    return
+            elif rec.update_price !=0:
                 rec.puchase_price=rec.update_price
             elif rec.product_tmpl_id:
                 purchase_order_line = rec.env['purchase.order.line'].search([('state','=','purchase'),('product_id.product_tmpl_id','=',rec.product_tmpl_id.id)],order ='write_date desc')

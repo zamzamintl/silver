@@ -14,11 +14,29 @@ class ProductTemplate(models.Model):
     @api.depends('purchased_product_qty','update_price')
     def _get_last_purchase_price(self):
         for product in self:
+            print(product.name)
             # manu_orer  = self.env[''].search([])
             purchase_order_line = self.env['purchase.order.line'].search([('state','=','purchase'),('product_id','=',product.id)],order ='write_date desc')
-            bom =self.env['mrp.bom.line'].search([('product_id','=',product.id)],limit=1)
-            if bom:
-                print(bom)
+            bom =self.env['mrp.bom'].search([('product_id','=',product.id)],order='write_date desc', limit=1)
+            if not bom:
+                bom = self.env['mrp.bom'].search([('product_tmpl_id', '=', product.product_tmpl_id.id)],order='write_date desc', limit=1)
+
+            if bom :
+                pur_price=0
+                print(product.name)
+                print(bom.bom_line_ids)
+                for record in bom.bom_line_ids:
+                    po = self.env['purchase.order.line'].search(
+                        [('state', '=', 'purchase'), ('product_id', '=', record.product_id.id)],
+                        order='write_date desc', limit=1)
+                    print("po",po)
+                    pur_price += (po.price_unit * record.product_qty)
+
+                if pur_price>0 :
+                        product.puchase_price =pur_price
+                        return
+
+
 
 
             if product.update_price > 0:

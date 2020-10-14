@@ -12,6 +12,9 @@ class PricelistItem(models.Model):
     amount= fields.Float("Amount")
     precentage= fields.Float("Precentage")
     update_price = fields.Float("Update Purchase price")
+
+
+
     compute_price = fields.Selection([
         ('fixed', 'Fixed Price'),
         ('percentage', 'Percentage (discount)'),

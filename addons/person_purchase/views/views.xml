@@ -23,13 +23,15 @@
            <group>
 
           <field name="categ_id" required="True"/>
+             <field name="products"/>
           </group>
           <notebook>
             <page string="Lines">
             <field name="person_lines">
               <tree editable="top">
                 <field name="person_purchase_id" invisible="1"/>
-                <field name="product_id" style="width:50%%" required="1"/>
+                <field name="product_id" style="width:50%%" required="1" />
+                <field name="products" widget="many2one" style="width:50%%" required="1" />
                 <field name="purchase_price" style="width:70%%"  string="Price" required="1"/>
                 <field name="categ_id" invisible="1"/>
                 <field name="is_published"/>

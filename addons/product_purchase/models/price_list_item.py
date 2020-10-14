@@ -55,7 +55,7 @@ class PricelistItem(models.Model):
 
                 if pur_price > 0 and rec.update_price ==0:
                     rec.puchase_price = pur_price
-                    return
+
             elif rec.update_price !=0:
                 rec.puchase_price=rec.update_price
             elif rec.product_tmpl_id:
@@ -66,9 +66,17 @@ class PricelistItem(models.Model):
                    rec.puchase_price=purchase_order_line[0].price_unit
                 else:
                     rec.puchase_price = 0
+            elif rec.product_id:
+                purchase_order_line = rec.env['purchase.order.line'].search([('state','=','purchase'),('product_id','=',rec.product_id.id)],order ='write_date desc')
+
+                if purchase_order_line:
+
+                   rec.puchase_price=purchase_order_line[0].price_unit
+                else:
+                    rec.puchase_price = 0
 
 
-            else:
+            if not rec.puchase_price:
                rec.puchase_price=0
 
     @api.depends('applied_on', 'categ_id', 'product_tmpl_id', 'product_id', 'compute_price', 'fixed_price', \

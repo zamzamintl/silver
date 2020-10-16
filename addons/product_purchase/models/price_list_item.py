@@ -38,6 +38,7 @@ class PricelistItem(models.Model):
 
         for rec in self:
             bom=[]
+            rec.puchase_price = 0
             if rec.product_id:
                 bom = self.env['mrp.bom'].search([('product_id', '=', rec.product_id.id)], order='write_date desc',
                                                  limit=1)
@@ -76,8 +77,7 @@ class PricelistItem(models.Model):
                     rec.puchase_price = 0
 
 
-            if not rec.puchase_price:
-               rec.puchase_price=0
+
 
     @api.depends('applied_on', 'categ_id', 'product_tmpl_id', 'product_id', 'compute_price', 'fixed_price', \
                  'pricelist_id', 'percent_price', 'price_discount', 'price_surcharge',"amount_list","precentage","amount")

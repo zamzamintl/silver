@@ -39,6 +39,9 @@ class PricelistItem(models.Model):
         for rec in self:
             bom=[]
             rec.puchase_price = 0
+            if rec.update_price !=0:
+                rec.puchase_price=rec.update_price
+                return 
             if rec.product_id:
                 bom = self.env['mrp.bom'].search([('product_id', '=', rec.product_id.id)], order='write_date desc',
                                                  limit=1)
@@ -58,8 +61,7 @@ class PricelistItem(models.Model):
                     rec.puchase_price = pur_price
                     return
 
-            if rec.update_price !=0:
-                rec.puchase_price=rec.update_price
+            
             if rec.product_tmpl_id:
                 purchase_order_line = rec.env['purchase.order.line'].search([('state','=','purchase'),('product_id.product_tmpl_id','=',rec.product_tmpl_id.id)],order ='write_date desc')
 

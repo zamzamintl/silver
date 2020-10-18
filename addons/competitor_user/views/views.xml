@@ -20,6 +20,7 @@
       <field name="model">person.competitor</field>
       <field name="arch" type="xml">
         <form>
+          <sheet>
            <group>
 
           <field name="competitor_id" required="True"/>
@@ -29,7 +30,8 @@
             <field name="person_lines">
               <tree editable="top">
                 <field name="person_competitor_id" invisible="1"/>
-                <field name="product_id"   required="1"/>
+                <field name="categ_id"   required="1"/>
+                <field name="product_id"   required="1" domain="[('categ_id','=',categ_id)]"/>
                 <field name="competitor_price"  string="Price" required="1"/>
                 <field name="my_price"  string="MY Price" invisible="1"/>
                 <field name="published"/>
@@ -38,7 +40,7 @@
 
             </field>
             </page>
-          </notebook>
+          </notebook></sheet>
         </form>
       </field>
     </record>

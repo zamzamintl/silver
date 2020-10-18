@@ -10,32 +10,41 @@ class person_purchase(models.Model):
 
     @api.depends("person_lines")
     def get_list_products(self):
+        self.products=[]
         for rec in self.person_lines:
             pro = rec.product_id.id
-            print(pro)
-            self.products = [(4, pro)]
-        print("oooo", self.products)
+            if pro:
+                self.products = [(4, pro)]
+
 class address_book(models.Model):
     _name="person.purchase.line"
     person_purchase_id = fields.Many2one("person.purchase")
+    products = fields.Many2many(related='person_purchase_id.products')
     categ_id = fields.Many2one(related='person_purchase_id.categ_id', string="Category")
-    product_id = fields.Many2one("product.product",string="Product")
+    product_id = fields.Many2one("product.product",string="Product" ,)
     purchase_price = fields.Float("Purchase Price")
     is_published =fields.Boolean(related='product_id.is_published')
-    products = fields.Many2many("product.product", "pro", 'id')
 
 
-    # @api.onchange("product_id")
-    # def get_domain(self):
-    #     pt()
-    #     if self.person_purchase_id.products:
-    #         ids=[]
-    #         for rec in self.person_purchase_id.products:
-    #             ids.append(rec.id)
-    #             print(rec.id)
-    #         return {
-    #         'domain': {'product_id': [('id', 'not in', ids)]}
-    #     }
+
+    @api.onchange('product_id')
+    def get_domain(self):
+        if self.products:
+            ids=[]
+
+            for rec in self.products:
+
+                    ids.append(rec._origin.id)
+            domain=[]
+            print("ttt",self.categ_id)
+            if self.categ_id:
+                domain .append(('id', 'not in', ids))
+                domain .append(('categ_id','=',self.categ_id.id))
+            else:
+                domain .append(('id', 'not in', ids))
+            return {
+                'domain': {'product_id':domain}
+            }
 
 
     @api.constrains("product_id","purchase_price")

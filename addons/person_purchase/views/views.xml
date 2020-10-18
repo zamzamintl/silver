@@ -24,7 +24,7 @@
            <group>
 
           <field name="categ_id" required="True"/>
-             <field name="products"/>
+             <field name="products" invisible="1"/>
           </group>
           <notebook>
             <page string="Lines">

@@ -8,10 +8,11 @@ class person_competitor(models.Model):
     creation_date = fields.Date("Creation Date", default=lambda self: fields.datetime.now().date())
     competitor_id = fields.Many2one("res.competitor",string="competitor")
     person_lines = fields.One2many("person.competitor.line","person_competitor_id",string="Lines")
-    products = fields.Many2many("product.product", "pro", 'id', compute='get_list_products')
+    products = fields.Many2many("product.product", "pro", 'id', compute='get_list_products',store=True)
 
     @api.depends("person_lines")
     def get_list_products(self):
+
         for rec in self.person_lines:
             pro = rec.product_id.id
             if pro:
@@ -31,27 +32,33 @@ class address_book(models.Model):
     competitor_price = fields.Float("competitor Price")
     my_price = fields.Float(related='product_id.lst_price')
     creation_date = fields.Date(related='person_competitor_id.creation_date',string="Creation Date")
-    product_id = fields.Many2one("product.product", string="Product", )
-    # product_ids = fields.Many2many("product.product", string="Product",compute='_get_domain')
-    #
-    #
-    @api.onchange('product_id')
-    def get_domain(self):
-        if self.products:
-            ids = []
 
-            for rec in self.products:
-                ids.append(rec._origin.id)
-            domain=[]
-            if self.categ_id:
-                domain.append(('id', 'not in', ids))
-                domain.append(('categ_id', '=', self.categ_id.id))
-            else:
-                domain.append(('id', 'not in', ids))
-            return {
-                'domain': {'product_id': domain}
-            }
-            
+
+    # @api.onchange('product_id')
+    # def get_domain(self):
+    #     print("''''''''''''''")
+    #    # if self.products:
+    #    #      ids = []
+    #    #
+    #    #      for rec in self.products:
+    #    #          # if rec.public_categ_ids == self.categ_id.id and rec.type_pro=='vegetables and fruits':
+    #    #
+    #    #          ids.append(rec._origin.id)
+    #    #      domain = []
+    #    #
+    #    #      if ids:
+    #    #
+    #    #          return {
+    #    #              'domain': {'product_id': [('id', 'not in', ids),
+    #    #                                        ('categ_id', '=', self.categ_id.id)]}
+    #    #          }
+    #    #      # ('type_pro', '=', 'vegetables and fruits'),
+    #    #      if self.categ_id:
+    #    #
+    #    #          return {
+    #    #              'domain': {'product_id': [('categ_id', '=', self.categ_id.id)]}
+    #    #          }
+
 
 
 class competitor(models.Model):

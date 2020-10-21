@@ -33,15 +33,16 @@ class address_book(models.Model):
             ids=[]
 
             for rec in self.products:
-
+                if rec.public_categ_ids == self.categ_id.id and rec.type_pro=='vegetables and fruits':
                     ids.append(rec._origin.id)
-            domain=[('type_pro','=','vegetables and fruits')]
+            domain=[]
             print("ttt",self.categ_id)
             if ids:
-                domain .append(('id', 'not in', ids))
+                domain.append(('id', 'not in', ids))
 
-            if self.categ_id:
-                domain .append(('public_categ_ids','=',self.categ_id.id))
+            else:
+                domain.append(('public_categ_ids','=',self.categ_id.id))
+                domain.append(('type_pro','=','vegetables and fruits'))
             return {
                 'domain': {'product_id':domain}
             }

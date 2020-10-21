@@ -16,11 +16,12 @@ class person_purchase(models.Model):
             pro = rec.product_id.id
             if pro:
                 self.products = [(4, pro)]
+                rec.products = [(4, pro)]
 
 class address_book(models.Model):
     _name="person.purchase.line"
     person_purchase_id = fields.Many2one("person.purchase")
-    products = fields.Many2many(related='person_purchase_id.products')
+    products = fields.Many2many("product.product", "pro", 'id', compute='get_list_products')
     categ_id = fields.Many2one(related='person_purchase_id.categ_id', string="Category")
     product_id = fields.Many2one("product.product",string="Product" ,)
     purchase_price = fields.Float("Purchase Price")

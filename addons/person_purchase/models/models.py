@@ -42,9 +42,9 @@ class address_book(models.Model):
                 domain .append(('id', 'not in', ids))
 
 
-            return {
-                'domain': {'product_id':domain}
-            }
+                return {
+                    'domain': {'product_id':domain}
+                }
 
 
     @api.constrains("product_id","purchase_price")

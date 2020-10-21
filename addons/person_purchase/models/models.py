@@ -31,12 +31,13 @@ class address_book(models.Model):
 
     @api.onchange('product_id')
     def get_domain(self):
-        if self.products:
+
             ids=[]
 
             for rec in self:
                 # if rec.public_categ_ids == self.categ_id.id and rec.type_pro=='vegetables and fruits':
-                    ids.append(rec._origin.product_id.id)
+                    if rec.product_id:
+                       ids.append(rec._origin.product_id.id)
             domain=[]
 
 

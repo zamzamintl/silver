@@ -27,24 +27,24 @@ class address_book(models.Model):
 
 
 
-    @api.onchange('product_id')
-    def get_domain(self):
-        if self.products:
-            ids=[]
-
-            for rec in self.products:
-                if rec.categ_id == self._origin.categ_id:
-
-                    ids.append(rec._origin.id)
-            domain=[]
-            print("ttt",self.categ_id)
-            if ids:
-                domain .append(('id', 'not in', ids))
-
-
-                return {
-                    'domain': {'product_id':domain}
-                }
+    # @api.onchange('product_id')
+    # def get_domain(self):
+    #     if self.products:
+    #         ids=[]
+    #
+    #         for rec in self.products:
+    #             if rec.categ_id == self._origin.categ_id:
+    #
+    #                 ids.append(rec._origin.id)
+    #         domain=[]
+    #         print("ttt",self.categ_id)
+    #         if ids:
+    #             domain .append(('id', 'not in', ids))
+    #
+    #
+    #             return {
+    #                 'domain': {'product_id':domain}
+    #             }
 
 
     @api.constrains("product_id","purchase_price")

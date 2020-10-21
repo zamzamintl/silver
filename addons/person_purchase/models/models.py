@@ -1,5 +1,6 @@
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 class person_purchase(models.Model):
     _name = 'person.purchase'
     _description ="Person Purchase"
@@ -37,12 +38,14 @@ class address_book(models.Model):
                     ids.append(rec._origin.id)
             domain=[]
             print("ttt",self.categ_id)
-            if ids:
-                domain.append(('id', 'not in', ids))
 
-            else:
+
+            if self.categ_id:
                 domain.append(('public_categ_ids','=',self.categ_id.id))
                 domain.append(('type_pro','=','vegetables and fruits'))
+            if ids:
+                domain.append(('id', 'not in', ids))
+                raise  ValidationError(domain)
             return {
                 'domain': {'product_id':domain}
             }

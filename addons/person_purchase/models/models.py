@@ -46,6 +46,8 @@ class address_book(models.Model):
                 }
 
             if ids:
+                raise ValidationError( [('id','not in',ids),('type_pro', '=', 'vegetables and fruits'),
+                                              ('public_categ_ids', '=', self.categ_id.id)])
                 return {
                     'domain': {'product_id': [('id','not in',ids),('type_pro', '=', 'vegetables and fruits'),
                                               ('public_categ_ids', '=', self.categ_id.id)]}

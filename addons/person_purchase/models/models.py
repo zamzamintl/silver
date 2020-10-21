@@ -41,14 +41,15 @@ class address_book(models.Model):
 
 
             if self.categ_id:
-                domain.append(('public_categ_ids','=',self.categ_id.id))
-                domain.append(('type_pro','=','vegetables and fruits'))
+                return {
+                    'domain': {'product_id': [('type_pro','=','vegetables and fruits'),('public_categ_ids','=',self.categ_id.id)]}
+                }
+
             if ids:
-                domain.append(('id', 'not in', ids))
-                raise  ValidationError(domain)
-            return {
-                'domain': {'product_id':domain}
-            }
+                return {
+                    'domain': {'product_id': [('id','not in',ids),('type_pro', '=', 'vegetables and fruits'),
+                                              ('public_categ_ids', '=', self.categ_id.id)]}
+                }
 
 
     @api.constrains("product_id","purchase_price")

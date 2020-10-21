@@ -34,11 +34,11 @@ class address_book(models.Model):
         if self.products:
             ids=[]
 
-            for rec in self.products:
+            for rec in self:
                 # if rec.public_categ_ids == self.categ_id.id and rec.type_pro=='vegetables and fruits':
-                    ids.append(rec._origin.id)
+                    ids.append(rec._origin.product_id.id)
             domain=[]
-            raise ValidationError(self.products)
+
 
 
             if self.categ_id:

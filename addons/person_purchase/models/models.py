@@ -34,7 +34,7 @@ class address_book(models.Model):
             ids=[]
 
             for rec in self.products:
-                if rec.public_categ_ids == self.categ_id.id and rec.type_pro=='vegetables and fruits':
+                # if rec.public_categ_ids == self.categ_id.id and rec.type_pro=='vegetables and fruits':
                     ids.append(rec._origin.id)
             domain=[]
             print("ttt",self.categ_id)

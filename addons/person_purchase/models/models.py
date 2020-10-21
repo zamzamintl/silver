@@ -33,6 +33,7 @@ class address_book(models.Model):
             ids=[]
 
             for rec in self.products:
+                if rec.categ_id == self._origin.categ_id:
 
                     ids.append(rec._origin.id)
             domain=[]
@@ -40,8 +41,7 @@ class address_book(models.Model):
             if ids:
                 domain .append(('id', 'not in', ids))
 
-            if self.categ_id:
-                domain .append(('categ_id','=',self.categ_id.id))
+
             return {
                 'domain': {'product_id':domain}
             }

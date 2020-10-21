@@ -37,11 +37,11 @@ class address_book(models.Model):
                     ids.append(rec._origin.id)
             domain=[]
             print("ttt",self.categ_id)
+            if ids:
+                domain .append(('id', 'not in', ids))
+
             if self.categ_id:
-                domain .append(('id', 'not in', ids))
                 domain .append(('categ_id','=',self.categ_id.id))
-            else:
-                domain .append(('id', 'not in', ids))
             return {
                 'domain': {'product_id':domain}
             }

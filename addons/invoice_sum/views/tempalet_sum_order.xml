@@ -13,11 +13,16 @@
 		 <t t-call="web.external_layout">
 
              <t t-foreach="move" t-as="mv">
+                   <div align="right">
+                       <p><span t-field="mv.partner_id"/></p>
+
+                        <p><span t-field="mv.partner_id.floor"/>,<span t-field="mv.partner_id.block"/></p>
+                        <p><span t-field="mv.partner_id.street"/></p>
+                        <p> <span t-field="mv.partner_id.partition"/>,<span t-field="mv.partner_id.district"/><span t-field="mv.partner_id.region_id"/></p>
+                        <p> <span t-field="mv.partner_id.city"/>,<span t-field="mv.partner_id.state_id.name"/></p>
+                   </div>
                 <t t-set="address">
-                        <address t-field="mv.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-                    <div t-if="mv.partner_id.vat" class="mt16">
-                        <t t-if="mv.company_id.country_id.vat_label" t-esc="mv.company_id.country_id.vat_label" id="inv_tax_id_label"/>
-                        <t t-else="">Tax ID</t>: <span t-field="mv.partner_id.vat"/></div>
+                    <address t-field="mv.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
 
                 </t>
                 <div class="page">

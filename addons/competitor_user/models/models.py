@@ -8,14 +8,14 @@ class person_competitor(models.Model):
     creation_date = fields.Date("Creation Date", default=lambda self: fields.datetime.now().date())
     competitor_id = fields.Many2one("res.competitor",string="competitor")
     person_lines = fields.One2many("person.competitor.line","person_competitor_id",string="Lines")
-    product_ids = fields.Many2many("product.product", "pro", 'id', compute='get_list_product_ids',store=True)
-
-    @api.depends("person_lines")
-    def get_list_product_ids(self):
-        for rec in self.person_lines:
-            pro = rec.product_id.id
-            if pro:
-                self.product_ids = [(4, pro)]
+    # product_ids = fields.Many2many("product.product", "pro", 'id', compute='get_list_product_ids',store=True)
+    #
+    # @api.depends("person_lines")
+    # def get_list_product_ids(self):
+    #     for rec in self.person_lines:
+    #         pro = rec.product_id.id
+    #         if pro:
+    #             self.product_ids = [(4, pro)]
 
 
     @api.depends("competitor_id")
@@ -26,7 +26,7 @@ class address_book(models.Model):
     _name="person.competitor.line"
     person_competitor_id = fields.Many2one("person.competitor")
     categ_id = fields.Many2one("product.category",string="Category ")
-    product_ids = fields.Many2many(related='person_competitor_id.product_ids')
+    #product_ids = fields.Many2many(related='person_competitor_id.product_ids')
     product_id = fields.Many2one("product.product",string="Product",auto_join=True)
     published = fields.Boolean(related='product_id.is_published',string="publish")
     competitor_price = fields.Float("competitor Price")

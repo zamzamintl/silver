@@ -44,7 +44,7 @@ class address_book(models.Model):
             if ids:
                 print('d')
                 return {
-                    'domain': {'product_id': [('id','not in',ids),('type_pro', '=', 'vegetables and fruits'),
+                    'domain': {'product_id': [('id','not in',ids),
                                               ('public_categ_ids', '=', self.categ_id.id)]}
                 }
             # ('type_pro', '=', 'vegetables and fruits'),
@@ -52,7 +52,7 @@ class address_book(models.Model):
                 print(self.categ_id)
                 print(self._origin.categ_id.name)
                 return {
-                    'domain': {'product_id': [('type_pro', '=', 'vegetables and fruits'),('public_categ_ids','=',self.categ_id.id)]}
+                    'domain': {'product_id': [('public_categ_ids','=',self.categ_id.id)]}
                 }
 
 

@@ -36,22 +36,22 @@ class address_book(models.Model):
     # product_ids = fields.Many2many("product.product", string="Product",compute='_get_domain')
     #
     #
-    @api.onchange('product_id')
-    def get_domain(self):
-        if self.product_ids:
-            ids = []
-
-            for rec in self.product_ids:
-                ids.append(rec._origin.id)
-            domain=[]
-            if self.categ_id:
-                domain.append(('id', 'not in', ids))
-                domain.append(('categ_id', '=', self.categ_id.id))
-            else:
-                domain.append(('id', 'not in', ids))
-            return {
-                'domain': {'product_id': domain}
-            }
+    # @api.onchange('product_id')
+    # def get_domain(self):
+    #     if self.product_ids:
+    #         ids = []
+    #
+    #         for rec in self.product_ids:
+    #             ids.append(rec._origin.id)
+    #         domain=[]
+    #         if self.categ_id:
+    #             domain.append(('id', 'not in', ids))
+    #             domain.append(('categ_id', '=', self.categ_id.id))
+    #         else:
+    #             domain.append(('id', 'not in', ids))
+    #         return {
+    #             'domain': {'product_id': domain}
+    #         }
 
 
 

@@ -33,8 +33,6 @@ class address_book(models.Model):
     def get_domain(self):
 
             ids=[]
-
-
             for rec in self.products:
                 # if rec.public_categ_ids == self.categ_id.id and rec.type_pro=='vegetables and fruits':
 

@@ -10,8 +10,9 @@
 
 				<group >
 					<field name="creation_date" required="1" />
-					<field name="sale_order_id"/>
-<!--					<field name="competitor_id" widget="many2many_tags"/>-->
+<!--					<field name="sale_order_id"/>-->
+					<field name="price_list" required="1"/>
+					<field name="competitor_id" />
 				</group>
 
 				<footer>

@@ -6,20 +6,23 @@ class PeriodicalReportProduct(models.TransientModel):
 
     creation_date = fields.Date(string='creation data')
 
-    competitor_id = fields.Many2many('res.competitor', string='Competitor')
+    competitor_id = fields.Many2one('res.competitor', string='Competitor')
     sale_order_id = fields.Many2one('sale.order',"Sale order")
+    price_list = fields.Many2one('product.pricelist',"Price List")
 
     def check_report(self):
         list = []
-        for rec in self.competitor_id:
-            list.append(rec.id)
+        # for rec in self.competitor_id:
+        #     list.append(rec.id)
         data = {
             'ids': self.ids,
             'model': self._name,
             'form': {
                 'creation_date':self.creation_date,
-                'competitor_id': list,
-                'sale_order_id':self.sale_order_id.id
+                'competitor_id': self.competitor_id.id,
+                'sale_order_id':self.sale_order_id.id,
+                'price_list':self.price_list.id
+
 
             },
         }

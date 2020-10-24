@@ -24,13 +24,14 @@
            <group>
 
           <field name="competitor_id" required="True"/>
+             <field name="categ_id" widget="many2many_tags" required="1"/>
           </group>
           <notebook>
             <page string="Lines">
             <field name="person_lines">
               <tree editable="top">
                 <field name="person_competitor_id" invisible="1"/>
-                <field name="categ_id"   required="1"/>
+                <field name="categ_id"   invisible="1"/>
                 <field name="product_id"   required="1" domain="[('categ_id','=',categ_id)]"/>
                 <field name="competitor_price"  string="Price" required="1"/>
                 <field name="my_price"  string="MY Price" invisible="1"/>

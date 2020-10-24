@@ -43,11 +43,6 @@ class ReportProductSale(models.AbstractModel):
 
 
             for plt in price_lst:
-                print("1",plt.product_id)
-                print("2", comp_id.product_id.id)
-                print("1",plt.product_tmpl_id)
-                print("2", comp_id.product_id.product_tmpl_id.id)
-
 
                 if plt.product_id.id==comp_id.product_id.id and plt.product_id:
 
@@ -65,7 +60,6 @@ class ReportProductSale(models.AbstractModel):
                          'competitor_id': comp_id.person_competitor_id.competitor_id,
                          'competitor_price': comp_id.competitor_price, 'my_price': plt.price})
 
-        lst = sorted(lst, key=lambda i: (i['product_id'], i['my_price']))
         return {
             "doc_ids": data["ids"],
             "doc_model": data["model"],

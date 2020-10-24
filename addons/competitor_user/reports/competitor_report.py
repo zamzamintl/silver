@@ -40,12 +40,13 @@ class ReportProductSale(models.AbstractModel):
         pro_list = []
         price_lst = self.env['product.pricelist.item'].search([('pricelist_id', '=', price_list)])
         print("sss", price_lst)
-        raise ValidationError(price_lst)
+
         for comp_id in lines:
+            raise ValidationError(comp)
 
 
             for plt in price_lst:
-                raise ValidationError(str(comp_id.product_id.product_tmpl_id.id)+str(plt.product_id.id))
+
                 if plt.product_id.id==comp_id.product_id.id and plt.product_id:
 
                     lst.append(

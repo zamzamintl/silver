@@ -1,5 +1,6 @@
 
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 class ReportProductSale(models.AbstractModel):
     _name = "report.competitor_user.competitor_report"
@@ -55,6 +56,7 @@ class ReportProductSale(models.AbstractModel):
                     for rec in product_tmpl_ids:
                         pro_name = rec
                         break
+                    raise ValidationError(product_tmpl_ids)
                     lst.append(
                         {'creation_date': comp_id.person_competitor_id.creation_date,
                          'product_id': pro_name,

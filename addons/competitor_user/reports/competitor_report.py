@@ -24,7 +24,7 @@ class ReportProductSale(models.AbstractModel):
             comp_lines.append(lin.id)
             if lin.person_competitor_id.creation_date not in dates:
                 dates.append(lin.person_competitor_id.creation_date)
-
+        raise ValidationError(len(dates))
         # sale_order = self.env['sale.order'].search([('id','=',sale_order_id)])
         # price_list = self.env['product.pricelist'].search([('id','=',price_list)])
         #
@@ -40,8 +40,7 @@ class ReportProductSale(models.AbstractModel):
         pro_list = []
         price_lst = self.env['product.pricelist.item'].search([('pricelist_id', '=', price_list)])
         print("sss", price_lst)
-        lines = self.env['person.competitor.line'].search([('id','in',comp_lines)], order='product_id asc')
-        raise ValidationError(len(lines))
+
         for comp_id in lines:
 
 

@@ -44,7 +44,7 @@ class ReportProductSale(models.AbstractModel):
 
 
             for plt in price_lst:
-
+                raise ValidationError(str(comp_id.product_id.product_tmpl_id.id)+str(plt.product_id.id))
                 if plt.product_id.id==comp_id.product_id.id and plt.product_id:
 
                     lst.append(
@@ -55,8 +55,8 @@ class ReportProductSale(models.AbstractModel):
                     product_tmpl_ids= self.env['product.product'].search([('product_tmpl_id','=',plt.product_tmpl_id.id)])
                     for rec in product_tmpl_ids:
                         pro_name = rec
-                        break
-                    raise ValidationError(product_tmpl_ids)
+
+
                     lst.append(
                         {'creation_date': comp_id.person_competitor_id.creation_date,
                          'product_id': pro_name,

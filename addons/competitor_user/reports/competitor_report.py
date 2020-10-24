@@ -40,6 +40,7 @@ class ReportProductSale(models.AbstractModel):
         pro_list = []
         price_lst = self.env['product.pricelist.item'].search([('pricelist_id', '=', price_list)])
         print("sss", price_lst)
+        raise ValidationError(price_lst)
         for comp_id in lines:
 
 

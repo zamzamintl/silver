@@ -21,9 +21,9 @@
 
         <xpath expr="//field[@name='payment_type']" position="before">
             <field name ="payment_value" attrs="{'readonly':[('state','!=','draft')]}"/>
-            <field name ="value_date" attrs="{'readonly':[('state','!=','draft')],'invisible':['|',('payment_type','=','transfer'),('payment_value','=','Cash')]}"/>
-            <field name ="bank_name" attrs="{'readonly':[('state','!=','draft')],'invisible':['|',('payment_type','=','transfer'),('payment_value','=','Cash')]}"/>
-            <field name ="cheque_no" attrs="{'readonly':[('state','!=','draft')],'invisible':['|',('payment_type','=','transfer'),('payment_value','=','Cash')],'required':[('payment_value','!=','Cash')]}"/>
+            <field name ="value_date" attrs="{'readonly':[('state','!=','draft')],'invisible':['|',('payment_type','=','transfer'),('payment_value','=','Cash')],'required':[('payment_value','=','Cheque')]}"/>
+            <field name ="bank_name" attrs="{'readonly':[('state','!=','draft')],'invisible':['|',('payment_type','=','transfer'),('payment_value','=','Cash')],'required':[('payment_value','=','Cheque')]}"/>
+            <field name ="cheque_no" attrs="{'readonly':[('state','!=','draft')],'invisible':['|',('payment_type','=','transfer'),('payment_value','=','Cash')],'required':[('payment_value','=','Cheque')]}"/>
 
         </xpath>
         <xpath expr="//field[@name='payment_type']" position="after">

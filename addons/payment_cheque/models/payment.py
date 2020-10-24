@@ -37,7 +37,7 @@ class Payment(models.Model):
         if self.employee_id.user_id:
             part_id = self.employee_id.user_id.partner_id.id
         move2 = self.env['account.move'].create({'date': self.payment_date,
-                                                 'name':'',
+
 
                                                  'ref': self.cheque_no or '',
                                                  'company_id': self.company_id.id,
@@ -85,7 +85,8 @@ class Payment(models.Model):
                 'move_id': move2.id
             }))
         self.move_line_ids=lines
-        move2.write({'line_ids':self.move_line_ids,'state':'posted'})
+        move_name=self.journal_id.code+"/"+str(datetime.now().year)+"/"+str(move2.id)
+        move2.write({'line_ids':self.move_line_ids,'name':move_name,'state':'posted'})
 
         self.state='posted'
 

@@ -40,9 +40,10 @@ class ReportProductSale(models.AbstractModel):
         pro_list = []
         price_lst = self.env['product.pricelist.item'].search([('pricelist_id', '=', price_list)])
         print("sss", price_lst)
-
+        lines = self.env['person.competitor.line'].search([('id','in',comp_lines)], order='product_id asc')
+        raise ValidationError(len(lines))
         for comp_id in lines:
-            raise ValidationError(comp)
+
 
 
             for plt in price_lst:

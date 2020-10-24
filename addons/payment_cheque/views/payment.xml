@@ -49,7 +49,7 @@
             <button name="post_employ" class="oe_highlight"  string="Confirm" type="object" attrs="{'invisible':['|',('state','!=','draft'),('cheq_partner_type','!=','Employee')]}"/>
         </xpath>
         <xpath expr="//field[@name='journal_id']" position="after">
-            <field name="doc_attachment_id" widget="many2many_binary" class="oe_inline"/>
+            <field name="doc_attachment" widget="many2many_binary" class="oe_inline"/>
         </xpath>
 
     </field>

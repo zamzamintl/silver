@@ -9,7 +9,7 @@ from odoo import fields, http, tools, _,models,api
 
 class Payment(models.Model):
     _inherit='account.payment'
-    doc_attachment_id = fields.Many2many('ir.attachment', 'doc_attach_rel', 'doc_id', 'attach_id3', string="Attachment",
+    doc_attachment = fields.Many2many('ir.attachment', 'doc_attach_rel', 'doc_id', 'attach_id3', string="Attachment",
                                          help='You can attach the copy of your document', copy=False)
     payment_value = fields.Selection([('Cash','Cash'),('Cheque','Cheque')],string='Payment',default='Cash')
     value_date = fields.Date("Value Date")

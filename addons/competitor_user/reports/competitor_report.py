@@ -51,9 +51,10 @@ class ReportProductSale(models.AbstractModel):
                          'competitor_id': comp_id.person_competitor_id.competitor_id,
                          'competitor_price': comp_id.competitor_price, 'my_price': plt.price})
                 elif plt.product_tmpl_id and plt.product_tmpl_id.id==comp_id.product_id.product_tmpl_id.id:
-
-                    for rec in plt.product_tmpl_id.product_variant_ids:
+                    product_tmpl_ids= self.env['product.product'].search([('product_tmpl_id','=',plt.product_tmpl_id.id)])
+                    for rec in product_tmpl_ids:
                         pro_name = rec
+                        break
                     lst.append(
                         {'creation_date': comp_id.person_competitor_id.creation_date,
                          'product_id': pro_name,

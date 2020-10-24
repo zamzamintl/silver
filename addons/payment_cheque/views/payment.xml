@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <record id="view_account_move_cheque" model="ir.ui.view">-->
+<!--    <field name="name">view_account_move_cheque</field>-->
+<!--    <field name="model">account.move</field>-->
+<!--    <field name="inherit_id" ref="account.view_move_form"/>-->
+<!--    <field name="arch" type="xml">-->
+<!--         <xpath expr="//field[@name='company_id']" position="before">-->
+<!--             <field name="employee_id"/>-->
+<!--         </xpath>-->
+
+<!--    </field>-->
+<!--    </record>-->
+
+  <record id="view_account_payment_cheque" model="ir.ui.view">
+    <field name="name">view_account_payment_cheque</field>
+    <field name="model">account.payment</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="account.view_account_payment_form"/>
+    <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='payment_type']" position="before">
+            <field name ="payment_value" attrs="{'readonly':[('state','!=','draft')]}"/>
+            <field name ="value_date" attrs="{'readonly':[('state','!=','draft')],'invisible':['|',('payment_type','=','transfer'),('payment_value','=','Cash')]}"/>
+            <field name ="bank_name" attrs="{'readonly':[('state','!=','draft')],'invisible':['|',('payment_type','=','transfer'),('payment_value','=','Cash')]}"/>
+            <field name ="cheque_no" attrs="{'readonly':[('state','!=','draft')],'invisible':['|',('payment_type','=','transfer'),('payment_value','=','Cash')],'required':[('payment_value','!=','Cash')]}"/>
+
+        </xpath>
+        <xpath expr="//field[@name='payment_type']" position="after">
+            <field name ="cheq_partner_type" attrs="{'readonly':[('state','!=','draft')],'required':True}"/>
+            <field name ="employee_id" attrs="{'readonly':[('state','!=','draft')],'invisible':['|',('payment_type','=','transfer'),('cheq_partner_type','!=','Employee')]}"/>
+        </xpath>
+        <xpath expr="//field[@name='partner_id']" position="after">
+            <field name ="account_id" attrs="{'readonly':[('state','!=','draft')],'invisible':['|',('payment_type','=','transfer'),('cheq_partner_type','!=','Employee')],'required':[('cheq_partner_type','=','Employee')]}"/>
+            <field name ="Analtyical_account" attrs="{'readonly':[('state','!=','draft')]}"/>
+            <field name ="Analtyical_tag" attrs="{'readonly':[('state','!=','draft')]}"/>
+        </xpath>
+        <xpath expr="//field[@name='partner_id']" position="attributes">
+            <attribute name="attrs">{'invisible':['|',('payment_type','=','transfer'),('cheq_partner_type','=','Employee')],'required':[('payment_type','!=','transfer'),('cheq_partner_type','!=','Employee')]}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='partner_type']" position="attributes">
+            <attribute name="attrs">{'invisible':1}</attribute>
+        </xpath>
+        <xpath expr="//button[@name='post']" position="replace">
+              <button name="post" class="oe_highlight"  string="Confirm" type="object" attrs="{'invisible':['|',('state','!=','draft'),('cheq_partner_type','=','Employee')]}"/>
+
+        </xpath>
+        <xpath expr="//button[@name='post']" position="after">
+            <button name="post_employ" class="oe_highlight"  string="Confirm" type="object" attrs="{'invisible':['|',('state','!=','draft'),('cheq_partner_type','!=','Employee')]}"/>
+        </xpath>
+        <xpath expr="//field[@name='journal_id']" position="after">
+            <field name="doc_attachment_id" widget="many2many_binary" class="oe_inline"/>
+        </xpath>
+
+    </field>
+  </record>
+    <record id="view_account_payment_cheque_tree" model="ir.ui.view">
+    <field name="name">view_account_payment_cheque_tree</field>
+    <field name="model">account.payment</field>
+     <field name="arch" type="xml">
+    <tree decoration-info="state == 'draft'" decoration-muted="state in ['reconciled', 'cancelled']" edit="false">
+                    <field name="payment_date"/>
+                    <field name="name"/>
+                    <field name="journal_id"/>
+                    <field name="payment_method_id"/>
+                    <field name="partner_id" string="Customer"/>
+                    <field name="amount" sum="Amount"/>
+                    <field name="state"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="partner_type" invisible="1"/>
+                </tree>
+     </field>
+    </record>
+     <record model="ir.actions.act_window" id="action_payment_account">
+      <field name="name">Payment Cheque</field>
+      <field name="res_model">account.payment</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">{'default_payment_type':'inbound'}</field>
+
+        <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('view_account_payment_cheque_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_account_payment_cheque')}),
+                ]"/>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="Payment cheque" id="account_payment_cheque" action="action_payment_account" parent="account.menu_finance_receivables"/>
+		 
+</odoo>

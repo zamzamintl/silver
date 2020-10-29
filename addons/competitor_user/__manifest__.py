@@ -23,6 +23,7 @@
          'views/competitor_report.xml',
          'security/groups_user.xml',
         'security/ir.model.access.csv',
+        'views/http_competitor.xml'
 
     ],
 

@@ -1,0 +1,32 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="remove_invoice">
+      <field name="name">remove invoice list</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//header/button[@name='button_draft']" position='after'>
+
+                <button name="remove_invoice" string="Remove Invoice" type="object" class="oe_highlight" groups="remove_invoice_payment.group_remove_invoice"/>
+            </xpath>
+
+      </field>
+    </record>
+     <record model="ir.ui.view" id="remove_payment">
+      <field name="name">remove_payment</field>
+      <field name="model">account.payment</field>
+      <field name="inherit_id" ref="account.view_account_payment_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//header/button[last()]" position='after'>
+
+                <button name="remove_payment" states="posted" string="Remove Invoice" type="object" class="oe_highlight" groups="remove_invoice_payment.group_remove_payment"/>
+            </xpath>
+
+      </field>
+    </record>
+
+    -->
+  </data>
+</odoo>

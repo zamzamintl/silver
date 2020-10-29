@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <odoo>
+
+     <template id="courses_page" name="Courses page">
+      <t t-call="website.layout">
+        <div class="oe_structure">
+          <div class="container">
+            <center><h3>Courses List</h3></center>
+            <t t-foreach="competitor" t-as="cr">
+
+              <table class="table-striped table">
+                <thead>
+                  <th>compe:</th>
+
+
+                </thead>
+				<tbody>
+                <tr>
+                 <td><span t-esc="cr.name"/></td>
+                </tr>
+                </tbody>
+              </table>
+            </t>
+          </div>
+        </div>
+      </t>
+    </template>
+  </odoo>
+

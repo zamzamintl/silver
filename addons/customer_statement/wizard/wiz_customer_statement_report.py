@@ -9,6 +9,7 @@ class PeriodicalReportProduct(models.TransientModel):
     date_from = fields.Date(string='تاريخ البدء')
     date_to = fields.Date(string='تاريخ الانتهاء')
     customer=fields.Many2many('res.partner','user_id','id',string='العميل')
+    check=fields.Boolean(default=False,string='العميل')
 
   
     def check_report(self):
@@ -21,7 +22,8 @@ class PeriodicalReportProduct(models.TransientModel):
             'form': {
                 'date_from': self.date_from,
                 'date_to': self.date_to,
-                'customer':list
+                'customer':list,
+                'check':self.check
 
             },
         }

@@ -1,13 +1,16 @@
 <odoo>
     <data>
-    <template id="report_invoice_document_inherit_image" inherit_id="account.report_invoice_document">
-        <xpath expr="//div[@id='qrcode']" position="after">
-            	<div class="col-auto mw-100 mb-2">
-                <img t-att-src="image_data_uri(o.company_id.logo_profile)"  width="150px" height="150px"/>
-                </div>
+<!--    <template id="report_invoice_document_inherit_image" inherit_id="account.report_invoice_document">-->
+<!--        <xpath expr="//div[@class='page']" position="after">-->
+<!--            <div class="footer">-->
+<!--            	<div class="col-auto mw-100 mb-2">-->
+<!--&lt;!&ndash;                <img t-att-src="image_data_uri(o.company_id.logo_profile)"  width="150px" height="150px"/>&ndash;&gt;-->
+<!--                    <p>lklklk</p>-->
+<!--                </div>-->
+<!--            </div>-->
 
 
-        </xpath>
-    </template>
+<!--        </xpath>-->
+<!--    </template>-->
     </data>
 </odoo>

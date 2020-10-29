@@ -1,25 +1,3 @@
-################################################################################ -*- coding: utf-8 -*-
-
-###############################################################################
-#
-#    Periodical Sales Report
-#
-#    Copyright (C) 2019 Aminia Technology
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-###############################################################################
 
 from odoo import api, models
 from dateutil.relativedelta import relativedelta
@@ -38,6 +16,7 @@ class ReportProductSale(models.AbstractModel):
         date_from = data["form"]["date_from"]
         date_to = data["form"]["date_to"]
         customer = data["form"]["customer"]
+        check = data["form"]["check"]
 
         total_sale = 0.0
         period_value = ""
@@ -74,10 +53,7 @@ class ReportProductSale(models.AbstractModel):
                        
                     }
                 )
-        _logger.info("CUUSTOMER STATMENT")
-        
-        _logger.info(invoice_ids)
-        _logger.info(customer_list)
+
         
         return {
                 "doc_ids": data["ids"],
